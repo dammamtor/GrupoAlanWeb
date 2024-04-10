@@ -9,7 +9,7 @@ import java.util.Set;
 public class Categories {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int category_id;
+    private Long category_id;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
@@ -22,11 +22,11 @@ public class Categories {
     public Categories() {
     }
 
-    public int getCategory_id() {
+    public Long getCategory_id() {
         return category_id;
     }
 
-    public void setCategory_id(int category_id) {
+    public void setCategory_id(Long category_id) {
         this.category_id = category_id;
     }
 

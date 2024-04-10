@@ -9,7 +9,7 @@ import java.util.Set;
 public class ProductTypes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int product_type_id;
+    private Long product_type_id;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
@@ -22,11 +22,11 @@ public class ProductTypes {
     public ProductTypes() {
     }
 
-    public int getProduct_type_id() {
+    public Long getProduct_type_id() {
         return product_type_id;
     }
 
-    public void setProduct_type_id(int product_type_id) {
+    public void setProduct_type_id(Long product_type_id) {
         this.product_type_id = product_type_id;
     }
 

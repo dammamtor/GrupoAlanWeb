@@ -9,7 +9,7 @@ import java.util.Set;
 public class MarkingTechniques {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int technique_id;
+    private Long technique_id;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
@@ -22,11 +22,11 @@ public class MarkingTechniques {
     public MarkingTechniques() {
     }
 
-    public int getTechnique_id() {
+    public Long getTechnique_id() {
         return technique_id;
     }
 
-    public void setTechnique_id(int technique_id) {
+    public void setTechnique_id(Long technique_id) {
         this.technique_id = technique_id;
     }
 

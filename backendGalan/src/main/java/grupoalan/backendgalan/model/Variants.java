@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Variants {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int variant_id;
+    private Long variant_id;
     @Column(nullable = false)
     private String size;
     @Column(nullable = false)
@@ -21,11 +21,11 @@ public class Variants {
     public Variants() {
     }
 
-    public int getVariant_id() {
+    public Long getVariant_id() {
         return variant_id;
     }
 
-    public void setVariant_id(int variant_id) {
+    public void setVariant_id(Long variant_id) {
         this.variant_id = variant_id;
     }
 
