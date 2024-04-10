@@ -1,0 +1,106 @@
+-- Creación de la base de datos grupoalan
+CREATE DATABASE IF NOT EXISTS grupoalan;
+
+-- Usar la base de datos grupoalan
+USE grupoalan;
+
+-- Creación de la tabla Product Types
+CREATE TABLE ProductTypes (
+                              product_type_id INT PRIMARY KEY,
+                              name VARCHAR(255) NOT NULL,
+                              description TEXT
+);
+
+-- Creación de la tabla Categories
+CREATE TABLE Categories (
+                            category_id INT PRIMARY KEY,
+                            name VARCHAR(255) NOT NULL,
+                            description TEXT
+);
+
+-- Creación de la tabla Marking Techniques
+CREATE TABLE MarkingTechniques (
+                                   technique_id INT PRIMARY KEY,
+                                   name VARCHAR(255) NOT NULL,
+                                   description TEXT
+);
+
+-- Creación de la tabla Users
+CREATE TABLE Users (
+                       user_id INT PRIMARY KEY,
+                       username VARCHAR(50) NOT NULL,
+                       password VARCHAR(100) NOT NULL,
+                       email VARCHAR(100) NOT NULL,
+                       full_name VARCHAR(255) NOT NULL,
+                       address TEXT,
+                       phone_number VARCHAR(20),
+                       is_admin BOOLEAN DEFAULT FALSE
+);
+
+-- Creación de la tabla Products
+CREATE TABLE Products (
+                          product_id INT PRIMARY KEY,
+                          product_type_id INT,
+                          category_id INT,
+                          technique_id INT,
+                          name VARCHAR(255) NOT NULL,
+                          description TEXT,
+                          price DECIMAL(10, 2) NOT NULL,
+                          is_available BOOLEAN DEFAULT TRUE,
+                          FOREIGN KEY (product_type_id) REFERENCES ProductTypes(product_type_id),
+                          FOREIGN KEY (category_id) REFERENCES Categories(category_id),
+                          FOREIGN KEY (technique_id) REFERENCES MarkingTechniques(technique_id)
+);
+
+-- Creación de la tabla Variants
+CREATE TABLE Variants (
+                          variant_id INT PRIMARY KEY,
+                          product_id INT,
+                          size VARCHAR(50),
+                          stock_quantity INT,
+                          FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
+
+-- Creación de la tabla Colors (tabla de unión para M:N relación con Products)
+CREATE TABLE Colors (
+                        product_id INT,
+                        color VARCHAR(50),
+                        PRIMARY KEY (product_id, color),
+                        FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
+
+-- Creación de la tabla Orders
+CREATE TABLE Orders (
+                        order_id INT PRIMARY KEY,
+                        user_id INT,
+                        order_date DATE,
+                        total_amount DECIMAL(10, 2) NOT NULL,
+                        status VARCHAR(50) DEFAULT 'pending',
+                        FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
+-- Creación de la tabla Descriptions
+CREATE TABLE Descriptions (
+                              description_id INT PRIMARY KEY,
+                              product_id INT,
+                              details TEXT,
+                              FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
+
+-- Creación de la tabla Markings
+CREATE TABLE Markings (
+                          marking_id INT PRIMARY KEY,
+                          product_id INT UNIQUE,
+                          details TEXT,
+                          FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
+
+-- Creación de la tabla Payments
+CREATE TABLE Payments (
+                          payment_id INT PRIMARY KEY,
+                          order_id INT UNIQUE,
+                          payment_date DATE,
+                          amount DECIMAL(10, 2) NOT NULL,
+                          payment_method VARCHAR(50),
+                          FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+);
