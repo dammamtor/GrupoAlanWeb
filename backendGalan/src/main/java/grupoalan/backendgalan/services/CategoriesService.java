@@ -19,6 +19,7 @@ import org.springframework.http.HttpHeaders;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -56,10 +57,24 @@ public class CategoriesService {
         if (statusCode != null) {
             List<CategoryResponse> categoriesList = statusCode.getCategories();
             logger.info("FUNKA");
-            // Registrar las categorías obtenidas de la API
-            logger.info("Categorías obtenidas de la API: " + categoriesList);
+            // Crear una lista para almacenar las categorías convertidas
+            List<Categories> convertedCategories = new ArrayList<>();
 
-            return null; // Devolver la lista de categorías
+            // Iterar sobre la lista de CategoryResponse y convertirla a Categories
+            for (CategoryResponse categoryResponse : categoriesList) {
+                Categories category = new Categories();
+                category.setName(categoryResponse.getCategory());
+                category.setDescription(""); // Puedes asignar una descripción si tienes esa información disponible
+                // Guardar la categoría en la base de datos para obtener el category_id
+                category = categoriesRepository.save(category);
+                // Agregar la categoría convertida a la lista
+                convertedCategories.add(category);
+            }
+
+            // Loggear las categorías obtenidas de la API
+            logger.info("Categorías obtenidas de la API: " + convertedCategories);
+
+            return convertedCategories;
         } else {
             System.err.println("No se pudo obtener el objeto StatusCode de la respuesta.");
             return null;
