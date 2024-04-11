@@ -1,5 +1,7 @@
-package grupoalan.backendgalan.model.response;
+package grupoalan.backendgalan.model.response.makito;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryResponse {
     private String ref;
     private int lang;
@@ -30,5 +32,14 @@ public class CategoryResponse {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "CategoryResponse{" +
+                "ref='" + ref + '\'' +
+                ", lang=" + lang +
+                ", category='" + category + '\'' +
+                '}';
     }
 }

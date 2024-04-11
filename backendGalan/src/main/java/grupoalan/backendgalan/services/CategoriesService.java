@@ -2,9 +2,9 @@ package grupoalan.backendgalan.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import grupoalan.backendgalan.controller.CategoriesController;
 import grupoalan.backendgalan.model.Categories;
-import grupoalan.backendgalan.model.response.CategoryResponse;
+import grupoalan.backendgalan.model.response.makito.CategoryResponse;
+import grupoalan.backendgalan.model.response.makito.StatusCode;
 import grupoalan.backendgalan.repository.CategoriesRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +19,6 @@ import org.springframework.http.HttpHeaders;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -51,12 +49,21 @@ public class CategoriesService {
 
         HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
 
-        ResponseEntity<String> response = restTemplate.exchange(
-                API_URL, HttpMethod.GET, requestEntity, String.class, (Object) null);
+        ResponseEntity<StatusCode> response = restTemplate.exchange(
+                API_URL, HttpMethod.GET, requestEntity, StatusCode.class);
 
-        logger.info("response: " + response.getBody());
-        
-        return null;
+        StatusCode statusCode = response.getBody();
+        if (statusCode != null) {
+            List<CategoryResponse> categoriesList = statusCode.getCategories();
+            logger.info("FUNKA");
+            // Registrar las categorías obtenidas de la API
+            logger.info("Categorías obtenidas de la API: " + categoriesList);
+
+            return null; // Devolver la lista de categorías
+        } else {
+            System.err.println("No se pudo obtener el objeto StatusCode de la respuesta.");
+            return null;
+        }
     }
 
 
