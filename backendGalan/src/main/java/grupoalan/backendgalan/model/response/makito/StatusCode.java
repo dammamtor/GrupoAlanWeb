@@ -8,6 +8,7 @@ public class StatusCode {
     private int status_code;
     private List<CategoryResponse> categories;
     private List<ProductsMakito> products;
+    private List<ColorsMakito> colors;
 
     public StatusCode() {
     }

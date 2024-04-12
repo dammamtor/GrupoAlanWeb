@@ -1,5 +1,8 @@
 package grupoalan.backendgalan.model.response.makito;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductsMakito {
     private String ref;
     private String name;
