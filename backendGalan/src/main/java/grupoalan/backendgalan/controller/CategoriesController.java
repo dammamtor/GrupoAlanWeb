@@ -19,10 +19,20 @@ public class CategoriesController {
     @Autowired
     private CategoriesService categoriesService;
 
-    @GetMapping("/sync/categories")
-    public ResponseEntity<List<Categories>> syncCategories() {
+    //RECOMENDAMOS, POR AHORA, SOLO USAR ESTE METODO UNA VEZ, SI NO SE REPETIRAN
+    @GetMapping("/makito/categories")
+    public ResponseEntity<List<Categories>> makitoCategories() {
         logger.info("HAZ HECHO UNA PETICION A LISTA DE CATEGORIAS");
-        List<Categories> categories = categoriesService.syncCategoriesFromApi();
+        List<Categories> categories = categoriesService.makitoCategoriesFromApi();
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
+
+    //CATEGORIAS ROLY
+    @GetMapping("/roly/categories")
+    public  ResponseEntity<List<Categories>> rolyCategories() {
+        logger.info("HAZ HECHO UNA PETICION A LISTA DE CATEGORIAS de ROLY");
+        List<Categories> categories = categoriesService.rolyCategoriesFromApi();
+        return new ResponseEntity<>(categories, HttpStatus.OK);
+    }
+
 }

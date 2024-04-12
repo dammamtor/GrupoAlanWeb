@@ -7,6 +7,7 @@ import java.util.List;
 public class StatusCode {
     private int status_code;
     private List<CategoryResponse> categories;
+    private List<ProductsMakito> products;
 
     public StatusCode() {
     }
@@ -27,11 +28,20 @@ public class StatusCode {
         this.categories = categories;
     }
 
+    public List<ProductsMakito> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<ProductsMakito> products) {
+        this.products = products;
+    }
+
     @Override
     public String toString() {
         return "StatusCode{" +
                 "status_code=" + status_code +
                 ", categories=" + categories +
+                ", products=" + products +
                 '}';
     }
 }
