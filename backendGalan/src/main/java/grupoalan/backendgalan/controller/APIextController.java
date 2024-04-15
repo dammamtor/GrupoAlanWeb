@@ -36,13 +36,31 @@ public class APIextController {
 
     //ESTE CONTROLLER ESTA EXCLUSIVAMENTE DEDICADO A LA OBTENCION DE BBDD DE LAS APIS EXTERNAS
 
+    //OBTENCION TOKEN
+    // Método privado para obtener el token de la API externa Makito
+    private String getApiToken() {
+        String apiToken = apiTokenService.getApiToken();
+        if (apiToken == null) {
+            logger.error("No se pudo obtener el token de la API externa");
+        }
+        return apiToken;
+    }
+
+    //Método privado para obtener el token de la API externa Roly
+    private String getApiRolyToken(){
+        String apiToken = apiTokenService.getApiRolyToken();
+        if (apiToken == null) {
+            logger.error("No se pudo obtener el token de la API externa");
+        }
+        return apiToken;
+    }
+
     //CATEGORIAS
     @GetMapping("/makito/categories")
     public ResponseEntity<List<Categories>> makitoCategories() {
         // Obtener el token de la API externa
-        String apiToken = apiTokenService.getApiToken();
+        String apiToken = getApiToken();
         if (apiToken == null) {
-            logger.error("No se pudo obtener el token de la API externa");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
@@ -58,55 +76,92 @@ public class APIextController {
 
     @GetMapping("/roly/categories")
     public ResponseEntity<List<Categories>> rolyCategories() {
+        String apiToken = getApiRolyToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
         logger.info("OBTENCION CATEGORIAS ROLY A BBDD EMPRESA");
-        List<Categories> categories = categoriesService.rolyCategoriesFromApi();
+        List<Categories> categories = categoriesService.rolyCategoriesFromApi(apiToken);
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
     //PRODUCTS
     @GetMapping("/makito/products")
     public ResponseEntity<List<Products>> makitoProducts() {
+        String apiToken = getApiToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
         logger.info("OBTENCION PRODUCTOS MAKITO A BBDD EMPRESA");
-        List<Products> products = productsService.makitoProductsFromApi();
+        List<Products> products = productsService.makitoProductsFromApi(apiToken);
+
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
     @GetMapping("/roly/products")
     public ResponseEntity<List<Products>> rolyProducts() {
+        String apiToken = getApiRolyToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
         logger.info("OBTENCION PRODUCTOS ROLY A BBDD EMPRESA");
-        List<Products> products = productsService.rolyProductsFromApi();
+        List<Products> products = productsService.rolyProductsFromApi(apiToken);
+
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
     //COLORS
     @GetMapping("/makito/colors")
     public ResponseEntity<List<Colors>> makitoColors(){
+        String apiToken = getApiToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
         logger.info("OBTENCION COLORES MAKITO A BBDD EMPRESA");
-        List<Colors> colors = colorService.makitoColorsFromApi();
+        List<Colors> colors = colorService.makitoColorsFromApi(apiToken);
         return new ResponseEntity<>(colors, HttpStatus.OK);
     }
 
     //DESCRIPTIONS
     @GetMapping("makito/descriptions")
     public ResponseEntity<List<Descriptions>> makitoDescriptions(){
+        String apiToken = getApiToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
         logger.info("OBTENCION DESCRIPCIONES MAKITO A BBDD EMPRESA");
-        List<Descriptions> descriptions = descriptionService.makitoDescriptionsFromApi();
+        List<Descriptions> descriptions = descriptionService.makitoDescriptionsFromApi(apiToken);
         return new ResponseEntity<>(descriptions, HttpStatus.OK);
     }
 
     //MARKINGS
     @GetMapping("makito/markings")
     public ResponseEntity<List<Markings>> makitoMarkings(){
+        String apiToken = getApiToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
         logger.info("OBTENCION MARKINGS MAKITO A BBDD EMPRESA");
-        List<Markings> markings = markingService.makitoMarkingsFromApi();
+        List<Markings> markings = markingService.makitoMarkingsFromApi(apiToken);
         return new ResponseEntity<>(markings, HttpStatus.OK);
     }
 
     //MARKING TECHNIQUES
     @GetMapping("makito/techniques")
     public ResponseEntity<List<MarkingTechniques>> makitoTechniques(){
+        String apiToken = getApiToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
         logger.info("OBTENCION MARKING TECHNIQUES A BBDD EMPRESA");
-        List<MarkingTechniques> markingTechniques = markingTechniquesService.makitoMarkingTechniquesFromApi();
+        List<MarkingTechniques> markingTechniques = markingTechniquesService.makitoMarkingTechniquesFromApi(apiToken);
         return new ResponseEntity<>(markingTechniques, HttpStatus.OK);
 
     }
@@ -114,8 +169,13 @@ public class APIextController {
     //VARIANTS
     @GetMapping("makito/variants")
     public ResponseEntity<List<Variants>> makitoVariants(){
+        String apiToken = getApiToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
         logger.info("OBTENCION VARIANTS DE MAKITO A BBDD EMPRESA");
-        List<Variants> variants = variantsService.makitoVariantsTechniquesFromApi();
+        List<Variants> variants = variantsService.makitoVariantsTechniquesFromApi(apiToken);
         return new ResponseEntity<>(variants, HttpStatus.OK);
     }
 }

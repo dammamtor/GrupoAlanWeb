@@ -24,8 +24,7 @@ public class VariantsService {
     static final Logger logger = LoggerFactory.getLogger(VariantsService.class);
     @Autowired
     private RestTemplate restTemplate;
-    @Value("${api.token}")
-    private String apiToken;
+
     private static final String API_URL = "https://data.makito.es/api/variants";
     @Autowired
     private VariantsRepository variantsRepository;
@@ -51,7 +50,7 @@ public class VariantsService {
     }
 
     //OTROS METODOS
-    public List<Variants> makitoVariantsTechniquesFromApi(){
+    public List<Variants> makitoVariantsTechniquesFromApi(String apiToken){
         logger.info("ESTAS EN EL MARKING TECHNIQUES SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);

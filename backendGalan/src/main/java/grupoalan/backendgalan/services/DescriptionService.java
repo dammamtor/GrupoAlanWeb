@@ -24,8 +24,6 @@ public class DescriptionService {
     static final Logger logger = LoggerFactory.getLogger(DescriptionService.class);
     @Autowired
     private RestTemplate restTemplate;
-    @Value("${api.token}")
-    private String apiToken;
 
     private static final String API_URL = "https://data.makito.es/api/descriptionext";
 
@@ -45,7 +43,7 @@ public class DescriptionService {
     }
 
     // Otros métodos de servicio para operaciones relacionadas con descripciones
-    public List<Descriptions> makitoDescriptionsFromApi(){
+    public List<Descriptions> makitoDescriptionsFromApi(String apiToken){
         logger.info("ESTAS EN EL DESCRIPTIONS SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);

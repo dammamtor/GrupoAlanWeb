@@ -24,8 +24,6 @@ public class MarkingTechniquesService {
     static final Logger logger = LoggerFactory.getLogger(MarkingTechniquesService.class);
     @Autowired
     private RestTemplate restTemplate;
-    @Value("${api.token}")
-    private String apiToken;
     private static final String API_URL = "https://data.makito.es/api/markingTechniques";
 
     @Autowired
@@ -52,7 +50,7 @@ public class MarkingTechniquesService {
     };
 
     //OTROS METODOS
-    public List<MarkingTechniques> makitoMarkingTechniquesFromApi(){
+    public List<MarkingTechniques> makitoMarkingTechniquesFromApi(String apiToken){
         logger.info("ESTAS EN EL MARKING TECHNIQUES SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);

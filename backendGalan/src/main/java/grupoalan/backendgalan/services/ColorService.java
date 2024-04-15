@@ -23,8 +23,6 @@ public class ColorService {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${api.token}")
-    private String apiToken;
     private static final String API_URL = "https://data.makito.es/api/colors";
 
     private final ColorRepository colorRepository;
@@ -43,7 +41,7 @@ public class ColorService {
     }
 
     // Otros métodos de servicio para operaciones relacionadas con colores
-    public List<Colors> makitoColorsFromApi(){
+    public List<Colors> makitoColorsFromApi(String apiToken){
         logger.info("ESTAS EN EL COLOR  SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);

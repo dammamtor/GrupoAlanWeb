@@ -26,17 +26,12 @@ public class ProductsService {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${api.token}")
-    private String apiToken;
-
-    @Value("${api.token.roly}")
-    private String apiTokenRoly;
 
     private static final String API_URL = "https://data.makito.es/api/products";
 
     private static final String API_URL_ROLY = "https://clientsws.gorfactory.es:2096/api/v1.1/item/getcatalog?lang=es-ES&brand=roly";
 
-    public List<Products> makitoProductsFromApi(){
+    public List<Products> makitoProductsFromApi(String apiToken){
         logger.info("ESTAS EN EL PRODUCTS SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
@@ -85,12 +80,12 @@ public class ProductsService {
 //        }
     }
 
-    public List<Products> rolyProductsFromApi(){
+    public List<Products> rolyProductsFromApi(String apiToken){
         logger.info("ESTAS EN EL PRODUCTS SERVICE");
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + apiTokenRoly);
+        headers.set("Authorization", "Bearer " + apiToken);
 
-        logger.info("apiTokenRoly: " + apiTokenRoly);
+        logger.info("apiTokenRoly: " + apiToken);
 
         HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
 

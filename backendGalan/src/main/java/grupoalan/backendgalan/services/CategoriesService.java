@@ -28,9 +28,6 @@ public class CategoriesService {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${api.token.roly}")
-    private String apiTokenRoly;
-
     @Autowired
     private CategoriesRepository categoriesRepository;
 
@@ -91,12 +88,12 @@ public class CategoriesService {
     }
 
     //METODO DE OBTENCION DE CATEGORIAS DE ROLY
-    public List<Categories> rolyCategoriesFromApi() {
+    public List<Categories> rolyCategoriesFromApi(String apiToken) {
         logger.info("ESTAS EN EL ROLY SERVICE");
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + apiTokenRoly);
+        headers.set("Authorization", "Bearer " + apiToken);
 
-        logger.info("apiTokenRoly: " + apiTokenRoly);
+        logger.info("apiTokenRoly: " + apiToken);
 
         HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
 

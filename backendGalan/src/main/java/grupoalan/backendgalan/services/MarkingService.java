@@ -23,8 +23,7 @@ public class MarkingService {
     static final Logger logger = LoggerFactory.getLogger(MarkingService.class);
     @Autowired
     private RestTemplate restTemplate;
-    @Value("${api.token}")
-    private String apiToken;
+
     private static final String API_URL = "https://data.makito.es/api/markings";
 
     private final MarkingsRepository markingRepository;
@@ -43,7 +42,7 @@ public class MarkingService {
     }
 
     // Otros métodos de servicio para operaciones relacionadas con marcados
-    public List<Markings> makitoMarkingsFromApi(){
+    public List<Markings> makitoMarkingsFromApi(String apiToken){
         logger.info("ESTAS EN EL MARKINGS SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
