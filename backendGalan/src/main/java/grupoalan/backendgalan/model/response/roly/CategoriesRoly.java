@@ -9,8 +9,8 @@ public class CategoriesRoly {
     private String id;
     private String models;
     private String parentCategory;
-    private String brand;
     private String parentId;
+    private String brand;
     private String branchOrder;
 
     public CategoriesRoly() {
@@ -79,8 +79,8 @@ public class CategoriesRoly {
                 ", id='" + id + '\'' +
                 ", models='" + models + '\'' +
                 ", parentCategory='" + parentCategory + '\'' +
-                ", brand='" + brand + '\'' +
                 ", parentId='" + parentId + '\'' +
+                ", brand='" + brand + '\'' +
                 ", branchOrder='" + branchOrder + '\'' +
                 '}';
     }

@@ -40,7 +40,7 @@ public class ProductsMakito {
     private String ptc_length;
     private String ptc_height;
     private String ptc_width;
-    private String ptc_weight;
+    private String ptc_wight;
     private String ptc_net_weight;
     private int pallet_units;
     private int bundle_pallets;
@@ -339,12 +339,12 @@ public class ProductsMakito {
         this.ptc_width = ptc_width;
     }
 
-    public String getPtc_weight() {
-        return ptc_weight;
+    public String getPtc_wight() {
+        return ptc_wight;
     }
 
-    public void setPtc_weight(String ptc_weight) {
-        this.ptc_weight = ptc_weight;
+    public void setPtc_wight(String ptc_wight) {
+        this.ptc_wight = ptc_wight;
     }
 
     public String getPtc_net_weight() {
@@ -434,7 +434,7 @@ public class ProductsMakito {
                 ", ptc_length='" + ptc_length + '\'' +
                 ", ptc_height='" + ptc_height + '\'' +
                 ", ptc_width='" + ptc_width + '\'' +
-                ", ptc_weight='" + ptc_weight + '\'' +
+                ", ptc_wight='" + ptc_wight + '\'' +
                 ", ptc_net_weight='" + ptc_net_weight + '\'' +
                 ", pallet_units=" + pallet_units +
                 ", bundle_pallets=" + bundle_pallets +

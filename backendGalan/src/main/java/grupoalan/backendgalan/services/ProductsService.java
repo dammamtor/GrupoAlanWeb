@@ -1,10 +1,9 @@
 package grupoalan.backendgalan.services;
 
-import grupoalan.backendgalan.model.Categories;
 import grupoalan.backendgalan.model.Products;
-import grupoalan.backendgalan.model.response.makito.CategoryResponse;
-import grupoalan.backendgalan.model.response.makito.ProductsMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
+import grupoalan.backendgalan.model.response.roly.Items;
+import grupoalan.backendgalan.model.response.roly.ProductsRoly;
 import grupoalan.backendgalan.repository.ProductsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,10 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class ProductsService {
@@ -29,9 +25,6 @@ public class ProductsService {
 
     @Autowired
     private RestTemplate restTemplate;
-
-    @Autowired
-    private ProductsRepository repository;
 
     @Value("${api.token}")
     private String apiToken;
@@ -41,10 +34,10 @@ public class ProductsService {
 
     private static final String API_URL = "https://data.makito.es/api/products";
 
-    private static final String API_URL_ROLY = "https://clientsws.gorfactory.es:2096/api/v1.0/item/categories?lang=es-ES&brand=roly";
+    private static final String API_URL_ROLY = "https://clientsws.gorfactory.es:2096/api/v1.1/item/getcatalog?lang=es-ES&brand=roly";
 
     public List<Products> makitoProductsFromApi(){
-        logger.info("ESTAS EN EL CATEGORIES SERVICE");
+        logger.info("ESTAS EN EL PRODUCTS SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
 
@@ -61,36 +54,57 @@ public class ProductsService {
 
         //FUNCIONA, VAMOS A RELLENARLO
         //TERRENO PANTANOSO, CHEMA
-        if (statusCode != null) {
-            List<ProductsMakito> productsMakitos = statusCode.getProducts();
-            logger.info("FUNKA");
 
-            // Crear una lista para almacenar las categorías convertidas sin nombres duplicados
-            List<Products> convertedProducts = new ArrayList<>();
-
-            // Iterar sobre los nombres únicos de las categorías y crear objetos Categories
-            for (ProductsMakito productData : productsMakitos) {
-                Products product = new Products();
-                product.setName(productData.getName());
-                product.setDescription("");
-                product.setAvailable(false);
-                product.setPrice(BigDecimal.ZERO);
-
-                product = productsRepository.save(product);
-
-                convertedProducts.add(product);
-            }
-
-            logger.info("Products obtenidas de la API: " + convertedProducts);
-
-            return convertedProducts;
-        } else {
-            System.err.println("No se pudo obtener el objeto StatusCode de la respuesta.");
-            return null;
-        }
+        return null;
+//        if (statusCode != null) {
+//            List<ProductsMakito> productsMakitos = statusCode.getProducts();
+//            logger.info("FUNKA");
+//
+//            // Crear una lista para almacenar las categorías convertidas sin nombres duplicados
+//            List<Products> convertedProducts = new ArrayList<>();
+//
+//            // Iterar sobre los nombres únicos de las categorías y crear objetos Categories
+//            for (ProductsMakito productData : productsMakitos) {
+//                Products product = new Products();
+//                product.setName(productData.getName());
+//                product.setDescription("");
+//                product.setAvailable(false);
+//                product.setPrice(BigDecimal.ZERO);
+//
+//                product = productsRepository.save(product);
+//
+//                convertedProducts.add(product);
+//            }
+//
+//            logger.info("Products obtenidas de la API: " + convertedProducts);
+//
+//            return convertedProducts;
+//        } else {
+//            System.err.println("No se pudo obtener el objeto StatusCode de la respuesta.");
+//            return null;
+//        }
     }
 
+    public List<Products> rolyProductsFromApi(){
+        logger.info("ESTAS EN EL PRODUCTS SERVICE");
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + apiTokenRoly);
 
+        logger.info("apiTokenRoly: " + apiTokenRoly);
+
+        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+
+        ResponseEntity<Items> response = restTemplate.exchange(
+                API_URL_ROLY, HttpMethod.GET, requestEntity, Items.class);
+
+        Items items = response.getBody();
+
+        if (items!= null){
+            List<ProductsRoly> productsRolyList = items.getItem();
+            logger.info("LISTA DE PRODUCTOS DE ROLY: " + productsRolyList);
+        }
+        return null;
+    }
 
 
 

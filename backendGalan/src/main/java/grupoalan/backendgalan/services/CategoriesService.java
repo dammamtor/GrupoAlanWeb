@@ -95,7 +95,7 @@ public class CategoriesService {
 
     //METODO DE OBTENCION DE CATEGORIAS DE ROLY
     public List<Categories> rolyCategoriesFromApi() {
-        logger.info("ESTAS EN EL ROY SERVICE");
+        logger.info("ESTAS EN EL ROLY SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiTokenRoly);
 

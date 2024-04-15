@@ -9,6 +9,15 @@ public class StatusCode {
     private List<CategoryResponse> categories;
     private List<ProductsMakito> products;
     private List<ColorsMakito> colors;
+    private List<DescriptionsMakito> descriptions;
+    private List<ImagesMakito> images;
+    private List<PricesMakito> tarifs;
+    private List<VariantsMakito> variants;
+    private List<MarkingTechniquesMakito> techniques;
+    private List<MarkingTechniquesPricesMakito> techniquesPrices;
+    private List<MarkingTechniquesTypesMakito> techniquesTypes;
+    private List<MarkingsMakito> markings;
+
 
     public StatusCode() {
     }
@@ -37,12 +46,93 @@ public class StatusCode {
         this.products = products;
     }
 
+    public List<ColorsMakito> getColors() {
+        return colors;
+    }
+
+    public void setColors(List<ColorsMakito> colors) {
+        this.colors = colors;
+    }
+
+    public List<DescriptionsMakito> getDescriptions() {
+        return descriptions;
+    }
+
+    public void setDescriptions(List<DescriptionsMakito> descriptions) {
+        this.descriptions = descriptions;
+    }
+
+    public List<ImagesMakito> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ImagesMakito> images) {
+        this.images = images;
+    }
+
+    public List<PricesMakito> getTarifs() {
+        return tarifs;
+    }
+
+    public void setTarifs(List<PricesMakito> tarifs) {
+        this.tarifs = tarifs;
+    }
+
+    public List<VariantsMakito> getVariants() {
+        return variants;
+    }
+
+    public void setVariants(List<VariantsMakito> variants) {
+        this.variants = variants;
+    }
+
+    public List<MarkingTechniquesMakito> getTechniques() {
+        return techniques;
+    }
+
+    public void setTechniques(List<MarkingTechniquesMakito> techniques) {
+        this.techniques = techniques;
+    }
+
+    public List<MarkingTechniquesPricesMakito> getTechniquesPrices() {
+        return techniquesPrices;
+    }
+
+    public void setTechniquesPrices(List<MarkingTechniquesPricesMakito> techniquesPrices) {
+        this.techniquesPrices = techniquesPrices;
+    }
+
+    public List<MarkingTechniquesTypesMakito> getTechniquesTypes() {
+        return techniquesTypes;
+    }
+
+    public void setTechniquesTypes(List<MarkingTechniquesTypesMakito> techniquesTypes) {
+        this.techniquesTypes = techniquesTypes;
+    }
+
+    public List<MarkingsMakito> getMarkings() {
+        return markings;
+    }
+
+    public void setMarkings(List<MarkingsMakito> markings) {
+        this.markings = markings;
+    }
+
     @Override
     public String toString() {
         return "StatusCode{" +
                 "status_code=" + status_code +
                 ", categories=" + categories +
                 ", products=" + products +
+                ", colors=" + colors +
+                ", descriptions=" + descriptions +
+                ", images=" + images +
+                ", tarifs=" + tarifs +
+                ", variants=" + variants +
+                ", techniques=" + techniques +
+                ", techniquesPrices=" + techniquesPrices +
+                ", techniquesTypes=" + techniquesTypes +
+                ", markings=" + markings +
                 '}';
     }
 }

@@ -1,12 +1,15 @@
 package grupoalan.backendgalan.model.response.makito;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MarkingTechniquesMakito {
     private String ref;
-    private String techniqueRef;
+    private String technique_ref;
     private String name;
-    private int colInc;
-    private String noticeTxt;
-    private int doublePass;
+    private int col_inc;
+    private String notice_txt;
+    private int doublepass;
     private int layer;
     private int option;
     private int mixture;
@@ -23,12 +26,12 @@ public class MarkingTechniquesMakito {
         this.ref = ref;
     }
 
-    public String getTechniqueRef() {
-        return techniqueRef;
+    public String getTechnique_ref() {
+        return technique_ref;
     }
 
-    public void setTechniqueRef(String techniqueRef) {
-        this.techniqueRef = techniqueRef;
+    public void setTechnique_ref(String technique_ref) {
+        this.technique_ref = technique_ref;
     }
 
     public String getName() {
@@ -39,28 +42,28 @@ public class MarkingTechniquesMakito {
         this.name = name;
     }
 
-    public int getColInc() {
-        return colInc;
+    public int getCol_inc() {
+        return col_inc;
     }
 
-    public void setColInc(int colInc) {
-        this.colInc = colInc;
+    public void setCol_inc(int col_inc) {
+        this.col_inc = col_inc;
     }
 
-    public String getNoticeTxt() {
-        return noticeTxt;
+    public String getNotice_txt() {
+        return notice_txt;
     }
 
-    public void setNoticeTxt(String noticeTxt) {
-        this.noticeTxt = noticeTxt;
+    public void setNotice_txt(String notice_txt) {
+        this.notice_txt = notice_txt;
     }
 
-    public int getDoublePass() {
-        return doublePass;
+    public int getDoublepass() {
+        return doublepass;
     }
 
-    public void setDoublePass(int doublePass) {
-        this.doublePass = doublePass;
+    public void setDoublepass(int doublepass) {
+        this.doublepass = doublepass;
     }
 
     public int getLayer() {
@@ -97,13 +100,13 @@ public class MarkingTechniquesMakito {
 
     @Override
     public String toString() {
-        return "MarkingTechniques{" +
+        return "MarkingTechniquesMakito{" +
                 "ref='" + ref + '\'' +
-                ", techniqueRef='" + techniqueRef + '\'' +
+                ", technique_ref='" + technique_ref + '\'' +
                 ", name='" + name + '\'' +
-                ", colInc=" + colInc +
-                ", noticeTxt='" + noticeTxt + '\'' +
-                ", doublePass=" + doublePass +
+                ", col_inc=" + col_inc +
+                ", notice_txt='" + notice_txt + '\'' +
+                ", doublepass=" + doublepass +
                 ", layer=" + layer +
                 ", option=" + option +
                 ", mixture=" + mixture +

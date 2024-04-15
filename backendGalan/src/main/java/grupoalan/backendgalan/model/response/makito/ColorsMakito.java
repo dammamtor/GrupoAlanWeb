@@ -2,7 +2,6 @@ package grupoalan.backendgalan.model.response.makito;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class ColorsMakito {
     private String color_code;
     private int lang;

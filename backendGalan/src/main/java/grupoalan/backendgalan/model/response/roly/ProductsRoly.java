@@ -1,7 +1,8 @@
 package grupoalan.backendgalan.model.response.roly;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.List;
 public class ProductsRoly {
     private String itemcode;
     private String itemname;
@@ -28,8 +29,8 @@ public class ProductsRoly {
     private String productimage;
     private String modelimage;
     private String childimage;
-    private List<String> detailsimages;
-    private List<String> viewsimages;
+    private String detailsimages;
+    private String viewsimages;
     private String otherimages;
     private boolean isforchildren;
     private boolean isnovelty;
@@ -250,19 +251,19 @@ public class ProductsRoly {
         this.childimage = childimage;
     }
 
-    public List<String> getDetailsimages() {
+    public String getDetailsimages() {
         return detailsimages;
     }
 
-    public void setDetailsimages(List<String> detailsimages) {
+    public void setDetailsimages(String detailsimages) {
         this.detailsimages = detailsimages;
     }
 
-    public List<String> getViewsimages() {
+    public String getViewsimages() {
         return viewsimages;
     }
 
-    public void setViewsimages(List<String> viewsimages) {
+    public void setViewsimages(String viewsimages) {
         this.viewsimages = viewsimages;
     }
 

@@ -4,7 +4,7 @@ public class DescriptionsMakito {
     private String ref;
     private String lang;
     private String desc;
-    private String commercialDesc;
+    private String commercial_desc;
 
     public DescriptionsMakito() {
     }
@@ -33,21 +33,21 @@ public class DescriptionsMakito {
         this.desc = desc;
     }
 
-    public String getCommercialDesc() {
-        return commercialDesc;
+    public String getCommercial_desc() {
+        return commercial_desc;
     }
 
-    public void setCommercialDesc(String commercialDesc) {
-        this.commercialDesc = commercialDesc;
+    public void setCommercial_desc(String commercial_desc) {
+        this.commercial_desc = commercial_desc;
     }
 
     @Override
     public String toString() {
-        return "Descriptions{" +
+        return "DescriptionsMakito{" +
                 "ref='" + ref + '\'' +
                 ", lang='" + lang + '\'' +
                 ", desc='" + desc + '\'' +
-                ", commercialDesc='" + commercialDesc + '\'' +
+                ", commercial_desc='" + commercial_desc + '\'' +
                 '}';
     }
 }

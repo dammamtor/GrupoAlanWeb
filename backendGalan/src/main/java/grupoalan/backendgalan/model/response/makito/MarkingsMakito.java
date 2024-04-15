@@ -2,13 +2,13 @@ package grupoalan.backendgalan.model.response.makito;
 
 public class MarkingsMakito {
     private String ref;
-    private String techniqueRef;
-    private int printAreaId;
-    private String maxColors;
+    private String technique_ref;
+    private int print_area_id;
+    private String max_colors;
     private String position;
     private int width;
     private int height;
-    private String areaImg;
+    private String area_img;
 
     public MarkingsMakito() {
     }
@@ -21,28 +21,28 @@ public class MarkingsMakito {
         this.ref = ref;
     }
 
-    public String getTechniqueRef() {
-        return techniqueRef;
+    public String getTechnique_ref() {
+        return technique_ref;
     }
 
-    public void setTechniqueRef(String techniqueRef) {
-        this.techniqueRef = techniqueRef;
+    public void setTechnique_ref(String technique_ref) {
+        this.technique_ref = technique_ref;
     }
 
-    public int getPrintAreaId() {
-        return printAreaId;
+    public int getPrint_area_id() {
+        return print_area_id;
     }
 
-    public void setPrintAreaId(int printAreaId) {
-        this.printAreaId = printAreaId;
+    public void setPrint_area_id(int print_area_id) {
+        this.print_area_id = print_area_id;
     }
 
-    public String getMaxColors() {
-        return maxColors;
+    public String getMax_colors() {
+        return max_colors;
     }
 
-    public void setMaxColors(String maxColors) {
-        this.maxColors = maxColors;
+    public void setMax_colors(String max_colors) {
+        this.max_colors = max_colors;
     }
 
     public String getPosition() {
@@ -69,25 +69,25 @@ public class MarkingsMakito {
         this.height = height;
     }
 
-    public String getAreaImg() {
-        return areaImg;
+    public String getArea_img() {
+        return area_img;
     }
 
-    public void setAreaImg(String areaImg) {
-        this.areaImg = areaImg;
+    public void setArea_img(String area_img) {
+        this.area_img = area_img;
     }
 
     @Override
     public String toString() {
-        return "Markings{" +
+        return "MarkingsMakito{" +
                 "ref='" + ref + '\'' +
-                ", techniqueRef='" + techniqueRef + '\'' +
-                ", printAreaId=" + printAreaId +
-                ", maxColors='" + maxColors + '\'' +
+                ", technique_ref='" + technique_ref + '\'' +
+                ", print_area_id=" + print_area_id +
+                ", max_colors='" + max_colors + '\'' +
                 ", position='" + position + '\'' +
                 ", width=" + width +
                 ", height=" + height +
-                ", areaImg='" + areaImg + '\'' +
+                ", area_img='" + area_img + '\'' +
                 '}';
     }
 }

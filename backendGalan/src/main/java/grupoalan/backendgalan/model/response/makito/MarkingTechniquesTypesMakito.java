@@ -1,19 +1,19 @@
 package grupoalan.backendgalan.model.response.makito;
 
 public class MarkingTechniquesTypesMakito {
-    private String techniqueRef;
+    private String technique_ref;
     private int lang;
     private String name;
 
     public MarkingTechniquesTypesMakito() {
     }
 
-    public String getTechniqueRef() {
-        return techniqueRef;
+    public String getTechnique_ref() {
+        return technique_ref;
     }
 
-    public void setTechniqueRef(String techniqueRef) {
-        this.techniqueRef = techniqueRef;
+    public void setTechnique_ref(String technique_ref) {
+        this.technique_ref = technique_ref;
     }
 
     public int getLang() {
@@ -32,10 +32,11 @@ public class MarkingTechniquesTypesMakito {
         this.name = name;
     }
 
+
     @Override
     public String toString() {
-        return "MarkingTechniquesTypes{" +
-                "techniqueRef='" + techniqueRef + '\'' +
+        return "MarkingTechniquesTypesMakito{" +
+                "technique_ref='" + technique_ref + '\'' +
                 ", lang=" + lang +
                 ", name='" + name + '\'' +
                 '}';

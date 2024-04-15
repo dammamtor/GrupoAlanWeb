@@ -17,12 +17,4 @@ import java.util.List;
 public class ProductsController {
     static final Logger logger = LoggerFactory.getLogger(ProductsController.class);
 
-    @Autowired
-    ProductsService productsService;
-    @GetMapping("/makito/products")
-    public ResponseEntity<List<Products>> makitoCategories() {
-        logger.info("HAZ HECHO UNA PETICION A LISTA DE CATEGORIAS");
-        List<Products> products = productsService.makitoProductsFromApi();
-        return new ResponseEntity<>(products, HttpStatus.OK);
-    }
 }
