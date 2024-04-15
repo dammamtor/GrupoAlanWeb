@@ -31,14 +31,28 @@ public class APIextController {
     private MarkingTechniquesService markingTechniquesService;
     @Autowired
     private VariantsService variantsService;
+    @Autowired
+    private APITokenService apiTokenService;
 
     //ESTE CONTROLLER ESTA EXCLUSIVAMENTE DEDICADO A LA OBTENCION DE BBDD DE LAS APIS EXTERNAS
 
     //CATEGORIAS
     @GetMapping("/makito/categories")
     public ResponseEntity<List<Categories>> makitoCategories() {
-        logger.info("OBTENCION CATEGORIAS MAKITO A BBDD EMPRESA");
-        List<Categories> categories = categoriesService.makitoCategoriesFromApi();
+        // Obtener el token de la API externa
+        String apiToken = apiTokenService.getApiToken();
+        if (apiToken == null) {
+            logger.error("No se pudo obtener el token de la API externa");
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        // Ahora que tienes el token, puedes proceder a obtener las categorías
+        List<Categories> categories = categoriesService.makitoCategoriesFromApi(apiToken);
+        if (categories == null) {
+            logger.error("No se pudieron obtener las categorías de la API externa");
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 

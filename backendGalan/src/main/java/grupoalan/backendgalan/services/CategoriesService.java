@@ -28,9 +28,6 @@ public class CategoriesService {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${api.token}")
-    private String apiToken;
-
     @Value("${api.token.roly}")
     private String apiTokenRoly;
 
@@ -42,7 +39,7 @@ public class CategoriesService {
     private static final String API_URL_ROLY = "https://clientsws.gorfactory.es:2096/api/v1.0/item/categories?lang=es-ES&brand=roly";
 
 
-    public List<Categories> makitoCategoriesFromApi() {
+    public List<Categories> makitoCategoriesFromApi(String apiToken) {
         logger.info("ESTAS EN EL CATEGORIES SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
