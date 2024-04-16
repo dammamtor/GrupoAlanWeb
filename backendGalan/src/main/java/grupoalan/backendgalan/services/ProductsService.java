@@ -1,6 +1,7 @@
 package grupoalan.backendgalan.services;
 
 import grupoalan.backendgalan.model.Products;
+import grupoalan.backendgalan.model.response.makito.ProductsMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
 import grupoalan.backendgalan.model.response.roly.Items;
 import grupoalan.backendgalan.model.response.roly.ProductsRoly;
@@ -31,7 +32,7 @@ public class ProductsService {
 
     private static final String API_URL_ROLY = "https://clientsws.gorfactory.es:2096/api/v1.1/item/getcatalog?lang=es-ES&brand=roly";
 
-    public List<Products> makitoProductsFromApi(String apiToken){
+    public boolean makitoProductsFromApi(String apiToken){
         logger.info("ESTAS EN EL PRODUCTS SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
@@ -45,39 +46,49 @@ public class ProductsService {
 
         StatusCode statusCode = response.getBody();
 
-        logger.info("LISTA DE PRODUCTOS: " + statusCode);
+        //logger.info("LISTA DE PRODUCTOS: " + statusCode);
 
         //FUNCIONA, VAMOS A RELLENARLO
-        //TERRENO PANTANOSO, CHEMA
 
-        return null;
-//        if (statusCode != null) {
-//            List<ProductsMakito> productsMakitos = statusCode.getProducts();
-//            logger.info("FUNKA");
-//
-//            // Crear una lista para almacenar las categorías convertidas sin nombres duplicados
-//            List<Products> convertedProducts = new ArrayList<>();
-//
-//            // Iterar sobre los nombres únicos de las categorías y crear objetos Categories
-//            for (ProductsMakito productData : productsMakitos) {
-//                Products product = new Products();
-//                product.setName(productData.getName());
-//                product.setDescription("");
-//                product.setAvailable(false);
-//                product.setPrice(BigDecimal.ZERO);
-//
-//                product = productsRepository.save(product);
-//
-//                convertedProducts.add(product);
-//            }
-//
-//            logger.info("Products obtenidas de la API: " + convertedProducts);
-//
-//            return convertedProducts;
-//        } else {
-//            System.err.println("No se pudo obtener el objeto StatusCode de la respuesta.");
-//            return null;
-//        }
+        if (statusCode != null) {
+            List<ProductsMakito> productsMakitos = statusCode.getProducts();
+            logger.info("FUNKA");
+
+            // Crear una lista para almacenar las categorías convertidas sin nombres duplicados
+            List<Products> convertedProducts = new ArrayList<>();
+
+            // Iterar sobre los productos obtenidos de la API
+            for (ProductsMakito productData : productsMakitos) {
+                // Verificar si el producto ya existe en la base de datos
+                Optional<Products> existingProductOptional = productsRepository.findByName(productData.getName());
+
+                if (existingProductOptional.isPresent()) {
+                    // Si el producto ya existe, eliminarlo de la base de datos
+                    productsRepository.delete(existingProductOptional.get());
+                    logger.info("Producto existente eliminado: " + existingProductOptional.get().getName());
+                }
+
+                // Crear un nuevo objeto Products y guardar en la base de datos
+                Products product = new Products();
+                product.setName(productData.getName());
+                product.setRef(productData.getRef());
+                product.setWeight(productData.getWeight());
+                product.setLength(productData.getLength());
+                product.setWidth(productData.getWidth());
+                product.setHeight(productData.getHeight());
+
+                product = productsRepository.save(product);
+                convertedProducts.add(product);
+            }
+
+            logger.info("Products obtenidas de la API: " + convertedProducts);
+
+            logger.info("Actualización de la lista de productos completada");
+            return true;
+        } else {
+            logger.error("Error al obtener el objeto StatusCode de la respuesta");
+            return false;
+        }
     }
 
     public List<Products> rolyProductsFromApi(String apiToken){
