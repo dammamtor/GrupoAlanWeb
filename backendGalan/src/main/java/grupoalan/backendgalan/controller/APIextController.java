@@ -100,7 +100,7 @@ public class APIextController {
         boolean updatedSuccessfully = productsService.makitoProductsFromApi(apiToken);
 
         if (updatedSuccessfully) {
-            return new ResponseEntity<>("Lista de productos actualizada correctamente", HttpStatus.OK);
+            return new ResponseEntity<>("Lista de productos Makito actualizada correctamente.", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Error al actualizar la lista de productos", HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -108,16 +108,20 @@ public class APIextController {
 
 
     @GetMapping("/roly/products")
-    public ResponseEntity<List<Products>> rolyProducts() {
+    public ResponseEntity<String> rolyProducts() {
         String apiToken = getApiRolyToken();
         if (apiToken == null) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        logger.info("OBTENCION PRODUCTOS ROLY A BBDD EMPRESA");
-        List<Products> products = productsService.rolyProductsFromApi(apiToken);
+        // Realizar la actualización de los productos desde la API
+        boolean updatedSuccessfully = productsService.rolyProductsFromApi(apiToken);
 
-        return new ResponseEntity<>(products, HttpStatus.OK);
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de productos Roly actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de productos", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     //COLORS

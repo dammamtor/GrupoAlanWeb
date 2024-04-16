@@ -91,7 +91,7 @@ public class ProductsService {
         }
     }
 
-    public List<Products> rolyProductsFromApi(String apiToken){
+    public boolean rolyProductsFromApi(String apiToken){
         logger.info("ESTAS EN EL PRODUCTS SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
@@ -105,11 +105,43 @@ public class ProductsService {
 
         Items items = response.getBody();
 
-        if (items!= null){
+        if (items != null) {
             List<ProductsRoly> productsRolyList = items.getItem();
-            logger.info("LISTA DE PRODUCTOS DE ROLY: " + productsRolyList);
+            logger.info("FUNKA");
+
+            // Crear una lista para almacenar las categorías convertidas sin nombres duplicados
+            List<Products> convertedProducts = new ArrayList<>();
+
+            // Iterar sobre los productos obtenidos de la API
+            for (ProductsRoly productData : productsRolyList) {
+                // Verificar si el producto ya existe en la base de datos
+                Optional<Products> existingProductOptional = productsRepository.findByName(productData.getItemname());
+
+                if (existingProductOptional.isPresent()) {
+                    // Si el producto ya existe, eliminarlo de la base de datos
+                    productsRepository.delete(existingProductOptional.get());
+                    logger.info("Producto existente eliminado: " + existingProductOptional.get().getName());
+                }
+
+                // Crear un nuevo objeto Products y guardar en la base de datos
+                Products product = new Products();
+                product.setName(productData.getItemname());
+                product.setRef(productData.getItemcode());
+                product.setWeight(productData.getWeight());
+                product.setMeasures(productData.getMeasures());
+
+                product = productsRepository.save(product);
+                convertedProducts.add(product);
+            }
+
+            logger.info("Products obtenidas de la API: " + convertedProducts);
+
+            logger.info("Actualización de la lista de productos completada");
+            return true;
+        } else {
+            logger.error("Error al obtener el objeto StatusCode de la respuesta");
+            return false;
         }
-        return null;
     }
 
 
