@@ -139,15 +139,19 @@ public class APIextController {
 
     //DESCRIPTIONS
     @GetMapping("makito/descriptions")
-    public ResponseEntity<List<Descriptions>> makitoDescriptions(){
+    public ResponseEntity<String > makitoDescriptions(){
         String apiToken = getApiToken();
         if (apiToken == null) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         logger.info("OBTENCION DESCRIPCIONES MAKITO A BBDD EMPRESA");
-        List<Descriptions> descriptions = descriptionService.makitoDescriptionsFromApi(apiToken);
-        return new ResponseEntity<>(descriptions, HttpStatus.OK);
+        boolean updatedSuccessfully = descriptionService.makitoDescriptionsFromApi(apiToken);
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de descripciones Roly actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de productos", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     //MARKINGS

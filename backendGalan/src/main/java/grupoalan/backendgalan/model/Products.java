@@ -45,6 +45,9 @@ public class Products {
     @Column(nullable = true)
     private String measures; // Medidas del producto de ROLY
 
+    @Column(nullable = true)
+    private String colors;
+
     //RELACIONES
 
     @ManyToOne
@@ -61,6 +64,9 @@ public class Products {
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private Set<Variants> variants;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private Set<Descriptions> descriptions;
 
     // Constructor vacío (obligatorio para JPA)
     public Products() {
@@ -188,6 +194,22 @@ public class Products {
         this.measures = measures;
     }
 
+    public String getColors() {
+        return colors;
+    }
+
+    public void setColors(String colors) {
+        this.colors = colors;
+    }
+
+    public Set<Descriptions> getDescriptions() {
+        return descriptions;
+    }
+
+    public void setDescriptions(Set<Descriptions> descriptions) {
+        this.descriptions = descriptions;
+    }
+
     @Override
     public String toString() {
         return "Products{" +
@@ -202,10 +224,12 @@ public class Products {
                 ", height='" + height + '\'' +
                 ", width='" + width + '\'' +
                 ", measures='" + measures + '\'' +
+                ", colors='" + colors + '\'' +
                 ", productType=" + productType +
                 ", category=" + category +
                 ", markingTechnique=" + markingTechnique +
                 ", variants=" + variants +
+                ", descriptions=" + descriptions +
                 '}';
     }
 }

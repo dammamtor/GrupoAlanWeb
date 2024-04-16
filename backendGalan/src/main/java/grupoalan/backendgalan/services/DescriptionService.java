@@ -1,7 +1,9 @@
 package grupoalan.backendgalan.services;
 
 import grupoalan.backendgalan.model.Descriptions;
+import grupoalan.backendgalan.model.Products;
 import grupoalan.backendgalan.model.response.makito.DescriptionsMakito;
+import grupoalan.backendgalan.model.response.makito.ProductsMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
 import grupoalan.backendgalan.model.response.roly.Items;
 import grupoalan.backendgalan.model.response.roly.ProductsRoly;
@@ -17,7 +19,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DescriptionService {
@@ -42,8 +46,12 @@ public class DescriptionService {
         return descriptionRepository.findById(id).orElse(null);
     }
 
+    public List<Descriptions> getAllDescripctions(){
+        return descriptionRepository.findAll();
+    }
+
     // Otros métodos de servicio para operaciones relacionadas con descripciones
-    public List<Descriptions> makitoDescriptionsFromApi(String apiToken){
+    public boolean makitoDescriptionsFromApi(String apiToken){
         logger.info("ESTAS EN EL DESCRIPTIONS SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
@@ -60,7 +68,28 @@ public class DescriptionService {
         if (statusCode!= null){
             List<DescriptionsMakito> descriptionsMakitos = statusCode.getDescriptions();
             logger.info("LISTA DE DESCRIPTIONS DE MAKITO: " + descriptionsMakitos);
+
+            // Eliminar todas las descripciones existentes antes de almacenar las nuevas
+            descriptionRepository.deleteAll();
+
+            List<Descriptions> descriptionsList = new ArrayList<>();
+
+            for (DescriptionsMakito descriptionsData : descriptionsMakitos) {
+                Descriptions description1 = new Descriptions();
+                description1.setRef(descriptionsData.getRef());
+                description1.setDetails(descriptionsData.getDesc());
+
+                description1 = descriptionRepository.save(description1);
+                descriptionsList.add(description1);
+            }
+
+            logger.info("Descripciones obtenidas de la API: " + descriptionsList);
+
+            logger.info("Actualización de la lista de descripciones completada");
+            return true;
+        } else {
+            logger.error("Error al obtener el objeto StatusCode de la respuesta");
+            return false;
         }
-        return null;
     }
 }

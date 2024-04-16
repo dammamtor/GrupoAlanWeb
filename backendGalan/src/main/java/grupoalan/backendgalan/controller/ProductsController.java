@@ -23,7 +23,7 @@ public class ProductsController {
     @GetMapping("grupoalan/obtener-productos")
     public ResponseEntity<List<Products>> obtenerProductosBD() {
         logger.info("HORA DE OBTENER LOS PRODUCTOS DE NUESTRA BD");
-        List<Products> products = productsService.getAllProducts();
+        List<Products> products = productsService.getAllProductsWithDescriptions();
         if (products == null) {
             logger.error("No se pudieron obtener los productos de la BD de Grupo Alan");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

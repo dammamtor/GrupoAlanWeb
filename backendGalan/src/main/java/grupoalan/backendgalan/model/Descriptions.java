@@ -9,8 +9,8 @@ public class Descriptions {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "product_id", nullable = false, unique = true)
-    private Long productId;
+    @Column(nullable = false)
+    private String ref; //ACA ENTRARIA LOS CAMPOS REF DE ROLY Y MAKITO
 
     @Column(name = "details", columnDefinition = "TEXT")
     private String details;
@@ -18,6 +18,10 @@ public class Descriptions {
     // Constructor vacío (obligatorio para JPA)
     public Descriptions() {
     }
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Products product;
 
     // Getters y Setters
 
@@ -29,12 +33,12 @@ public class Descriptions {
         this.id = id;
     }
 
-    public Long getProductId() {
-        return productId;
+    public String getRef() {
+        return ref;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 
     public String getDetails() {
@@ -43,5 +47,13 @@ public class Descriptions {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public Products getProduct() {
+        return product;
+    }
+
+    public void setProduct(Products product) {
+        this.product = product;
     }
 }

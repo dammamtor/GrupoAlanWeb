@@ -1,10 +1,12 @@
 package grupoalan.backendgalan.services;
 
+import grupoalan.backendgalan.model.Descriptions;
 import grupoalan.backendgalan.model.Products;
 import grupoalan.backendgalan.model.response.makito.ProductsMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
 import grupoalan.backendgalan.model.response.roly.Items;
 import grupoalan.backendgalan.model.response.roly.ProductsRoly;
+import grupoalan.backendgalan.repository.DescriptionRepository;
 import grupoalan.backendgalan.repository.ProductsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -76,6 +78,7 @@ public class ProductsService {
                 product.setLength(productData.getLength());
                 product.setWidth(productData.getWidth());
                 product.setHeight(productData.getHeight());
+                product.setColors(productData.getColors());
 
                 product = productsRepository.save(product);
                 convertedProducts.add(product);
@@ -129,6 +132,7 @@ public class ProductsService {
                 product.setRef(productData.getItemcode());
                 product.setWeight(productData.getWeight());
                 product.setMeasures(productData.getMeasures());
+                product.setColors(productData.getColorname());
 
                 product = productsRepository.save(product);
                 convertedProducts.add(product);
@@ -148,6 +152,35 @@ public class ProductsService {
 
     @Autowired
     private ProductsRepository productsRepository;
+    @Autowired
+    private DescriptionRepository descriptionsRepository;
+
+    public List<Products> getAllProductsWithDescriptions() {
+        List<Products> productsList = productsRepository.findAll();
+
+        for (Products product : productsList) {
+            Optional<Descriptions> descriptions = descriptionsRepository.findByRef(product.getRef());
+
+            // Creamos un conjunto para almacenar las descripciones relacionadas con este producto
+            Set<Descriptions> relatedDescriptions = new HashSet<>();
+
+            if(descriptions.isPresent()){
+                Descriptions description = descriptions.get();
+                if (description.getRef().equals(product.getRef())) {
+                    relatedDescriptions.add(description);
+                }
+            }
+
+            // Establecemos las descripciones relacionadas para el producto
+            product.setDescriptions(relatedDescriptions);
+        }
+
+        return productsList;
+    }
+
+
+
+
 
     // Método para encontrar un producto por su ID
     public Products getProductByID(Long id){
