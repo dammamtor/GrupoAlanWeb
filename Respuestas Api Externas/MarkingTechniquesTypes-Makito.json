@@ -1,0 +1,6445 @@
+{
+    "status_code": 200,
+    "techniques": [
+        {
+            "technique_ref": "100000",
+            "lang": 1,
+            "name": "NO IMPRIMIBLE POR MAKITO\r"
+        },
+        {
+            "technique_ref": "100000",
+            "lang": 2,
+            "name": "MAKITO DOESN'T PRINT IT\r"
+        },
+        {
+            "technique_ref": "100000",
+            "lang": 3,
+            "name": "NON STAMPABILE PER MAKITO\r"
+        },
+        {
+            "technique_ref": "100000",
+            "lang": 4,
+            "name": "NON IMPRIMABLE PAR MAKITO\r"
+        },
+        {
+            "technique_ref": "100000",
+            "lang": 5,
+            "name": "N\u00c3O IMPRIM\u00cdVEL PELA MAKITO\r\n"
+        },
+        {
+            "technique_ref": "100000",
+            "lang": 6,
+            "name": "NICHT DRUCKBAR F\u00dcR MAKITO\r"
+        },
+        {
+            "technique_ref": "100000",
+            "lang": 7,
+            "name": "NIET TE BEDRUKKEN BIJ MAKITO\r"
+        },
+        {
+            "technique_ref": "100001",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA CAMISETAS\r"
+        },
+        {
+            "technique_ref": "100001",
+            "lang": 2,
+            "name": "SILK-SCREEN PRINT\r"
+        },
+        {
+            "technique_ref": "100001",
+            "lang": 3,
+            "name": "SERIGRAFIA MAGLIETTE\r"
+        },
+        {
+            "technique_ref": "100001",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE T-SHIRTS\r"
+        },
+        {
+            "technique_ref": "100001",
+            "lang": 5,
+            "name": "SERIGRAFIA T-SHIRT`S\r\n"
+        },
+        {
+            "technique_ref": "100001",
+            "lang": 6,
+            "name": "HEMDESIEBDRUCK \r"
+        },
+        {
+            "technique_ref": "100001",
+            "lang": 7,
+            "name": "ZEEFDRUK SHIRT \r"
+        },
+        {
+            "technique_ref": "100002",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA GORRAS\r"
+        },
+        {
+            "technique_ref": "100002",
+            "lang": 2,
+            "name": "SCREEN PRINTING FOR CAPS\r"
+        },
+        {
+            "technique_ref": "100002",
+            "lang": 3,
+            "name": "SERIGRAFIA CAPPELINI\r"
+        },
+        {
+            "technique_ref": "100002",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE CASQUETTES\r"
+        },
+        {
+            "technique_ref": "100002",
+            "lang": 5,
+            "name": "SERIGRAFIA GORRAS\r"
+        },
+        {
+            "technique_ref": "100002",
+            "lang": 6,
+            "name": "M\u00dcTZESIEBDRUCK \r"
+        },
+        {
+            "technique_ref": "100002",
+            "lang": 7,
+            "name": "ZEEFDRUK VOOR PETTEN\r"
+        },
+        {
+            "technique_ref": "100003",
+            "lang": 1,
+            "name": "GRABADO QUIMICO\r"
+        },
+        {
+            "technique_ref": "100003",
+            "lang": 2,
+            "name": "CHEMICAL ENGRAVING\r"
+        },
+        {
+            "technique_ref": "100003",
+            "lang": 3,
+            "name": "INCISIONE CHIMICA\r"
+        },
+        {
+            "technique_ref": "100003",
+            "lang": 4,
+            "name": "GRAVURE CHIMIQUE \r"
+        },
+        {
+            "technique_ref": "100003",
+            "lang": 5,
+            "name": "GRAVADO QU\u00cdMICO\r\n"
+        },
+        {
+            "technique_ref": "100003",
+            "lang": 6,
+            "name": "CHEMIEDRUCK   \r"
+        },
+        {
+            "technique_ref": "100003",
+            "lang": 7,
+            "name": "CHEMISCHE GRAVURE\r"
+        },
+        {
+            "technique_ref": "100006",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA CAMISETAS 2 COLORES\r"
+        },
+        {
+            "technique_ref": "100006",
+            "lang": 2,
+            "name": "2 COLORS SILK-SCREEN PRINT\r"
+        },
+        {
+            "technique_ref": "100006",
+            "lang": 3,
+            "name": "SERIGRAFIA MAGLIETTE 2 COLORI\r"
+        },
+        {
+            "technique_ref": "100006",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE T-SHIRTS 2 COULEURS\r"
+        },
+        {
+            "technique_ref": "100006",
+            "lang": 5,
+            "name": "SERIGRAFIA T-SHIRT`S 2 CORES\r\n"
+        },
+        {
+            "technique_ref": "100006",
+            "lang": 6,
+            "name": "2-FARBE HEMDESIEBDRUCK \r"
+        },
+        {
+            "technique_ref": "100006",
+            "lang": 7,
+            "name": "ZEEFDRUK SHIRT 2 KLEUREN\r"
+        },
+        {
+            "technique_ref": "100007",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA CAMISETAS 3 COLORES\r"
+        },
+        {
+            "technique_ref": "100007",
+            "lang": 2,
+            "name": "3 COLORS SILK-SCREEN PRINT\r"
+        },
+        {
+            "technique_ref": "100007",
+            "lang": 3,
+            "name": "SERIGRAFIA MAGLIETTE 3 COLORI\r"
+        },
+        {
+            "technique_ref": "100007",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE T-SHIRTS 3 COULEURS\r"
+        },
+        {
+            "technique_ref": "100007",
+            "lang": 5,
+            "name": "SERIGRAFIA T-SHIRT`S 3 CORES\r\n"
+        },
+        {
+            "technique_ref": "100007",
+            "lang": 6,
+            "name": "3-FARBE HEMDESIEBDRUCK \r"
+        },
+        {
+            "technique_ref": "100007",
+            "lang": 7,
+            "name": "ZEEFDRUK SHIRT 3 KLEUREN\r"
+        },
+        {
+            "technique_ref": "100008",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA CAMISETAS 4 COLORES\r"
+        },
+        {
+            "technique_ref": "100008",
+            "lang": 2,
+            "name": "4 COLORS SILK-SCREEN PRINT\r"
+        },
+        {
+            "technique_ref": "100008",
+            "lang": 3,
+            "name": "SERIGRAFIA MAGLIETTE 4 COLORI\r"
+        },
+        {
+            "technique_ref": "100008",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE T-SHIRTS 4 COULEURS\r"
+        },
+        {
+            "technique_ref": "100008",
+            "lang": 5,
+            "name": "SERIGRAFIA T-SHIRT`S 4 CORES\r\n"
+        },
+        {
+            "technique_ref": "100008",
+            "lang": 6,
+            "name": "4-FARBE HEMDESIEBDRUCK \r"
+        },
+        {
+            "technique_ref": "100008",
+            "lang": 7,
+            "name": "ZEEFDRUK SHIRT 4 KLEUREN\r"
+        },
+        {
+            "technique_ref": "100009",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA\r"
+        },
+        {
+            "technique_ref": "100009",
+            "lang": 2,
+            "name": "SILK-SCREEN PRINT\r"
+        },
+        {
+            "technique_ref": "100009",
+            "lang": 3,
+            "name": "SERIGRAFIA\r"
+        },
+        {
+            "technique_ref": "100009",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE\r"
+        },
+        {
+            "technique_ref": "100009",
+            "lang": 5,
+            "name": "SERIGRAFIA\r"
+        },
+        {
+            "technique_ref": "100009",
+            "lang": 6,
+            "name": "SIEBDRUCK \r"
+        },
+        {
+            "technique_ref": "100009",
+            "lang": 7,
+            "name": "ZEEFDRUK\r"
+        },
+        {
+            "technique_ref": "100111",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA A\r"
+        },
+        {
+            "technique_ref": "100111",
+            "lang": 2,
+            "name": "PAD PRINTING A\r"
+        },
+        {
+            "technique_ref": "100111",
+            "lang": 3,
+            "name": "TAMPOGRAFIA A\r"
+        },
+        {
+            "technique_ref": "100111",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE A\r"
+        },
+        {
+            "technique_ref": "100111",
+            "lang": 5,
+            "name": "TAMPOGRAFIA A\r"
+        },
+        {
+            "technique_ref": "100111",
+            "lang": 6,
+            "name": "TAMPONDRUCK A\r"
+        },
+        {
+            "technique_ref": "100111",
+            "lang": 7,
+            "name": "TAMPONDRUK A\r"
+        },
+        {
+            "technique_ref": "100112",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA B\r"
+        },
+        {
+            "technique_ref": "100112",
+            "lang": 2,
+            "name": "PAD PRINTING B\r"
+        },
+        {
+            "technique_ref": "100112",
+            "lang": 3,
+            "name": "TAMPOGRAFIA B\r"
+        },
+        {
+            "technique_ref": "100112",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE B\r"
+        },
+        {
+            "technique_ref": "100112",
+            "lang": 5,
+            "name": "TAMPOGRAFIA B\r"
+        },
+        {
+            "technique_ref": "100112",
+            "lang": 6,
+            "name": "TAMPONDRUCK B\r"
+        },
+        {
+            "technique_ref": "100112",
+            "lang": 7,
+            "name": "TAMPONDRUK B\r"
+        },
+        {
+            "technique_ref": "100113",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA C\r"
+        },
+        {
+            "technique_ref": "100113",
+            "lang": 2,
+            "name": "PAD PRINTING C\r"
+        },
+        {
+            "technique_ref": "100113",
+            "lang": 3,
+            "name": "TAMPOGRAFIA C\r"
+        },
+        {
+            "technique_ref": "100113",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE C\r"
+        },
+        {
+            "technique_ref": "100113",
+            "lang": 5,
+            "name": "TAMPOGRAFIA C\r"
+        },
+        {
+            "technique_ref": "100113",
+            "lang": 6,
+            "name": "TAMPONDRUCK C\r"
+        },
+        {
+            "technique_ref": "100113",
+            "lang": 7,
+            "name": "TAMPONDRUK C\r"
+        },
+        {
+            "technique_ref": "100114",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA D\r"
+        },
+        {
+            "technique_ref": "100114",
+            "lang": 2,
+            "name": "PAD PRINTING D\r"
+        },
+        {
+            "technique_ref": "100114",
+            "lang": 3,
+            "name": "TAMPOGRAFIA D\r"
+        },
+        {
+            "technique_ref": "100114",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE D\r"
+        },
+        {
+            "technique_ref": "100114",
+            "lang": 5,
+            "name": "TAMPOGRAFIA D\r"
+        },
+        {
+            "technique_ref": "100114",
+            "lang": 6,
+            "name": "TAMPONDRUCK D\r"
+        },
+        {
+            "technique_ref": "100114",
+            "lang": 7,
+            "name": "TAMPONDRUK D\r"
+        },
+        {
+            "technique_ref": "100115",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA E\r"
+        },
+        {
+            "technique_ref": "100115",
+            "lang": 2,
+            "name": "PAD PRINTING E\r"
+        },
+        {
+            "technique_ref": "100115",
+            "lang": 3,
+            "name": "TAMPOGRAFIA E\r"
+        },
+        {
+            "technique_ref": "100115",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE E\r"
+        },
+        {
+            "technique_ref": "100115",
+            "lang": 5,
+            "name": "TAMPOGRAFIA E\r"
+        },
+        {
+            "technique_ref": "100115",
+            "lang": 6,
+            "name": "TAMPONDRUCK E\r"
+        },
+        {
+            "technique_ref": "100115",
+            "lang": 7,
+            "name": "TAMPONDRUK E\r"
+        },
+        {
+            "technique_ref": "100115DP",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA E - DOBLE PASADA -\r"
+        },
+        {
+            "technique_ref": "100115DP",
+            "lang": 2,
+            "name": "PAD PRINTIG E - DOUBLE PRINTING -\r"
+        },
+        {
+            "technique_ref": "100115DP",
+            "lang": 3,
+            "name": "TAMPOGRAFIA E - DOPPIA PASSATA -\r"
+        },
+        {
+            "technique_ref": "100115DP",
+            "lang": 4,
+            "name": "PAD PRINTIG E - IMPRESSION DOUBLE -\r"
+        },
+        {
+            "technique_ref": "100115DP",
+            "lang": 5,
+            "name": "TAMPOGRAFIA E -DUPLA PASSAGEM TINTA-"
+        },
+        {
+            "technique_ref": "100115DP",
+            "lang": 6,
+            "name": "TAMPONDRUCK E\/ DOPPELDRUCK\r"
+        },
+        {
+            "technique_ref": "100115DP",
+            "lang": 7,
+            "name": "TAMPONDRUK E \/ DUBBELDRUK\r"
+        },
+        {
+            "technique_ref": "100116",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA F\r"
+        },
+        {
+            "technique_ref": "100116",
+            "lang": 2,
+            "name": "PAD PRINTING F\r"
+        },
+        {
+            "technique_ref": "100116",
+            "lang": 3,
+            "name": "TAMPOGRAFIA F\r"
+        },
+        {
+            "technique_ref": "100116",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE F\r"
+        },
+        {
+            "technique_ref": "100116",
+            "lang": 5,
+            "name": "TAMPOGRAFIA F\r"
+        },
+        {
+            "technique_ref": "100116",
+            "lang": 6,
+            "name": "TAMPONDRUCK F\r"
+        },
+        {
+            "technique_ref": "100116",
+            "lang": 7,
+            "name": "TAMPONDRUK F\r"
+        },
+        {
+            "technique_ref": "100117",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA G\r"
+        },
+        {
+            "technique_ref": "100117",
+            "lang": 2,
+            "name": "PAD PRINTING G\r"
+        },
+        {
+            "technique_ref": "100117",
+            "lang": 3,
+            "name": "TAMPOGRAFIA G\r"
+        },
+        {
+            "technique_ref": "100117",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE G\r"
+        },
+        {
+            "technique_ref": "100117",
+            "lang": 5,
+            "name": "TAMPOGRAFIA G\r"
+        },
+        {
+            "technique_ref": "100117",
+            "lang": 6,
+            "name": "TAMPONDRUCK G\r"
+        },
+        {
+            "technique_ref": "100117",
+            "lang": 7,
+            "name": "TAMPONDRUK G\r"
+        },
+        {
+            "technique_ref": "100118",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA H\r"
+        },
+        {
+            "technique_ref": "100118",
+            "lang": 2,
+            "name": "PAD PRINTING H\r"
+        },
+        {
+            "technique_ref": "100118",
+            "lang": 3,
+            "name": "TAMPOGRAFIA H\r"
+        },
+        {
+            "technique_ref": "100118",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE H\r"
+        },
+        {
+            "technique_ref": "100118",
+            "lang": 5,
+            "name": "TAMPOGRAFIA H\r"
+        },
+        {
+            "technique_ref": "100118",
+            "lang": 6,
+            "name": "TAMPONDRUCK H\r"
+        },
+        {
+            "technique_ref": "100118",
+            "lang": 7,
+            "name": "TAMPONDRUK H\r"
+        },
+        {
+            "technique_ref": "100119",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA I\r"
+        },
+        {
+            "technique_ref": "100119",
+            "lang": 2,
+            "name": "PAD PRINTING I\r"
+        },
+        {
+            "technique_ref": "100119",
+            "lang": 3,
+            "name": "TAMPOGRAFIA I\r"
+        },
+        {
+            "technique_ref": "100119",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE I\r"
+        },
+        {
+            "technique_ref": "100119",
+            "lang": 5,
+            "name": "TAMPOGRAFIA I\r"
+        },
+        {
+            "technique_ref": "100119",
+            "lang": 6,
+            "name": "TAMPONDRUCK I\r"
+        },
+        {
+            "technique_ref": "100119",
+            "lang": 7,
+            "name": "TAMPONDRUK I\r"
+        },
+        {
+            "technique_ref": "100120",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA J\r"
+        },
+        {
+            "technique_ref": "100120",
+            "lang": 2,
+            "name": "PAD PRINTING J\r"
+        },
+        {
+            "technique_ref": "100120",
+            "lang": 3,
+            "name": "TAMPOGRAFIA J\r"
+        },
+        {
+            "technique_ref": "100120",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE J\r"
+        },
+        {
+            "technique_ref": "100120",
+            "lang": 5,
+            "name": "TAMPOGRAFIA J\r"
+        },
+        {
+            "technique_ref": "100120",
+            "lang": 6,
+            "name": "TAMPONDRUCK J\r"
+        },
+        {
+            "technique_ref": "100120",
+            "lang": 7,
+            "name": "TAMPONDRUK J\r"
+        },
+        {
+            "technique_ref": "100121",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA D +5000\r"
+        },
+        {
+            "technique_ref": "100121",
+            "lang": 2,
+            "name": "PAD PRINTING D +5000\r"
+        },
+        {
+            "technique_ref": "100121",
+            "lang": 3,
+            "name": "TAMPOGRAFIA D +5000\r"
+        },
+        {
+            "technique_ref": "100121",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE D +5000\r"
+        },
+        {
+            "technique_ref": "100121",
+            "lang": 5,
+            "name": "TAMPOGRAFIA D +5000\r"
+        },
+        {
+            "technique_ref": "100121",
+            "lang": 6,
+            "name": "TAMPONDRUCK D + ALS 5000\r"
+        },
+        {
+            "technique_ref": "100121",
+            "lang": 7,
+            "name": "TAMPONDRUK D +5000\r"
+        },
+        {
+            "technique_ref": "100122",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA A + DE 5000\r"
+        },
+        {
+            "technique_ref": "100122",
+            "lang": 2,
+            "name": "PAD PRINTING A + DE 5000\r"
+        },
+        {
+            "technique_ref": "100122",
+            "lang": 3,
+            "name": "TAMPOGRAFIA A + DI 5000\r"
+        },
+        {
+            "technique_ref": "100122",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE A + DE 5000\r"
+        },
+        {
+            "technique_ref": "100122",
+            "lang": 5,
+            "name": "TAMPOGRAFIA A + DE 5000\r"
+        },
+        {
+            "technique_ref": "100122",
+            "lang": 6,
+            "name": "TAMPONDRUCK A + ALS 5000\r"
+        },
+        {
+            "technique_ref": "100122",
+            "lang": 7,
+            "name": "TAMPONDRUK A + DE 5000\r"
+        },
+        {
+            "technique_ref": "100123",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA K\r"
+        },
+        {
+            "technique_ref": "100123",
+            "lang": 2,
+            "name": "PAD PRINTING K\r"
+        },
+        {
+            "technique_ref": "100123",
+            "lang": 3,
+            "name": "TAMPOGRAFIA K\r"
+        },
+        {
+            "technique_ref": "100123",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE K\r"
+        },
+        {
+            "technique_ref": "100123",
+            "lang": 5,
+            "name": "TAMPOGRAFIA K\r"
+        },
+        {
+            "technique_ref": "100123",
+            "lang": 6,
+            "name": "TAMPONDRUCK K\r"
+        },
+        {
+            "technique_ref": "100123",
+            "lang": 7,
+            "name": "TAMPONDRUK K\r"
+        },
+        {
+            "technique_ref": "100211",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA A\r"
+        },
+        {
+            "technique_ref": "100211",
+            "lang": 2,
+            "name": "SCREEN PRINTING A\r"
+        },
+        {
+            "technique_ref": "100211",
+            "lang": 3,
+            "name": "SERIGRAFIA A\r"
+        },
+        {
+            "technique_ref": "100211",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE A\r"
+        },
+        {
+            "technique_ref": "100211",
+            "lang": 5,
+            "name": "SERIGRAFIA A\r"
+        },
+        {
+            "technique_ref": "100211",
+            "lang": 6,
+            "name": "SIEBDRUCK A\r"
+        },
+        {
+            "technique_ref": "100211",
+            "lang": 7,
+            "name": "ZEEFDRUK A\r"
+        },
+        {
+            "technique_ref": "100212",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA B\r"
+        },
+        {
+            "technique_ref": "100212",
+            "lang": 2,
+            "name": "SCREEN PRINTING B\r"
+        },
+        {
+            "technique_ref": "100212",
+            "lang": 3,
+            "name": "SERIGRAFIA B\r"
+        },
+        {
+            "technique_ref": "100212",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE B\r"
+        },
+        {
+            "technique_ref": "100212",
+            "lang": 5,
+            "name": "SERIGRAFIA B\r"
+        },
+        {
+            "technique_ref": "100212",
+            "lang": 6,
+            "name": "SIEBDRUCK B\r"
+        },
+        {
+            "technique_ref": "100212",
+            "lang": 7,
+            "name": "ZEEFDRUK B\r"
+        },
+        {
+            "technique_ref": "100213",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA C\r"
+        },
+        {
+            "technique_ref": "100213",
+            "lang": 2,
+            "name": "SCREEN PRINTING C\r"
+        },
+        {
+            "technique_ref": "100213",
+            "lang": 3,
+            "name": "SERIGRAFIA C\r"
+        },
+        {
+            "technique_ref": "100213",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE C\r"
+        },
+        {
+            "technique_ref": "100213",
+            "lang": 5,
+            "name": "SERIGRAFIA C\r"
+        },
+        {
+            "technique_ref": "100213",
+            "lang": 6,
+            "name": "SIEBDRUCK C\r"
+        },
+        {
+            "technique_ref": "100213",
+            "lang": 7,
+            "name": "ZEEFDRUK C\r"
+        },
+        {
+            "technique_ref": "100214",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA D\r"
+        },
+        {
+            "technique_ref": "100214",
+            "lang": 2,
+            "name": "SCREEN PRINTING D\r"
+        },
+        {
+            "technique_ref": "100214",
+            "lang": 3,
+            "name": "SERIGRAFIA D\r"
+        },
+        {
+            "technique_ref": "100214",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE D\r"
+        },
+        {
+            "technique_ref": "100214",
+            "lang": 5,
+            "name": "SERIGRAFIA D\r"
+        },
+        {
+            "technique_ref": "100214",
+            "lang": 6,
+            "name": "SIEBDRUCK D\r"
+        },
+        {
+            "technique_ref": "100214",
+            "lang": 7,
+            "name": "ZEEFDRUK D\r"
+        },
+        {
+            "technique_ref": "100215",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA E\r"
+        },
+        {
+            "technique_ref": "100215",
+            "lang": 2,
+            "name": "SCREEN PRINTING E\r"
+        },
+        {
+            "technique_ref": "100215",
+            "lang": 3,
+            "name": "SERIGRAFIA E\r"
+        },
+        {
+            "technique_ref": "100215",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE E\r"
+        },
+        {
+            "technique_ref": "100215",
+            "lang": 5,
+            "name": "SERIGRAFIA E\r"
+        },
+        {
+            "technique_ref": "100215",
+            "lang": 6,
+            "name": "SIEBDRUCK E\r"
+        },
+        {
+            "technique_ref": "100215",
+            "lang": 7,
+            "name": "ZEEFDRUK E\r"
+        },
+        {
+            "technique_ref": "100215DP",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA E - DOBLE PASADA -\r"
+        },
+        {
+            "technique_ref": "100215DP",
+            "lang": 2,
+            "name": "SCREEN PRINTING E - DOUBLE PRINTING-"
+        },
+        {
+            "technique_ref": "100215DP",
+            "lang": 3,
+            "name": "SERIGRAFIA E - DOPPIA PASSATA-"
+        },
+        {
+            "technique_ref": "100215DP",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE E - IMPRESSION DOUBLE-"
+        },
+        {
+            "technique_ref": "100215DP",
+            "lang": 5,
+            "name": "SERIGRAFIA E - DUPLA PASSAGEM TINTA-"
+        },
+        {
+            "technique_ref": "100215DP",
+            "lang": 6,
+            "name": "SIEBDRUCK E\/ DOPPELDRUCK"
+        },
+        {
+            "technique_ref": "100215DP",
+            "lang": 7,
+            "name": "ZEEFDRUK E \/ DUBBELDRUK"
+        },
+        {
+            "technique_ref": "100216",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA F\r"
+        },
+        {
+            "technique_ref": "100216",
+            "lang": 2,
+            "name": "SCREEN PRINTING F\r"
+        },
+        {
+            "technique_ref": "100216",
+            "lang": 3,
+            "name": "SERIGRAFIA F\r"
+        },
+        {
+            "technique_ref": "100216",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE F\r"
+        },
+        {
+            "technique_ref": "100216",
+            "lang": 5,
+            "name": "SERIGRAFIA F\r"
+        },
+        {
+            "technique_ref": "100216",
+            "lang": 6,
+            "name": "SIEBDRUCK F\r"
+        },
+        {
+            "technique_ref": "100216",
+            "lang": 7,
+            "name": "ZEEFDRUK F\r"
+        },
+        {
+            "technique_ref": "100216DP",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA F - DOBLE PASADA -"
+        },
+        {
+            "technique_ref": "100216DP",
+            "lang": 2,
+            "name": "SCREEN PRINTING F - DOUBLE PRINTING -"
+        },
+        {
+            "technique_ref": "100216DP",
+            "lang": 3,
+            "name": "SERIGRAFIA F - DOPPIA PASSATA -"
+        },
+        {
+            "technique_ref": "100216DP",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE F - IMPRESSION DOUBLE -"
+        },
+        {
+            "technique_ref": "100216DP",
+            "lang": 5,
+            "name": "SERIGRAFIA F -DUPLA PASSAGEM TINTA-"
+        },
+        {
+            "technique_ref": "100216DP",
+            "lang": 6,
+            "name": "SIEBDRUCK F\/ DOPPELDRUCK"
+        },
+        {
+            "technique_ref": "100216DP",
+            "lang": 7,
+            "name": "ZEEFDRUK F \/ DUBBELDRUK"
+        },
+        {
+            "technique_ref": "100217",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA G\r"
+        },
+        {
+            "technique_ref": "100217",
+            "lang": 2,
+            "name": "SCREEN PRINTING G\r"
+        },
+        {
+            "technique_ref": "100217",
+            "lang": 3,
+            "name": "SERIGRAFIA G\r"
+        },
+        {
+            "technique_ref": "100217",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE G\r"
+        },
+        {
+            "technique_ref": "100217",
+            "lang": 5,
+            "name": "SERIGRAFIA G\r"
+        },
+        {
+            "technique_ref": "100217",
+            "lang": 6,
+            "name": "SIEBDRUCK G\r"
+        },
+        {
+            "technique_ref": "100217",
+            "lang": 7,
+            "name": "ZEEFDRUK G\r"
+        },
+        {
+            "technique_ref": "100218",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA H\r"
+        },
+        {
+            "technique_ref": "100218",
+            "lang": 2,
+            "name": "SCREEN PRINTING H\r"
+        },
+        {
+            "technique_ref": "100218",
+            "lang": 3,
+            "name": "SERIGRAFIA H\r"
+        },
+        {
+            "technique_ref": "100218",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE H\r"
+        },
+        {
+            "technique_ref": "100218",
+            "lang": 5,
+            "name": "SERIGRAFIA H\r"
+        },
+        {
+            "technique_ref": "100218",
+            "lang": 6,
+            "name": "SIEBDRUCK H\r"
+        },
+        {
+            "technique_ref": "100218",
+            "lang": 7,
+            "name": "ZEEFDRUK H\r"
+        },
+        {
+            "technique_ref": "100219",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA I\r"
+        },
+        {
+            "technique_ref": "100219",
+            "lang": 2,
+            "name": "SCREEN PRINTING I\r"
+        },
+        {
+            "technique_ref": "100219",
+            "lang": 3,
+            "name": "SERIGRAFIA I\r"
+        },
+        {
+            "technique_ref": "100219",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE I\r"
+        },
+        {
+            "technique_ref": "100219",
+            "lang": 5,
+            "name": "SERIGRAFIA I\r"
+        },
+        {
+            "technique_ref": "100219",
+            "lang": 6,
+            "name": "SIEBDRUCK I\r"
+        },
+        {
+            "technique_ref": "100219",
+            "lang": 7,
+            "name": "ZEEFDRUK I\r"
+        },
+        {
+            "technique_ref": "100220",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA J\r"
+        },
+        {
+            "technique_ref": "100220",
+            "lang": 2,
+            "name": "SCREEN PRINTING J\r"
+        },
+        {
+            "technique_ref": "100220",
+            "lang": 3,
+            "name": "SERIGRAFIA J\r"
+        },
+        {
+            "technique_ref": "100220",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE J\r"
+        },
+        {
+            "technique_ref": "100220",
+            "lang": 5,
+            "name": "SERIGRAFIA J\r"
+        },
+        {
+            "technique_ref": "100220",
+            "lang": 6,
+            "name": "SIEBDRUCK J\r"
+        },
+        {
+            "technique_ref": "100220",
+            "lang": 7,
+            "name": "ZEEFDRUK J\r"
+        },
+        {
+            "technique_ref": "100221",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA K\r"
+        },
+        {
+            "technique_ref": "100221",
+            "lang": 2,
+            "name": "SCREEN PRINTING K\r"
+        },
+        {
+            "technique_ref": "100221",
+            "lang": 3,
+            "name": "SERIGRAFIA K\r"
+        },
+        {
+            "technique_ref": "100221",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE K\r"
+        },
+        {
+            "technique_ref": "100221",
+            "lang": 5,
+            "name": "SERIGRAFIA K\r"
+        },
+        {
+            "technique_ref": "100221",
+            "lang": 6,
+            "name": "SIEBDRUCK K\r"
+        },
+        {
+            "technique_ref": "100221",
+            "lang": 7,
+            "name": "ZEEFDRUK K\r"
+        },
+        {
+            "technique_ref": "100225",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA E A VANIAT\r"
+        },
+        {
+            "technique_ref": "100225",
+            "lang": 2,
+            "name": "SILK-SCREEN PRINT FOR VANIAT\r"
+        },
+        {
+            "technique_ref": "100225",
+            "lang": 3,
+            "name": "SERIGRAFIA E A VANIAT\r"
+        },
+        {
+            "technique_ref": "100225",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE E SUR VANIAT\r"
+        },
+        {
+            "technique_ref": "100225",
+            "lang": 5,
+            "name": "SERIGRAFIA E A VANIAT\r"
+        },
+        {
+            "technique_ref": "100225",
+            "lang": 6,
+            "name": "SIEBDRUCK E VANIATMODELL\r"
+        },
+        {
+            "technique_ref": "100225",
+            "lang": 7,
+            "name": "ZEEFDRUK VOOR VANIAT\r"
+        },
+        {
+            "technique_ref": "100226",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA F\r"
+        },
+        {
+            "technique_ref": "100226",
+            "lang": 2,
+            "name": "PAD PRINTING F"
+        },
+        {
+            "technique_ref": "100226",
+            "lang": 3,
+            "name": "TAMPOGRAFIA F"
+        },
+        {
+            "technique_ref": "100226",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE F"
+        },
+        {
+            "technique_ref": "100226",
+            "lang": 5,
+            "name": "TAMPOGRAFIA F"
+        },
+        {
+            "technique_ref": "100226",
+            "lang": 6,
+            "name": "TAMPONDRUCK F"
+        },
+        {
+            "technique_ref": "100226",
+            "lang": 7,
+            "name": "TAMPONDRUK F"
+        },
+        {
+            "technique_ref": "100227",
+            "lang": 1,
+            "name": "SERIGRAFIA H PARASOL"
+        },
+        {
+            "technique_ref": "100227",
+            "lang": 2,
+            "name": "SCREEN PRINTING H SUNSHADE"
+        },
+        {
+            "technique_ref": "100227",
+            "lang": 3,
+            "name": "SERIGRAFIA H PARASOLE "
+        },
+        {
+            "technique_ref": "100227",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE H PARE-SOLEIL"
+        },
+        {
+            "technique_ref": "100227",
+            "lang": 5,
+            "name": "SERIGRAFIA H P\u00c1RA-SOL "
+        },
+        {
+            "technique_ref": "100227",
+            "lang": 6,
+            "name": "SIEBDRUCK H AUTOSONNENSCHUTZ"
+        },
+        {
+            "technique_ref": "100227",
+            "lang": 7,
+            "name": "ZEEFDRUK H AUTOZONNESCHERM"
+        },
+        {
+            "technique_ref": "100300",
+            "lang": 1,
+            "name": "GRABACI\u00d3N QUIMICA Q\r"
+        },
+        {
+            "technique_ref": "100300",
+            "lang": 2,
+            "name": "CHEMICAL ENGRAVING\r"
+        },
+        {
+            "technique_ref": "100300",
+            "lang": 3,
+            "name": "INCISIONE CHIMICA Q\r"
+        },
+        {
+            "technique_ref": "100300",
+            "lang": 4,
+            "name": "GRAVURE CHIMIQUE Q\r"
+        },
+        {
+            "technique_ref": "100300",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O QU\u00cdMICA Q\r\n"
+        },
+        {
+            "technique_ref": "100300",
+            "lang": 6,
+            "name": "CHEMIEDRUCK  Q\r"
+        },
+        {
+            "technique_ref": "100300",
+            "lang": 7,
+            "name": "CHEMISCHE GRAVURE\r"
+        },
+        {
+            "technique_ref": "100400",
+            "lang": 1,
+            "name": "GRABACI\u00d3N LASER 1\r"
+        },
+        {
+            "technique_ref": "100400",
+            "lang": 2,
+            "name": "LASER ENGRAVING 1\r"
+        },
+        {
+            "technique_ref": "100400",
+            "lang": 3,
+            "name": "INCISIONE LASER 1\r"
+        },
+        {
+            "technique_ref": "100400",
+            "lang": 4,
+            "name": "GRAVURE LASER 1\r"
+        },
+        {
+            "technique_ref": "100400",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O LASER 1\r\n"
+        },
+        {
+            "technique_ref": "100400",
+            "lang": 6,
+            "name": "LASERGRAVUR 1\r"
+        },
+        {
+            "technique_ref": "100400",
+            "lang": 7,
+            "name": "LASER GRAVURE 1\r"
+        },
+        {
+            "technique_ref": "100401",
+            "lang": 1,
+            "name": "GRABACION LASER 1"
+        },
+        {
+            "technique_ref": "100401",
+            "lang": 2,
+            "name": "LASER ENGRAVING 1"
+        },
+        {
+            "technique_ref": "100401",
+            "lang": 3,
+            "name": "INCISIONE LASER 1\r"
+        },
+        {
+            "technique_ref": "100401",
+            "lang": 4,
+            "name": "GRAVURE LASER 1\r"
+        },
+        {
+            "technique_ref": "100401",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O LASER 1\r\n"
+        },
+        {
+            "technique_ref": "100401",
+            "lang": 6,
+            "name": "LASERDRUCK 1"
+        },
+        {
+            "technique_ref": "100401",
+            "lang": 7,
+            "name": "LASER GRAVURE 1"
+        },
+        {
+            "technique_ref": "100402",
+            "lang": 1,
+            "name": "GRABACION LASER 2"
+        },
+        {
+            "technique_ref": "100402",
+            "lang": 2,
+            "name": "LASER ENGRAVING 2"
+        },
+        {
+            "technique_ref": "100402",
+            "lang": 3,
+            "name": "INCISIONE LASER 2"
+        },
+        {
+            "technique_ref": "100402",
+            "lang": 4,
+            "name": "GRAVURE LASER 2\r"
+        },
+        {
+            "technique_ref": "100402",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O LASER 2\r\n"
+        },
+        {
+            "technique_ref": "100402",
+            "lang": 6,
+            "name": "LASERGRAVUR 2"
+        },
+        {
+            "technique_ref": "100402",
+            "lang": 7,
+            "name": "LASER GRAVURE 2"
+        },
+        {
+            "technique_ref": "100403",
+            "lang": 1,
+            "name": "GRABACION LASER 3"
+        },
+        {
+            "technique_ref": "100403",
+            "lang": 2,
+            "name": "LASER ENGRAVING 3"
+        },
+        {
+            "technique_ref": "100403",
+            "lang": 3,
+            "name": "INCISIONE LASER 3"
+        },
+        {
+            "technique_ref": "100403",
+            "lang": 4,
+            "name": "GRAVURE LASER 3"
+        },
+        {
+            "technique_ref": "100403",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O LASER 3"
+        },
+        {
+            "technique_ref": "100403",
+            "lang": 6,
+            "name": "LASERGRAVUR 3"
+        },
+        {
+            "technique_ref": "100403",
+            "lang": 7,
+            "name": "LASER GRAVURE 3"
+        },
+        {
+            "technique_ref": "100410",
+            "lang": 1,
+            "name": "GRABACI\u00d3N LASER OFERTA BOLIGRAFOS\r"
+        },
+        {
+            "technique_ref": "100410",
+            "lang": 2,
+            "name": "LASER ENGRAVING OFFER FOR PENS\r"
+        },
+        {
+            "technique_ref": "100410",
+            "lang": 3,
+            "name": "INCISIONE LASER OFFERTA PENNE\r"
+        },
+        {
+            "technique_ref": "100410",
+            "lang": 4,
+            "name": "GRAVURE LASER OFFRE STYLOS\r"
+        },
+        {
+            "technique_ref": "100410",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O LASER OFERTA ESFEROGR\u00c1FICAS\r\n"
+        },
+        {
+            "technique_ref": "100410",
+            "lang": 6,
+            "name": "LASERDRUCK KUGELSCHREIBERANGEBOT\r"
+        },
+        {
+            "technique_ref": "100410",
+            "lang": 7,
+            "name": "LASER GRAVURE AANBIEDING VOOR PEN\r"
+        },
+        {
+            "technique_ref": "100450",
+            "lang": 1,
+            "name": "GRABACI\u00d3N LASER LINE\r"
+        },
+        {
+            "technique_ref": "100450",
+            "lang": 2,
+            "name": "LASER ENGRAVING LINE\r"
+        },
+        {
+            "technique_ref": "100450",
+            "lang": 3,
+            "name": "INSIONE LASER LINE\r"
+        },
+        {
+            "technique_ref": "100450",
+            "lang": 4,
+            "name": "GRAVURE LASER LINE\r"
+        },
+        {
+            "technique_ref": "100450",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O LASER LINE\r\n"
+        },
+        {
+            "technique_ref": "100450",
+            "lang": 6,
+            "name": "LASERDRUCK LINE\r"
+        },
+        {
+            "technique_ref": "100450",
+            "lang": 7,
+            "name": "LASER  LIJN\r"
+        },
+        {
+            "technique_ref": "100500",
+            "lang": 1,
+            "name": "GRABACI\u00d3N BORDADO P\r"
+        },
+        {
+            "technique_ref": "100500",
+            "lang": 2,
+            "name": "EMBROIDERY W\r"
+        },
+        {
+            "technique_ref": "100500",
+            "lang": 3,
+            "name": "RICAMO\r"
+        },
+        {
+            "technique_ref": "100500",
+            "lang": 4,
+            "name": "BRODERIE P\r"
+        },
+        {
+            "technique_ref": "100500",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O BORDADO P\r\n"
+        },
+        {
+            "technique_ref": "100500",
+            "lang": 6,
+            "name": "BESTICKUNG\r"
+        },
+        {
+            "technique_ref": "100500",
+            "lang": 7,
+            "name": "BORDUREN W\r"
+        },
+        {
+            "technique_ref": "100600",
+            "lang": 1,
+            "name": "GRABACI\u00d3N TRANSFER SERIGR\u00c1FICO\r"
+        },
+        {
+            "technique_ref": "100600",
+            "lang": 2,
+            "name": "SILK-SCREEN PRINT\r"
+        },
+        {
+            "technique_ref": "100600",
+            "lang": 3,
+            "name": "STAMPA TRANSFER\r"
+        },
+        {
+            "technique_ref": "100600",
+            "lang": 4,
+            "name": "TRANSFERT S\u00c9RIGRAPHIQUE\r"
+        },
+        {
+            "technique_ref": "100600",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O TRANSFER SERIGRAFICO\r\n"
+        },
+        {
+            "technique_ref": "100600",
+            "lang": 6,
+            "name": "TRANSFERDRUCK\r"
+        },
+        {
+            "technique_ref": "100600",
+            "lang": 7,
+            "name": "ZEEFDRUK TRANSFER\r"
+        },
+        {
+            "technique_ref": "100700",
+            "lang": 1,
+            "name": "GRABACI\u00d3N CUATRICROMIA X\r"
+        },
+        {
+            "technique_ref": "100700",
+            "lang": 2,
+            "name": "CUATRICOMIA PRINT X\r"
+        },
+        {
+            "technique_ref": "100700",
+            "lang": 3,
+            "name": "STAMPA QUADRICROMIA X\r"
+        },
+        {
+            "technique_ref": "100700",
+            "lang": 4,
+            "name": "QUADRICHROMIE X \r"
+        },
+        {
+            "technique_ref": "100700",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O QUADRICROMIA X\r\n"
+        },
+        {
+            "technique_ref": "100700",
+            "lang": 6,
+            "name": "VIERFARBENDRUCK\r"
+        },
+        {
+            "technique_ref": "100700",
+            "lang": 7,
+            "name": "CUATRICOMIA DRUK X\r"
+        },
+        {
+            "technique_ref": "100701",
+            "lang": 1,
+            "name": "PLOTTER\r"
+        },
+        {
+            "technique_ref": "100701",
+            "lang": 2,
+            "name": "PLOTTER\r"
+        },
+        {
+            "technique_ref": "100701",
+            "lang": 3,
+            "name": "PLOTTER\r"
+        },
+        {
+            "technique_ref": "100701",
+            "lang": 4,
+            "name": "TRACEUR\r"
+        },
+        {
+            "technique_ref": "100701",
+            "lang": 5,
+            "name": "PLOTTER\r"
+        },
+        {
+            "technique_ref": "100701",
+            "lang": 6,
+            "name": "PLOTTER\r"
+        },
+        {
+            "technique_ref": "100701",
+            "lang": 7,
+            "name": "PLOTTER\r"
+        },
+        {
+            "technique_ref": "100800",
+            "lang": 1,
+            "name": "GRABACI\u00d3N TRANSFER DIGITAL\r"
+        },
+        {
+            "technique_ref": "100800",
+            "lang": 2,
+            "name": "DIGITAL TRANSFER PRINT\r"
+        },
+        {
+            "technique_ref": "100800",
+            "lang": 3,
+            "name": "STAMPA TRANSFER DIGITALE\r"
+        },
+        {
+            "technique_ref": "100800",
+            "lang": 4,
+            "name": "TRANSFERT NUM\u00c9RIQUE\r"
+        },
+        {
+            "technique_ref": "100800",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O TRANSFER DIGITAL\r\n"
+        },
+        {
+            "technique_ref": "100800",
+            "lang": 6,
+            "name": "DIGITALDRUCK\r"
+        },
+        {
+            "technique_ref": "100800",
+            "lang": 7,
+            "name": "DIGITALE TRANSFERDRUK\r"
+        },
+        {
+            "technique_ref": "100804",
+            "lang": 1,
+            "name": "SUBLIMACI\u00d3N\r"
+        },
+        {
+            "technique_ref": "100804",
+            "lang": 2,
+            "name": "SUBLIMATION TECHNOLOGY\r"
+        },
+        {
+            "technique_ref": "100804",
+            "lang": 3,
+            "name": "SUBLIMAZIONE\r"
+        },
+        {
+            "technique_ref": "100804",
+            "lang": 4,
+            "name": "SUBLIMATION\r"
+        },
+        {
+            "technique_ref": "100804",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O\r\n"
+        },
+        {
+            "technique_ref": "100804",
+            "lang": 6,
+            "name": "SUBLIMATION\r"
+        },
+        {
+            "technique_ref": "100804",
+            "lang": 7,
+            "name": "SUBLIMATIE\r"
+        },
+        {
+            "technique_ref": "100807",
+            "lang": 1,
+            "name": "SUBLIMACI\u00d3N\r"
+        },
+        {
+            "technique_ref": "100807",
+            "lang": 2,
+            "name": "SUBLIMATION TECHNOLOGY\r"
+        },
+        {
+            "technique_ref": "100807",
+            "lang": 3,
+            "name": "SUBLIMAZIONE\r"
+        },
+        {
+            "technique_ref": "100807",
+            "lang": 4,
+            "name": "SUBLIMATION\r"
+        },
+        {
+            "technique_ref": "100807",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O\r\n"
+        },
+        {
+            "technique_ref": "100807",
+            "lang": 6,
+            "name": "SUBLIMATION\r"
+        },
+        {
+            "technique_ref": "100807",
+            "lang": 7,
+            "name": "SUBLIMATIE TECHNOLOGIE\r"
+        },
+        {
+            "technique_ref": "100813",
+            "lang": 1,
+            "name": "SUBLIMACI\u00d3N A VANIAT\r"
+        },
+        {
+            "technique_ref": "100813",
+            "lang": 2,
+            "name": "VANIAT SUBLIMATION TECHNOLOGY\r"
+        },
+        {
+            "technique_ref": "100813",
+            "lang": 3,
+            "name": "SUBLIMAZIONE A VANIAT\r"
+        },
+        {
+            "technique_ref": "100813",
+            "lang": 4,
+            "name": "SUBLIMATION VANIAT\r"
+        },
+        {
+            "technique_ref": "100813",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O A VANIAT\r"
+        },
+        {
+            "technique_ref": "100813",
+            "lang": 6,
+            "name": "SUBLIMATION F\u00dcR VANIATMODELL\r"
+        },
+        {
+            "technique_ref": "100813",
+            "lang": 7,
+            "name": "VANIAT SUBLIMATIE TECHNOLOGIE\r"
+        },
+        {
+            "technique_ref": "100814",
+            "lang": 1,
+            "name": "SUBLIMACI\u00d3N A VANIAT MENOS 100 uds.\r"
+        },
+        {
+            "technique_ref": "100814",
+            "lang": 2,
+            "name": "VANIAT SUBLIMATION TECHNOLOGY 100 uds.\r"
+        },
+        {
+            "technique_ref": "100814",
+            "lang": 3,
+            "name": "SUBLIMAZIONE A VANIAT MENO 100 PEZZI\r"
+        },
+        {
+            "technique_ref": "100814",
+            "lang": 4,
+            "name": "SUBLIMATION VANIAT MOINS DE 100 PCS\r"
+        },
+        {
+            "technique_ref": "100814",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O A VANIAT MENOS 100 uds.\r\n"
+        },
+        {
+            "technique_ref": "100814",
+            "lang": 6,
+            "name": "SUBLIMATION F\u00dcR VANIATMODELL F\u00dcR WENIGER ALS 100 EINHEITEN\r"
+        },
+        {
+            "technique_ref": "100814",
+            "lang": 7,
+            "name": "VANIAT SUBLIMATIE TECHNOLOGIE 100 uds.\r"
+        },
+        {
+            "technique_ref": "100815",
+            "lang": 1,
+            "name": "ENVASE SUBLIMACI\u00d3N 1 CARA\r"
+        },
+        {
+            "technique_ref": "100815",
+            "lang": 2,
+            "name": "SUBLIMATION TECHNOLOGY FOR MUGS 1 SIDE\r"
+        },
+        {
+            "technique_ref": "100815",
+            "lang": 3,
+            "name": "SUBLIMAZIONE TAZZE 1 LATO\r"
+        },
+        {
+            "technique_ref": "100815",
+            "lang": 4,
+            "name": "SUBLIMATION MUGS SUR 1 FACE\r"
+        },
+        {
+            "technique_ref": "100815",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O CANECAS UM LADO\r\n"
+        },
+        {
+            "technique_ref": "100815",
+            "lang": 6,
+            "name": "TASSESUBLIMATION 1 SEITE\r"
+        },
+        {
+            "technique_ref": "100815",
+            "lang": 7,
+            "name": "SUBLIMATIE TECHNOLOGIE VOOR MOKKEN 1 ZIJDE\r"
+        },
+        {
+            "technique_ref": "100816",
+            "lang": 1,
+            "name": "ENVASE SUBLIMACI\u00d3N 2 CARAS\r"
+        },
+        {
+            "technique_ref": "100816",
+            "lang": 2,
+            "name": "SUBLIMATION TECHNOLOGY FOR MUGS 2 SIDES\r"
+        },
+        {
+            "technique_ref": "100816",
+            "lang": 3,
+            "name": "SUBLIMAZIONE TAZZE 2 LATI\r"
+        },
+        {
+            "technique_ref": "100816",
+            "lang": 4,
+            "name": "SUBLIMATION MUGS SUR 2 FACES \r"
+        },
+        {
+            "technique_ref": "100816",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O CANECAS 2 LADOS\r\n"
+        },
+        {
+            "technique_ref": "100816",
+            "lang": 6,
+            "name": "TASSESUBLIMATION 2 SEITEN\r"
+        },
+        {
+            "technique_ref": "100816",
+            "lang": 7,
+            "name": "SUBLIMATIE TECHNOLOGIE VOOR MOKKEN 2 ZIJDEN\r"
+        },
+        {
+            "technique_ref": "100817",
+            "lang": 1,
+            "name": "SUBLIMACI\u00d3N CAMISETAS (PECHO O ESPALDA)\r"
+        },
+        {
+            "technique_ref": "100817",
+            "lang": 2,
+            "name": "SUBLIMATION TECHNOLOGY Chest or back)\r"
+        },
+        {
+            "technique_ref": "100817",
+            "lang": 3,
+            "name": "SUBLIMAZIONE MAGLIETTE (PETTO O SCHIENA)\r"
+        },
+        {
+            "technique_ref": "100817",
+            "lang": 4,
+            "name": "SUBLIMATION T- SHIRTS ( POITRINE OU DOS)\r"
+        },
+        {
+            "technique_ref": "100817",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O T-SHIRT (PEITO OU COSTAS)\r\n"
+        },
+        {
+            "technique_ref": "100817",
+            "lang": 6,
+            "name": "HEMDESUBLIMATION (BRUSTSEITE ODER R\u00dcCKSEITE)\r"
+        },
+        {
+            "technique_ref": "100817",
+            "lang": 7,
+            "name": "SUBLIMATIE TECHNOLOGIE (BORST OF RUG)\r"
+        },
+        {
+            "technique_ref": "100818",
+            "lang": 1,
+            "name": "SUBLIMACI\u00d3N CAMISETAS (BOLSILLO O MANGA)\r"
+        },
+        {
+            "technique_ref": "100818",
+            "lang": 2,
+            "name": "SUBLIMATION TECHNOLOGY (sleaves and pockets)\r"
+        },
+        {
+            "technique_ref": "100818",
+            "lang": 3,
+            "name": "SUBLIMAZIONE MAGLIETTE (TASCA O MANICA)\r"
+        },
+        {
+            "technique_ref": "100818",
+            "lang": 4,
+            "name": "SUBLIMATION T-SHIRTS ( POCHE OU MANCHE)\r"
+        },
+        {
+            "technique_ref": "100818",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O T-SHIRT (BOLSO OU MANGA)\r\n"
+        },
+        {
+            "technique_ref": "100818",
+            "lang": 6,
+            "name": "HEMDESUBLIMATION (HEMDTASCHE ODER \u00c4RMEL)\r"
+        },
+        {
+            "technique_ref": "100818",
+            "lang": 7,
+            "name": "SUBLIMATIE TECHNOLOGIE (MOUWEN EN ZAKJES )\r"
+        },
+        {
+            "technique_ref": "100819",
+            "lang": 1,
+            "name": "SUBLIMACI\u00d3N TAMA\u00d1O GRANDE (+100 cm2)\r"
+        },
+        {
+            "technique_ref": "100819",
+            "lang": 2,
+            "name": "SUBLIMATION TECHNOLOGY BIG SIZE (+100 cm2)\r"
+        },
+        {
+            "technique_ref": "100819",
+            "lang": 3,
+            "name": "SUBLIMAZIONE MISURA GRANDE (+100 cm2)\r"
+        },
+        {
+            "technique_ref": "100819",
+            "lang": 4,
+            "name": "SUBLIMATION GRANDES DIMENTIONS (+100 cm2)\r"
+        },
+        {
+            "technique_ref": "100819",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O TAMANHO GRANDE (+100 cm2)\r\n"
+        },
+        {
+            "technique_ref": "100819",
+            "lang": 6,
+            "name": "SUBLIMATION GROSSER FORMAT (+100 cm2)\r"
+        },
+        {
+            "technique_ref": "100819",
+            "lang": 7,
+            "name": "SUBLIMATIE TECHNOLOGIE GROTE MAAT (+100 cm2)\r"
+        },
+        {
+            "technique_ref": "100820",
+            "lang": 1,
+            "name": "SUBLIMACI\u00d3N TAMA\u00d1O PEQUE\u00d1O (-100 cm2)\r"
+        },
+        {
+            "technique_ref": "100820",
+            "lang": 2,
+            "name": "SUBLIMATION TECHNOLOGY SMALL SIZE (-100cm2)\r"
+        },
+        {
+            "technique_ref": "100820",
+            "lang": 3,
+            "name": "SUBLIMAZIONE MISURA PICCOLA (-100CM2)\r"
+        },
+        {
+            "technique_ref": "100820",
+            "lang": 4,
+            "name": "SUBLIMATION PETITES DIMENTIONS (-100cm2)\r"
+        },
+        {
+            "technique_ref": "100820",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O TAMANHO PEQUENO (-100cm2)\r\n"
+        },
+        {
+            "technique_ref": "100820",
+            "lang": 6,
+            "name": "SUBLIMATION KLEINER FORMAT (-100CM2)\r"
+        },
+        {
+            "technique_ref": "100820",
+            "lang": 7,
+            "name": "SUBLIMATIE TECHNOLOGIE KLEINE MAAT (-100cm2)\r"
+        },
+        {
+            "technique_ref": "100835",
+            "lang": 1,
+            "name": "SUBLIMACI\u00d3N CINTAS_4435\r"
+        },
+        {
+            "technique_ref": "100835",
+            "lang": 2,
+            "name": "SUBLIMATION TECHNOLOGY for 4435 RIBBONS\r"
+        },
+        {
+            "technique_ref": "100835",
+            "lang": 3,
+            "name": "SUBLIMAZIONE NASTRI 4435\r"
+        },
+        {
+            "technique_ref": "100835",
+            "lang": 4,
+            "name": "SUBLIMATION BANDEAU_4435\r"
+        },
+        {
+            "technique_ref": "100835",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O CINTAS_4435\r"
+        },
+        {
+            "technique_ref": "100835",
+            "lang": 6,
+            "name": "BANDSUBLIMATION_4435\r"
+        },
+        {
+            "technique_ref": "100835",
+            "lang": 7,
+            "name": "SUBLIMATIE TECHNOLOGIE VOOR 4435 BANDEN\r"
+        },
+        {
+            "technique_ref": "100836",
+            "lang": 1,
+            "name": "SUBLIMACION CINTA LANYARD (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100836",
+            "lang": 2,
+            "name": "SUBLIMACION CINTA LANYARD (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100836",
+            "lang": 3,
+            "name": "SUBLIMACION CINTA LANYARD (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100836",
+            "lang": 4,
+            "name": "SUBLIMACION CINTA LANYARD (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100836",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O FITA DE CORDA (FULLCOLOR)"
+        },
+        {
+            "technique_ref": "100836",
+            "lang": 6,
+            "name": "SUBLIMACION CINTA LANYARD (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100836",
+            "lang": 7,
+            "name": "SUBLIMACION CINTA LANYARD (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100837",
+            "lang": 1,
+            "name": "SUBLIMACI\u00d3N PULSERA WAYLEN (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100837",
+            "lang": 2,
+            "name": "SUBLIMACI\u00d3N PULSERA WAYLEN (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100837",
+            "lang": 3,
+            "name": "SUBLIMACI\u00d3N PULSERA WAYLEN (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100837",
+            "lang": 4,
+            "name": "SUBLIMACI\u00d3N PULSERA WAYLEN (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100837",
+            "lang": 5,
+            "name": "SUBLIMA\u00c7\u00c3O FITA WAYLEN (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100837",
+            "lang": 6,
+            "name": "SUBLIMACI\u00d3N PULSERA WAYLEN (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100837",
+            "lang": 7,
+            "name": "SUBLIMACI\u00d3N PULSERA WAYLEN (FULLCOLOR)\r"
+        },
+        {
+            "technique_ref": "100993",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA CINTAS NON-WOVEN\r"
+        },
+        {
+            "technique_ref": "100993",
+            "lang": 2,
+            "name": "SCREEN PRINTING CINTAS NON-WOVEN\r"
+        },
+        {
+            "technique_ref": "100993",
+            "lang": 3,
+            "name": "SERIGRAFIA CINTAS NON-WOVEN\r"
+        },
+        {
+            "technique_ref": "100993",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE CINTAS NON-WOVEN"
+        },
+        {
+            "technique_ref": "100993",
+            "lang": 5,
+            "name": "SERIGRAFIA FITA NON-WOVEN\r"
+        },
+        {
+            "technique_ref": "100993",
+            "lang": 6,
+            "name": "SIEBDRUCK CINTAS NON-WOVEN\r"
+        },
+        {
+            "technique_ref": "100993",
+            "lang": 7,
+            "name": "ZEEFDRUK CINTAS NON-WOVEN\r"
+        },
+        {
+            "technique_ref": "100994",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA CINTA POLIESTER\r"
+        },
+        {
+            "technique_ref": "100994",
+            "lang": 2,
+            "name": "SCREEN PRINTING CINTA POLIESTER"
+        },
+        {
+            "technique_ref": "100994",
+            "lang": 3,
+            "name": "SERIGRAFIA CINTA POLIESTER\r"
+        },
+        {
+            "technique_ref": "100994",
+            "lang": 4,
+            "name": "S\u00c9RIGRAPHIE CINTA POLIESTER"
+        },
+        {
+            "technique_ref": "100994",
+            "lang": 5,
+            "name": "SERIGRAFIA FITA POLIESTER\r"
+        },
+        {
+            "technique_ref": "100994",
+            "lang": 6,
+            "name": "SIEBDRUCK CINTA POLIESTER"
+        },
+        {
+            "technique_ref": "100994",
+            "lang": 7,
+            "name": "ZEEFDRUK CINTA POLIESTER"
+        },
+        {
+            "technique_ref": "100995",
+            "lang": 1,
+            "name": "SUBLIMACION CINTAS (FULLCOLOR)"
+        },
+        {
+            "technique_ref": "100995",
+            "lang": 2,
+            "name": "SUBLIMATION TECHNOLOGY RIBBONS (FULLCOLOR)"
+        },
+        {
+            "technique_ref": "100995",
+            "lang": 3,
+            "name": "NASTRI PER SUBLIMAZIONE (FULLCOLOR)"
+        },
+        {
+            "technique_ref": "100995",
+            "lang": 4,
+            "name": "SUBLIMATION BANDEAU_4435 (FULLCOLOR)"
+        },
+        {
+            "technique_ref": "100995",
+            "lang": 5,
+            "name": "FITAS DE SUBLIMA\u00c7\u00c3O (CORES)"
+        },
+        {
+            "technique_ref": "100995",
+            "lang": 6,
+            "name": "SUBLIMATIONSB\u00c4NDER (VOLLFARBIG)"
+        },
+        {
+            "technique_ref": "100995",
+            "lang": 7,
+            "name": "SUBLIMATIELINTEN (FULLCOLOR)"
+        },
+        {
+            "technique_ref": "100996",
+            "lang": 1,
+            "name": "FLEXOGRAF\u00cdA DE CINTAS\r"
+        },
+        {
+            "technique_ref": "100996",
+            "lang": 2,
+            "name": "RIBBONS FLEXOGRAPHY\r"
+        },
+        {
+            "technique_ref": "100996",
+            "lang": 3,
+            "name": "FLEXOGRAFIA DEI NASTRI\r"
+        },
+        {
+            "technique_ref": "100996",
+            "lang": 4,
+            "name": "FLEXOGRAPHIE  DE BANDEAU\r"
+        },
+        {
+            "technique_ref": "100996",
+            "lang": 5,
+            "name": "FLEXOGRAFIA DE CINTAS\r"
+        },
+        {
+            "technique_ref": "100996",
+            "lang": 6,
+            "name": "FLEXO F\u00dcR HUTB\u00c4NDER\r"
+        },
+        {
+            "technique_ref": "100996",
+            "lang": 7,
+            "name": "FLEXOGRAFIE OP BANDEN\r"
+        },
+        {
+            "technique_ref": "100997",
+            "lang": 1,
+            "name": "COSIDO CINTAS FILAGARCHADO Y PAMELAS\r"
+        },
+        {
+            "technique_ref": "100997",
+            "lang": 2,
+            "name": "SEWING FOR PAMELAS AND FILAGARCHADO HAT\r"
+        },
+        {
+            "technique_ref": "100997",
+            "lang": 3,
+            "name": "CUCITO NASTRI FILAGARCHADO E PAMELA\r"
+        },
+        {
+            "technique_ref": "100997",
+            "lang": 4,
+            "name": "COUTURE DU BANDEAU FILARCHADO ET CHAPEAU\r"
+        },
+        {
+            "technique_ref": "100997",
+            "lang": 5,
+            "name": "COSIDO CINTAS FILAGARCHADO Y PAMELAS\r"
+        },
+        {
+            "technique_ref": "100997",
+            "lang": 6,
+            "name": "FLORENTINERHUT GEN\u00c4HT\r"
+        },
+        {
+            "technique_ref": "100997",
+            "lang": 7,
+            "name": "VASTNAAIEN HOEDBAND OP FILAGARCHADO EN PAMELAS\r"
+        },
+        {
+            "technique_ref": "100999",
+            "lang": 1,
+            "name": "COSIDO DE CINTAS\r"
+        },
+        {
+            "technique_ref": "100999",
+            "lang": 2,
+            "name": "RIBBONS SEWING\r"
+        },
+        {
+            "technique_ref": "100999",
+            "lang": 3,
+            "name": "CUCITO NASTRI \r"
+        },
+        {
+            "technique_ref": "100999",
+            "lang": 4,
+            "name": "COUTURE DU BANDEAU\r"
+        },
+        {
+            "technique_ref": "100999",
+            "lang": 5,
+            "name": "COSIDO DE CINTAS\r"
+        },
+        {
+            "technique_ref": "100999",
+            "lang": 6,
+            "name": "HUTBAND GEN\u00c4HT\r"
+        },
+        {
+            "technique_ref": "100999",
+            "lang": 7,
+            "name": "BANDEN VASTNAAIEN\r"
+        },
+        {
+            "technique_ref": "101002",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101002",
+            "lang": 2,
+            "name": "PAD PRINTING Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101002",
+            "lang": 3,
+            "name": "TAMPOGRAFIA Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101002",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101002",
+            "lang": 5,
+            "name": "TAMPOGRAFIA Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101002",
+            "lang": 6,
+            "name": "TAMPONDRUCK Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101002",
+            "lang": 7,
+            "name": "TAMPONDRUK Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101003",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101003",
+            "lang": 2,
+            "name": "PAD PRINTING Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101003",
+            "lang": 3,
+            "name": "TAMPOGRAFIA Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101003",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101003",
+            "lang": 5,
+            "name": "TAMPOGRAFIA Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101003",
+            "lang": 6,
+            "name": "TAMPONDRUCK Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101003",
+            "lang": 7,
+            "name": "TAMPONDRUK Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101004",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA 2 Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101004",
+            "lang": 2,
+            "name": "PAD PRINTING 2 Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101004",
+            "lang": 3,
+            "name": "TAMPOGRAFIA 2 Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101004",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE 2 Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101004",
+            "lang": 5,
+            "name": "TAMPOGRAFIA 2 Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101004",
+            "lang": 6,
+            "name": "TAMPONDRUCK 2 Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101004",
+            "lang": 7,
+            "name": "TAMPONDRUK 2 Z KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101005",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA 2 Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101005",
+            "lang": 2,
+            "name": "PAD PRINTING 2 Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101005",
+            "lang": 3,
+            "name": "TAMPOGRAFIA 2 Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101005",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE 2 Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101005",
+            "lang": 5,
+            "name": "TAMPOGRAFIA 2 Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101005",
+            "lang": 6,
+            "name": "TAMPONDRUCK 2 Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101005",
+            "lang": 7,
+            "name": "TAMPONDRUK 2 Y KING OF PENS\r"
+        },
+        {
+            "technique_ref": "101007",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA B + 5000 UDS\r"
+        },
+        {
+            "technique_ref": "101007",
+            "lang": 2,
+            "name": "PAD PRINTING B + 5000 PCS\r"
+        },
+        {
+            "technique_ref": "101007",
+            "lang": 3,
+            "name": "TAMPOGRAFIA B + 5000 PCS\r"
+        },
+        {
+            "technique_ref": "101007",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE B + 5000 PCS\r"
+        },
+        {
+            "technique_ref": "101007",
+            "lang": 5,
+            "name": "TAMPOGRAFIA B + 5000 PCS"
+        },
+        {
+            "technique_ref": "101007",
+            "lang": 6,
+            "name": "TAMPONDRUCK B + 5000 PCS"
+        },
+        {
+            "technique_ref": "101007",
+            "lang": 7,
+            "name": "TAMPONDRUK B + 5000 PCS\r"
+        },
+        {
+            "technique_ref": "101008",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA A +10000 UDS\r"
+        },
+        {
+            "technique_ref": "101008",
+            "lang": 2,
+            "name": "PAD PRINTING A +10000 PCS\r"
+        },
+        {
+            "technique_ref": "101008",
+            "lang": 3,
+            "name": "TAMPOGRAFIA A +10000 PCS\r"
+        },
+        {
+            "technique_ref": "101008",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE A +10000 PCS"
+        },
+        {
+            "technique_ref": "101008",
+            "lang": 5,
+            "name": "TAMPOGRAFIA A +10000 PCS"
+        },
+        {
+            "technique_ref": "101008",
+            "lang": 6,
+            "name": "TAMPONDRUCK A +10000 PCS"
+        },
+        {
+            "technique_ref": "101008",
+            "lang": 7,
+            "name": "TAMPONDRUK A +10000 PCS"
+        },
+        {
+            "technique_ref": "101009",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA A  D10M OFERTA 1-2 COLORES\r"
+        },
+        {
+            "technique_ref": "101009",
+            "lang": 2,
+            "name": "PAD PRINTING A D10M OFFER 1-2 COLORS\r"
+        },
+        {
+            "technique_ref": "101009",
+            "lang": 3,
+            "name": "TAMPOGRAFIA A  D10M OFFERTA 1-2 COLORI\r"
+        },
+        {
+            "technique_ref": "101009",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE A D10M OFFRE 1-2COULEURS\r"
+        },
+        {
+            "technique_ref": "101009",
+            "lang": 5,
+            "name": "TAMPOGRAFIA A  D10M OFERTA 1-2 COLORES\r"
+        },
+        {
+            "technique_ref": "101009",
+            "lang": 6,
+            "name": "TAMPONDRUCK A D10M  1-2 FARBEANGEBOT\r"
+        },
+        {
+            "technique_ref": "101009",
+            "lang": 7,
+            "name": "TAMPONDRUK A D10M AANBIEDING 1-2 KLEUREN\r"
+        },
+        {
+            "technique_ref": "101010",
+            "lang": 1,
+            "name": "PEGATINAS ESPECIALES\r"
+        },
+        {
+            "technique_ref": "101010",
+            "lang": 2,
+            "name": "SPECIAL LABELING\r"
+        },
+        {
+            "technique_ref": "101010",
+            "lang": 3,
+            "name": "ADESIVI SPECIALI\r"
+        },
+        {
+            "technique_ref": "101010",
+            "lang": 4,
+            "name": "ETIQUETTES SP\u00c9CIALES\r"
+        },
+        {
+            "technique_ref": "101010",
+            "lang": 5,
+            "name": "AUTOCOLANTES ESPECIAIS\r\n"
+        },
+        {
+            "technique_ref": "101010",
+            "lang": 6,
+            "name": "BESONDERE AUFKLEBER\r"
+        },
+        {
+            "technique_ref": "101010",
+            "lang": 7,
+            "name": "SPECIALE LABELS\r"
+        },
+        {
+            "technique_ref": "101011",
+            "lang": 1,
+            "name": "DOBLADO Y EMBOLSADO\r"
+        },
+        {
+            "technique_ref": "101011",
+            "lang": 2,
+            "name": "FOLDING AND POCKETING\r"
+        },
+        {
+            "technique_ref": "101011",
+            "lang": 3,
+            "name": "PIEGA E IMBUSTA\r"
+        },
+        {
+            "technique_ref": "101011",
+            "lang": 4,
+            "name": "PLIAGE ET EMBALLAGE\r"
+        },
+        {
+            "technique_ref": "101011",
+            "lang": 5,
+            "name": "DOBRADO E EMBOLSADO\r\n"
+        },
+        {
+            "technique_ref": "101011",
+            "lang": 6,
+            "name": "GEFALTET UND IN INDIVIDUELLEN POLYBEUETEL VERPACKT\r"
+        },
+        {
+            "technique_ref": "101011",
+            "lang": 7,
+            "name": "VOUWEN EN IN ZAKJE DOEN\r"
+        },
+        {
+            "technique_ref": "101012",
+            "lang": 1,
+            "name": "MANIPULACI\u00d3N EXTRA\r"
+        },
+        {
+            "technique_ref": "101012",
+            "lang": 2,
+            "name": "EXTRA HANDLING COST\r"
+        },
+        {
+            "technique_ref": "101012",
+            "lang": 3,
+            "name": "ULTERIORE MANIPOLAZIONE\r"
+        },
+        {
+            "technique_ref": "101012",
+            "lang": 4,
+            "name": "MANUTENTION EXTRA\r"
+        },
+        {
+            "technique_ref": "101012",
+            "lang": 5,
+            "name": "MANIPULA\u00c7\u00c3O EXTRA\r\n"
+        },
+        {
+            "technique_ref": "101012",
+            "lang": 6,
+            "name": "EXTRABEHANDLUNG\r"
+        },
+        {
+            "technique_ref": "101012",
+            "lang": 7,
+            "name": "EXTRA WERK\r"
+        },
+        {
+            "technique_ref": "101013",
+            "lang": 1,
+            "name": "EMBOLSADO INDIVIDUAL\r"
+        },
+        {
+            "technique_ref": "101013",
+            "lang": 2,
+            "name": "INDIVIDUAL POCKETING\r"
+        },
+        {
+            "technique_ref": "101013",
+            "lang": 3,
+            "name": "IMBUSTATO INDIVIDUALE\r"
+        },
+        {
+            "technique_ref": "101013",
+            "lang": 4,
+            "name": "EMBALLAGE INDIVIDUEL\r"
+        },
+        {
+            "technique_ref": "101013",
+            "lang": 5,
+            "name": "EMBOLSADO INDIVIDUAL\r"
+        },
+        {
+            "technique_ref": "101013",
+            "lang": 6,
+            "name": "EINZELPACKUNG (POLYBEUTEL)\r"
+        },
+        {
+            "technique_ref": "101013",
+            "lang": 7,
+            "name": "INDIVIDUEEL ZAKJE\r"
+        },
+        {
+            "technique_ref": "101014",
+            "lang": 1,
+            "name": "MANIPULACI\u00d3N Y EMBALAJE ESPECIAL\r"
+        },
+        {
+            "technique_ref": "101014",
+            "lang": 2,
+            "name": "SPECIAL PACKING AND HANDLING\r"
+        },
+        {
+            "technique_ref": "101014",
+            "lang": 3,
+            "name": "MANIPOLAZIONE E IMBALLO SPECIALE\r"
+        },
+        {
+            "technique_ref": "101014",
+            "lang": 4,
+            "name": "CONDITIONNEMENT SP\u00c9CIAL\r"
+        },
+        {
+            "technique_ref": "101014",
+            "lang": 5,
+            "name": "MANIPULA\u00c7\u00c3O E EMBALAGEM ESPECIAL\r\n"
+        },
+        {
+            "technique_ref": "101014",
+            "lang": 6,
+            "name": "BESONDERE BEHANDLUNG UND VERPACKUNG\r"
+        },
+        {
+            "technique_ref": "101014",
+            "lang": 7,
+            "name": "SPECIALE VERPAKKING EN HANDLING\r"
+        },
+        {
+            "technique_ref": "101015",
+            "lang": 1,
+            "name": "GRABACI\u00d3N DATOS\r"
+        },
+        {
+            "technique_ref": "101015",
+            "lang": 2,
+            "name": "DATA RECORD\r"
+        },
+        {
+            "technique_ref": "101015",
+            "lang": 3,
+            "name": "CARICAMENTO DATI\r"
+        },
+        {
+            "technique_ref": "101015",
+            "lang": 4,
+            "name": "GRAVURE DE DONN\u00c9ES\r"
+        },
+        {
+            "technique_ref": "101015",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O DADOS\r\n"
+        },
+        {
+            "technique_ref": "101015",
+            "lang": 6,
+            "name": "DATENERFASSUNG\r"
+        },
+        {
+            "technique_ref": "101015",
+            "lang": 7,
+            "name": "DATA OPSLAG\r"
+        },
+        {
+            "technique_ref": "101017",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA B +10000 UDS\r"
+        },
+        {
+            "technique_ref": "101017",
+            "lang": 2,
+            "name": "PAD PRINTING B +10000 PCS\r"
+        },
+        {
+            "technique_ref": "101017",
+            "lang": 3,
+            "name": "TAMPOGRAFIA B +10000 PCS\r"
+        },
+        {
+            "technique_ref": "101017",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE B +10000 PCS"
+        },
+        {
+            "technique_ref": "101017",
+            "lang": 5,
+            "name": "TAMPOGRAFIA B +10000 PCS"
+        },
+        {
+            "technique_ref": "101017",
+            "lang": 6,
+            "name": "TAMPONDRUCK B +10000 PCS"
+        },
+        {
+            "technique_ref": "101017",
+            "lang": 7,
+            "name": "TAMPONDRUK B +10000 PCS"
+        },
+        {
+            "technique_ref": "101018",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA C + 5000 UDS"
+        },
+        {
+            "technique_ref": "101018",
+            "lang": 2,
+            "name": "PAD PRINTING C + 5000 PCS"
+        },
+        {
+            "technique_ref": "101018",
+            "lang": 3,
+            "name": "TAMPOGRAF\u00cdA C + 5000 UDS"
+        },
+        {
+            "technique_ref": "101018",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE C + 5000 PCS"
+        },
+        {
+            "technique_ref": "101018",
+            "lang": 5,
+            "name": "TAMPOGRAFIA C + 5000 PCS"
+        },
+        {
+            "technique_ref": "101018",
+            "lang": 6,
+            "name": "TAMPONDRUCK C + 5000 PCS"
+        },
+        {
+            "technique_ref": "101018",
+            "lang": 7,
+            "name": "TAMPONDRUK C + 5000 PCS"
+        },
+        {
+            "technique_ref": "101050",
+            "lang": 1,
+            "name": "RETRACTILADO\r"
+        },
+        {
+            "technique_ref": "101050",
+            "lang": 2,
+            "name": "SHRINK WRAPPING\r"
+        },
+        {
+            "technique_ref": "101050",
+            "lang": 3,
+            "name": "SIGILO TERMORETRAIBILE\r"
+        },
+        {
+            "technique_ref": "101050",
+            "lang": 4,
+            "name": "R\u00c9TRACTION\r"
+        },
+        {
+            "technique_ref": "101050",
+            "lang": 5,
+            "name": "FILMADO\r\n"
+        },
+        {
+            "technique_ref": "101050",
+            "lang": 6,
+            "name": "SHRINK\r"
+        },
+        {
+            "technique_ref": "101050",
+            "lang": 7,
+            "name": "KRIMPVERPAKKING\r"
+        },
+        {
+            "technique_ref": "101051",
+            "lang": 1,
+            "name": "FLOW PACK\r"
+        },
+        {
+            "technique_ref": "101051",
+            "lang": 2,
+            "name": "FLOW PACK\r"
+        },
+        {
+            "technique_ref": "101051",
+            "lang": 3,
+            "name": "FLOW PACK\r"
+        },
+        {
+            "technique_ref": "101051",
+            "lang": 4,
+            "name": "FLOW PACK\r"
+        },
+        {
+            "technique_ref": "101051",
+            "lang": 5,
+            "name": "FLOW PACK\r"
+        },
+        {
+            "technique_ref": "101051",
+            "lang": 6,
+            "name": "FLOW PACK\r"
+        },
+        {
+            "technique_ref": "101051",
+            "lang": 7,
+            "name": "FLOW VERPAKKING\r"
+        },
+        {
+            "technique_ref": "101200",
+            "lang": 1,
+            "name": "TERMOGRABADO SECO\r"
+        },
+        {
+            "technique_ref": "101200",
+            "lang": 2,
+            "name": "DRY WOODBURNING\r"
+        },
+        {
+            "technique_ref": "101200",
+            "lang": 3,
+            "name": "TIMBRO A CALDO\r"
+        },
+        {
+            "technique_ref": "101200",
+            "lang": 4,
+            "name": "THERMOGRAVURE \u00c0 SEC\r"
+        },
+        {
+            "technique_ref": "101200",
+            "lang": 5,
+            "name": "TERMOGRAVADO SECO\r\n"
+        },
+        {
+            "technique_ref": "101200",
+            "lang": 6,
+            "name": "PR\u00c4GUNG\r"
+        },
+        {
+            "technique_ref": "101200",
+            "lang": 7,
+            "name": "TERMOGRAPHIE DROOG\r"
+        },
+        {
+            "technique_ref": "101201",
+            "lang": 1,
+            "name": "TERMOGRABADO CINTA COLOR\r"
+        },
+        {
+            "technique_ref": "101201",
+            "lang": 2,
+            "name": "COLOR RIBBON WOODBURNING\r"
+        },
+        {
+            "technique_ref": "101201",
+            "lang": 3,
+            "name": "TIMBRO A CALDO CON NASTRO COLORE\r"
+        },
+        {
+            "technique_ref": "101201",
+            "lang": 4,
+            "name": "THERMOGRAVURE BANDE EN COULEUR\r"
+        },
+        {
+            "technique_ref": "101201",
+            "lang": 5,
+            "name": "TERMOGRAVADO FITA COR\r\n"
+        },
+        {
+            "technique_ref": "101201",
+            "lang": 6,
+            "name": "FARBEBANDPR\u00c4GUNG\r"
+        },
+        {
+            "technique_ref": "101201",
+            "lang": 7,
+            "name": "TERMOGRAPHIE KLEURENBAND\r"
+        },
+        {
+            "technique_ref": "102001",
+            "lang": 1,
+            "name": "DOMING- GOTA DE RESINA V1 -5  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102001",
+            "lang": 2,
+            "name": "DOMING - V1 -5  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102001",
+            "lang": 3,
+            "name": "DOMING - GOCCIA DI RESINA V1 - 5  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102001",
+            "lang": 4,
+            "name": "DOMING-GOUTE DE RESINE V1 -5  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102001",
+            "lang": 5,
+            "name": "DOMING- GOTA DE RESINA V1 -5  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102001",
+            "lang": 6,
+            "name": "DOMING - V1 -5  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102001",
+            "lang": 7,
+            "name": "DOMING - V1 -5  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102002",
+            "lang": 1,
+            "name": "DOMING - GOTA DE RESINA V2 -10   cm<sup>2<\/sup>"
+        },
+        {
+            "technique_ref": "102002",
+            "lang": 2,
+            "name": "DOMING - V2 -10  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102002",
+            "lang": 3,
+            "name": "DOMING - GOCCIA DI RESINA V2 - 10  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102002",
+            "lang": 4,
+            "name": "DOMING-GOUTE DE RESINE V2 -10  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102002",
+            "lang": 5,
+            "name": "DOMING - GOTA DE RESINA V2 -10  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102002",
+            "lang": 6,
+            "name": "DOMING - V2 -10  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102002",
+            "lang": 7,
+            "name": "DOMING - V2 -10  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102003",
+            "lang": 1,
+            "name": "DOMING - GOTA DE RESINA V3 -15  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102003",
+            "lang": 2,
+            "name": "DOMING - V3 -15  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102003",
+            "lang": 3,
+            "name": "DOMING - GOCCIA DI RESINA V3 - 15  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102003",
+            "lang": 4,
+            "name": "DOMING-GOUTE DE RESINE V3 -15  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102003",
+            "lang": 5,
+            "name": "DOMING - GOTA DE RESINA V3 -15  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102003",
+            "lang": 6,
+            "name": "DOMING - V3 -15  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102003",
+            "lang": 7,
+            "name": "DOMING - V3 -15  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102004",
+            "lang": 1,
+            "name": "DOMING - GOTA DE RESINA V4 -20  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102004",
+            "lang": 2,
+            "name": "DOMING - V4 -20  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102004",
+            "lang": 3,
+            "name": "DOMING - GOCCIA DI RESINA V4 - 20  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102004",
+            "lang": 4,
+            "name": "DOMING-GOUTE DE RESINE V4 -20  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102004",
+            "lang": 5,
+            "name": "DOMING - GOTA DE RESINA V4 -20  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102004",
+            "lang": 6,
+            "name": "DOMING - V4 -20  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102004",
+            "lang": 7,
+            "name": "DOMING - V4 -20  cm<sup>2<\/sup>\r"
+        },
+        {
+            "technique_ref": "102099",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N TODO COLOR Y DOMING\r"
+        },
+        {
+            "technique_ref": "102099",
+            "lang": 2,
+            "name": "FULL COLOR AND DOMING PRINTING\r"
+        },
+        {
+            "technique_ref": "102099",
+            "lang": 3,
+            "name": "STAMPA A TUTTO COLORE E DOMING\r"
+        },
+        {
+            "technique_ref": "102099",
+            "lang": 4,
+            "name": "IMPRESSION EN PLEINE COULEUR ET DOMING\r"
+        },
+        {
+            "technique_ref": "102099",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O FULL COLOR E DOMING\r\n"
+        },
+        {
+            "technique_ref": "102099",
+            "lang": 6,
+            "name": "VOLLFARBEDRUCK UND DOMING\r"
+        },
+        {
+            "technique_ref": "102099",
+            "lang": 7,
+            "name": "FULL COLOR EN DOMING DRUK\r"
+        },
+        {
+            "technique_ref": "103001",
+            "lang": 1,
+            "name": "DIGITAL W1 (-5  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103001",
+            "lang": 2,
+            "name": "DIGITAL W1 (-5  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103001",
+            "lang": 3,
+            "name": "DIGITALE W1 (-5  cm2)\r"
+        },
+        {
+            "technique_ref": "103001",
+            "lang": 4,
+            "name": "DIGITAL W1 (-5  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103001",
+            "lang": 5,
+            "name": "DIGITAL W1 (-5  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103001",
+            "lang": 6,
+            "name": "DIGITAL W1 (-5  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103001",
+            "lang": 7,
+            "name": "DIGITAAL W1 (-5  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103002",
+            "lang": 1,
+            "name": "DIGITAL W2 (-10  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103002",
+            "lang": 2,
+            "name": "DIGITAL W2 (-10  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103002",
+            "lang": 3,
+            "name": "DIGITALE W2 (-10  cm2)\r"
+        },
+        {
+            "technique_ref": "103002",
+            "lang": 4,
+            "name": "DIGITALW2 (-10  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103002",
+            "lang": 5,
+            "name": "DIGITAL W2 (-10  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103002",
+            "lang": 6,
+            "name": "DIGITAL W2 (-10  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103002",
+            "lang": 7,
+            "name": "DIGITAAL W2 (-10  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103003",
+            "lang": 1,
+            "name": "DIGITAL W3 (-20  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103003",
+            "lang": 2,
+            "name": "DIGITAL W3 (-20  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103003",
+            "lang": 3,
+            "name": "DIGITALE W3 (-20  cm2)\r"
+        },
+        {
+            "technique_ref": "103003",
+            "lang": 4,
+            "name": "DIGITAL W3 (-20  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103003",
+            "lang": 5,
+            "name": "DIGITAL W3 (-20  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103003",
+            "lang": 6,
+            "name": "DIGITAL W3 (-20  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103003",
+            "lang": 7,
+            "name": "DIGITAAL W3 (-20  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103004",
+            "lang": 1,
+            "name": "DIGITAL W4 (-40  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103004",
+            "lang": 2,
+            "name": "DIGITAL W4 (-40  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103004",
+            "lang": 3,
+            "name": "DIGITALE W4 (-40  cm2)\r"
+        },
+        {
+            "technique_ref": "103004",
+            "lang": 4,
+            "name": "DIGITAL W4 (-40  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103004",
+            "lang": 5,
+            "name": "DIGITAL W4 (-40  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103004",
+            "lang": 6,
+            "name": "DIGITAL W4 (-40  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103004",
+            "lang": 7,
+            "name": "DIGITAAL W4 (-40  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103005",
+            "lang": 1,
+            "name": "DIGITAL W5 (-50  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103005",
+            "lang": 2,
+            "name": "DIGITAL W5 (-50  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103005",
+            "lang": 3,
+            "name": "DIGITALE W5 (-50  cm2)\r"
+        },
+        {
+            "technique_ref": "103005",
+            "lang": 4,
+            "name": "DIGITAL W5 (-50  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103005",
+            "lang": 5,
+            "name": "DIGITAL W5 (-50  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103005",
+            "lang": 6,
+            "name": "DIGITAL W5 (-50  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103005",
+            "lang": 7,
+            "name": "DIGITAAL W5 (-50  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103006",
+            "lang": 1,
+            "name": "DIGITAL W6 (-150  cm2)"
+        },
+        {
+            "technique_ref": "103006",
+            "lang": 2,
+            "name": "DIGITAL W6 (-150  cm2)"
+        },
+        {
+            "technique_ref": "103006",
+            "lang": 3,
+            "name": "DIGITAL W6 (-150  cm2)"
+        },
+        {
+            "technique_ref": "103006",
+            "lang": 4,
+            "name": "DIGITAL W6 (-150  cm2)"
+        },
+        {
+            "technique_ref": "103006",
+            "lang": 5,
+            "name": "DIGITAL W6 (-150  cm2)"
+        },
+        {
+            "technique_ref": "103006",
+            "lang": 6,
+            "name": "DIGITAL W6 (-150  cm2)"
+        },
+        {
+            "technique_ref": "103006",
+            "lang": 7,
+            "name": "DIGITAL W6 (-150  cm2)"
+        },
+        {
+            "technique_ref": "103007",
+            "lang": 1,
+            "name": "DIGITAL W7 (-200  cm2)"
+        },
+        {
+            "technique_ref": "103007",
+            "lang": 2,
+            "name": "DIGITAL W7 (-200  cm2)"
+        },
+        {
+            "technique_ref": "103007",
+            "lang": 3,
+            "name": "DIGITAL W7 (-200  cm2)"
+        },
+        {
+            "technique_ref": "103007",
+            "lang": 4,
+            "name": "DIGITAL W7 (-200  cm2)"
+        },
+        {
+            "technique_ref": "103007",
+            "lang": 5,
+            "name": "DIGITAL W7 (-200  cm2)"
+        },
+        {
+            "technique_ref": "103007",
+            "lang": 6,
+            "name": "DIGITAL W7 (-200  cm2)"
+        },
+        {
+            "technique_ref": "103007",
+            "lang": 7,
+            "name": "DIGITAL W7 (-200  cm2)"
+        },
+        {
+            "technique_ref": "103008",
+            "lang": 1,
+            "name": "DIGITAL W8 (-250  cm2)"
+        },
+        {
+            "technique_ref": "103008",
+            "lang": 2,
+            "name": "DIGITAL W8 (-250  cm2)"
+        },
+        {
+            "technique_ref": "103008",
+            "lang": 3,
+            "name": "DIGITAL W8 (-250  cm2)"
+        },
+        {
+            "technique_ref": "103008",
+            "lang": 4,
+            "name": "DIGITAL W8 (-250  cm2)"
+        },
+        {
+            "technique_ref": "103008",
+            "lang": 5,
+            "name": "DIGITAL W8 (-250  cm2)"
+        },
+        {
+            "technique_ref": "103008",
+            "lang": 6,
+            "name": "DIGITAL W8 (-250  cm2)"
+        },
+        {
+            "technique_ref": "103008",
+            "lang": 7,
+            "name": "DIGITAL W8 (-250  cm2)"
+        },
+        {
+            "technique_ref": "103009",
+            "lang": 1,
+            "name": "DIGITAL W9 (-300  cm2)"
+        },
+        {
+            "technique_ref": "103009",
+            "lang": 2,
+            "name": "DIGITAL W9 (-300  cm2)"
+        },
+        {
+            "technique_ref": "103009",
+            "lang": 3,
+            "name": "DIGITAL W9 (-300  cm2)"
+        },
+        {
+            "technique_ref": "103009",
+            "lang": 4,
+            "name": "DIGITAL W9 (-300  cm2)"
+        },
+        {
+            "technique_ref": "103009",
+            "lang": 5,
+            "name": "DIGITAL W9 (-300  cm2)"
+        },
+        {
+            "technique_ref": "103009",
+            "lang": 6,
+            "name": "DIGITAL W9 (-300  cm2)"
+        },
+        {
+            "technique_ref": "103009",
+            "lang": 7,
+            "name": "DIGITAL W9 (-300  cm2)"
+        },
+        {
+            "technique_ref": "103010",
+            "lang": 1,
+            "name": "DIGITAL W10 (-350  cm2)"
+        },
+        {
+            "technique_ref": "103010",
+            "lang": 2,
+            "name": "DIGITAL W10 (-350  cm2)"
+        },
+        {
+            "technique_ref": "103010",
+            "lang": 3,
+            "name": "DIGITAL W10 (-350  cm2)"
+        },
+        {
+            "technique_ref": "103010",
+            "lang": 4,
+            "name": "DIGITAL W10 (-350  cm2)"
+        },
+        {
+            "technique_ref": "103010",
+            "lang": 5,
+            "name": "DIGITAL W10 (-350  cm2)"
+        },
+        {
+            "technique_ref": "103010",
+            "lang": 6,
+            "name": "DIGITAL W10 (-350  cm2)"
+        },
+        {
+            "technique_ref": "103010",
+            "lang": 7,
+            "name": "DIGITAL W10 (-350  cm2)"
+        },
+        {
+            "technique_ref": "103011",
+            "lang": 1,
+            "name": "DIGITAL W11 (-400  cm2)"
+        },
+        {
+            "technique_ref": "103011",
+            "lang": 2,
+            "name": "DIGITAL W11 (-400  cm2)"
+        },
+        {
+            "technique_ref": "103011",
+            "lang": 3,
+            "name": "DIGITAL W11 (-400  cm2)"
+        },
+        {
+            "technique_ref": "103011",
+            "lang": 4,
+            "name": "DIGITAL W11 (-400  cm2)"
+        },
+        {
+            "technique_ref": "103011",
+            "lang": 5,
+            "name": "DIGITAL W11 (-400  cm2)"
+        },
+        {
+            "technique_ref": "103011",
+            "lang": 6,
+            "name": "DIGITAL W11 (-400  cm2)"
+        },
+        {
+            "technique_ref": "103011",
+            "lang": 7,
+            "name": "DIGITAL W11 (-400  cm2)"
+        },
+        {
+            "technique_ref": "103019",
+            "lang": 1,
+            "name": "GRABACI\u00d3N DE DATOS USB < 60 MB\r"
+        },
+        {
+            "technique_ref": "103019",
+            "lang": 2,
+            "name": "DATA RECORD USB < 60 MB\r"
+        },
+        {
+            "technique_ref": "103019",
+            "lang": 3,
+            "name": "CARICAMENTO DATI USB < 60 MB\r"
+        },
+        {
+            "technique_ref": "103019",
+            "lang": 4,
+            "name": "GRAVURE DE DONN\u00c9ES DANS USB < 60 MB\r"
+        },
+        {
+            "technique_ref": "103019",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O DE DADOS USB < 60 MB\r\n"
+        },
+        {
+            "technique_ref": "103019",
+            "lang": 6,
+            "name": "USB DATENERFASSUNG  < 60MB\r"
+        },
+        {
+            "technique_ref": "103019",
+            "lang": 7,
+            "name": "DATA OPSLAG USB < 60 MB\r"
+        },
+        {
+            "technique_ref": "103020",
+            "lang": 1,
+            "name": "GRABACION DE DATOS USB 60MB-1GB\r"
+        },
+        {
+            "technique_ref": "103020",
+            "lang": 2,
+            "name": "DATA RECORD USB 60MB-1GB\r"
+        },
+        {
+            "technique_ref": "103020",
+            "lang": 3,
+            "name": "CARICAMENTO DATI USB 60MB-1GB\r"
+        },
+        {
+            "technique_ref": "103020",
+            "lang": 4,
+            "name": "GRAVURE DE DONN\u00c9ES DANS USB 60 MB-1GB\r"
+        },
+        {
+            "technique_ref": "103020",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O DE DADOS USB  60MB-1GB\r"
+        },
+        {
+            "technique_ref": "103020",
+            "lang": 6,
+            "name": "USB DATENERFASSUNG  ZWISCHEN 60MB - 1GB\r"
+        },
+        {
+            "technique_ref": "103020",
+            "lang": 7,
+            "name": "DATA OPSLAG USB 60MB-1GB\r"
+        },
+        {
+            "technique_ref": "103021",
+            "lang": 1,
+            "name": "GRABACI\u00d3N DE DATOS USB >1GB\r"
+        },
+        {
+            "technique_ref": "103021",
+            "lang": 2,
+            "name": "DATA RECORD USB >1GB\r"
+        },
+        {
+            "technique_ref": "103021",
+            "lang": 3,
+            "name": "CARICAMENTO DATI USB < 1GB\r"
+        },
+        {
+            "technique_ref": "103021",
+            "lang": 4,
+            "name": "GRAVURE DE DONN\u00c9ES DANS USB > 1 GB\r"
+        },
+        {
+            "technique_ref": "103021",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O DE DADOS USB  >1GB\r"
+        },
+        {
+            "technique_ref": "103021",
+            "lang": 6,
+            "name": "USB DATENERFASSUNG  > 1GB\r"
+        },
+        {
+            "technique_ref": "103021",
+            "lang": 7,
+            "name": "DATA OPSLAG USB >1GB\r"
+        },
+        {
+            "technique_ref": "103025",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N EXTRA\r"
+        },
+        {
+            "technique_ref": "103025",
+            "lang": 2,
+            "name": "EXTRA PRINTING JOB\r"
+        },
+        {
+            "technique_ref": "103025",
+            "lang": 3,
+            "name": "STAMPA ADDIZIONALE\r"
+        },
+        {
+            "technique_ref": "103025",
+            "lang": 4,
+            "name": "IMPRESSION EXTRA\r"
+        },
+        {
+            "technique_ref": "103025",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EXTRA\r\n"
+        },
+        {
+            "technique_ref": "103025",
+            "lang": 6,
+            "name": "EXTRADRUCK\r"
+        },
+        {
+            "technique_ref": "103025",
+            "lang": 7,
+            "name": "EXTRA DRUK \r"
+        },
+        {
+            "technique_ref": "103027",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N A TODO COLOR 2 CARAS\r"
+        },
+        {
+            "technique_ref": "103027",
+            "lang": 2,
+            "name": "2 SIDES NFULL COLOR PRINT\r"
+        },
+        {
+            "technique_ref": "103027",
+            "lang": 3,
+            "name": "STAMPA A TUTTO COLORE 2 LATI\r"
+        },
+        {
+            "technique_ref": "103027",
+            "lang": 4,
+            "name": "IMPRESSION EN PLEINE COULEUR RECTO \/VERSO\r"
+        },
+        {
+            "technique_ref": "103027",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O FULL COLOR 2 LADOS\r\n"
+        },
+        {
+            "technique_ref": "103027",
+            "lang": 6,
+            "name": "VOLLFARBEDRUCK 2 SEITEN\r"
+        },
+        {
+            "technique_ref": "103027",
+            "lang": 7,
+            "name": "2 ZIJDEN FULL COLOR BEDRUKT\r"
+        },
+        {
+            "technique_ref": "103028",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA INCLUIDA\r"
+        },
+        {
+            "technique_ref": "103028",
+            "lang": 2,
+            "name": "PAD PRINTING INCLUDED\r"
+        },
+        {
+            "technique_ref": "103028",
+            "lang": 3,
+            "name": "TAMPOGRAFIA INCLUSA\r"
+        },
+        {
+            "technique_ref": "103028",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE COMPRISE\r"
+        },
+        {
+            "technique_ref": "103028",
+            "lang": 5,
+            "name": "TAMPOGRAFIA INCLUIDA\r"
+        },
+        {
+            "technique_ref": "103028",
+            "lang": 6,
+            "name": "TAMPONDRUCK INBEGRIFFEN\r"
+        },
+        {
+            "technique_ref": "103028",
+            "lang": 7,
+            "name": "TAMPONDRUK INCLUSIEF\r"
+        },
+        {
+            "technique_ref": "103030",
+            "lang": 1,
+            "name": "LOGO EN MOLDE 1 CARA\r"
+        },
+        {
+            "technique_ref": "103030",
+            "lang": 2,
+            "name": "LOGO IN MOLD 1 SIDE\r"
+        },
+        {
+            "technique_ref": "103030",
+            "lang": 3,
+            "name": "LOGO IN STAMPO  A 1 LATO\r"
+        },
+        {
+            "technique_ref": "103030",
+            "lang": 4,
+            "name": "LOGO EN MOULE 1 FACE\r"
+        },
+        {
+            "technique_ref": "103030",
+            "lang": 5,
+            "name": "LOGO EM MOLDE 1 LADO\r\n"
+        },
+        {
+            "technique_ref": "103030",
+            "lang": 6,
+            "name": "LOGO IM PRESSFORM - 1 SEITE\r"
+        },
+        {
+            "technique_ref": "103030",
+            "lang": 7,
+            "name": "LOGO OP MAL 1 ZIJDE\r"
+        },
+        {
+            "technique_ref": "103032",
+            "lang": 1,
+            "name": "LOGO EN MOLDE 2 CARAS\r"
+        },
+        {
+            "technique_ref": "103032",
+            "lang": 2,
+            "name": "LOGO IN MOLD 2 SIDES\r"
+        },
+        {
+            "technique_ref": "103032",
+            "lang": 3,
+            "name": "LOGO IN STAMPO  A 2 LATI\r"
+        },
+        {
+            "technique_ref": "103032",
+            "lang": 4,
+            "name": "LOGO EN MOULE 2 FACES \r"
+        },
+        {
+            "technique_ref": "103032",
+            "lang": 5,
+            "name": "LOGO EM MOLDE 2 LADOS\r\n"
+        },
+        {
+            "technique_ref": "103032",
+            "lang": 6,
+            "name": "LOGO IM PRESSFORM - 2 SEITEN\r"
+        },
+        {
+            "technique_ref": "103032",
+            "lang": 7,
+            "name": "LOGO OP MAL 2 ZIJDEN\r"
+        },
+        {
+            "technique_ref": "103033",
+            "lang": 1,
+            "name": "LOGO EN MOLDE CARA B\r"
+        },
+        {
+            "technique_ref": "103033",
+            "lang": 2,
+            "name": "LOGO IN MOLD SIDE B\r"
+        },
+        {
+            "technique_ref": "103033",
+            "lang": 3,
+            "name": "LOGO IN STAMPO LATO B\r"
+        },
+        {
+            "technique_ref": "103033",
+            "lang": 4,
+            "name": "LOGO EN MOULE FACE B\r"
+        },
+        {
+            "technique_ref": "103033",
+            "lang": 5,
+            "name": "LOGO EM MOLDE LADO B\r\n"
+        },
+        {
+            "technique_ref": "103033",
+            "lang": 6,
+            "name": "LOGO IM PRESSFORM - SEITE B\r"
+        },
+        {
+            "technique_ref": "103033",
+            "lang": 7,
+            "name": "LOGO OP MAL ZIJDE B\r"
+        },
+        {
+            "technique_ref": "103035",
+            "lang": 1,
+            "name": "GOTA DE RESINA TODO COLOR\r"
+        },
+        {
+            "technique_ref": "103035",
+            "lang": 2,
+            "name": "FULL COLOR DOMING\r"
+        },
+        {
+            "technique_ref": "103035",
+            "lang": 3,
+            "name": "GOCCIA DI RESINA TUTTO COLORE\r"
+        },
+        {
+            "technique_ref": "103035",
+            "lang": 4,
+            "name": "GOUTE DE RESINE EN PLEINE COULEUR\r"
+        },
+        {
+            "technique_ref": "103035",
+            "lang": 5,
+            "name": "GOTA DE RESINA FULL COLOR\r\n"
+        },
+        {
+            "technique_ref": "103035",
+            "lang": 6,
+            "name": "VOLLFARBEDOMING\r"
+        },
+        {
+            "technique_ref": "103035",
+            "lang": 7,
+            "name": "FULL COLOR DOMING\r"
+        },
+        {
+            "technique_ref": "103040",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N INCLUIDA\r"
+        },
+        {
+            "technique_ref": "103040",
+            "lang": 2,
+            "name": "INCLUDED PRINTING\r"
+        },
+        {
+            "technique_ref": "103040",
+            "lang": 3,
+            "name": "STAMPA INCLUSA\r"
+        },
+        {
+            "technique_ref": "103040",
+            "lang": 4,
+            "name": "IMPRESSION COMRRISE\r"
+        },
+        {
+            "technique_ref": "103040",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O INCLU\u00cdDA\r\n"
+        },
+        {
+            "technique_ref": "103040",
+            "lang": 6,
+            "name": "DRUCK INBEGRIFFEN\r"
+        },
+        {
+            "technique_ref": "103040",
+            "lang": 7,
+            "name": "INCLUSIEF DRUK\r"
+        },
+        {
+            "technique_ref": "103041",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N EXTRA  POWER BANK\r"
+        },
+        {
+            "technique_ref": "103041",
+            "lang": 2,
+            "name": "POWER BANK EXTRA PRINTING\r"
+        },
+        {
+            "technique_ref": "103041",
+            "lang": 3,
+            "name": "STAMPA ADDIZIONALE POWER BANK\r"
+        },
+        {
+            "technique_ref": "103041",
+            "lang": 4,
+            "name": "I MPRESSION EXTRA POWERBANK\r"
+        },
+        {
+            "technique_ref": "103041",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EXTRA  POWER BANK\r\n"
+        },
+        {
+            "technique_ref": "103041",
+            "lang": 6,
+            "name": "EXTRADRUCK POWERBANK\r"
+        },
+        {
+            "technique_ref": "103041",
+            "lang": 7,
+            "name": "EXTRA DRUK OP POWERBANK\r"
+        },
+        {
+            "technique_ref": "103048",
+            "lang": 1,
+            "name": "TAMPOGRAF\u00cdA STOCK-ASIAEXPRESS\r"
+        },
+        {
+            "technique_ref": "103048",
+            "lang": 2,
+            "name": "PAD PRINTING STOCK - ASIAEXPRESS\r"
+        },
+        {
+            "technique_ref": "103048",
+            "lang": 3,
+            "name": "TAMPOGRAFIA STOCK-ASIAEXPRESS\r"
+        },
+        {
+            "technique_ref": "103048",
+            "lang": 4,
+            "name": "TAMPOGRAPHIE STOCK-ASIAEXPRESS\r"
+        },
+        {
+            "technique_ref": "103048",
+            "lang": 5,
+            "name": "TAMPOGRAFIA STOCK-ASIAEXPRESS\r"
+        },
+        {
+            "technique_ref": "103048",
+            "lang": 6,
+            "name": "TAMPONDRUCK STOCK -ASIAEXPRESS\r"
+        },
+        {
+            "technique_ref": "103048",
+            "lang": 7,
+            "name": "TAMPONDRUK MAGAZIJN - ASIAEXPRESS\r"
+        },
+        {
+            "technique_ref": "103051",
+            "lang": 1,
+            "name": "ETIQUETA\r"
+        },
+        {
+            "technique_ref": "103051",
+            "lang": 2,
+            "name": "LABEL\r"
+        },
+        {
+            "technique_ref": "103051",
+            "lang": 3,
+            "name": "ETICCHETTA\r"
+        },
+        {
+            "technique_ref": "103051",
+            "lang": 4,
+            "name": "ETIQUETTE\r"
+        },
+        {
+            "technique_ref": "103051",
+            "lang": 5,
+            "name": "ETIQUETA\r"
+        },
+        {
+            "technique_ref": "103051",
+            "lang": 6,
+            "name": "ETIKETT\r"
+        },
+        {
+            "technique_ref": "103051",
+            "lang": 7,
+            "name": "LABEL\r"
+        },
+        {
+            "technique_ref": "103059",
+            "lang": 1,
+            "name": "DIGITAL W6 (-70  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103059",
+            "lang": 2,
+            "name": "DIGITAL W6 (-70  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103059",
+            "lang": 3,
+            "name": "DIGITALE W6 (-70  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103059",
+            "lang": 4,
+            "name": "DIGITAL W6 (-70  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103059",
+            "lang": 5,
+            "name": "DIGITAL W6 (-70  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103059",
+            "lang": 6,
+            "name": "DIGITAL W6 (-70  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103059",
+            "lang": 7,
+            "name": "DIGITAAL W6 (-70  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103060",
+            "lang": 1,
+            "name": "DIGITAL W7 (-90  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103060",
+            "lang": 2,
+            "name": "DIGITAL W7 (-90  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103060",
+            "lang": 3,
+            "name": "DIGITALE W7 (-90  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103060",
+            "lang": 4,
+            "name": "DIGITAL W7 (-90  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103060",
+            "lang": 5,
+            "name": "DIGITAL W7 (-90  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103060",
+            "lang": 6,
+            "name": "DIGITAL W7 (-90  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103060",
+            "lang": 7,
+            "name": "DIGITAAL W7 (-90  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103061",
+            "lang": 1,
+            "name": "DIGITAL W8 (-110  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103061",
+            "lang": 2,
+            "name": "DIGITAL W8 (-110  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103061",
+            "lang": 3,
+            "name": "DIGITALE W8 (-110  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103061",
+            "lang": 4,
+            "name": "DIGITAL W8 (-110  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103061",
+            "lang": 5,
+            "name": "DIGITAL W8 (-110  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103061",
+            "lang": 6,
+            "name": "DIGITAL W8 (-110  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103061",
+            "lang": 7,
+            "name": "DIGITAAL W8 (-110  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103062",
+            "lang": 1,
+            "name": "DIGITAL W9 (-130  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103062",
+            "lang": 2,
+            "name": "DIGITAL W9 (-130  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103062",
+            "lang": 3,
+            "name": "DIGITALE W9 (-130  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103062",
+            "lang": 4,
+            "name": "DIGITAL W9- (130  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103062",
+            "lang": 5,
+            "name": "DIGITAL W9 (-130  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103062",
+            "lang": 6,
+            "name": "DIGITAL W9 (-130  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103062",
+            "lang": 7,
+            "name": "DIGITAAL W9 (-130  cm<sup>2<\/sup>)\r"
+        },
+        {
+            "technique_ref": "103063",
+            "lang": 1,
+            "name": "DIGITAL W3 (-25  cm2)"
+        },
+        {
+            "technique_ref": "103063",
+            "lang": 2,
+            "name": "DIGITAL W3 (-25  cm2)"
+        },
+        {
+            "technique_ref": "103063",
+            "lang": 3,
+            "name": "DIGITAL W3 (-25  cm2)"
+        },
+        {
+            "technique_ref": "103063",
+            "lang": 4,
+            "name": "DIGITAL W3 (-25  cm2)"
+        },
+        {
+            "technique_ref": "103063",
+            "lang": 5,
+            "name": "DIGITAL W3 (-25  cm2)"
+        },
+        {
+            "technique_ref": "103063",
+            "lang": 6,
+            "name": "DIGITAL W3 (-25  cm2)"
+        },
+        {
+            "technique_ref": "103063",
+            "lang": 7,
+            "name": "DIGITAL W3 (-25  cm2)"
+        },
+        {
+            "technique_ref": "103064",
+            "lang": 1,
+            "name": "DIGITAL W4 (-50  cm2)"
+        },
+        {
+            "technique_ref": "103064",
+            "lang": 2,
+            "name": "DIGITAL W4 (-50  cm2)"
+        },
+        {
+            "technique_ref": "103064",
+            "lang": 3,
+            "name": "DIGITAL W4 (-50  cm2)"
+        },
+        {
+            "technique_ref": "103064",
+            "lang": 4,
+            "name": "DIGITAL W4 (-50  cm2)"
+        },
+        {
+            "technique_ref": "103064",
+            "lang": 5,
+            "name": "DIGITAL W4 (-50  cm2)"
+        },
+        {
+            "technique_ref": "103064",
+            "lang": 6,
+            "name": "DIGITAL W4 (-50  cm2)"
+        },
+        {
+            "technique_ref": "103064",
+            "lang": 7,
+            "name": "DIGITAL W4 (-50  cm2)"
+        },
+        {
+            "technique_ref": "103065",
+            "lang": 1,
+            "name": "DIGITAL W5 (-100  cm2)"
+        },
+        {
+            "technique_ref": "103065",
+            "lang": 2,
+            "name": "DIGITAL W5 (-100  cm2)"
+        },
+        {
+            "technique_ref": "103065",
+            "lang": 3,
+            "name": "DIGITAL W5 (-100  cm2)"
+        },
+        {
+            "technique_ref": "103065",
+            "lang": 4,
+            "name": "DIGITAL W5 (-100  cm2)"
+        },
+        {
+            "technique_ref": "103065",
+            "lang": 5,
+            "name": "DIGITAL W5 (-100  cm2)"
+        },
+        {
+            "technique_ref": "103065",
+            "lang": 6,
+            "name": "DIGITAL W5 (-100  cm2)"
+        },
+        {
+            "technique_ref": "103065",
+            "lang": 7,
+            "name": "DIGITAL W5 (-100  cm2)"
+        },
+        {
+            "technique_ref": "103099",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N DIGITAL\r"
+        },
+        {
+            "technique_ref": "103099",
+            "lang": 2,
+            "name": "DIGITAL PRINT\r"
+        },
+        {
+            "technique_ref": "103099",
+            "lang": 3,
+            "name": "STAMPA DIGITALE\r"
+        },
+        {
+            "technique_ref": "103099",
+            "lang": 4,
+            "name": "IMPRESSION NUM\u00c9RIQUE\r"
+        },
+        {
+            "technique_ref": "103099",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O DIGITAL\r\n"
+        },
+        {
+            "technique_ref": "103099",
+            "lang": 6,
+            "name": "DIGITALDRUCK\r"
+        },
+        {
+            "technique_ref": "103099",
+            "lang": 7,
+            "name": "DIGITALE DRUK\r"
+        },
+        {
+            "technique_ref": "104001",
+            "lang": 1,
+            "name": "DIGITAL 360 WR1 -5cm\r"
+        },
+        {
+            "technique_ref": "104001",
+            "lang": 2,
+            "name": "DIGITAL 360 WR1 -5cm\r\n"
+        },
+        {
+            "technique_ref": "104001",
+            "lang": 3,
+            "name": "DIGITAL 360 WR1 -5cm\r\n"
+        },
+        {
+            "technique_ref": "104001",
+            "lang": 4,
+            "name": "DIGITAL 360 WR1 -5cm\r\n"
+        },
+        {
+            "technique_ref": "104001",
+            "lang": 5,
+            "name": "DIGITAL 360 WR1 -5cm\r\n"
+        },
+        {
+            "technique_ref": "104001",
+            "lang": 6,
+            "name": "DIGITAL 360 WR1 -5cm\r\n"
+        },
+        {
+            "technique_ref": "104001",
+            "lang": 7,
+            "name": "DIGITAL 360 WR1 -5cm\r\n"
+        },
+        {
+            "technique_ref": "104002",
+            "lang": 1,
+            "name": "DIGITAL 360 WR2 -10cm"
+        },
+        {
+            "technique_ref": "104002",
+            "lang": 2,
+            "name": "DIGITAL 360 WR2 -10cm"
+        },
+        {
+            "technique_ref": "104002",
+            "lang": 3,
+            "name": "DIGITAL 360 WR2 -10cm"
+        },
+        {
+            "technique_ref": "104002",
+            "lang": 4,
+            "name": "DIGITAL 360 WR2 -10cm"
+        },
+        {
+            "technique_ref": "104002",
+            "lang": 5,
+            "name": "DIGITAL 360 WR2 -10cm"
+        },
+        {
+            "technique_ref": "104002",
+            "lang": 6,
+            "name": "DIGITAL 360 WR2 -10cm"
+        },
+        {
+            "technique_ref": "104002",
+            "lang": 7,
+            "name": "DIGITAL 360 WR2 -10cm"
+        },
+        {
+            "technique_ref": "104003",
+            "lang": 1,
+            "name": "DIGITAL 360 WR3 -25cm"
+        },
+        {
+            "technique_ref": "104003",
+            "lang": 2,
+            "name": "DIGITAL 360 WR3 -25cm"
+        },
+        {
+            "technique_ref": "104003",
+            "lang": 3,
+            "name": "DIGITAL 360 WR3 -25cm"
+        },
+        {
+            "technique_ref": "104003",
+            "lang": 4,
+            "name": "DIGITAL 360 WR3 -25cm"
+        },
+        {
+            "technique_ref": "104003",
+            "lang": 5,
+            "name": "DIGITAL 360 WR3 -25cm"
+        },
+        {
+            "technique_ref": "104003",
+            "lang": 6,
+            "name": "DIGITAL 360 WR3 -25cm"
+        },
+        {
+            "technique_ref": "104003",
+            "lang": 7,
+            "name": "DIGITAL 360 WR3 -25cm"
+        },
+        {
+            "technique_ref": "104004",
+            "lang": 1,
+            "name": "DIGITAL 360 WR4 -50cm\r\n"
+        },
+        {
+            "technique_ref": "104004",
+            "lang": 2,
+            "name": "DIGITAL 360 WR4 -50cm\r\n"
+        },
+        {
+            "technique_ref": "104004",
+            "lang": 3,
+            "name": "DIGITAL 360 WR4 -50cm\r\n"
+        },
+        {
+            "technique_ref": "104004",
+            "lang": 4,
+            "name": "DIGITAL 360 WR4 -50cm\r\n"
+        },
+        {
+            "technique_ref": "104004",
+            "lang": 5,
+            "name": "DIGITAL 360 WR4 -50cm\r\n"
+        },
+        {
+            "technique_ref": "104004",
+            "lang": 6,
+            "name": "DIGITAL 360 WR4 -50cm\r\n"
+        },
+        {
+            "technique_ref": "104004",
+            "lang": 7,
+            "name": "DIGITAL 360 WR4 -50cm\r\n"
+        },
+        {
+            "technique_ref": "104005",
+            "lang": 1,
+            "name": "DIGITAL 360 WR5 -100cm"
+        },
+        {
+            "technique_ref": "104005",
+            "lang": 2,
+            "name": "DIGITAL 360 WR5 -100cm"
+        },
+        {
+            "technique_ref": "104005",
+            "lang": 3,
+            "name": "DIGITAL 360 WR5 -100cm"
+        },
+        {
+            "technique_ref": "104005",
+            "lang": 4,
+            "name": "DIGITAL 360 WR5 -100cm"
+        },
+        {
+            "technique_ref": "104005",
+            "lang": 5,
+            "name": "DIGITAL 360 WR5 -100cm"
+        },
+        {
+            "technique_ref": "104005",
+            "lang": 6,
+            "name": "DIGITAL 360 WR5 -100cm"
+        },
+        {
+            "technique_ref": "104005",
+            "lang": 7,
+            "name": "DIGITAL 360 WR5 -100cm"
+        },
+        {
+            "technique_ref": "104006",
+            "lang": 1,
+            "name": "DIGITAL 360 WR6 -150cm"
+        },
+        {
+            "technique_ref": "104006",
+            "lang": 2,
+            "name": "DIGITAL 360 WR6 -150cm"
+        },
+        {
+            "technique_ref": "104006",
+            "lang": 3,
+            "name": "DIGITAL 360 WR6 -150cm"
+        },
+        {
+            "technique_ref": "104006",
+            "lang": 4,
+            "name": "DIGITAL 360 WR6 -150cm"
+        },
+        {
+            "technique_ref": "104006",
+            "lang": 5,
+            "name": "DIGITAL 360 WR6 -150cm"
+        },
+        {
+            "technique_ref": "104006",
+            "lang": 6,
+            "name": "DIGITAL 360 WR6 -150cm"
+        },
+        {
+            "technique_ref": "104006",
+            "lang": 7,
+            "name": "DIGITAL 360 WR6 -150cm"
+        },
+        {
+            "technique_ref": "104007",
+            "lang": 1,
+            "name": "DIGITAL 360 WR7 -200cm"
+        },
+        {
+            "technique_ref": "104007",
+            "lang": 2,
+            "name": "DIGITAL 360 WR7 -200cm"
+        },
+        {
+            "technique_ref": "104007",
+            "lang": 3,
+            "name": "DIGITAL 360 WR7 -200cm"
+        },
+        {
+            "technique_ref": "104007",
+            "lang": 4,
+            "name": "DIGITAL 360 WR7 -200cm"
+        },
+        {
+            "technique_ref": "104007",
+            "lang": 5,
+            "name": "DIGITAL 360 WR7 -200cm"
+        },
+        {
+            "technique_ref": "104007",
+            "lang": 6,
+            "name": "DIGITAL 360 WR7 -200cm"
+        },
+        {
+            "technique_ref": "104007",
+            "lang": 7,
+            "name": "DIGITAL 360 WR7 -200cm"
+        },
+        {
+            "technique_ref": "104008",
+            "lang": 1,
+            "name": "DIGITAL 360 WR8 -250cm"
+        },
+        {
+            "technique_ref": "104008",
+            "lang": 2,
+            "name": "DIGITAL 360 WR8 -250cm"
+        },
+        {
+            "technique_ref": "104008",
+            "lang": 3,
+            "name": "DIGITAL 360 WR8 -250cm"
+        },
+        {
+            "technique_ref": "104008",
+            "lang": 4,
+            "name": "DIGITAL 360 WR8 -250cm"
+        },
+        {
+            "technique_ref": "104008",
+            "lang": 5,
+            "name": "DIGITAL 360 WR8 -250cm"
+        },
+        {
+            "technique_ref": "104008",
+            "lang": 6,
+            "name": "DIGITAL 360 WR8 -250cm"
+        },
+        {
+            "technique_ref": "104008",
+            "lang": 7,
+            "name": "DIGITAL 360 WR8 -250cm"
+        },
+        {
+            "technique_ref": "104009",
+            "lang": 1,
+            "name": "DIGITAL 360 WR9 -300cm"
+        },
+        {
+            "technique_ref": "104009",
+            "lang": 2,
+            "name": "DIGITAL 360 WR9 -300cm"
+        },
+        {
+            "technique_ref": "104009",
+            "lang": 3,
+            "name": "DIGITAL 360 WR9 -300cm"
+        },
+        {
+            "technique_ref": "104009",
+            "lang": 4,
+            "name": "DIGITAL 360 WR9 -300cm"
+        },
+        {
+            "technique_ref": "104009",
+            "lang": 5,
+            "name": "DIGITAL 360 WR9 -300cm"
+        },
+        {
+            "technique_ref": "104009",
+            "lang": 6,
+            "name": "DIGITAL 360 WR9 -300cm"
+        },
+        {
+            "technique_ref": "104009",
+            "lang": 7,
+            "name": "DIGITAL 360 WR9 -300cm"
+        },
+        {
+            "technique_ref": "104010",
+            "lang": 1,
+            "name": "DIGITAL 360 WR10 -350cm"
+        },
+        {
+            "technique_ref": "104010",
+            "lang": 2,
+            "name": "DIGITAL 360 WR10 -350cm"
+        },
+        {
+            "technique_ref": "104010",
+            "lang": 3,
+            "name": "DIGITAL 360 WR10 -350cm"
+        },
+        {
+            "technique_ref": "104010",
+            "lang": 4,
+            "name": "DIGITAL 360 WR10 -350cm"
+        },
+        {
+            "technique_ref": "104010",
+            "lang": 5,
+            "name": "DIGITAL 360 WR10 -350cm"
+        },
+        {
+            "technique_ref": "104010",
+            "lang": 6,
+            "name": "DIGITAL 360 WR10 -350cm"
+        },
+        {
+            "technique_ref": "104010",
+            "lang": 7,
+            "name": "DIGITAL 360 WR10 -350cm"
+        },
+        {
+            "technique_ref": "104011",
+            "lang": 1,
+            "name": "DIGITAL 360 W11 -400cm\r\n"
+        },
+        {
+            "technique_ref": "104011",
+            "lang": 2,
+            "name": "DIGITAL 360 W11 -400cm\r\n"
+        },
+        {
+            "technique_ref": "104011",
+            "lang": 3,
+            "name": "DIGITAL 360 W11 -400cm\r\n"
+        },
+        {
+            "technique_ref": "104011",
+            "lang": 4,
+            "name": "DIGITAL 360 W11 -400cm\r\n"
+        },
+        {
+            "technique_ref": "104011",
+            "lang": 5,
+            "name": "DIGITAL 360 W11 -400cm\r\n"
+        },
+        {
+            "technique_ref": "104011",
+            "lang": 6,
+            "name": "DIGITAL 360 W11 -400cm\r\n"
+        },
+        {
+            "technique_ref": "104011",
+            "lang": 7,
+            "name": "DIGITAL 360 W11 -400cm\r\n"
+        },
+        {
+            "technique_ref": "104018",
+            "lang": 1,
+            "name": "GRABACI\u00d3N LASER MONOPOD PAICOM\r"
+        },
+        {
+            "technique_ref": "104018",
+            "lang": 2,
+            "name": "LASER ENGRAVING PAICOM MONOPOD\r"
+        },
+        {
+            "technique_ref": "104018",
+            "lang": 3,
+            "name": "INCISIONE LASER MONOPIEDE PAICOM\r"
+        },
+        {
+            "technique_ref": "104018",
+            "lang": 4,
+            "name": "GRAVURE LASER MONOPIED PAICOM\r"
+        },
+        {
+            "technique_ref": "104018",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O LASER MONOPOD PAICOM\r\n"
+        },
+        {
+            "technique_ref": "104018",
+            "lang": 6,
+            "name": "LASERDRUCK SELFIE STICK PAICOM\r"
+        },
+        {
+            "technique_ref": "104018",
+            "lang": 7,
+            "name": "LASER GRAVURE PAICOM MONOPOD\r"
+        },
+        {
+            "technique_ref": "104019",
+            "lang": 1,
+            "name": "GRABACI\u00d3N LASER BOLIGRAFOS PIRKE\/SUFIT\/DANUS\r"
+        },
+        {
+            "technique_ref": "104019",
+            "lang": 2,
+            "name": "LASER ENGRAVING PIRKE\/SUFIT\/DANUS PENS\r"
+        },
+        {
+            "technique_ref": "104019",
+            "lang": 3,
+            "name": "INCISIONE LASER PENNE PIRKE\/SUFIT\/DANUS\r"
+        },
+        {
+            "technique_ref": "104019",
+            "lang": 4,
+            "name": "GRAVURE LASER STYLO PIRKE\/SUFIT\/DANUS\r"
+        },
+        {
+            "technique_ref": "104019",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O LASER ESFEROGR\u00c1FICAS PIRKE\/SUFIT\/DANUS\r"
+        },
+        {
+            "technique_ref": "104019",
+            "lang": 6,
+            "name": "LASERDRUCK KUGELSCHREIBER (PIRKE\/SUFIT\/DANUS)\r"
+        },
+        {
+            "technique_ref": "104019",
+            "lang": 7,
+            "name": "LASER GRAVURE PIRKE\/SUFIT\/DANUS PEN\r"
+        },
+        {
+            "technique_ref": "104020",
+            "lang": 1,
+            "name": "GRABACI\u00d3N LASER LLAVEROS PERSAL\/MADISON\r"
+        },
+        {
+            "technique_ref": "104020",
+            "lang": 2,
+            "name": "LASER ENGRAVING PERSAL\/MADISON\r"
+        },
+        {
+            "technique_ref": "104020",
+            "lang": 3,
+            "name": "INSIONE LASER PORTACHIAVI PERSAL\/MADISON\r"
+        },
+        {
+            "technique_ref": "104020",
+            "lang": 4,
+            "name": "GRAVURE LASER PORTE-CL\u00c9 PERSAL\/MADISON\r"
+        },
+        {
+            "technique_ref": "104020",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O LASER PORTA-CHAVES PERSAL\/MADISON\r\n"
+        },
+        {
+            "technique_ref": "104020",
+            "lang": 6,
+            "name": "LASERDRUCK SCHL\u00dcSSELANH\u00c4NGER PERSAL\/MADISON\r"
+        },
+        {
+            "technique_ref": "104020",
+            "lang": 7,
+            "name": "LASER GRAVURE PERSAL\/MADISON\r"
+        },
+        {
+            "technique_ref": "104021",
+            "lang": 1,
+            "name": "COLOR ADICIONAL BLOC ADHESIVO\r"
+        },
+        {
+            "technique_ref": "104021",
+            "lang": 2,
+            "name": "ADDITIONAL COLOR FOR ADHESIVE PAD\r"
+        },
+        {
+            "technique_ref": "104021",
+            "lang": 3,
+            "name": "COLORE EXTRA BLOCCHI NOTES ADESIVI\r"
+        },
+        {
+            "technique_ref": "104021",
+            "lang": 4,
+            "name": "COULEUR SUPLIMENTAIRE BLOC ADH\u00c9SIF \r"
+        },
+        {
+            "technique_ref": "104021",
+            "lang": 5,
+            "name": "COLOR ADICIONAL BLOC ADHESIVO\r"
+        },
+        {
+            "technique_ref": "104021",
+            "lang": 6,
+            "name": "ZUSATZFARBE KLEBE-PAD\r"
+        },
+        {
+            "technique_ref": "104021",
+            "lang": 7,
+            "name": "EXTRA KLEUR VOOR STICKY NOTEBLOK\r"
+        },
+        {
+            "technique_ref": "104022",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N ADICIONAL HOJA A HOJA\r"
+        },
+        {
+            "technique_ref": "104022",
+            "lang": 2,
+            "name": "ADDITIONAL PRINT SHEET BY SHEET\r"
+        },
+        {
+            "technique_ref": "104022",
+            "lang": 3,
+            "name": "STAMPA ULTERIORE FOGLIO A FGLIO\r"
+        },
+        {
+            "technique_ref": "104022",
+            "lang": 4,
+            "name": "IMPRESSION SUPLIMENTAIRE FEUILLE PAR FEUILLE\r"
+        },
+        {
+            "technique_ref": "104022",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O ADICIONAL FOLHA A FOLHA\r\n"
+        },
+        {
+            "technique_ref": "104022",
+            "lang": 6,
+            "name": "BLATT ZU BLATTDRUCK INBEGRIFFEN\r"
+        },
+        {
+            "technique_ref": "104022",
+            "lang": 7,
+            "name": "EXTRA DRUK PER BLADZIJDE\r"
+        },
+        {
+            "technique_ref": "104023",
+            "lang": 1,
+            "name": "COLOR ADICIONAL BLOC ENCOLADO\r"
+        },
+        {
+            "technique_ref": "104023",
+            "lang": 2,
+            "name": "ADDITIONAL COLOR FOR BONDING PAD\r"
+        },
+        {
+            "technique_ref": "104023",
+            "lang": 3,
+            "name": "COLORE EXTRA BLOCCHI NOTES INCOLLATI\r"
+        },
+        {
+            "technique_ref": "104023",
+            "lang": 4,
+            "name": "COULEUR SUPLIMENTAIRE BLOC COLLAGE\r"
+        },
+        {
+            "technique_ref": "104023",
+            "lang": 5,
+            "name": "COLOR ADICIONAL BLOC ENCOLADO\r"
+        },
+        {
+            "technique_ref": "104023",
+            "lang": 6,
+            "name": "ZUSATZFARBE BONDPAD\r"
+        },
+        {
+            "technique_ref": "104023",
+            "lang": 7,
+            "name": "EXTRA KLEUR VOOR GEBONDEN BLOK\r"
+        },
+        {
+            "technique_ref": "104024",
+            "lang": 1,
+            "name": "COLOR ADICIONAL EN HOJAS\r"
+        },
+        {
+            "technique_ref": "104024",
+            "lang": 2,
+            "name": "ADDITIONAL COLOR ON SHEETS\r"
+        },
+        {
+            "technique_ref": "104024",
+            "lang": 3,
+            "name": "COLORE EXTRA IN FOGLI\r"
+        },
+        {
+            "technique_ref": "104024",
+            "lang": 4,
+            "name": "COULEUR SUPLIMENTAIRE SUR FEUILLE \r"
+        },
+        {
+            "technique_ref": "104024",
+            "lang": 5,
+            "name": "COLOR ADICIONAL EN HOJAS\r"
+        },
+        {
+            "technique_ref": "104024",
+            "lang": 6,
+            "name": "ZUSATZFARBE BL\u00c4TTER\r"
+        },
+        {
+            "technique_ref": "104024",
+            "lang": 7,
+            "name": "EXTRA KLEUR OP BLADEN\r"
+        },
+        {
+            "technique_ref": "104025",
+            "lang": 1,
+            "name": "COLOR ADICIONAL EN LATERAL\r"
+        },
+        {
+            "technique_ref": "104025",
+            "lang": 2,
+            "name": "ADDITIONAL COLOR ON THE SIDE\r"
+        },
+        {
+            "technique_ref": "104025",
+            "lang": 3,
+            "name": "COLORE EXTRA SUL LATO\r"
+        },
+        {
+            "technique_ref": "104025",
+            "lang": 4,
+            "name": "COULEUR SUPLIMENTAIRE SUR UN LATERAL\r"
+        },
+        {
+            "technique_ref": "104025",
+            "lang": 5,
+            "name": "COLOR ADICIONAL EN LATERAL\r"
+        },
+        {
+            "technique_ref": "104025",
+            "lang": 6,
+            "name": "ZUSATZFARBE SEITLICH\r"
+        },
+        {
+            "technique_ref": "104025",
+            "lang": 7,
+            "name": "EXRA KLEUR OP KANT\r"
+        },
+        {
+            "technique_ref": "104026",
+            "lang": 1,
+            "name": "GASTO FIJO BLOC NOTAS\r"
+        },
+        {
+            "technique_ref": "104026",
+            "lang": 2,
+            "name": "FIXED EXPENSE FOR PADS\r"
+        },
+        {
+            "technique_ref": "104026",
+            "lang": 3,
+            "name": "COSTO FISSO BLOCCO NOTES\r"
+        },
+        {
+            "technique_ref": "104026",
+            "lang": 4,
+            "name": "FRET FIXE BLOC NOTE\r"
+        },
+        {
+            "technique_ref": "104026",
+            "lang": 5,
+            "name": "CUSTO FIXO BLOCO NOTAS\r\n"
+        },
+        {
+            "technique_ref": "104026",
+            "lang": 6,
+            "name": "NOTIZBLOCKFESTKOSTEN\r"
+        },
+        {
+            "technique_ref": "104026",
+            "lang": 7,
+            "name": "VASTE UITGAVEN VOOR NOTITIEBLOK\r"
+        },
+        {
+            "technique_ref": "104027",
+            "lang": 1,
+            "name": "GASTO FIJO LIBRETA\r"
+        },
+        {
+            "technique_ref": "104027",
+            "lang": 2,
+            "name": "FIXED EXPENSE FOR BLOCKS\r"
+        },
+        {
+            "technique_ref": "104027",
+            "lang": 3,
+            "name": "COSTO FISSO TACCUINO\r"
+        },
+        {
+            "technique_ref": "104027",
+            "lang": 4,
+            "name": "FRET FIXE CAHIER\r"
+        },
+        {
+            "technique_ref": "104027",
+            "lang": 5,
+            "name": "CUSTO FIXO CADERNO\r\n"
+        },
+        {
+            "technique_ref": "104027",
+            "lang": 6,
+            "name": "NOTIZBUCHFESTKOSTEN\r"
+        },
+        {
+            "technique_ref": "104027",
+            "lang": 7,
+            "name": "VASTE UITGAVEN VOOR BOEKEN\r"
+        },
+        {
+            "technique_ref": "104028",
+            "lang": 1,
+            "name": "GASTO FIJO BLOC ENCOLADO 1\r"
+        },
+        {
+            "technique_ref": "104028",
+            "lang": 2,
+            "name": "FIXED EXPENSE FOR BONDING PAD 1\r"
+        },
+        {
+            "technique_ref": "104028",
+            "lang": 3,
+            "name": "COSTO FISSO BLOCCO INCOLATTI 1\r"
+        },
+        {
+            "technique_ref": "104028",
+            "lang": 4,
+            "name": "FRET FIXE BLOC COLLAGE 1\r"
+        },
+        {
+            "technique_ref": "104028",
+            "lang": 5,
+            "name": "CUSTO FIXO BLOCO COLADO 1\r\n"
+        },
+        {
+            "technique_ref": "104028",
+            "lang": 6,
+            "name": "BONDPADFESTKOSTEN\r"
+        },
+        {
+            "technique_ref": "104028",
+            "lang": 7,
+            "name": "VASTE UITGAVEN VOOR GEBONDEN BLOK PAD 1\r"
+        },
+        {
+            "technique_ref": "104029",
+            "lang": 1,
+            "name": "GASTO FIJO ENCOLADO 2\r"
+        },
+        {
+            "technique_ref": "104029",
+            "lang": 2,
+            "name": "FIXED EXPENSE FOR BONDING PAD 2\r"
+        },
+        {
+            "technique_ref": "104029",
+            "lang": 3,
+            "name": "COSTO FISSO INCOLATTO 2\r"
+        },
+        {
+            "technique_ref": "104029",
+            "lang": 4,
+            "name": "FRET FIXE COLLAGE 2\r"
+        },
+        {
+            "technique_ref": "104029",
+            "lang": 5,
+            "name": "CUSTO FIXO COLADO 2\r\n"
+        },
+        {
+            "technique_ref": "104029",
+            "lang": 6,
+            "name": "COLLAGEFESTCOSTEN\r"
+        },
+        {
+            "technique_ref": "104029",
+            "lang": 7,
+            "name": "VASTE UITGAVEN VOOR GEBONDEN BLOK PAD 2\r"
+        },
+        {
+            "technique_ref": "104030",
+            "lang": 1,
+            "name": "LASER USB Incluido Made in Spain\r"
+        },
+        {
+            "technique_ref": "104030",
+            "lang": 2,
+            "name": "USB LASER Made in spain included\r"
+        },
+        {
+            "technique_ref": "104030",
+            "lang": 3,
+            "name": "LASER USB INCLUSO MADE IN SPAIN\r"
+        },
+        {
+            "technique_ref": "104030",
+            "lang": 4,
+            "name": "GRAVURE LASER USB COMPRISE MADE IN SPAIN \r"
+        },
+        {
+            "technique_ref": "104030",
+            "lang": 5,
+            "name": "LASER USB Incluido Made in Spain\r"
+        },
+        {
+            "technique_ref": "104030",
+            "lang": 6,
+            "name": "LASER USB INBEGRIFFEN MADE IN SPAIN\r"
+        },
+        {
+            "technique_ref": "104030",
+            "lang": 7,
+            "name": "LASER USB MADE IN SPIAN INCLUSIEF\r"
+        },
+        {
+            "technique_ref": "104031",
+            "lang": 1,
+            "name": "LASER USB Made in Spain 2 pos\r"
+        },
+        {
+            "technique_ref": "104031",
+            "lang": 2,
+            "name": "USB LASER Made in spain 2 positions\r"
+        },
+        {
+            "technique_ref": "104031",
+            "lang": 3,
+            "name": "LASER USB MADE IN SPAIN 2 POSIZIONI\r"
+        },
+        {
+            "technique_ref": "104031",
+            "lang": 4,
+            "name": "GRAVURE LASER USB COMPRISE MADE IN SPAIN 2 POS.\r"
+        },
+        {
+            "technique_ref": "104031",
+            "lang": 5,
+            "name": "LASER USB Made in Spain 2 pos\r"
+        },
+        {
+            "technique_ref": "104031",
+            "lang": 6,
+            "name": "LASER USB MADE IN SPAIN 2-STELLUNG\r"
+        },
+        {
+            "technique_ref": "104031",
+            "lang": 7,
+            "name": "LASER USB MADE IN SPAIN 2 POSITIES\r"
+        },
+        {
+            "technique_ref": "104032",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N EN PROPILENO Y MONTAJE\r"
+        },
+        {
+            "technique_ref": "104032",
+            "lang": 2,
+            "name": "POLYPROPILENE \r"
+        },
+        {
+            "technique_ref": "104032",
+            "lang": 3,
+            "name": "STAMPA IN PROPYLENE E MONTAGGIO\r"
+        },
+        {
+            "technique_ref": "104032",
+            "lang": 4,
+            "name": "IMPRESSION SUR PROPYLENE ET MONAGE\r"
+        },
+        {
+            "technique_ref": "104032",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EM PROPILENO E MONTAGEM\r\n"
+        },
+        {
+            "technique_ref": "104032",
+            "lang": 6,
+            "name": "PROPYLENDRUCK UND MONTIERUNG\r"
+        },
+        {
+            "technique_ref": "104032",
+            "lang": 7,
+            "name": "DRUK OP POLYPROPILEEN\r"
+        },
+        {
+            "technique_ref": "104033",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N EN LONA\r"
+        },
+        {
+            "technique_ref": "104033",
+            "lang": 2,
+            "name": "CANVAS PRINT\r"
+        },
+        {
+            "technique_ref": "104033",
+            "lang": 3,
+            "name": "STAMPA IN TELA\r"
+        },
+        {
+            "technique_ref": "104033",
+            "lang": 4,
+            "name": "IMPRESSION SUR B\u00c2CHE\r"
+        },
+        {
+            "technique_ref": "104033",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EM LONA\r\n"
+        },
+        {
+            "technique_ref": "104033",
+            "lang": 6,
+            "name": "LEINWANDDRUCK\r"
+        },
+        {
+            "technique_ref": "104033",
+            "lang": 7,
+            "name": "DRUK OP CANVAS\r"
+        },
+        {
+            "technique_ref": "104034",
+            "lang": 1,
+            "name": "PUESTA EN MAQUINA\r"
+        },
+        {
+            "technique_ref": "104034",
+            "lang": 2,
+            "name": "MACHINE SET UP\r"
+        },
+        {
+            "technique_ref": "104034",
+            "lang": 3,
+            "name": "MESSA IN MACCHINA\r"
+        },
+        {
+            "technique_ref": "104034",
+            "lang": 4,
+            "name": "MISE EN MACHINE\r"
+        },
+        {
+            "technique_ref": "104034",
+            "lang": 5,
+            "name": "COLOCA\u00c7\u00c3O EM M\u00c1QUINA\r\n"
+        },
+        {
+            "technique_ref": "104034",
+            "lang": 6,
+            "name": "START DER MASCHINE\r"
+        },
+        {
+            "technique_ref": "104034",
+            "lang": 7,
+            "name": "INSTELKOSTEN\r"
+        },
+        {
+            "technique_ref": "104035",
+            "lang": 1,
+            "name": "IMP INCLUIDA CUATRICOMIA EN PORTADA\/CONTRA\r"
+        },
+        {
+            "technique_ref": "104035",
+            "lang": 2,
+            "name": "COVERS CUATRICOMIA PRINT INCLUDED\r"
+        },
+        {
+            "technique_ref": "104035",
+            "lang": 3,
+            "name": "STAMPA INCLUSA QUADRICROMIA IN COPERTINA\/RETRO\r"
+        },
+        {
+            "technique_ref": "104035",
+            "lang": 4,
+            "name": "IMPRESSION COMPRISE EN QUADRICHROMIE RECTO\/ VERSO\r"
+        },
+        {
+            "technique_ref": "104035",
+            "lang": 5,
+            "name": "IMP INCLU\u00cdDA QUADRICOMIA EM CAPA\/CONTRA\r\n"
+        },
+        {
+            "technique_ref": "104035",
+            "lang": 6,
+            "name": "VIERFARBENDRUCK  IN FRONT\/ABDECKUNG INBEGRIFFEN\r"
+        },
+        {
+            "technique_ref": "104035",
+            "lang": 7,
+            "name": "KAFT CUATRICOMIA DRUK INCLUSIEF\r"
+        },
+        {
+            "technique_ref": "183468",
+            "lang": 1,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE"
+        },
+        {
+            "technique_ref": "183468",
+            "lang": 2,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE"
+        },
+        {
+            "technique_ref": "183468",
+            "lang": 3,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE"
+        },
+        {
+            "technique_ref": "183468",
+            "lang": 4,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE"
+        },
+        {
+            "technique_ref": "183468",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EM POLI\u00c9STER 1 COR SEM MONTAGEM"
+        },
+        {
+            "technique_ref": "183468",
+            "lang": 6,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE"
+        },
+        {
+            "technique_ref": "183468",
+            "lang": 7,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE"
+        },
+        {
+            "technique_ref": "183469",
+            "lang": 1,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE 2"
+        },
+        {
+            "technique_ref": "183469",
+            "lang": 2,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE 2"
+        },
+        {
+            "technique_ref": "183469",
+            "lang": 3,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE 2"
+        },
+        {
+            "technique_ref": "183469",
+            "lang": 4,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE 2"
+        },
+        {
+            "technique_ref": "183469",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EM POLI\u00c9STER 1 COR SEM MONTAGEM 2"
+        },
+        {
+            "technique_ref": "183469",
+            "lang": 6,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE 2"
+        },
+        {
+            "technique_ref": "183469",
+            "lang": 7,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE 2"
+        },
+        {
+            "technique_ref": "183470",
+            "lang": 1,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE 3"
+        },
+        {
+            "technique_ref": "183470",
+            "lang": 2,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE 3"
+        },
+        {
+            "technique_ref": "183470",
+            "lang": 3,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE 3"
+        },
+        {
+            "technique_ref": "183470",
+            "lang": 4,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE 3"
+        },
+        {
+            "technique_ref": "183470",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EM POLI\u00c9STER 1 COR SEM MONTAGEM 3"
+        },
+        {
+            "technique_ref": "183470",
+            "lang": 6,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE 3"
+        },
+        {
+            "technique_ref": "183470",
+            "lang": 7,
+            "name": "IMPRESION EN POLIESTER 1 COLOR SIN MONTAJE 3"
+        },
+        {
+            "technique_ref": "183471",
+            "lang": 1,
+            "name": "IMPRESION EN POLIESTER 1 COLOR 2 CARAS"
+        },
+        {
+            "technique_ref": "183471",
+            "lang": 2,
+            "name": "IMPRESION EN POLIESTER 1 COLOR 2 CARAS"
+        },
+        {
+            "technique_ref": "183471",
+            "lang": 3,
+            "name": "IMPRESION EN POLIESTER 1 COLOR 2 CARAS"
+        },
+        {
+            "technique_ref": "183471",
+            "lang": 4,
+            "name": "IMPRESION EN POLIESTER 1 COLOR 2 CARAS"
+        },
+        {
+            "technique_ref": "183471",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EM POLI\u00c9STER 1 COR 2 LADOS"
+        },
+        {
+            "technique_ref": "183471",
+            "lang": 6,
+            "name": "IMPRESION EN POLIESTER 1 COLOR 2 CARAS"
+        },
+        {
+            "technique_ref": "183471",
+            "lang": 7,
+            "name": "IMPRESION EN POLIESTER 1 COLOR 2 CARAS"
+        },
+        {
+            "technique_ref": "183487",
+            "lang": 1,
+            "name": "IMPRESION TODO COLOR Y DOMING - PIN BATLER"
+        },
+        {
+            "technique_ref": "183487",
+            "lang": 2,
+            "name": "IMPRESION TODO COLOR Y DOMING - PIN BATLER"
+        },
+        {
+            "technique_ref": "183487",
+            "lang": 3,
+            "name": "IMPRESION TODO COLOR Y DOMING - PIN BATLER"
+        },
+        {
+            "technique_ref": "183487",
+            "lang": 4,
+            "name": "IMPRESION TODO COLOR Y DOMING - PIN BATLER"
+        },
+        {
+            "technique_ref": "183487",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O A CORES E DOMING - BATLER PIN"
+        },
+        {
+            "technique_ref": "183487",
+            "lang": 6,
+            "name": "IMPRESION TODO COLOR Y DOMING - PIN BATLER"
+        },
+        {
+            "technique_ref": "183487",
+            "lang": 7,
+            "name": "IMPRESION TODO COLOR Y DOMING - PIN BATLER"
+        },
+        {
+            "technique_ref": "183505",
+            "lang": 1,
+            "name": "GRABACION LASER 3"
+        },
+        {
+            "technique_ref": "183505",
+            "lang": 2,
+            "name": "LASER ENGRAVING 3"
+        },
+        {
+            "technique_ref": "183505",
+            "lang": 3,
+            "name": "INCISIONE LASER 3"
+        },
+        {
+            "technique_ref": "183505",
+            "lang": 4,
+            "name": "GRAVURE LASER 3"
+        },
+        {
+            "technique_ref": "183505",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O LASER 3\r\n"
+        },
+        {
+            "technique_ref": "183505",
+            "lang": 6,
+            "name": "LASERDRUCK 3"
+        },
+        {
+            "technique_ref": "183505",
+            "lang": 7,
+            "name": "LASER GRAVURE 3"
+        },
+        {
+            "technique_ref": "183506",
+            "lang": 1,
+            "name": "GRABACI\u00d3N LASER - OFERTA ESPECIAL"
+        },
+        {
+            "technique_ref": "183506",
+            "lang": 2,
+            "name": "LASER ENGRAVING - SPECIAL OFFER"
+        },
+        {
+            "technique_ref": "183506",
+            "lang": 3,
+            "name": "INCISIONE LASER - SPECIAL OFFER"
+        },
+        {
+            "technique_ref": "183506",
+            "lang": 4,
+            "name": "GRAVURE LASER - OFFRE SP\u00c9CIALE"
+        },
+        {
+            "technique_ref": "183506",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O LASER - OFERTA ESPECIAL"
+        },
+        {
+            "technique_ref": "183506",
+            "lang": 6,
+            "name": "LASERDRUCK - SPECIAL OFFER"
+        },
+        {
+            "technique_ref": "183506",
+            "lang": 7,
+            "name": "LASER GRAVURE - SPECIAL OFFER"
+        },
+        {
+            "technique_ref": "183507",
+            "lang": 1,
+            "name": "GRABACION LASER BIMOX"
+        },
+        {
+            "technique_ref": "183507",
+            "lang": 2,
+            "name": "LASER ENGRAVING BIMOX"
+        },
+        {
+            "technique_ref": "183507",
+            "lang": 3,
+            "name": "INCISIONE LASER BIMOX"
+        },
+        {
+            "technique_ref": "183507",
+            "lang": 4,
+            "name": "GRAVURE LASER BIMOX"
+        },
+        {
+            "technique_ref": "183507",
+            "lang": 5,
+            "name": "GRAVA\u00c7\u00c3O LASER BIMOX"
+        },
+        {
+            "technique_ref": "183507",
+            "lang": 6,
+            "name": "LASERDRUCK BIMOX"
+        },
+        {
+            "technique_ref": "183507",
+            "lang": 7,
+            "name": "LASER GRAVURE BIMOX"
+        },
+        {
+            "technique_ref": "900001",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA 1 COLOR + COSIDO <br>+ CINTA NON-WOVEN"
+        },
+        {
+            "technique_ref": "900001",
+            "lang": 2,
+            "name": "PRINTING 1 COLOR + SEWING <br>+ NON-WOVEN RIBBON\r"
+        },
+        {
+            "technique_ref": "900001",
+            "lang": 3,
+            "name": "SERIGRAFIA 1 COLORE + CUSCITO <br>+ NASTRO NON-WOVEN\r"
+        },
+        {
+            "technique_ref": "900001",
+            "lang": 4,
+            "name": "IMPRESSION 1 COULEUR + COUTURE <br>+ RUBAN NON-WOVEN\r"
+        },
+        {
+            "technique_ref": "900001",
+            "lang": 5,
+            "name": "SERIGRAFIA 1 COR + COSTURA <br>+ FITA NON-WOVEN"
+        },
+        {
+            "technique_ref": "900001",
+            "lang": 6,
+            "name": "BAND + EINE DRUCKFARBE <br>+ FESTN\u00e4HEN AM HUT NON-WOVEN\r"
+        },
+        {
+            "technique_ref": "900001",
+            "lang": 7,
+            "name": "BAND + \u00e9\u00e9N DRUKKLEUR <br>+ VASTNAAIEN AAN HOED NON-WOVEN\r"
+        },
+        {
+            "technique_ref": "900002",
+            "lang": 1,
+            "name": "GRABACI\u00d3N LASER INCULIDA\r"
+        },
+        {
+            "technique_ref": "900002",
+            "lang": 2,
+            "name": "LASER ENGRAVING INCLUDED\r"
+        },
+        {
+            "technique_ref": "900002",
+            "lang": 3,
+            "name": "INCISIONE LASER COMPRESA\r"
+        },
+        {
+            "technique_ref": "900002",
+            "lang": 4,
+            "name": "GRAVURE LASER INCLUS\r"
+        },
+        {
+            "technique_ref": "900002",
+            "lang": 5,
+            "name": "INCLUIDA GRAVA\u00c7\u00c3O A LASER"
+        },
+        {
+            "technique_ref": "900002",
+            "lang": 6,
+            "name": "INKLUSIV LASER GRAVURE \r"
+        },
+        {
+            "technique_ref": "900002",
+            "lang": 7,
+            "name": "INCLUSIEF LASERGRAVURE\r"
+        },
+        {
+            "technique_ref": "900003",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N EN LONA A TODO COLOR\r"
+        },
+        {
+            "technique_ref": "900003",
+            "lang": 2,
+            "name": "CANVAS PRINT FULL COLOR\r"
+        },
+        {
+            "technique_ref": "900003",
+            "lang": 3,
+            "name": "STAMPA SU TELA A TUTTO COLORE\r"
+        },
+        {
+            "technique_ref": "900003",
+            "lang": 4,
+            "name": "CANVAS IMPRIMER COULEUR\r"
+        },
+        {
+            "technique_ref": "900003",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EM LONA A FULL COLOR\r"
+        },
+        {
+            "technique_ref": "900003",
+            "lang": 6,
+            "name": "CANVAS DRUCK FULL COLOR\r"
+        },
+        {
+            "technique_ref": "900003",
+            "lang": 7,
+            "name": "CANVAS DRUK FULL COLOR\r"
+        },
+        {
+            "technique_ref": "900004",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N SOBRE PROPILENO<br>+ MONTAJE\r"
+        },
+        {
+            "technique_ref": "900004",
+            "lang": 2,
+            "name": "PROPYLENE PRINT FULL COLOR<br>+ ASSENBLY \r"
+        },
+        {
+            "technique_ref": "900004",
+            "lang": 3,
+            "name": "STAMPA SU PROPYLENE<br>+ MONTAGGIO \r"
+        },
+        {
+            "technique_ref": "900004",
+            "lang": 4,
+            "name": "IMPRESSION SUR PROPYLENE<br> + MONTAGE\r"
+        },
+        {
+            "technique_ref": "900004",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EM PROPILENO<br>+ MONTAJEM\r"
+        },
+        {
+            "technique_ref": "900004",
+            "lang": 6,
+            "name": "PROPYLENDRUCK UND MONTIERUNG\r"
+        },
+        {
+            "technique_ref": "900004",
+            "lang": 7,
+            "name": "PROPYLENE DRUK EN MONTAGE\r"
+        },
+        {
+            "technique_ref": "900005",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N BLOCK ADHESIVO\r"
+        },
+        {
+            "technique_ref": "900005",
+            "lang": 2,
+            "name": "STICKY NOTEPAD PRINT\r"
+        },
+        {
+            "technique_ref": "900005",
+            "lang": 3,
+            "name": "STAMPA BLOCCO ADESIVO\r"
+        },
+        {
+            "technique_ref": "900005",
+            "lang": 4,
+            "name": "IMPRESSION STICKY NOTEPAD \r"
+        },
+        {
+            "technique_ref": "900005",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O BLOCO ADESIVO"
+        },
+        {
+            "technique_ref": "900005",
+            "lang": 6,
+            "name": "DRUCK KLEBEBLOCK\r"
+        },
+        {
+            "technique_ref": "900005",
+            "lang": 7,
+            "name": "DRUK STICKY NOTEBLOK\r"
+        },
+        {
+            "technique_ref": "900006",
+            "lang": 1,
+            "name": "CUATRICOM\u00cdA PORTADA Y CONTRAPORTADA\r"
+        },
+        {
+            "technique_ref": "900006",
+            "lang": 2,
+            "name": "FULL COLOR COVER AND BACKCOVER\r"
+        },
+        {
+            "technique_ref": "900006",
+            "lang": 3,
+            "name": "QUADRICOMIA COPERTINA E RETRO\r"
+        },
+        {
+            "technique_ref": "900006",
+            "lang": 4,
+            "name": "QUADRICHROMIE EN CONVERTURES\r"
+        },
+        {
+            "technique_ref": "900006",
+            "lang": 5,
+            "name": "QUADRICOMIA CAPA E CONTRA CAPA"
+        },
+        {
+            "technique_ref": "900006",
+            "lang": 6,
+            "name": "FULL COLOR UMSCHLAG UND R\u00fcCKSEITE\r"
+        },
+        {
+            "technique_ref": "900006",
+            "lang": 7,
+            "name": "FULL COLOR COVER EN ACHTERZIJDE\r"
+        },
+        {
+            "technique_ref": "900007",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N BLOCK ENCOLADO\r"
+        },
+        {
+            "technique_ref": "900007",
+            "lang": 2,
+            "name": "MEMO BLOCK PRINTING\r"
+        },
+        {
+            "technique_ref": "900007",
+            "lang": 3,
+            "name": "STAMPA BLOCCO INCOLATO\r"
+        },
+        {
+            "technique_ref": "900007",
+            "lang": 4,
+            "name": "IMPRESSION DES BLOCS MEMO\r"
+        },
+        {
+            "technique_ref": "900007",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O BLOCO COLADO"
+        },
+        {
+            "technique_ref": "900007",
+            "lang": 6,
+            "name": "DRUCK VOM MEMOBLOCK\r"
+        },
+        {
+            "technique_ref": "900007",
+            "lang": 7,
+            "name": "DRUK VAN MEMOBLOK\r"
+        },
+        {
+            "technique_ref": "900008",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N HOJA A HOJA<br>(1 COLOR)<br>Y LATERALES EN SERIGRAFIA<br>(1 COLOR\/1 MOTIVO)\r"
+        },
+        {
+            "technique_ref": "900008",
+            "lang": 2,
+            "name": "IMPRESI\u00d3N HOJA A HOJA<br>(1 COLOR)<br>Y LATERALES EN SERIGRAFIA<br>(1 COLOR\/1 MOTIVO)\r"
+        },
+        {
+            "technique_ref": "900008",
+            "lang": 3,
+            "name": "STAMPA \u00a0FOGLIO A FOGLIO <br>(1 COLORE)<br>E LATERALI IN SERIGRAFIA<br>(1 COLORE\/1 MOTIVO)\r"
+        },
+        {
+            "technique_ref": "900008",
+            "lang": 4,
+            "name": "IMPRESSION PAGE \u00c0 PAGE  <br> (1 COULEUR) <br>  ET BORDS EN S\u00c9RIGRAPHIE  <br> (1 COULEUR \/ 1 MOTIF)\r"
+        },
+        {
+            "technique_ref": "900008",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O FOLHA A FOLHA<br>(1 COR) + LATERIAIS EM SERIGRAFIA<br>(1COR \/1 POSI\u00c7\u00c3O)"
+        },
+        {
+            "technique_ref": "900008",
+            "lang": 6,
+            "name": "DRUCK SEITE F\u00fcR SEITE 1 FARBE UND SEITE IN SIEBDRUCK 1 FARBE 1 LOGO\r"
+        },
+        {
+            "technique_ref": "900008",
+            "lang": 7,
+            "name": "DRUK PER BLAD 1 KLEUR EN KANTEN IN ZEEFDRUK\r"
+        },
+        {
+            "technique_ref": "900009",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N + GOTA DE RESINA A TODO COLOR\r"
+        },
+        {
+            "technique_ref": "900009",
+            "lang": 2,
+            "name": "FULL COLOR + DOMING\r"
+        },
+        {
+            "technique_ref": "900009",
+            "lang": 3,
+            "name": "STAMPA + GOCCIA DI RESINA A TUTTO COLORE\r"
+        },
+        {
+            "technique_ref": "900009",
+            "lang": 4,
+            "name": "FULL COLOR + DOMING\r"
+        },
+        {
+            "technique_ref": "900009",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O + GOTA DE RESINA A FULL COLOR"
+        },
+        {
+            "technique_ref": "900009",
+            "lang": 6,
+            "name": "FULL COLOR UND DOMING\r"
+        },
+        {
+            "technique_ref": "900009",
+            "lang": 7,
+            "name": "FULL COLOR EN DOMING DRUK\r"
+        },
+        {
+            "technique_ref": "900010",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N + GOTA DE RESINA A TODO COLOR\r"
+        },
+        {
+            "technique_ref": "900010",
+            "lang": 2,
+            "name": "FULL COLOR PRINTING + DOMING\r"
+        },
+        {
+            "technique_ref": "900010",
+            "lang": 3,
+            "name": "STAMPA + GOCCIA DI RESINA A TUTTO COLORE\r"
+        },
+        {
+            "technique_ref": "900010",
+            "lang": 4,
+            "name": "IMPRESSION COMPLETE + DOMING\r"
+        },
+        {
+            "technique_ref": "900010",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O + GOTA DE RESINA A FULL COLOR"
+        },
+        {
+            "technique_ref": "900010",
+            "lang": 6,
+            "name": "FULL COLOR DRUCK + DOMING\r"
+        },
+        {
+            "technique_ref": "900010",
+            "lang": 7,
+            "name": "FULL COLOR DRUK + DOMING\r"
+        },
+        {
+            "technique_ref": "900011",
+            "lang": 1,
+            "name": "SERIGRAF\u00cdA 1 COLOR + COSIDO <br>+ CINTA POLYESTER"
+        },
+        {
+            "technique_ref": "900011",
+            "lang": 2,
+            "name": "PRINTING 1 COLOR + SEWING <br>+ POLYESTER RIBBON\r"
+        },
+        {
+            "technique_ref": "900011",
+            "lang": 3,
+            "name": "SERIGRAFIA 1 COLORE + CUSCITO <br>+ NASTRO POLYESTER\r"
+        },
+        {
+            "technique_ref": "900011",
+            "lang": 4,
+            "name": "IMPRESSION 1 COULEUR + COUTURE <br>+ RUBAN POLYESTER\r"
+        },
+        {
+            "technique_ref": "900011",
+            "lang": 5,
+            "name": "SERIGRAFIA 1 COR + COSTURA <br>+ FITA POLYESTER"
+        },
+        {
+            "technique_ref": "900011",
+            "lang": 6,
+            "name": "BAND + EINE DRUCKFARBE <br>+ FESTN\u00e4HEN AM HUT POLYESTER"
+        },
+        {
+            "technique_ref": "900011",
+            "lang": 7,
+            "name": "BAND + \u00e9\u00e9N DRUKKLEUR <br>+ VASTNAAIEN AAN HOED POLYESTER\r"
+        },
+        {
+            "technique_ref": "900012",
+            "lang": 1,
+            "name": "CUATRICOM\u00cdA PORTADA Y CONTRAPORTADA<br>+ IMPRESI\u00d3N HOJA A HOJA 1 COLOR\r"
+        },
+        {
+            "technique_ref": "900012",
+            "lang": 2,
+            "name": "FULL COLOR COVER AND BACKCOVER<br>+ 1 COLOR SHET TO SHET\r"
+        },
+        {
+            "technique_ref": "900012",
+            "lang": 3,
+            "name": "QUADRICOMIA COPERTINA E RETRO<br>+STAMPA FOGLIO A FOGLIO 1COLORE\r"
+        },
+        {
+            "technique_ref": "900012",
+            "lang": 4,
+            "name": "QUADRICHROMIE COUVERTURES + 1 COULEUR PAGE \u00c0 PAGE\r"
+        },
+        {
+            "technique_ref": "900012",
+            "lang": 5,
+            "name": "QUADRICOMIA CAPA E CONTRA CAPA<br> + IMPRESS\u00c3O FOLHA A FOLHA 1 COR"
+        },
+        {
+            "technique_ref": "900012",
+            "lang": 6,
+            "name": "FULL COLOR UMSCHLAG UND R\u00fcCKSEITE + EIN FARBBLATT\r"
+        },
+        {
+            "technique_ref": "900012",
+            "lang": 7,
+            "name": "FULL COLOR COVER EN ACHTERZIJDE + 1 KLEURENBLAD\r"
+        },
+        {
+            "technique_ref": "900013",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N DIGITAL BASIK\r"
+        },
+        {
+            "technique_ref": "900013",
+            "lang": 2,
+            "name": "DIGITAL FULL COLOR BASIK\r"
+        },
+        {
+            "technique_ref": "900013",
+            "lang": 3,
+            "name": "STAMPA DIGITALE BASIK\r"
+        },
+        {
+            "technique_ref": "900013",
+            "lang": 4,
+            "name": "DIGITAL FULL COLOR BASIK\r"
+        },
+        {
+            "technique_ref": "900013",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O DIGITAL BASIK"
+        },
+        {
+            "technique_ref": "900013",
+            "lang": 6,
+            "name": "DIGITALE FULL COLOR DRUCK BASIK\r"
+        },
+        {
+            "technique_ref": "900013",
+            "lang": 7,
+            "name": "DIGITALE FULL COLOR DRUK BASIK\r"
+        },
+        {
+            "technique_ref": "900014",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N A TODO COLOR\r"
+        },
+        {
+            "technique_ref": "900014",
+            "lang": 2,
+            "name": "FULL COLOR PRINTING\r"
+        },
+        {
+            "technique_ref": "900014",
+            "lang": 3,
+            "name": "STAMPA FULL COLOR\r"
+        },
+        {
+            "technique_ref": "900014",
+            "lang": 4,
+            "name": "IMPRESSION EN COULEURS\r"
+        },
+        {
+            "technique_ref": "900014",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O FULL COLOR"
+        },
+        {
+            "technique_ref": "900014",
+            "lang": 6,
+            "name": "DRUCK IN FARBEN\r"
+        },
+        {
+            "technique_ref": "900014",
+            "lang": 7,
+            "name": "DRUK IN KLEUREN\r"
+        },
+        {
+            "technique_ref": "900015",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N A TODO COLOR + GOTA DE RESINA\r"
+        },
+        {
+            "technique_ref": "900015",
+            "lang": 2,
+            "name": "FULL COLOR PRINTING + DOMING\r"
+        },
+        {
+            "technique_ref": "900015",
+            "lang": 3,
+            "name": "STAMPA A TUTTO COLORE + GOCCIA DI RESINA\r"
+        },
+        {
+            "technique_ref": "900015",
+            "lang": 4,
+            "name": "IMPRESSION COMPLETE + DOMING\r"
+        },
+        {
+            "technique_ref": "900015",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O A FULL COLOR + GOTA DE RESINA"
+        },
+        {
+            "technique_ref": "900015",
+            "lang": 6,
+            "name": "FULL COLOR DRUCK + DOMING\r"
+        },
+        {
+            "technique_ref": "900015",
+            "lang": 7,
+            "name": "FULL COLOR DRUK + DOMING\r"
+        },
+        {
+            "technique_ref": "900016",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N 2 CARAS A TODO COLOR<br>+ GOTA DE RESINA\r"
+        },
+        {
+            "technique_ref": "900016",
+            "lang": 2,
+            "name": "FULL COLOR 2 SIDES PRINTING<br>+ DOMING\r"
+        },
+        {
+            "technique_ref": "900016",
+            "lang": 3,
+            "name": "STAMPA 2 LATI A TUTTO COLORE<br>+GOCCIA DI RESINA\u00a0\r"
+        },
+        {
+            "technique_ref": "900016",
+            "lang": 4,
+            "name": "FULL COLOR IMPRESSION 2 FACES<br> + DOMING\r"
+        },
+        {
+            "technique_ref": "900016",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O DUAS CARAS A FULL COLOR<br>+ GOTA DE RESINA"
+        },
+        {
+            "technique_ref": "900016",
+            "lang": 6,
+            "name": "FULL COLOR DRUCK 2 SEITEN + DOMING\r"
+        },
+        {
+            "technique_ref": "900016",
+            "lang": 7,
+            "name": "FULL COLOR 2 ZIJDEN + DOMING\r"
+        },
+        {
+            "technique_ref": "900017",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N A TODO COLOR\r"
+        },
+        {
+            "technique_ref": "900017",
+            "lang": 2,
+            "name": "FULL COLOR PRINTING\r"
+        },
+        {
+            "technique_ref": "900017",
+            "lang": 3,
+            "name": "STAMPA A TUTTO COLORE\r"
+        },
+        {
+            "technique_ref": "900017",
+            "lang": 4,
+            "name": "IMPRESSION EN COULEURS\r"
+        },
+        {
+            "technique_ref": "900017",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O FULL COLOR"
+        },
+        {
+            "technique_ref": "900017",
+            "lang": 6,
+            "name": "DRUCK IN FARBEN\r"
+        },
+        {
+            "technique_ref": "900017",
+            "lang": 7,
+            "name": "DRUK IN KLEUREN\r"
+        },
+        {
+            "technique_ref": "900020",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N EN POLIESTER 1 COLOR"
+        },
+        {
+            "technique_ref": "900020",
+            "lang": 2,
+            "name": "PRINTING ON POLYESTER 1 COLOUR"
+        },
+        {
+            "technique_ref": "900020",
+            "lang": 3,
+            "name": "STAMPA IN POLIESTERE 1 COLORE"
+        },
+        {
+            "technique_ref": "900020",
+            "lang": 4,
+            "name": "IMPRESSION EN POLYESTER 1 COULEUR"
+        },
+        {
+            "technique_ref": "900020",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EM POLI\u00c9STER 1 COR"
+        },
+        {
+            "technique_ref": "900020",
+            "lang": 6,
+            "name": "DRUCKEN IN POLYESTER 1 FARBE"
+        },
+        {
+            "technique_ref": "900020",
+            "lang": 7,
+            "name": "AFDRUKKEN IN POLYESTER 1 KLEUR"
+        },
+        {
+            "technique_ref": "900021",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N EN POLIESTER 1 COLOR"
+        },
+        {
+            "technique_ref": "900021",
+            "lang": 2,
+            "name": "PRINTING ON POLYESTER 1 COLOUR"
+        },
+        {
+            "technique_ref": "900021",
+            "lang": 3,
+            "name": "STAMPA IN POLIESTERE 1 COLORE"
+        },
+        {
+            "technique_ref": "900021",
+            "lang": 4,
+            "name": "IMPRESSION EN POLYESTER 1 COULEUR"
+        },
+        {
+            "technique_ref": "900021",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EM POLI\u00c9STER 1 COR"
+        },
+        {
+            "technique_ref": "900021",
+            "lang": 6,
+            "name": "DRUCKEN IN POLYESTER 1 FARBE"
+        },
+        {
+            "technique_ref": "900021",
+            "lang": 7,
+            "name": "AFDRUKKEN IN POLYESTER 1 KLEUR"
+        },
+        {
+            "technique_ref": "900022",
+            "lang": 1,
+            "name": "IMPRESI\u00d3N EN POLIESTER 1 COLOR"
+        },
+        {
+            "technique_ref": "900022",
+            "lang": 2,
+            "name": "PRINTING ON POLYESTER 1 COLOUR"
+        },
+        {
+            "technique_ref": "900022",
+            "lang": 3,
+            "name": "STAMPA IN POLIESTERE 1 COLORE"
+        },
+        {
+            "technique_ref": "900022",
+            "lang": 4,
+            "name": "IMPRESSION EN POLYESTER 1 COULEUR"
+        },
+        {
+            "technique_ref": "900022",
+            "lang": 5,
+            "name": "IMPRESS\u00c3O EM POLI\u00c9STER 1 COR"
+        },
+        {
+            "technique_ref": "900022",
+            "lang": 6,
+            "name": "DRUCKEN IN POLYESTER 1 FARBE"
+        },
+        {
+            "technique_ref": "900022",
+            "lang": 7,
+            "name": "AFDRUKKEN IN POLYESTER 1 KLEUR"
+        },
+        {
+            "technique_ref": "900111",
+            "lang": 1,
+            "name": "SUBLIMACI\u00d3N A TODO COLOR + COSIDO <br>+ CINTA SUBLIMACI\u00d3N"
+        },
+        {
+            "technique_ref": "900111",
+            "lang": 2,
+            "name": "FULL COLOR PRINTING + SEWING <br>+ SUBLIMATION RIBBON"
+        },
+        {
+            "technique_ref": "900111",
+            "lang": 3,
+            "name": "SUBLIMAZIONE FULL COLOR + CUSCITO <br>+ NASTRO SUBLIMATION\r"
+        },
+        {
+            "technique_ref": "900111",
+            "lang": 4,
+            "name": "IMPRESSION EN COULEURS + COUTURE <br>+ RUBAN SUBLIMATION"
+        },
+        {
+            "technique_ref": "900111",
+            "lang": 5,
+            "name": "IMPRESSAO FULL COLOR + COSTURA <br>+ FITA SUBLIMACION"
+        },
+        {
+            "technique_ref": "900111",
+            "lang": 6,
+            "name": "DRUCK IN FARBEN <br>+ FESTN\u00e4HEN AM HUT SUBLIMATION"
+        },
+        {
+            "technique_ref": "900111",
+            "lang": 7,
+            "name": "DRUK IN KLEUREN <br>+ VASTNAAIEN AAN HOED SUBLIMATION\r"
+        }
+    ]
+}

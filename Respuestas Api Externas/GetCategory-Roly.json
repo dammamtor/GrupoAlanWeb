@@ -1,0 +1,14 @@
+{
+    "category": "Ratón",
+    "id": "mouse",
+    "parentCategory": "Accesorios tecnológicos",
+    "parentId": "tech_accessories",
+    "brand": "roly",
+    "branchOrder": "0",
+    "modelCount": "3",
+    "modelList": [
+        "3049",
+        "3051",
+        "3052"
+    ]
+}

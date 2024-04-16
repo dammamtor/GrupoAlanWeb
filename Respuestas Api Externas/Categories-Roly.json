@@ -1,0 +1,767 @@
+[
+    {
+        "category": "LIMITED COLLECTION",
+        "id": "limited",
+        "models": "15",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Alta visibilidad",
+        "id": "highviz",
+        "models": "22",
+        "parentCategory": "WORKWEAR",
+        "parentId": "workwear",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Camisetas y polos técnicos",
+        "id": "cam_sp",
+        "models": "39",
+        "parentCategory": "Sport collection",
+        "parentId": "sports",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Chalecos",
+        "id": "cha",
+        "models": "6",
+        "parentCategory": "Abrigos",
+        "parentId": "coats",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Polos manga corta",
+        "id": "pmc",
+        "models": "13",
+        "parentCategory": "Polos",
+        "parentId": "pol_s",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Camisetas de tirantes",
+        "id": "cat",
+        "models": "4",
+        "parentCategory": "Camisetas",
+        "parentId": "t_shirts",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Camisetas",
+        "id": "t_shirts",
+        "models": "44",
+        "parentCategory": "Camisetas y polos",
+        "parentId": "cam_po",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Sudadera ",
+        "id": "swe",
+        "models": "25",
+        "parentCategory": "Sudaderas",
+        "parentId": "sud_cha",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Sudaderas sin capucha",
+        "id": "swe_sh",
+        "models": "13",
+        "parentCategory": "Sudadera ",
+        "parentId": "swe",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Camisetas de deporte",
+        "id": "sp_tshi",
+        "models": "34",
+        "parentCategory": "Camisetas y polos técnicos",
+        "parentId": "cam_sp",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Pantalones cortos",
+        "id": "sh_pant",
+        "models": "15",
+        "parentCategory": "Pantalones deportivos",
+        "parentId": "pd",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Ropa térmica",
+        "id": "winter_shirts",
+        "models": "4",
+        "parentCategory": "Winter Sport",
+        "parentId": "wint_sp",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Camisetas alta visibilidad",
+        "id": "highvistshirts",
+        "models": "2",
+        "parentCategory": "Alta visibilidad",
+        "parentId": "highviz",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Casaca",
+        "id": "sanitarycasaca",
+        "models": "3",
+        "parentCategory": "Sanidad y Estética",
+        "parentId": "san_est",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Bata y casulla",
+        "id": "foodindustrybata",
+        "models": "2",
+        "parentCategory": "Industria alimentaria",
+        "parentId": "food",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Camisas",
+        "id": "horecacamisas",
+        "models": "8",
+        "parentCategory": "HORECA",
+        "parentId": "horeca",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Camisetas ignífugas",
+        "id": "industrytshirts",
+        "models": "1",
+        "parentCategory": "Industria - Ignífugos",
+        "parentId": "fire_retardant",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Monos - industria",
+        "id": "serviciosmonos",
+        "models": "1",
+        "parentCategory": "Industria - Servicios",
+        "parentId": "industry_services",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Tejidos",
+        "id": "textiles",
+        "models": "5",
+        "parentCategory": "Otros productos",
+        "parentId": "other_products",
+        "brand": "ROL",
+        "branchOrder": "0"
+    },
+    {
+        "category": "Abrigos",
+        "id": "subcoats",
+        "models": "14",
+        "parentCategory": "Abrigos",
+        "parentId": "coats",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Bañadores",
+        "id": "bdr",
+        "models": "2",
+        "parentCategory": "Otros productos",
+        "parentId": "other_products",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Pantalones deportivos",
+        "id": "pd",
+        "models": "40",
+        "parentCategory": "Sport collection",
+        "parentId": "sports",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Camisetas y polos",
+        "id": "cam_po",
+        "models": "60",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Camisetas manga corta",
+        "id": "cam",
+        "models": "33",
+        "parentCategory": "Camisetas",
+        "parentId": "t_shirts",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Polos",
+        "id": "pol_s",
+        "models": "16",
+        "parentCategory": "Camisetas y polos",
+        "parentId": "cam_po",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Polos manga larga",
+        "id": "pol_w",
+        "models": "3",
+        "parentCategory": "Polos",
+        "parentId": "pol_s",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Sudaderas con capucha",
+        "id": "swe_h",
+        "models": "12",
+        "parentCategory": "Sudadera ",
+        "parentId": "swe",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Polos de deporte",
+        "id": "sp_polshi",
+        "models": "5",
+        "parentCategory": "Camisetas y polos técnicos",
+        "parentId": "cam_sp",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Pantalones largos",
+        "id": "lo_pant",
+        "models": "10",
+        "parentCategory": "Pantalones deportivos",
+        "parentId": "pd",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Abrigos",
+        "id": "w_coats",
+        "models": "3",
+        "parentCategory": "Winter Sport",
+        "parentId": "wint_sp",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Industria - Ignífugos",
+        "id": "fire_retardant",
+        "models": "5",
+        "parentCategory": "WORKWEAR",
+        "parentId": "workwear",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Polos Alta visibilidad",
+        "id": "highvispolo",
+        "models": "6",
+        "parentCategory": "Alta visibilidad",
+        "parentId": "highviz",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Pantalón largo - Sanidad y Estética",
+        "id": "sanitarypantalon",
+        "models": "3",
+        "parentCategory": "Sanidad y Estética",
+        "parentId": "san_est",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Cofia y gorro",
+        "id": "foodindustrygorro",
+        "models": "2",
+        "parentCategory": "Industria alimentaria",
+        "parentId": "food",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Chaqueta de HORECA",
+        "id": "horecachaqueta",
+        "models": "5",
+        "parentCategory": "HORECA",
+        "parentId": "horeca",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Polos - ignífugos",
+        "id": "industrypolos",
+        "models": "1",
+        "parentCategory": "Industria - Ignífugos",
+        "parentId": "fire_retardant",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Chalecos",
+        "id": "servicioschalecos",
+        "models": "3",
+        "parentCategory": "Industria - Servicios",
+        "parentId": "industry_services",
+        "brand": "ROL",
+        "branchOrder": "1"
+    },
+    {
+        "category": "Winter Sport",
+        "id": "wint_sp",
+        "models": "15",
+        "parentCategory": "Sport collection",
+        "parentId": "sports",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Sudaderas",
+        "id": "sud_cha",
+        "models": "25",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Camisetas manga larga",
+        "id": "cam_w",
+        "models": "7",
+        "parentCategory": "Camisetas",
+        "parentId": "t_shirts",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Leggins y mallas",
+        "id": "leggins",
+        "models": "12",
+        "parentCategory": "Pantalones deportivos",
+        "parentId": "pd",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Cortavientos",
+        "id": "windbreak",
+        "models": "4",
+        "parentCategory": "Winter Sport",
+        "parentId": "wint_sp",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Ropa interior",
+        "id": "inw",
+        "models": "2",
+        "parentCategory": "Otros productos",
+        "parentId": "other_products",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Industria - Servicios",
+        "id": "industry_services",
+        "models": "25",
+        "parentCategory": "WORKWEAR",
+        "parentId": "workwear",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Softshell",
+        "id": "softshell",
+        "models": "8",
+        "parentCategory": "Abrigos",
+        "parentId": "coats",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Sudaderas alta visibilidad",
+        "id": "highvisjackets",
+        "models": "1",
+        "parentCategory": "Alta visibilidad",
+        "parentId": "highviz",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Bata",
+        "id": "sanitarybata",
+        "models": "3",
+        "parentCategory": "Sanidad y Estética",
+        "parentId": "san_est",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Pantalón largo - Ind. Alimentaria",
+        "id": "foodpantalon",
+        "models": "1",
+        "parentCategory": "Industria alimentaria",
+        "parentId": "food",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Pantalón largo - HORECA",
+        "id": "horecapantalon",
+        "models": "9",
+        "parentCategory": "HORECA",
+        "parentId": "horeca",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Chaquetas ignífugas",
+        "id": "industryjackets",
+        "models": "1",
+        "parentCategory": "Industria - Ignífugos",
+        "parentId": "fire_retardant",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "Camisetas industria",
+        "id": "serviciostshirts",
+        "models": "1",
+        "parentCategory": "Industria - Servicios",
+        "parentId": "industry_services",
+        "brand": "ROL",
+        "branchOrder": "2"
+    },
+    {
+        "category": "HORECA",
+        "id": "horeca",
+        "models": "30",
+        "parentCategory": "WORKWEAR",
+        "parentId": "workwear",
+        "brand": "ROL",
+        "branchOrder": "3"
+    },
+    {
+        "category": "Equipaciones",
+        "id": "equip",
+        "models": "9",
+        "parentCategory": "Sport collection",
+        "parentId": "sports",
+        "brand": "ROL",
+        "branchOrder": "3"
+    },
+    {
+        "category": "Chubasqueros",
+        "id": "chuba",
+        "models": "4",
+        "parentCategory": "Abrigos",
+        "parentId": "coats",
+        "brand": "ROL",
+        "branchOrder": "3"
+    },
+    {
+        "category": "Polares",
+        "id": "pol",
+        "models": "7",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "3"
+    },
+    {
+        "category": "Mochilas",
+        "id": "moc",
+        "models": "9",
+        "parentCategory": "Otros productos",
+        "parentId": "other_products",
+        "brand": "ROL",
+        "branchOrder": "3"
+    },
+    {
+        "category": "Sudaderas",
+        "id": "winter_sweatshirts",
+        "models": "3",
+        "parentCategory": "Winter Sport",
+        "parentId": "wint_sp",
+        "brand": "ROL",
+        "branchOrder": "3"
+    },
+    {
+        "category": "Parka alta visibilidad",
+        "id": "highviscoats",
+        "models": "2",
+        "parentCategory": "Alta visibilidad",
+        "parentId": "highviz",
+        "brand": "ROL",
+        "branchOrder": "3"
+    },
+    {
+        "category": "Gorro",
+        "id": "sanitarygorro",
+        "models": "1",
+        "parentCategory": "Sanidad y Estética",
+        "parentId": "san_est",
+        "brand": "ROL",
+        "branchOrder": "3"
+    },
+    {
+        "category": "Delantal",
+        "id": "horecadelantal",
+        "models": "7",
+        "parentCategory": "HORECA",
+        "parentId": "horeca",
+        "brand": "ROL",
+        "branchOrder": "3"
+    },
+    {
+        "category": "Pantalones ignífugos",
+        "id": "industrypantalon",
+        "models": "1",
+        "parentCategory": "Industria - Ignífugos",
+        "parentId": "fire_retardant",
+        "brand": "ROL",
+        "branchOrder": "3"
+    },
+    {
+        "category": "Pantalones largos Industria",
+        "id": "serviciospantalones_",
+        "models": "12",
+        "parentCategory": "Industria - Servicios",
+        "parentId": "industry_services",
+        "brand": "ROL",
+        "branchOrder": "3"
+    },
+    {
+        "category": "Industria alimentaria",
+        "id": "food",
+        "models": "7",
+        "parentCategory": "WORKWEAR",
+        "parentId": "workwear",
+        "brand": "ROL",
+        "branchOrder": "4"
+    },
+    {
+        "category": "Chándals",
+        "id": "chnd",
+        "models": "7",
+        "parentCategory": "Sport collection",
+        "parentId": "sports",
+        "brand": "ROL",
+        "branchOrder": "4"
+    },
+    {
+        "category": "Gorras",
+        "id": "gor",
+        "models": "18",
+        "parentCategory": "Otros productos",
+        "parentId": "other_products",
+        "brand": "ROL",
+        "branchOrder": "4"
+    },
+    {
+        "category": "Softshell alta visibilidad",
+        "id": "highvissoftshell",
+        "models": "1",
+        "parentCategory": "Alta visibilidad",
+        "parentId": "highviz",
+        "brand": "ROL",
+        "branchOrder": "4"
+    },
+    {
+        "category": "Monos - ignífugos",
+        "id": "industrymonos",
+        "models": "1",
+        "parentCategory": "Industria - Ignífugos",
+        "parentId": "fire_retardant",
+        "brand": "ROL",
+        "branchOrder": "4"
+    },
+    {
+        "category": "Pantalones cortos",
+        "id": "serviciospantalones",
+        "models": "5",
+        "parentCategory": "Industria - Servicios",
+        "parentId": "industry_services",
+        "brand": "ROL",
+        "branchOrder": "4"
+    },
+    {
+        "category": "Pantalones",
+        "id": "pant_c",
+        "models": "8",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "4"
+    },
+    {
+        "category": "Abrigos",
+        "id": "coats",
+        "models": "31",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "5"
+    },
+    {
+        "category": "Sanidad y Estética",
+        "id": "san_est",
+        "models": "10",
+        "parentCategory": "WORKWEAR",
+        "parentId": "workwear",
+        "brand": "ROL",
+        "branchOrder": "5"
+    },
+    {
+        "category": "Accesorios",
+        "id": "acc",
+        "models": "12",
+        "parentCategory": "Otros productos",
+        "parentId": "other_products",
+        "brand": "ROL",
+        "branchOrder": "5"
+    },
+    {
+        "category": "Polos - industria",
+        "id": "serviciospolos",
+        "models": "1",
+        "parentCategory": "Industria - Servicios",
+        "parentId": "industry_services",
+        "brand": "ROL",
+        "branchOrder": "5"
+    },
+    {
+        "category": "Chalecos",
+        "id": "highvischalecos",
+        "models": "3",
+        "parentCategory": "Alta visibilidad",
+        "parentId": "highviz",
+        "brand": "ROL",
+        "branchOrder": "5"
+    },
+    {
+        "category": "Sport collection",
+        "id": "sports",
+        "models": "104",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "6"
+    },
+    {
+        "category": "Sudaderas industria servicios",
+        "id": "serviciossudaderas",
+        "models": "1",
+        "parentCategory": "Industria - Servicios",
+        "parentId": "industry_services",
+        "brand": "ROL",
+        "branchOrder": "6"
+    },
+    {
+        "category": "Chaquetas Polares alta visibilidad",
+        "id": "highvischaquetas",
+        "models": "1",
+        "parentCategory": "Alta visibilidad",
+        "parentId": "highviz",
+        "brand": "ROL",
+        "branchOrder": "6"
+    },
+    {
+        "category": "FOOTWEAR",
+        "id": "footwear",
+        "models": "6",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "7"
+    },
+    {
+        "category": "Pantalones alta visibilidad",
+        "id": "highvispantalones",
+        "models": "6",
+        "parentCategory": "Alta visibilidad",
+        "parentId": "highviz",
+        "brand": "ROL",
+        "branchOrder": "7"
+    },
+    {
+        "category": "Chaquetas industria",
+        "id": "servicioschaqutas",
+        "models": "2",
+        "parentCategory": "Industria - Servicios",
+        "parentId": "industry_services",
+        "brand": "ROL",
+        "branchOrder": "7"
+    },
+    {
+        "category": "ECO",
+        "id": "rolyeco",
+        "models": "19",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "8"
+    },
+    {
+        "category": "Otros productos",
+        "id": "other_products",
+        "models": "48",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "9"
+    },
+    {
+        "category": "WORKWEAR",
+        "id": "workwear",
+        "models": "98",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "10"
+    },
+    {
+        "category": "Outlet",
+        "id": "outlet",
+        "models": "68",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "11"
+    },
+    {
+        "category": "NOVEDADES",
+        "id": "novelty_roly",
+        "models": "22",
+        "parentCategory": "",
+        "parentId": "",
+        "brand": "ROL",
+        "branchOrder": "13"
+    }
+]

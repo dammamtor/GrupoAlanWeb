@@ -1,0 +1,63 @@
+{
+    "itemcode": "CA64240402",
+    "itemname": "CAMISETA ATOMIC 150 T/XL NEGRO",
+    "eancode": "8434344010234",
+    "measures": "[58cm/75cm]",
+    "modelcode": "CA6424",
+    "modelid": "6424",
+    "modelname": "ATOMIC 150",
+    "description": "Camiseta de manga corta tubular. Cuello redondo en canalé 1x1 con cubrecosturas interior. Idónea camiseta para aplicar técnicas de impresión. ",
+    "composition": "100% algodón, punto liso, 150 g/m².Color gris vigoré 58: 85% algodón / 15% viscosa.",
+    "observations": "*La calidad y los colores de este modelo no siguen los estándares propios de la marca. ",
+    "moq": "1",
+    "packunits": "10",
+    "boxunits": "100",
+    "familycode": "CA",
+    "family": "CAMISETAS",
+    "gendercode": "HO",
+    "gender": "Hombre",
+    "sizecode": "04",
+    "sizename": "XL",
+    "colorcode": "02",
+    "colorname": "NEGRO",
+    "collections": "",
+    "productimage": "https://static.gorfactory.es/images/models/6424/model/large/6424_02_2_1.jpg",
+    "modelimage": "https://static.gorfactory.es/images/models/6424/model/large/6424_20_1_1.jpg",
+    "childimage": "",
+    "detailsimages": "https://static.gorfactory.es/images/models/6424/model/large/6424_20_3_1.jpg,https://static.gorfactory.es/images/models/6424/model/large/6424_20_3_2.jpg",
+    "viewsimages": "https://static.gorfactory.es/images/models/6424/views/large/p_6424_02_1_1.jpg,https://static.gorfactory.es/images/models/6424/views/large/p_6424_02_2_1.jpg,https://static.gorfactory.es/images/models/6424/views/large/p_6424_02_7_1.jpg,https://static.gorfactory.es/images/models/6424/views/large/p_6424_02_8_1.jpg",
+    "otherimages": "",
+    "isforchildren": "False",
+    "isnovelty": "False",
+    "isoutlet": "0",
+    "packincr": "5.00",
+    "unitsincr": "20.00",
+    "boxsize": "38.00 cm x 57.00 cm x 30.00 cm",
+    "weight": "18.20 kg",
+    "taric": "61091000",
+    "madein": "Bangladesh",
+    "canondigital": "0.00",
+    "brand": "roly",
+    "originalbrand": "roly",
+    "categories": "Camisetas manga corta,Camisetas,Camisetas y polos",
+    "categoriesids": "cam,t_shirts,cam_po",
+    "categorytree": [
+        {
+            "id": "cam_po",
+            "category": "Camisetas y polos",
+            "subcategory": [
+                {
+                    "id": "t_shirts",
+                    "category": "Camisetas",
+                    "subcategory": [
+                        {
+                            "id": "cam",
+                            "category": "Camisetas manga corta",
+                            "subcategory": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
