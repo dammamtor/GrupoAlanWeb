@@ -32,6 +32,8 @@ public class APIextController {
     @Autowired
     private VariantsService variantsService;
     @Autowired
+    private ImagesService imagesService;
+    @Autowired
     private APITokenService apiTokenService;
 
     //ESTE CONTROLLER ESTA EXCLUSIVAMENTE DEDICADO A LA OBTENCION DE BBDD DE LAS APIS EXTERNAS
@@ -126,15 +128,19 @@ public class APIextController {
 
     //COLORS
     @GetMapping("/makito/colors")
-    public ResponseEntity<List<Colors>> makitoColors(){
+    public ResponseEntity<String> makitoColors(){
         String apiToken = getApiToken();
         if (apiToken == null) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         logger.info("OBTENCION COLORES MAKITO A BBDD EMPRESA");
-        List<Colors> colors = colorService.makitoColorsFromApi(apiToken);
-        return new ResponseEntity<>(colors, HttpStatus.OK);
+        boolean updatedSuccessfully = colorService.makitoColorsFromApi(apiToken);
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de colores makito actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de productos", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     //DESCRIPTIONS
@@ -192,5 +198,24 @@ public class APIextController {
         logger.info("OBTENCION VARIANTS DE MAKITO A BBDD EMPRESA");
         List<Variants> variants = variantsService.makitoVariantsTechniquesFromApi(apiToken);
         return new ResponseEntity<>(variants, HttpStatus.OK);
+    }
+
+    //IMAGES
+    @GetMapping("makito/images")
+    public ResponseEntity<String> makitoImages(){
+        String apiToken = getApiToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        logger.info("OBTENCION IMAGES DE MAKITO A BBDD EMPRESA");
+        // Realizar la actualización de los productos desde la API
+        boolean updatedSuccessfully = imagesService.makitoImagesFromApi(apiToken);
+
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de images Makito actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de images", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

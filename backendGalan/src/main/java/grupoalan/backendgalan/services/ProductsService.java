@@ -1,12 +1,16 @@
 package grupoalan.backendgalan.services;
 
+import grupoalan.backendgalan.model.Colors;
 import grupoalan.backendgalan.model.Descriptions;
+import grupoalan.backendgalan.model.Images;
 import grupoalan.backendgalan.model.Products;
 import grupoalan.backendgalan.model.response.makito.ProductsMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
 import grupoalan.backendgalan.model.response.roly.Items;
 import grupoalan.backendgalan.model.response.roly.ProductsRoly;
+import grupoalan.backendgalan.repository.ColorRepository;
 import grupoalan.backendgalan.repository.DescriptionRepository;
+import grupoalan.backendgalan.repository.ImagesRepository;
 import grupoalan.backendgalan.repository.ProductsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -154,31 +158,67 @@ public class ProductsService {
     private ProductsRepository productsRepository;
     @Autowired
     private DescriptionRepository descriptionsRepository;
+    @Autowired
+    private ImagesRepository imagesRepository;
+    @Autowired
+    private ColorRepository colorRepository;
 
-    public List<Products> getAllProductsWithDescriptions() {
-        List<Products> productsList = productsRepository.findAll();
+//    public List<Products> getAllProductsWithDescriptions() {
+//        List<Products> productsList = productsRepository.findAll();
+//
+//        for (Products product : productsList) {
+//            Optional<Descriptions> descriptions = descriptionsRepository.findByRef(product.getRef());
+//
+//            // Creamos un conjunto para almacenar las descripciones relacionadas con este producto
+//            Set<Descriptions> relatedDescriptions = new HashSet<>();
+//
+//            if(descriptions.isPresent()){
+//                Descriptions description = descriptions.get();
+//                if (description.getRef().equals(product.getRef())) {
+//                    relatedDescriptions.add(description);
+//                }
+//            }
+//
+//            // Establecemos las descripciones relacionadas para el producto
+//            product.setDescriptions(relatedDescriptions);
+//        }
+//
+//        return productsList;
+//    }
 
-        for (Products product : productsList) {
-            Optional<Descriptions> descriptions = descriptionsRepository.findByRef(product.getRef());
+    //TEST. OBTENER DATOS PRODUCTO ANTES DE PASAR A GRAN PLANO
+    public Products getDataProductID() {
+        Products testProduct = productsRepository.findByRef("3403");
+        List<Descriptions> testDescriptions = descriptionsRepository.findByRef("3403");
+        List<Images> testImages = imagesRepository.findByRef("3403");
 
-            // Creamos un conjunto para almacenar las descripciones relacionadas con este producto
-            Set<Descriptions> relatedDescriptions = new HashSet<>();
+        // AGREGAR LOS DATOS
+        testProduct.setDescriptions(new HashSet<>(testDescriptions)); // Usar HashSet para evitar duplicados en la relación OneToMany
+        testProduct.setImages(new HashSet<>(testImages));
 
-            if(descriptions.isPresent()){
-                Descriptions description = descriptions.get();
-                if (description.getRef().equals(product.getRef())) {
-                    relatedDescriptions.add(description);
-                }
+        // Obtener los códigos de colores del producto
+        String colorCodes = testProduct.getColors();
+
+        if (!colorCodes.isEmpty()) {
+            String[] colorArray = colorCodes.split(",\\s*"); // Dividir los códigos por comas
+
+            // Buscar los detalles de cada color y agregarlos al producto
+            List<Colors> testColors = new ArrayList<>();
+            for (String colorCode : colorArray) {
+                List<Colors> colors = colorRepository.findByCode(colorCode.trim());
+                testColors.addAll(colors);
             }
 
-            // Establecemos las descripciones relacionadas para el producto
-            product.setDescriptions(relatedDescriptions);
+            // Agregar los colores al producto
+            Set<Colors> colorsSet = new HashSet<>(testColors);
+            testProduct.setColorsSet(colorsSet);
         }
 
-        return productsList;
+        // Guardar el producto actualizado en la base de datos
+        productsRepository.save(testProduct);
+
+        return testProduct; // Devolver el producto actualizado
     }
-
-
 
 
 

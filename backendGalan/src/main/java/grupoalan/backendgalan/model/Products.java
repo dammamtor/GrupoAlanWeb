@@ -3,6 +3,7 @@ package grupoalan.backendgalan.model;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -68,6 +69,16 @@ public class Products {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private Set<Descriptions> descriptions;
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private Set<Images> images;
+
+    @ManyToMany
+    @JoinTable(
+            name = "product_colors",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "color_id")
+    )
+    private Set<Colors> colorsSet = new HashSet<>();
     // Constructor vacío (obligatorio para JPA)
     public Products() {
     }
@@ -210,6 +221,22 @@ public class Products {
         this.descriptions = descriptions;
     }
 
+    public Set<Images> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<Images> images) {
+        this.images = images;
+    }
+
+    public Set<Colors> getColorsSet() {
+        return colorsSet;
+    }
+
+    public void setColorsSet(Set<Colors> colorsSet) {
+        this.colorsSet = colorsSet;
+    }
+
     @Override
     public String toString() {
         return "Products{" +
@@ -230,6 +257,8 @@ public class Products {
                 ", markingTechnique=" + markingTechnique +
                 ", variants=" + variants +
                 ", descriptions=" + descriptions +
+                ", images=" + images +
+                ", colorsSet=" + colorsSet +
                 '}';
     }
 }

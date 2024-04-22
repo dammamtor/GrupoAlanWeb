@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -41,7 +42,7 @@ public class ColorService {
     }
 
     // Otros métodos de servicio para operaciones relacionadas con colores
-    public List<Colors> makitoColorsFromApi(String apiToken){
+    public boolean makitoColorsFromApi(String apiToken) {
         logger.info("ESTAS EN EL COLOR  SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
@@ -55,11 +56,28 @@ public class ColorService {
 
         StatusCode statusCode = response.getBody();
 
-        if( statusCode != null) {
+        if (statusCode != null) {
             List<ColorsMakito> colorsMakitos = statusCode.getColors();
-            logger.info("LISTA DE COLORES: " + colorsMakitos);
-        }
+            List<Colors> colorsList = new ArrayList<>();
 
-        return null;
+            logger.info("LISTA DE COLORES: " + colorsMakitos);
+
+            colorRepository.deleteAll();
+
+            for (ColorsMakito makito : colorsMakitos) {
+                Colors color1 = new Colors();
+                color1.setCode(makito.getColor_code());
+                color1.setName(makito.getName());
+                color1.setUrl(makito.getUrl());
+                color1 = colorRepository.save(color1);
+
+                colorsList.add(color1);
+            }
+            logger.info("Colores obtenidas de la API: " + colorsList);
+            return true;
+        } else {
+            logger.error("Error al obtener el objeto StatusCode de la respuesta");
+            return false;
+        }
     }
 }

@@ -2,8 +2,8 @@ package grupoalan.backendgalan.model.response.makito;
 
 public class ImagesMakito {
     private String ref;
-    private String imgMin;
-    private String imgMax;
+    private String img_min;
+    private String img_max;
     private int main;
 
     public ImagesMakito() {
@@ -17,20 +17,20 @@ public class ImagesMakito {
         this.ref = ref;
     }
 
-    public String getImgMin() {
-        return imgMin;
+    public String getImg_min() {
+        return img_min;
     }
 
-    public void setImgMin(String imgMin) {
-        this.imgMin = imgMin;
+    public void setImg_min(String img_min) {
+        this.img_min = img_min;
     }
 
-    public String getImgMax() {
-        return imgMax;
+    public String getImg_max() {
+        return img_max;
     }
 
-    public void setImgMax(String imgMax) {
-        this.imgMax = imgMax;
+    public void setImg_max(String img_max) {
+        this.img_max = img_max;
     }
 
     public int getMain() {
@@ -45,8 +45,8 @@ public class ImagesMakito {
     public String toString() {
         return "ImagesMakito{" +
                 "ref='" + ref + '\'' +
-                ", imgMin='" + imgMin + '\'' +
-                ", imgMax='" + imgMax + '\'' +
+                ", img_min='" + img_min + '\'' +
+                ", img_max='" + img_max + '\'' +
                 ", main=" + main +
                 '}';
     }

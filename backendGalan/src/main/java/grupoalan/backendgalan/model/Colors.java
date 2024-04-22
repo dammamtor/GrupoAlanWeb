@@ -1,25 +1,34 @@
 package grupoalan.backendgalan.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "colors")
 public class Colors {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "color_id")
     private Long id;
+    @Column
+    private String code;
+    @Column
+    private String name;
+    @Column
+    private String url;
 
-    @Column(name = "product_id", nullable = false)
-    private Long productId;
+    //RELACIONES
+    @ManyToMany(mappedBy = "colorsSet") // Especifica el nombre del campo en la clase Products que mapea esta relación
+    @JsonIgnore
+    private Set<Products> products = new HashSet<>();
 
-    @Column(name = "color", nullable = false)
-    private String color;
 
-    // Constructor vacío (obligatorio para JPA)
     public Colors() {
     }
-
-    // Getters y Setters
 
     public Long getId() {
         return id;
@@ -29,20 +38,36 @@ public class Colors {
         this.id = id;
     }
 
-    public Long getProductId() {
-        return productId;
+    public String getCode() {
+        return code;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public String getColor() {
-        return color;
+    public String getName() {
+        return name;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Set<Products> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Products> products) {
+        this.products = products;
     }
 }
 
