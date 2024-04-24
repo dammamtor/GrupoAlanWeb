@@ -25,7 +25,6 @@ public class TestController {
             logger.error("FALLO EL TEST");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
         return new ResponseEntity<>(product1, HttpStatus.OK);
     }
 }

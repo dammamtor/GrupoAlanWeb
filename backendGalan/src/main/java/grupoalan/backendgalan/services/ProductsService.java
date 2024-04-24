@@ -6,6 +6,7 @@ import grupoalan.backendgalan.model.Images;
 import grupoalan.backendgalan.model.Products;
 import grupoalan.backendgalan.model.response.makito.ProductsMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
+import grupoalan.backendgalan.model.response.makito.*;
 import grupoalan.backendgalan.model.response.roly.Items;
 import grupoalan.backendgalan.model.response.roly.ProductsRoly;
 import grupoalan.backendgalan.repository.ColorRepository;
@@ -21,10 +22,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductsService {
@@ -38,121 +41,198 @@ public class ProductsService {
 
     private static final String API_URL_ROLY = "https://clientsws.gorfactory.es:2096/api/v1.1/item/getcatalog?lang=es-ES&brand=roly";
 
-    public boolean makitoProductsFromApi(String apiToken){
+    public boolean makitoProductsFromApi(String apiToken) {
         logger.info("ESTAS EN EL PRODUCTS SERVICE");
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + apiToken);
 
-        logger.info("apiToken: " + apiToken);
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setBearerAuth(apiToken);
 
-        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+            HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
 
-        ResponseEntity<StatusCode> response = restTemplate.exchange(
-                API_URL, HttpMethod.GET, requestEntity, StatusCode.class);
+            ResponseEntity<StatusCode> response = restTemplate.exchange(
+                    API_URL, HttpMethod.GET, requestEntity, StatusCode.class);
 
-        StatusCode statusCode = response.getBody();
+            StatusCode statusCode = response.getBody();
 
-        //logger.info("LISTA DE PRODUCTOS: " + statusCode);
+            if (statusCode != null && statusCode.getProducts() != null) {
+                List<ProductsMakito> productsMakitos = statusCode.getProducts();
+                logger.info("FUNCIONA");
 
-        //FUNCIONA, VAMOS A RELLENARLO
+                for (ProductsMakito productData : productsMakitos) {
+                    // Buscar todos los productos con el mismo nombre
+                    List<Products> existingProducts = productsRepository.findByName(productData.getName());
 
-        if (statusCode != null) {
-            List<ProductsMakito> productsMakitos = statusCode.getProducts();
-            logger.info("FUNKA");
+                    if (!existingProducts.isEmpty()) {
+                        // Si existen productos con el mismo nombre, seleccionar el primero
+                        Products existingProduct = existingProducts.get(0);
 
-            // Crear una lista para almacenar las categorías convertidas sin nombres duplicados
-            List<Products> convertedProducts = new ArrayList<>();
+                        // Obtener y agregar descripciones al producto utilizando el método personalizado
+                        addDescriptionsToProduct(existingProduct, productData);
 
-            // Iterar sobre los productos obtenidos de la API
-            for (ProductsMakito productData : productsMakitos) {
-                // Verificar si el producto ya existe en la base de datos
-                Optional<Products> existingProductOptional = productsRepository.findByName(productData.getName());
+                        // Guardar el producto actualizado en la base de datos
+                        productsRepository.save(existingProduct);
 
-                if (existingProductOptional.isPresent()) {
-                    // Si el producto ya existe, eliminarlo de la base de datos
-                    productsRepository.delete(existingProductOptional.get());
-                    logger.info("Producto existente eliminado: " + existingProductOptional.get().getName());
+                        logger.info("Producto actualizado en la base de datos: " + existingProduct.getName());
+                    } else {
+                        // Si no existe un producto con el mismo nombre, crear uno nuevo
+                        Products newProduct = new Products();
+                        newProduct.setName(productData.getName());
+                        newProduct.setRef(productData.getRef());
+                        newProduct.setWeight(productData.getWeight());
+                        newProduct.setLength(productData.getLength());
+                        newProduct.setWidth(productData.getWidth());
+                        newProduct.setHeight(productData.getHeight());
+                        newProduct.setColors(productData.getColors());
+
+                        // Obtener y agregar descripciones al nuevo producto utilizando el método personalizado
+                        addDescriptionsToProduct(newProduct, productData);
+
+                        // Guardar el nuevo producto en la base de datos
+                        productsRepository.save(newProduct);
+
+                        logger.info("Nuevo producto creado y guardado en la base de datos: " + newProduct.getName());
+                    }
                 }
 
-                // Crear un nuevo objeto Products y guardar en la base de datos
-                Products product = new Products();
-                product.setName(productData.getName());
-                product.setRef(productData.getRef());
-                product.setWeight(productData.getWeight());
-                product.setLength(productData.getLength());
-                product.setWidth(productData.getWidth());
-                product.setHeight(productData.getHeight());
-                product.setColors(productData.getColors());
-
-                product = productsRepository.save(product);
-                convertedProducts.add(product);
+                logger.info("Actualización de la lista de productos completada");
+                return true;
+            } else {
+                logger.error("Error al obtener el objeto StatusCode de la respuesta");
+                return false;
             }
-
-            logger.info("Products obtenidas de la API: " + convertedProducts);
-
-            logger.info("Actualización de la lista de productos completada");
-            return true;
-        } else {
-            logger.error("Error al obtener el objeto StatusCode de la respuesta");
+        } catch (RestClientException ex) {
+            logger.error("Error al llamar a la API: " + ex.getMessage());
             return false;
         }
     }
 
-    public boolean rolyProductsFromApi(String apiToken){
+//    private void addDescriptionsToProduct(Products product, List<DescriptionsMakito> descriptionsMakitos) {
+//        // Obtener el conjunto de descripciones del producto (asegurándose de que no sea null)
+//        Set<Descriptions> productDescriptions = product.getDescriptions();
+//        if (productDescriptions == null) {
+//            productDescriptions = new HashSet<>();
+//            product.setDescriptions(productDescriptions);
+//        } else {
+//            // Limpiar las descripciones existentes del producto
+//            productDescriptions.clear();
+//        }
+//
+//        // Filtrar y agregar las descripciones que cumplan con el criterio de idioma (lang = 1 para español, lang = 2 para inglés)
+//        for (DescriptionsMakito descriptionsMakito : descriptionsMakitos) {
+//            if ("1".equals(descriptionsMakito.getLang()) || "2".equals(descriptionsMakito.getLang())) {
+//                // Crear una nueva instancia de Descriptions y asignar los valores correspondientes
+//                Descriptions description = new Descriptions();
+//                description.setRef(descriptionsMakito.getRef());
+//                description.setDetails(descriptionsMakito.getDesc()); // Usar el campo 'desc' como 'details'
+//
+//                // Establecer la relación con el producto
+//                description.setProduct(product);
+//
+//                // Agregar la descripción al conjunto de descripciones del producto
+//                productDescriptions.add(description);
+//            }
+//        }
+//
+//        if (!productDescriptions.isEmpty()) {
+//            logger.info("Descripciones agregadas al producto: " + product.getName());
+//        } else {
+//            logger.warn("No se encontraron descripciones en español o inglés para el producto: " + product.getName());
+//        }
+//
+//        // Guardar el producto actualizado en la base de datos
+//        productsRepository.save(product);
+//    }
+
+private void addDescriptionsToProduct(Products product, ProductsMakito productData) {
+    // Obtener las descripciones del producto utilizando el método personalizado
+    List<Descriptions> descriptions = descriptionsRepository.findByRef(productData.getRef());
+
+    // Limpiar las descripciones existentes del producto
+    product.getDescriptions().clear();
+
+    // Agregar las nuevas descripciones al producto solo si se encontraron algunas
+    if (!descriptions.isEmpty()) {
+        // Agregar las nuevas descripciones al producto
+        product.getDescriptions().addAll(descriptions);
+
+        logger.info("Descripciones agregadas al producto: " + product.getName());
+    } else {
+        logger.warn("No se encontraron descripciones para el producto: " + product.getName());
+    }
+
+    // Guardar el producto actualizado en la base de datos
+    productsRepository.save(product);
+}
+
+    public boolean rolyProductsFromApi(String apiToken) {
         logger.info("ESTAS EN EL PRODUCTS SERVICE");
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + apiToken);
 
-        logger.info("apiTokenRoly: " + apiToken);
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setBearerAuth(apiToken);
 
-        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+            HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
 
-        ResponseEntity<Items> response = restTemplate.exchange(
-                API_URL_ROLY, HttpMethod.GET, requestEntity, Items.class);
+            ResponseEntity<Items> response = restTemplate.exchange(
+                    API_URL_ROLY, HttpMethod.GET, requestEntity, Items.class);
 
-        Items items = response.getBody();
+            Items items = response.getBody();
 
-        if (items != null) {
-            List<ProductsRoly> productsRolyList = items.getItem();
-            logger.info("FUNKA");
+            if (items != null && items.getItem() != null) {
+                List<ProductsRoly> productsRolyList = items.getItem();
+                logger.info("FUNKA");
 
-            // Crear una lista para almacenar las categorías convertidas sin nombres duplicados
-            List<Products> convertedProducts = new ArrayList<>();
+                // Obtener nombres únicos de los productos obtenidos
+                Set<String> productNames = productsRolyList.stream()
+                        .map(ProductsRoly::getItemname)
+                        .collect(Collectors.toSet());
 
-            // Iterar sobre los productos obtenidos de la API
-            for (ProductsRoly productData : productsRolyList) {
-                // Verificar si el producto ya existe en la base de datos
-                Optional<Products> existingProductOptional = productsRepository.findByName(productData.getItemname());
+                // Buscar productos existentes por nombre utilizando el nuevo método personalizado
+                List<Products> existingProducts = productsRepository.findByNameIn(new ArrayList<>(productNames));
 
-                if (existingProductOptional.isPresent()) {
-                    // Si el producto ya existe, eliminarlo de la base de datos
-                    productsRepository.delete(existingProductOptional.get());
-                    logger.info("Producto existente eliminado: " + existingProductOptional.get().getName());
-                }
+                Map<String, Products> existingProductsMap = existingProducts.stream()
+                        .collect(Collectors.toMap(Products::getName, p -> p));
 
-                // Crear un nuevo objeto Products y guardar en la base de datos
-                Products product = new Products();
-                product.setName(productData.getItemname());
-                product.setRef(productData.getItemcode());
-                product.setWeight(productData.getWeight());
-                product.setMeasures(productData.getMeasures());
-                product.setColors(productData.getColorname());
+                List<Products> convertedProducts = productsRolyList.stream()
+                        .map(productData -> {
+                            Products existingProduct = existingProductsMap.get(productData.getItemname());
+                            if (existingProduct != null) {
+                                // Si el producto existe, actualizar sus atributos
+                                existingProduct.setRef(productData.getItemcode());
+                                existingProduct.setWeight(productData.getWeight());
+                                existingProduct.setMeasures(productData.getMeasures());
+                                existingProduct.setColors(productData.getColorname());
+                            } else {
+                                // Si el producto no existe, crear uno nuevo
+                                Products newProduct = new Products();
+                                newProduct.setName(productData.getItemname());
+                                newProduct.setRef(productData.getItemcode());
+                                newProduct.setWeight(productData.getWeight());
+                                newProduct.setMeasures(productData.getMeasures());
+                                newProduct.setColors(productData.getColorname());
+                                existingProduct = newProduct;
+                            }
+                            // Guardar o actualizar el producto en la base de datos
+                            Products savedProduct = productsRepository.save(existingProduct);
+                            logger.info("Producto guardado en la base de datos: " + savedProduct.getName());
+                            return savedProduct;
+                        })
+                        .collect(Collectors.toList());
 
-                product = productsRepository.save(product);
-                convertedProducts.add(product);
+                logger.info("Productos obtenidos de la API y actualizados en la base de datos: " + convertedProducts);
+                logger.info("Actualización de la lista de productos completada");
+
+                return true;
+            } else {
+                logger.error("Error al obtener el objeto StatusCode de la respuesta");
+                return false;
             }
-
-            logger.info("Products obtenidas de la API: " + convertedProducts);
-
-            logger.info("Actualización de la lista de productos completada");
-            return true;
-        } else {
-            logger.error("Error al obtener el objeto StatusCode de la respuesta");
+        } catch (RestClientException ex) {
+            logger.error("Error al llamar a la API: " + ex.getMessage());
             return false;
         }
     }
-
-
 
     @Autowired
     private ProductsRepository productsRepository;
@@ -188,9 +268,10 @@ public class ProductsService {
 
     //TEST. OBTENER DATOS PRODUCTO ANTES DE PASAR A GRAN PLANO
     public Products getDataProductID() {
-        Products testProduct = productsRepository.findByRef("3403");
-        List<Descriptions> testDescriptions = descriptionsRepository.findByRef("3403");
-        List<Images> testImages = imagesRepository.findByRef("3403");
+        String idNumber = "3403";
+        Products testProduct = productsRepository.findByRef(idNumber);
+        List<Descriptions> testDescriptions = descriptionsRepository.findByRef(idNumber);
+        List<Images> testImages = imagesRepository.findByRef(idNumber);
 
         // AGREGAR LOS DATOS
         testProduct.setDescriptions(new HashSet<>(testDescriptions)); // Usar HashSet para evitar duplicados en la relación OneToMany

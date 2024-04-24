@@ -214,6 +214,9 @@ public class Products {
     }
 
     public Set<Descriptions> getDescriptions() {
+        if (descriptions == null) {
+            descriptions = new HashSet<>();
+        }
         return descriptions;
     }
 

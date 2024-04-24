@@ -96,15 +96,20 @@ public class APIextController {
             return new ResponseEntity<>("Error al obtener el token de la API", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        logger.info("ACTUALIZACIÓN DE PRODUCTOS MAKITO EN LA BASE DE DATOS");
+        try {
+            logger.info("ACTUALIZACIÓN DE PRODUCTOS MAKITO EN LA BASE DE DATOS");
 
-        // Realizar la actualización de los productos desde la API
-        boolean updatedSuccessfully = productsService.makitoProductsFromApi(apiToken);
+            // Realizar la actualización de los productos desde la API
+            boolean updatedSuccessfully = productsService.makitoProductsFromApi(apiToken);
 
-        if (updatedSuccessfully) {
-            return new ResponseEntity<>("Lista de productos Makito actualizada correctamente.", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Error al actualizar la lista de productos", HttpStatus.INTERNAL_SERVER_ERROR);
+            if (updatedSuccessfully) {
+                return new ResponseEntity<>("Lista de productos Makito actualizada correctamente.", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Error al actualizar la lista de productos", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        } catch (Exception e) {
+            logger.error("Error en la actualización de productos Makito: " + e.getMessage());
+            return new ResponseEntity<>("Error interno en el servidor", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
