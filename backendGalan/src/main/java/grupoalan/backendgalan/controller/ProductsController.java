@@ -20,16 +20,16 @@ public class ProductsController {
     @Autowired
     private ProductsService productsService;
 
-//    @GetMapping("grupoalan/obtener-productos")
-//    public ResponseEntity<List<Products>> obtenerProductosBD() {
-//        logger.info("HORA DE OBTENER LOS PRODUCTOS DE NUESTRA BD");
-//        List<Products> products = productsService.getAllProductsWithDescriptions();
-//        if (products == null) {
-//            logger.error("No se pudieron obtener los productos de la BD de Grupo Alan");
-//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//
-//        return new ResponseEntity<>(products, HttpStatus.OK);
-//    }
+    @GetMapping("grupoalan/obtener-productos")
+    public ResponseEntity<List<Products>> obtenerProductosBD() {
+        logger.info("HORA DE OBTENER LOS PRODUCTOS DE NUESTRA BD");
+        List<Products> products = productsService.getAllProducts();
+        if (products == null) {
+            logger.error("No se pudieron obtener los productos de la BD de Grupo Alan");
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        logger.info("LISTA DEVUELTA: " + products);
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
 
 }

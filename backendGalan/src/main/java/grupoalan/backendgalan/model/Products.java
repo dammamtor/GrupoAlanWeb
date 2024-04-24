@@ -85,6 +85,7 @@ public class Products {
 
     // Getters y Setters
 
+
     public Long getProductId() {
         return productId;
     }
@@ -99,6 +100,14 @@ public class Products {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 
     public String getDescription() {
@@ -123,46 +132,6 @@ public class Products {
 
     public void setAvailable(boolean available) {
         this.available = available;
-    }
-
-    public ProductTypes getProductType() {
-        return productType;
-    }
-
-    public void setProductType(ProductTypes productType) {
-        this.productType = productType;
-    }
-
-    public Categories getCategory() {
-        return category;
-    }
-
-    public void setCategory(Categories category) {
-        this.category = category;
-    }
-
-    public MarkingTechniques getMarkingTechnique() {
-        return markingTechnique;
-    }
-
-    public void setMarkingTechnique(MarkingTechniques markingTechnique) {
-        this.markingTechnique = markingTechnique;
-    }
-
-    public Set<Variants> getVariants() {
-        return variants;
-    }
-
-    public void setVariants(Set<Variants> variants) {
-        this.variants = variants;
-    }
-
-    public String getRef() {
-        return ref;
-    }
-
-    public void setRef(String ref) {
-        this.ref = ref;
     }
 
     public String getWeight() {
@@ -213,10 +182,39 @@ public class Products {
         this.colors = colors;
     }
 
+    public ProductTypes getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductTypes productType) {
+        this.productType = productType;
+    }
+
+    public Categories getCategory() {
+        return category;
+    }
+
+    public void setCategory(Categories category) {
+        this.category = category;
+    }
+
+    public MarkingTechniques getMarkingTechnique() {
+        return markingTechnique;
+    }
+
+    public void setMarkingTechnique(MarkingTechniques markingTechnique) {
+        this.markingTechnique = markingTechnique;
+    }
+
+    public Set<Variants> getVariants() {
+        return variants;
+    }
+
+    public void setVariants(Set<Variants> variants) {
+        this.variants = variants;
+    }
+
     public Set<Descriptions> getDescriptions() {
-        if (descriptions == null) {
-            descriptions = new HashSet<>();
-        }
         return descriptions;
     }
 
@@ -255,10 +253,6 @@ public class Products {
                 ", width='" + width + '\'' +
                 ", measures='" + measures + '\'' +
                 ", colors='" + colors + '\'' +
-                ", productType=" + productType +
-                ", category=" + category +
-                ", markingTechnique=" + markingTechnique +
-                ", variants=" + variants +
                 ", descriptions=" + descriptions +
                 ", images=" + images +
                 ", colorsSet=" + colorsSet +

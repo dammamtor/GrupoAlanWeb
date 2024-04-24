@@ -35,8 +35,14 @@ public class ProductsService {
 
     @Autowired
     private RestTemplate restTemplate;
-
-
+    @Autowired
+    private ProductsRepository productsRepository;
+    @Autowired
+    private DescriptionRepository descriptionsRepository;
+    @Autowired
+    private ImagesRepository imagesRepository;
+    @Autowired
+    private ColorRepository colorRepository;
     private static final String API_URL = "https://data.makito.es/api/products";
 
     private static final String API_URL_ROLY = "https://clientsws.gorfactory.es:2096/api/v1.1/item/getcatalog?lang=es-ES&brand=roly";
@@ -69,11 +75,12 @@ public class ProductsService {
 
                         // Obtener y agregar descripciones al producto utilizando el método personalizado
                         addDescriptionsToProduct(existingProduct, productData);
+                        addImagesToProduct(existingProduct, productData);
+                        addColorsToProduct(existingProduct, productData);
 
-                        // Guardar el producto actualizado en la base de datos
-                        productsRepository.save(existingProduct);
+                        existingProduct = productsRepository.save(existingProduct);
 
-                        logger.info("Producto actualizado en la base de datos: " + existingProduct.getName());
+                        logger.info("Updated producto: " + existingProduct);
                     } else {
                         // Si no existe un producto con el mismo nombre, crear uno nuevo
                         Products newProduct = new Products();
@@ -87,11 +94,12 @@ public class ProductsService {
 
                         // Obtener y agregar descripciones al nuevo producto utilizando el método personalizado
                         addDescriptionsToProduct(newProduct, productData);
-
+                        addImagesToProduct(newProduct, productData);
+                        addColorsToProduct(newProduct, productData);
                         // Guardar el nuevo producto en la base de datos
-                        productsRepository.save(newProduct);
+                        newProduct = productsRepository.save(newProduct);
 
-                        logger.info("Nuevo producto creado y guardado en la base de datos: " + newProduct.getName());
+                        logger.info("Nuevo producto: " + newProduct);
                     }
                 }
 
@@ -144,26 +152,70 @@ public class ProductsService {
 //        productsRepository.save(product);
 //    }
 
-private void addDescriptionsToProduct(Products product, ProductsMakito productData) {
-    // Obtener las descripciones del producto utilizando el método personalizado
-    List<Descriptions> descriptions = descriptionsRepository.findByRef(productData.getRef());
+    private void addDescriptionsToProduct(Products product, ProductsMakito productData) {
+        // Obtener las descripciones del producto utilizando el método personalizado
+        List<Descriptions> descriptions = descriptionsRepository.findByRef(productData.getRef());
 
-    // Limpiar las descripciones existentes del producto
-    product.getDescriptions().clear();
+        // Limpiar las descripciones existentes del producto
+        product.getDescriptions().clear();
 
-    // Agregar las nuevas descripciones al producto solo si se encontraron algunas
-    if (!descriptions.isEmpty()) {
-        // Agregar las nuevas descripciones al producto
-        product.getDescriptions().addAll(descriptions);
+        // Agregar las nuevas descripciones al producto solo si se encontraron algunas
+        if (!descriptions.isEmpty()) {
+            // Agregar las nuevas descripciones al producto
+            product.getDescriptions().addAll(descriptions);
 
-        logger.info("Descripciones agregadas al producto: " + product.getName());
-    } else {
-        logger.warn("No se encontraron descripciones para el producto: " + product.getName());
+            logger.info("Descripciones agregadas al producto: " + product.getName());
+        } else {
+            logger.warn("No se encontraron descripciones para el producto: " + product.getName());
+        }
+
+        // Guardar el producto actualizado en la base de datos
+//        productsRepository.save(product);
     }
 
-    // Guardar el producto actualizado en la base de datos
-    productsRepository.save(product);
-}
+    private void addImagesToProduct(Products product, ProductsMakito productData) {
+        List<Images> images = imagesRepository.findByRef(productData.getRef());
+
+        product.getImages().clear();
+        logger.info("Número de imágenes después de borrar: " + product.getImages().size());
+
+        if (!images.isEmpty()) {
+            product.getImages().addAll(images);
+            logger.info("Imagenes agregadas al producto: " + product.getName());
+        } else {
+            logger.warn("No se encontraron imagenes para el producto: " + product.getName());
+        }
+    }
+
+    private void addColorsToProduct(Products product, ProductsMakito productData) {
+        product.getColorsSet().clear();
+
+        // Obtener los códigos de colores del producto
+        String colorCodes = productData.getColors();
+
+        if (!colorCodes.isEmpty()) {
+            String[] colorArray = colorCodes.split(",\\s*"); // Dividir los códigos por comas
+
+            // Buscar los detalles de cada color y agregarlos al producto
+            List<Colors> colorsList = new ArrayList<>();
+            for (String colorCode : colorArray) {
+                List<Colors> colors = colorRepository.findByCode(colorCode.trim());
+                colorsList.addAll(colors);
+            }
+
+            // Agregar los colores al producto
+            Set<Colors> colorsSet = new HashSet<>(colorsList);
+            product.setColorsSet(colorsSet);
+
+            // Mensaje de registro de información
+            logger.info("Colores agregados al producto: " + product.getName());
+        } else {
+            // Mensaje de registro de advertencia si no hay códigos de colores
+            logger.warn("No se encontraron colores para el producto: " + product.getName());
+        }
+    }
+
+
 
     public boolean rolyProductsFromApi(String apiToken) {
         logger.info("ESTAS EN EL PRODUCTS SERVICE");
@@ -234,38 +286,6 @@ private void addDescriptionsToProduct(Products product, ProductsMakito productDa
         }
     }
 
-    @Autowired
-    private ProductsRepository productsRepository;
-    @Autowired
-    private DescriptionRepository descriptionsRepository;
-    @Autowired
-    private ImagesRepository imagesRepository;
-    @Autowired
-    private ColorRepository colorRepository;
-
-//    public List<Products> getAllProductsWithDescriptions() {
-//        List<Products> productsList = productsRepository.findAll();
-//
-//        for (Products product : productsList) {
-//            Optional<Descriptions> descriptions = descriptionsRepository.findByRef(product.getRef());
-//
-//            // Creamos un conjunto para almacenar las descripciones relacionadas con este producto
-//            Set<Descriptions> relatedDescriptions = new HashSet<>();
-//
-//            if(descriptions.isPresent()){
-//                Descriptions description = descriptions.get();
-//                if (description.getRef().equals(product.getRef())) {
-//                    relatedDescriptions.add(description);
-//                }
-//            }
-//
-//            // Establecemos las descripciones relacionadas para el producto
-//            product.setDescriptions(relatedDescriptions);
-//        }
-//
-//        return productsList;
-//    }
-
     //TEST. OBTENER DATOS PRODUCTO ANTES DE PASAR A GRAN PLANO
     public Products getDataProductID() {
         String idNumber = "3403";
@@ -302,24 +322,23 @@ private void addDescriptionsToProduct(Products product, ProductsMakito productDa
     }
 
 
-
     // Método para encontrar un producto por su ID
-    public Products getProductByID(Long id){
+    public Products getProductByID(Long id) {
         return productsRepository.findById(id).orElse(null);
     }
 
     // Método para encontrar todos los productos
-    public List<Products> getAllProducts(){
+    public List<Products> getAllProducts() {
         return productsRepository.findAll();
     }
 
     // Método para guardar un nuevo producto
-    public Products saveProduct(Products product){
+    public Products saveProduct(Products product) {
         return productsRepository.save(product);
     }
 
     // Método para eliminar un producto por su ID
-    public void deleteProductByID(Long id){
+    public void deleteProductByID(Long id) {
         productsRepository.deleteById(id);
     }
 }

@@ -10,17 +10,28 @@ public class Markings {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "product_id", nullable = false, unique = true)
-    private Long productId;
+    @Column(nullable = false)
+    private String ref; //ACA ENTRARIA LOS CAMPOS EN COMUN CON MAKITO
+    @Column(nullable = false)
+    private int print_area_id;
+    @Column(nullable = false)
+    private String max_colors;
+    @Column(nullable = false)
+    private String position;
+    @Column(nullable = false)
+    private int width;
+    @Column(nullable = false)
+    private int height;
+    @Column(nullable = false)
+    private String area_img;
 
-    @Column(name = "details", columnDefinition = "TEXT")
-    private String details;
 
-    // Constructor vacío (obligatorio para JPA)
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Products product;
+
     public Markings() {
     }
-
-    // Getters y Setters
 
     public Long getId() {
         return id;
@@ -30,19 +41,73 @@ public class Markings {
         this.id = id;
     }
 
-    public Long getProductId() {
-        return productId;
+    public String getRef() {
+        return ref;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 
-    public String getDetails() {
-        return details;
+    public int getPrint_area_id() {
+        return print_area_id;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public void setPrint_area_id(int print_area_id) {
+        this.print_area_id = print_area_id;
+    }
+
+    public String getMax_colors() {
+        return max_colors;
+    }
+
+    public void setMax_colors(String max_colors) {
+        this.max_colors = max_colors;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public String getArea_img() {
+        return area_img;
+    }
+
+    public void setArea_img(String area_img) {
+        this.area_img = area_img;
+    }
+
+    @Override
+    public String toString() {
+        return "Markings{" +
+                "id=" + id +
+                ", ref='" + ref + '\'' +
+                ", print_area_id=" + print_area_id +
+                ", max_colors='" + max_colors + '\'' +
+                ", position='" + position + '\'' +
+                ", width=" + width +
+                ", height=" + height +
+                ", area_img='" + area_img + '\'' +
+                '}';
     }
 }

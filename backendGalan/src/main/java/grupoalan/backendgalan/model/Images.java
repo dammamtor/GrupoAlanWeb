@@ -63,4 +63,14 @@ public class Images {
     public void setProduct(Products product) {
         this.product = product;
     }
+
+    @Override
+    public String toString() {
+        return "Images{" +
+                "imageId=" + imageId +
+                ", ref='" + ref + '\'' +
+                ", img_min='" + img_min + '\'' +
+                ", img_max='" + img_max + '\'' +
+                '}';
+    }
 }

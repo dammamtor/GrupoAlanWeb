@@ -167,15 +167,19 @@ public class APIextController {
 
     //MARKINGS
     @GetMapping("makito/markings")
-    public ResponseEntity<List<Markings>> makitoMarkings(){
+    public ResponseEntity<String> makitoMarkings(){
         String apiToken = getApiToken();
         if (apiToken == null) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         logger.info("OBTENCION MARKINGS MAKITO A BBDD EMPRESA");
-        List<Markings> markings = markingService.makitoMarkingsFromApi(apiToken);
-        return new ResponseEntity<>(markings, HttpStatus.OK);
+        boolean updatedSuccessfully = markingService.makitoMarkingsFromApi(apiToken);
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de markings Makito actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de productos", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     //MARKING TECHNIQUES

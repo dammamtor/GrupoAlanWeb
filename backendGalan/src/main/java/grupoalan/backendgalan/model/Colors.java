@@ -69,5 +69,15 @@ public class Colors {
     public void setProducts(Set<Products> products) {
         this.products = products;
     }
+
+    @Override
+    public String toString() {
+        return "Colors{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }
 

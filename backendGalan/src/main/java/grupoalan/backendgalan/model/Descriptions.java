@@ -56,4 +56,13 @@ public class Descriptions {
     public void setProduct(Products product) {
         this.product = product;
     }
+
+    @Override
+    public String toString() {
+        return "Descriptions{" +
+                "id=" + id +
+                ", ref='" + ref + '\'' +
+                ", details='" + details + '\'' +
+                '}';
+    }
 }

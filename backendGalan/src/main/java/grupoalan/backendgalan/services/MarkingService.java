@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -42,7 +43,7 @@ public class MarkingService {
     }
 
     // Otros métodos de servicio para operaciones relacionadas con marcados
-    public List<Markings> makitoMarkingsFromApi(String apiToken){
+    public boolean makitoMarkingsFromApi(String apiToken) {
         logger.info("ESTAS EN EL MARKINGS SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
@@ -56,10 +57,21 @@ public class MarkingService {
 
         StatusCode statusCode = response.getBody();
 
-        if (statusCode!= null){
+        if (statusCode != null) {
             List<MarkingsMakito> markingsMakitos = statusCode.getMarkings();
             logger.info("LISTA DE MARKINGS DE MAKITO: " + markingsMakitos);
+
+            markingRepository.deleteAll();
+            List<Markings> markingsList = new ArrayList<>();
+
+            for (MarkingsMakito makito : markingsMakitos) {
+                //esto mejor verlo el viernes
+            }
+
+            return true;
+        } else {
+            logger.error("Error al obtener el objeto StatusCode de la respuesta");
+            return false;
         }
-        return null;
     }
 }

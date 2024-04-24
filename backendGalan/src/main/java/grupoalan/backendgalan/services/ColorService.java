@@ -65,13 +65,15 @@ public class ColorService {
             colorRepository.deleteAll();
 
             for (ColorsMakito makito : colorsMakitos) {
-                Colors color1 = new Colors();
-                color1.setCode(makito.getColor_code());
-                color1.setName(makito.getName());
-                color1.setUrl(makito.getUrl());
-                color1 = colorRepository.save(color1);
+                if (makito.getLang() == 1 || makito.getLang() == 2) { // Solo guarda colores con lang igual a 1 o 2
+                    Colors color1 = new Colors();
+                    color1.setCode(makito.getColor_code());
+                    color1.setName(makito.getName());
+                    color1.setUrl(makito.getUrl());
+                    color1 = colorRepository.save(color1);
 
-                colorsList.add(color1);
+                    colorsList.add(color1);
+                }
             }
             logger.info("Colores obtenidas de la API: " + colorsList);
             return true;
