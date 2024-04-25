@@ -156,13 +156,16 @@ public class ProductsService {
         // Obtener las descripciones del producto utilizando el método personalizado
         List<Descriptions> descriptions = descriptionsRepository.findByRef(productData.getRef());
 
-        // Limpiar las descripciones existentes del producto
+        if (product.getDescriptions() == null) {
+            product.setDescriptions(new HashSet<>());
+        }
         product.getDescriptions().clear();
 
         // Agregar las nuevas descripciones al producto solo si se encontraron algunas
         if (!descriptions.isEmpty()) {
             // Agregar las nuevas descripciones al producto
-            product.getDescriptions().addAll(descriptions);
+            Set<Descriptions> descriptionsSet = new HashSet<>(descriptions);
+            product.setDescriptions(descriptionsSet);
 
             logger.info("Descripciones agregadas al producto: " + product.getName());
         } else {
@@ -176,11 +179,16 @@ public class ProductsService {
     private void addImagesToProduct(Products product, ProductsMakito productData) {
         List<Images> images = imagesRepository.findByRef(productData.getRef());
 
+        if (product.getImages() == null) {
+            product.setImages(new HashSet<>());
+        }
+
         product.getImages().clear();
         logger.info("Número de imágenes después de borrar: " + product.getImages().size());
 
         if (!images.isEmpty()) {
-            product.getImages().addAll(images);
+            Set<Images> imagesSet = new HashSet<>(images);
+            product.getImages().addAll(imagesSet);
             logger.info("Imagenes agregadas al producto: " + product.getName());
         } else {
             logger.warn("No se encontraron imagenes para el producto: " + product.getName());
