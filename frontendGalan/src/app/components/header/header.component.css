@@ -1,0 +1,10 @@
+.navbar-nav .nav-item .nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para el color de fondo y el color del texto */
+    color: #ffffff; /* Texto blanco por defecto */
+    border-radius: 10px; /* Borde redondeado */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: blue; /* Cambiar a tu color deseado */
+    color: #ffffff; /* Hacer el texto blanco cuando se pasa el ratón */
+}
