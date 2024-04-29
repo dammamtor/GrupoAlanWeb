@@ -1,18 +1,12 @@
 package grupoalan.backendgalan.services;
 
-import grupoalan.backendgalan.model.Colors;
-import grupoalan.backendgalan.model.Descriptions;
-import grupoalan.backendgalan.model.Images;
-import grupoalan.backendgalan.model.Products;
+import grupoalan.backendgalan.model.*;
 import grupoalan.backendgalan.model.response.makito.ProductsMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
 import grupoalan.backendgalan.model.response.makito.*;
 import grupoalan.backendgalan.model.response.roly.Items;
 import grupoalan.backendgalan.model.response.roly.ProductsRoly;
-import grupoalan.backendgalan.repository.ColorRepository;
-import grupoalan.backendgalan.repository.DescriptionRepository;
-import grupoalan.backendgalan.repository.ImagesRepository;
-import grupoalan.backendgalan.repository.ProductsRepository;
+import grupoalan.backendgalan.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +37,9 @@ public class ProductsService {
     private ImagesRepository imagesRepository;
     @Autowired
     private ColorRepository colorRepository;
+    @Autowired
+    private CategoriesRepository categoriesRepository;
+
     private static final String API_URL = "https://data.makito.es/api/products";
 
     private static final String API_URL_ROLY = "https://clientsws.gorfactory.es:2096/api/v1.1/item/getcatalog?lang=es-ES&brand=roly";
@@ -72,15 +69,16 @@ public class ProductsService {
                     if (!existingProducts.isEmpty()) {
                         // Si existen productos con el mismo nombre, seleccionar el primero
                         Products existingProduct = existingProducts.get(0);
+                        logger.info("Producto encontraodo: " + existingProduct);
 
                         // Obtener y agregar descripciones al producto utilizando el método personalizado
                         addDescriptionsToProduct(existingProduct, productData);
                         addImagesToProduct(existingProduct, productData);
                         addColorsToProduct(existingProduct, productData);
-
+                        addCategoriesToProduct(existingProduct, productData);
                         existingProduct = productsRepository.save(existingProduct);
+                        logger.info("Producto guardado: " + existingProduct);
 
-                        logger.info("Updated producto: " + existingProduct);
                     } else {
                         // Si no existe un producto con el mismo nombre, crear uno nuevo
                         Products newProduct = new Products();
@@ -115,44 +113,10 @@ public class ProductsService {
         }
     }
 
-//    private void addDescriptionsToProduct(Products product, List<DescriptionsMakito> descriptionsMakitos) {
-//        // Obtener el conjunto de descripciones del producto (asegurándose de que no sea null)
-//        Set<Descriptions> productDescriptions = product.getDescriptions();
-//        if (productDescriptions == null) {
-//            productDescriptions = new HashSet<>();
-//            product.setDescriptions(productDescriptions);
-//        } else {
-//            // Limpiar las descripciones existentes del producto
-//            productDescriptions.clear();
-//        }
-//
-//        // Filtrar y agregar las descripciones que cumplan con el criterio de idioma (lang = 1 para español, lang = 2 para inglés)
-//        for (DescriptionsMakito descriptionsMakito : descriptionsMakitos) {
-//            if ("1".equals(descriptionsMakito.getLang()) || "2".equals(descriptionsMakito.getLang())) {
-//                // Crear una nueva instancia de Descriptions y asignar los valores correspondientes
-//                Descriptions description = new Descriptions();
-//                description.setRef(descriptionsMakito.getRef());
-//                description.setDetails(descriptionsMakito.getDesc()); // Usar el campo 'desc' como 'details'
-//
-//                // Establecer la relación con el producto
-//                description.setProduct(product);
-//
-//                // Agregar la descripción al conjunto de descripciones del producto
-//                productDescriptions.add(description);
-//            }
-//        }
-//
-//        if (!productDescriptions.isEmpty()) {
-//            logger.info("Descripciones agregadas al producto: " + product.getName());
-//        } else {
-//            logger.warn("No se encontraron descripciones en español o inglés para el producto: " + product.getName());
-//        }
-//
-//        // Guardar el producto actualizado en la base de datos
-//        productsRepository.save(product);
-//    }
-
     private void addDescriptionsToProduct(Products product, ProductsMakito productData) {
+        // Registro para indicar el inicio del método
+        logger.info("Iniciando addDescriptionsToProduct para el producto: " + product.getName());
+
         // Obtener las descripciones del producto utilizando el método personalizado
         List<Descriptions> descriptions = descriptionsRepository.findByRef(productData.getRef());
 
@@ -167,14 +131,21 @@ public class ProductsService {
             Set<Descriptions> descriptionsSet = new HashSet<>(descriptions);
             product.setDescriptions(descriptionsSet);
 
+            // Establecer la relación inversa en las descripciones
+            for (Descriptions description : descriptions) {
+                description.setProduct(product);
+            }
+
             logger.info("Descripciones agregadas al producto: " + product.getName());
+            logger.info("Descripciones añadidas: " + product.getDescriptions());
         } else {
             logger.warn("No se encontraron descripciones para el producto: " + product.getName());
         }
 
-        // Guardar el producto actualizado en la base de datos
-//        productsRepository.save(product);
+        // Registro para indicar la finalización del método
+        logger.info("Finalizando addDescriptionsToProduct para el producto: " + product.getName());
     }
+
 
     private void addImagesToProduct(Products product, ProductsMakito productData) {
         List<Images> images = imagesRepository.findByRef(productData.getRef());
@@ -189,11 +160,55 @@ public class ProductsService {
         if (!images.isEmpty()) {
             Set<Images> imagesSet = new HashSet<>(images);
             product.getImages().addAll(imagesSet);
+
+            // Establecer la relación inversa en las imagenes
+            for (Images images1 : images) {
+                images1.setProduct(product);
+            }
+
             logger.info("Imagenes agregadas al producto: " + product.getName());
         } else {
             logger.warn("No se encontraron imagenes para el producto: " + product.getName());
         }
     }
+
+    private void addCategoriesToProduct(Products product, ProductsMakito productData) {
+        // Obtener las categorías asociadas al producto
+        List<Categories> categoriesList = categoriesRepository.findByRef(productData.getRef());
+
+        // Limpiar las categorías existentes del producto (no necesaria si sobrescribes todas las categorías)
+        // product.getCategories().clear();
+
+        if (!categoriesList.isEmpty()) {
+            // Crear un nuevo conjunto de categorías para el producto
+            Set<Categories> newCategories = new HashSet<>();
+
+            // Iterar sobre las categorías asociadas al producto
+            for (Categories category : categoriesList) {
+                // Asociar el producto con la categoría
+                Set<Products> productsSet = category.getProducts();
+                if (productsSet == null) {
+                    productsSet = new HashSet<>();
+                    category.setProducts(productsSet);
+                }
+                productsSet.add(product);
+                // Añadir la categoría al nuevo conjunto de categorías del producto
+                newCategories.add(category);
+                logger.info("Producto asociado a la categoría: " + category.getCategory());
+            }
+
+            // Asignar el nuevo conjunto de categorías al producto
+            product.setCategories(newCategories);
+
+            // Guardar los cambios en la base de datos (asumiendo que estás usando JPA)
+            productsRepository.save(product);
+
+            logger.info("Categorías agregadas al producto: " + product.getName());
+        } else {
+            logger.warn("No se encontraron categorías para el producto: " + product.getName());
+        }
+    }
+
 
     private void addColorsToProduct(Products product, ProductsMakito productData) {
         product.getColorsSet().clear();
@@ -222,7 +237,6 @@ public class ProductsService {
             logger.warn("No se encontraron colores para el producto: " + product.getName());
         }
     }
-
 
 
     public boolean rolyProductsFromApi(String apiToken) {

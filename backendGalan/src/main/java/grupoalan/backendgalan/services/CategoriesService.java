@@ -36,7 +36,7 @@ public class CategoriesService {
     private static final String API_URL_ROLY = "https://clientsws.gorfactory.es:2096/api/v1.0/item/categories?lang=es-ES&brand=roly";
 
 
-    public List<Categories> makitoCategoriesFromApi(String apiToken) {
+    public boolean makitoCategoriesFromApi(String apiToken) {
         logger.info("ESTAS EN EL CATEGORIES SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
@@ -51,89 +51,77 @@ public class CategoriesService {
         StatusCode statusCode = response.getBody();
         if (statusCode != null) {
             List<CategoryResponse> categoriesList = statusCode.getCategories();
+            List<Categories> categories = new ArrayList<>();
             logger.info("FUNKA");
-            // Crear un conjunto para almacenar los nombres de las categorías sin duplicados
-            Set<String> uniqueCategoryNames = new HashSet<>();
 
-            // Iterar sobre la lista de CategoryResponse para obtener los nombres de las categorías únicas
-            for (CategoryResponse categoryResponse : categoriesList) {
-                // Verificar si el campo lang es 1 o 2
-                if (categoryResponse.getLang() == 1 || categoryResponse.getLang() == 2) {
-                    uniqueCategoryNames.add(categoryResponse.getCategory());
+            categoriesRepository.deleteAll();
+
+            for(CategoryResponse categoryName : categoriesList){
+                if (categoryName.getLang() == 1 || categoryName.getLang() == 2){
+                    Categories category = new Categories();
+                    category.setRef(categoryName.getRef());
+                    category.setCategory(categoryName.getCategory());
+                    category = categoriesRepository.save(category);
+
+                    categories.add(category);
                 }
+
             }
-
-            // Crear una lista para almacenar las categorías convertidas sin nombres duplicados
-            List<Categories> convertedCategories = new ArrayList<>();
-
-            // Iterar sobre los nombres únicos de las categorías y crear objetos Categories
-            for (String categoryName : uniqueCategoryNames) {
-                Categories category = new Categories();
-                category.setName(categoryName);
-                category.setDescription(""); // Puedes asignar una descripción si tienes esa información disponible
-                // Guardar la categoría en la base de datos para obtener el category_id
-                category = categoriesRepository.save(category);
-                // Agregar la categoría convertida a la lista
-                convertedCategories.add(category);
-            }
-
-            // Loggear las categorías obtenidas de la API
-            logger.info("Categorías obtenidas de la API: " + convertedCategories);
-
-            return convertedCategories;
+            logger.info("Categories obtenidas de la API: " + categories);
+            return true;
         } else {
             System.err.println("No se pudo obtener el objeto StatusCode de la respuesta.");
-            return null;
+            return false;
         }
     }
 
     //METODO DE OBTENCION DE CATEGORIAS DE ROLY
-    public List<Categories> rolyCategoriesFromApi(String apiToken) {
-        logger.info("ESTAS EN EL ROLY SERVICE");
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + apiToken);
-
-        logger.info("apiTokenRoly: " + apiToken);
-
-        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
-
-        ResponseEntity<CategoriesRoly[]> response = restTemplate.exchange(
-                API_URL_ROLY, HttpMethod.GET, requestEntity, CategoriesRoly[].class);
-
-        CategoriesRoly[] categoriesRolyArray = response.getBody();
-
-        if (categoriesRolyArray != null) {
-            Set<String> uniqueCategoryNames = new HashSet<>();
-            List<Categories> convertedCategories = new ArrayList<>();
-
-            for (CategoriesRoly categoriesRoly : categoriesRolyArray) {
-                String categoryName = categoriesRoly.getParentCategory();
-                if (categoryName == null || categoryName.isEmpty()) {
-                    categoryName = categoriesRoly.getCategory();
-                }
-                // Verificar si la categoría ya ha sido agregada
-                if (!uniqueCategoryNames.contains(categoryName)) {
-                    Categories category = new Categories();
-                    category.setName(categoryName);
-                    category.setDescription(""); // Puedes asignar una descripción si tienes esa información disponible
-                    // Guardar la categoría en la base de datos para obtener el category_id
-                    category = categoriesRepository.save(category);
-                    // Agregar la categoría convertida a la lista
-                    convertedCategories.add(category);
-                    // Agregar el nombre de la categoría al conjunto de nombres únicos
-                    uniqueCategoryNames.add(categoryName);
-                }
-            }
-
-            // Loggear las categorías obtenidas de la API
-            logger.info("Categorías obtenidas de la API: " + convertedCategories);
-
-            return convertedCategories;
-        } else {
-            logger.error("La respuesta de la API no contiene categorías.");
-            return Collections.emptyList();
-        }
-    }
+//    public List<Categories> rolyCategoriesFromApi(String apiToken) {
+//        logger.info("ESTAS EN EL ROLY SERVICE");
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.set("Authorization", "Bearer " + apiToken);
+//
+//        logger.info("apiTokenRoly: " + apiToken);
+//
+//        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+//
+//        ResponseEntity<CategoriesRoly[]> response = restTemplate.exchange(
+//                API_URL_ROLY, HttpMethod.GET, requestEntity, CategoriesRoly[].class);
+//
+//        CategoriesRoly[] categoriesRolyArray = response.getBody();
+//
+//        if (categoriesRolyArray != null) {
+//            Set<String> uniqueCategoryNames = new HashSet<>();
+//            List<Categories> convertedCategories = new ArrayList<>();
+//
+//            for (CategoriesRoly categoriesRoly : categoriesRolyArray) {
+//                String categoryName = categoriesRoly.getParentCategory();
+//                if (categoryName == null || categoryName.isEmpty()) {
+//                    categoryName = categoriesRoly.getCategory();
+//                }
+//                // Verificar si la categoría ya ha sido agregada
+//                if (!uniqueCategoryNames.contains(categoryName)) {
+//                    Categories category = new Categories();
+//                    category.setName(categoryName);
+//                    category.setDescription(""); // Puedes asignar una descripción si tienes esa información disponible
+//                    // Guardar la categoría en la base de datos para obtener el category_id
+//                    category = categoriesRepository.save(category);
+//                    // Agregar la categoría convertida a la lista
+//                    convertedCategories.add(category);
+//                    // Agregar el nombre de la categoría al conjunto de nombres únicos
+//                    uniqueCategoryNames.add(categoryName);
+//                }
+//            }
+//
+//            // Loggear las categorías obtenidas de la API
+//            logger.info("Categorías obtenidas de la API: " + convertedCategories);
+//
+//            return convertedCategories;
+//        } else {
+//            logger.error("La respuesta de la API no contiene categorías.");
+//            return Collections.emptyList();
+//        }
+//    }
 
 
     // Método para encontrar una categoría por su ID

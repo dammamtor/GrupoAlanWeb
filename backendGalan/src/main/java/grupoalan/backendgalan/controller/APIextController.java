@@ -59,34 +59,42 @@ public class APIextController {
 
     //CATEGORIAS
     @GetMapping("/makito/categories")
-    public ResponseEntity<List<Categories>> makitoCategories() {
+    public ResponseEntity<String > makitoCategories() {
         // Obtener el token de la API externa
         String apiToken = getApiToken();
         if (apiToken == null) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        // Ahora que tienes el token, puedes proceder a obtener las categorías
-        List<Categories> categories = categoriesService.makitoCategoriesFromApi(apiToken);
-        if (categories == null) {
-            logger.error("No se pudieron obtener las categorías de la API externa");
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        try {
+            logger.info("ACTUALIZACIÓN DE CATEGORIES MAKITO EN LA BASE DE DATOS");
+
+            // Realizar la actualización de los productos desde la API
+            boolean updatedSuccessfully = categoriesService.makitoCategoriesFromApi(apiToken);
+
+            if (updatedSuccessfully) {
+                return new ResponseEntity<>("Lista de categorias Makito actualizada correctamente.", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Error al actualizar la lista de productos", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        } catch (Exception e) {
+            logger.error("Error en la actualización de productos Makito: " + e.getMessage());
+            return new ResponseEntity<>("Error interno en el servidor", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
-    @GetMapping("/roly/categories")
-    public ResponseEntity<List<Categories>> rolyCategories() {
-        String apiToken = getApiRolyToken();
-        if (apiToken == null) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-        logger.info("OBTENCION CATEGORIAS ROLY A BBDD EMPRESA");
-        List<Categories> categories = categoriesService.rolyCategoriesFromApi(apiToken);
-        return new ResponseEntity<>(categories, HttpStatus.OK);
-    }
+//    @GetMapping("/roly/categories")
+//    public ResponseEntity<List<Categories>> rolyCategories() {
+//        String apiToken = getApiRolyToken();
+//        if (apiToken == null) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//
+//        logger.info("OBTENCION CATEGORIAS ROLY A BBDD EMPRESA");
+//        List<Categories> categories = categoriesService.rolyCategoriesFromApi(apiToken);
+//        return new ResponseEntity<>(categories, HttpStatus.OK);
+//    }
 
     //PRODUCTS
     @GetMapping("/makito/products")

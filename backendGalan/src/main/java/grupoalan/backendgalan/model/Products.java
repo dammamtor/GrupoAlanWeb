@@ -1,5 +1,6 @@
 package grupoalan.backendgalan.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -55,9 +56,6 @@ public class Products {
     @JoinColumn(name = "product_type_id", nullable = true)
     private ProductTypes productType;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = true)
-    private Categories category;
 
     @ManyToOne
     @JoinColumn(name = "technique_id", nullable = true)
@@ -79,6 +77,15 @@ public class Products {
             inverseJoinColumns = @JoinColumn(name = "color_id")
     )
     private Set<Colors> colorsSet = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "categories_products",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    @JsonIgnore
+    private Set<Categories> categories = new HashSet<>();
     // Constructor vacío (obligatorio para JPA)
     public Products() {
     }
@@ -190,13 +197,6 @@ public class Products {
         this.productType = productType;
     }
 
-    public Categories getCategory() {
-        return category;
-    }
-
-    public void setCategory(Categories category) {
-        this.category = category;
-    }
 
     public MarkingTechniques getMarkingTechnique() {
         return markingTechnique;
@@ -236,6 +236,14 @@ public class Products {
 
     public void setColorsSet(Set<Colors> colorsSet) {
         this.colorsSet = colorsSet;
+    }
+
+    public Set<Categories> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Categories> categories) {
+        this.categories = categories;
     }
 
     @Override

@@ -1,7 +1,9 @@
 package grupoalan.backendgalan.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -10,14 +12,14 @@ public class Categories {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long category_id;
-    @Column(nullable = false)
-    private String name;
-    @Column(nullable = false)
-    private String description;
+    @Column
+    private String ref;
+    @Column
+    private String category;
 
     //RELACIONES
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private Set<Products> products;
+    @ManyToMany(mappedBy = "categories")
+    private Set<Products> products = new HashSet<>();
 
     public Categories() {
     }
@@ -30,20 +32,20 @@ public class Categories {
         this.category_id = category_id;
     }
 
-    public String getName() {
-        return name;
+    public String getRef() {
+        return ref;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCategory() {
+        return category;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public Set<Products> getProducts() {
@@ -52,5 +54,15 @@ public class Categories {
 
     public void setProducts(Set<Products> products) {
         this.products = products;
+    }
+
+    @Override
+    public String toString() {
+        return "Categories{" +
+                "category_id=" + category_id +
+                ", ref='" + ref + '\'' +
+                ", category='" + category + '\'' +
+                ", products=" + products +
+                '}';
     }
 }
