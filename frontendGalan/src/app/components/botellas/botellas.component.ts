@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-botellas',
   standalone: true,
-  imports: [RouterLink],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  imports: [HeaderComponent, RouterLink],
+  templateUrl: './botellas.component.html',
+  styleUrl: './botellas.component.css',
 })
-export class HeaderComponent {
+export class BotellasComponent {
   public botellasList: any[] = [];
   constructor(private ruta: Router) {}
-
   navegateAbanicos() {
     this.ruta.navigate(['abanicos']);
   }
