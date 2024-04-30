@@ -1,108 +1,91 @@
 <app-header></app-header>
-<!-- Start Content -->
-<div class="container py-5">
+
+<main class="border border-success">
     <div class="row">
-
-        <div class="col-lg-3">
-            <h1 class="h2 pb-4">Categorias</h1>
-            <ul class="list-unstyled templatemo-accordion">
-                <li class="pb-3">
-                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                        Gender
-                        <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
-                    </a>
-                    <ul class="collapse show list-unstyled pl-3">
-                        <li><a class="text-decoration-none" (click)="navegateAbanicos()">Abanicos</a></li>
-                        <li><a class="text-decoration-none" (click)="navegateBotellas()">Botellas</a></li>
-                        <li><a class="text-decoration-none" (click)="navegateBoligrafos()">Bolígrafos</a></li>
-                        <li><a class="text-decoration-none" (click)="navegateBolsas()">Bolsas</a></li>
-                        <li><a class="text-decoration-none" (click)="navegateCamisetas()">Camisetas</a></li>
-                        <li><a class="text-decoration-none" (click)="navegateGorras()">Gorras</a></li>
-                        <li><a class="text-decoration-none" (click)="navegateLibretas()">Libretas</a></li>
-                        <li><a class="text-decoration-none" (click)="navegateMochilas()">Mochilas</a></li>
-                        <li><a class="text-decoration-none" (click)="navegatePolos()">Polos</a></li>
-                        <li><a class="text-decoration-none" (click)="navegateRopaTrabajo()">Ropa de trabajo</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="col-lg-9">
-            <div class="row">
-                <div class="col-md-6 pb-4">
-                    <div class="d-flex">
-                        <select class="form-control">
-                            <option>Mas relevantes</option>
-                            <option>Alfaveticamente</option>
-                            <option>Item</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4 product-wap rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_01.jpg">
-                            <div
-                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                                                class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                                                class="fas fa-cart-plus"></i></a></li>
+        <div class="col-md-4">
+            <div class="col-md-4">
+                <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+                    <span
+                        class="fs-5 fw-semibold d-inline-flex align-items-center border-bottom border-2 border-primary pb-1">
+                        <i class="bi bi-filter-square-fill me-2"></i>
+                        Filtro
+                    </span>
+                    <ul class="list-unstyled ps-0 pt-2">
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed"
+                                data-bs-toggle="collapse" data-bs-target="#categorias-collapse" aria-expanded="true">
+                                Categoria Padre
+                            </button>
+                            <div class="collapse show" id="categorias-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="#" class="link-dark rounded"><i
+                                                class="bi bi-chevron-right me-1"></i>Categoria hija 1</a></li>
+                                    <li><a href="#" class="link-dark rounded"><i
+                                                class="bi bi-chevron-right me-1"></i>Categoria hija 2</a></li>
+                                    <li><a href="#" class="link-dark rounded"><i
+                                                class="bi bi-chevron-right me-1"></i>Categoria hija 3</a></li>
+                                    <li><a href="#" class="link-dark rounded"><i
+                                                class="bi bi-chevron-right me-1"></i>Categoria hija 4</a></li>
+                                    <li><a href="#" class="link-dark rounded"><i
+                                                class="bi bi-chevron-right me-1"></i>Categoria hija 5</a></li>
+                                    <li><a href="#" class="link-dark rounded"><i
+                                                class="bi bi-chevron-right me-1"></i>Categoria hija 6</a></li>
+                                    <li><a href="#" class="link-dark rounded"><i
+                                                class="bi bi-chevron-right me-1"></i>Categoria hija 7</a></li>
+                                    <li><a href="#" class="link-dark rounded"><i
+                                                class="bi bi-chevron-right me-1"></i>Categoria hija 8</a></li>
+                                    <li><a href="#" class="link-dark rounded"><i
+                                                class="bi bi-chevron-right me-1"></i>Categoria hija 9</a></li>
+                                    <li><a href="#" class="link-dark rounded"><i
+                                                class="bi bi-chevron-right me-1"></i>Categoria hija 10</a></li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span
-                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span
-                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span
-                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span
-                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$250.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div div="row">
-                    <ul class="pagination pagination-lg justify-content-end">
-                        <li class="page-item disabled">
-                            <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#"
-                                tabindex="-1">1</a>
                         </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-                                href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
-                        </li>
+                        <li class="border-top my-3"></li>
                     </ul>
                 </div>
             </div>
-
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col">
+                    <article class="product-card border border-success">
+                        <div class="product-image">
+                            <img src="https://www.grupobillingham.com/images/0d/1c/2be02515d69c8fax5da8764860ce/210-210-3/0.jpg"
+                                alt="Camiseta" class="img-fluid">
+                            <div class="product-badge">Mujer</div>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-code">H6646</span>
+                            <a href="https://www.grupobillingham.com/camiseta-de-mujer-cuello-v-de-mujer-victoria-roly-155"
+                                class="product-title">Camiseta manga corta cuello en V de mujer Victoria Roly 155</a>
+                            <div class="delivery-info">
+                                <p class="delivery-title">RECÍBELO:</p>
+                                <dl class="delivery-dates">
+                                    <dt>Sin personalizar:</dt>
+                                    <dd>6 May. - 7 May.</dd>
+                                    <dt>Personalizado:</dt>
+                                    <dd>9 May. - 10 May.</dd>
+                                </dl>
+                            </div>
+                            <div class="color-options">
+                                <span class="color-option" style="background-color:#000000;"></span>
+                                <!-- Add other color options here -->
+                            </div>
+                            <div class="product-price">
+                                <span class="price-from">Desde <strong>€2.08</strong></span>
+                                <span class="price-to">a <strong>€5.32</strong></span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="product-card border border-success">
+                        <!-- Contenido del segundo artículo -->
+                    </article>
+                </div>
+                <!-- Agrega más columnas aquí para más artículos -->
+            </div>
         </div>
     </div>
-    <!-- End Content -->
+</main>
