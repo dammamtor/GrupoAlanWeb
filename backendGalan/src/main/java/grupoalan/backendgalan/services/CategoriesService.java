@@ -15,6 +15,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.HttpHeaders;
 
@@ -125,6 +126,7 @@ public class CategoriesService {
 //    }
 
     //METODO DE OBTENCION DE CATEGORIAS DE ROLY
+    @Transactional
     public boolean rolyCategoriesFromApi(String apiToken) {
         logger.info("ESTAS EN EL CATEGORIES SERVICE");
         HttpHeaders headers = new HttpHeaders();
@@ -138,32 +140,36 @@ public class CategoriesService {
                     API_URL_ROLY_ES, HttpMethod.GET, requestEntity, CategoriesRoly[].class);
             CategoriesRoly[] categoriesRolyArray = response.getBody();
 
-            logger.info(Arrays.toString(categoriesRolyArray));
+            logger.info("Categorías recibidas de la API: " + Arrays.toString(categoriesRolyArray));
 
-            if (categoriesRolyArray != null) {
-                for (CategoriesRoly categoryRoly : categoriesRolyArray) {
-                    Categories category = new Categories();
-                    category.setRef(categoryRoly.getId()); // Establece el ID como referencia
-                    category.setCategory(categoryRoly.getCategory());
-
-                    List<Categories> subcategories = new ArrayList<>();
-                    if (categoryRoly.getSubcategories() != null) {
-                        for (CategoriesRoly subcategoryRoly : categoryRoly.getSubcategories()) {
-                            Categories subcategory = new Categories();
-                            subcategory.setRef(subcategoryRoly.getId());
-                            subcategory.setCategory(subcategoryRoly.getCategory());
-                            subcategories.add(subcategory);
-                        }
-                    }
-                    category.setSubcategories(subcategories);
-                    categoriesRepository.save(category);
-                    logger.info("Categoria guardada: " + category.getCategory());
-                    logger.info(String.valueOf(category));
-                }
-            }
-            logger.info("TERMINADO");
+//            categoriesRepository.deleteAll();
+//
+//            for (CategoriesRoly categoryRoly : categoriesRolyArray) {
+//                logger.info("Procesando categoría: " + categoryRoly.getCategory());
+//
+//                Categories category = new Categories();
+//                category.setRef(categoryRoly.getId()); // Establece el ID como referencia
+//                category.setCategory(categoryRoly.getCategory());
+//
+//                List<Categories> subcategories = new ArrayList<>();
+//                if (categoryRoly.getSubcategories() != null) {
+//                    for (CategoriesRoly subcategoryRoly : categoryRoly.getSubcategories()) {
+//                        Categories subcategory = new Categories();
+//                        subcategory.setRef(subcategoryRoly.getId());
+//                        subcategory.setCategory(subcategoryRoly.getCategory());
+//                        subcategories.add(subcategory);
+//
+//                        logger.info("Subcategoria: " + subcategories);
+//                    }
+//                }
+//                category.setSubcategories(subcategories);
+//
+//                logger.info("Guardando categoría en la base de datos: " + category.getCategory());
+//                logger.info("Categoria: " + category);
+//                categoriesRepository.save(category); // Guarda la categoría principal
+//            }
         } catch (Exception e) {
-            logger.error("Error al obtener las categorias en español: " + e.getMessage());
+            logger.error("Error al obtener las categorías en español: " + e.getMessage());
             return false;
         }
 
