@@ -1,7 +1,6 @@
 package grupoalan.backendgalan.controller;
 
 import grupoalan.backendgalan.model.*;
-import grupoalan.backendgalan.model.response.makito.ProductsMakito;
 import grupoalan.backendgalan.services.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class APIextController {
@@ -138,6 +139,31 @@ public class APIextController {
             return new ResponseEntity<>("Error al actualizar la lista de productos", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/makito/products/{id}")
+    public ResponseEntity<String> getMakitoProductById(@PathVariable Long id) {
+        String apiToken = getApiToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>("Error al obtener el token de la API", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        try {
+            logger.info("SELECCIONANDO UN PRODUCTO EN CONCRETO DE LA BASE DE DATOS");
+
+            // Obtener el producto por ID
+            Optional<Products> producto = productsService.getProductById(id);
+            logger.info("ID DEL PRODUCTO: " + producto.toString());
+
+            if (producto != null) {
+                return new ResponseEntity<>("Producto seleccionado: " + producto.toString(), HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("No se encontró un producto con el ID especificado", HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            logger.error("Error al seleccionar producto Makito por ID: " + e.getMessage());
+            return new ResponseEntity<>("Error interno en el servidor", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     //COLORS
     @GetMapping("/makito/colors")

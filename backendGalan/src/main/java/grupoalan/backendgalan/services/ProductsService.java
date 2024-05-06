@@ -3,14 +3,12 @@ package grupoalan.backendgalan.services;
 import grupoalan.backendgalan.model.*;
 import grupoalan.backendgalan.model.response.makito.ProductsMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
-import grupoalan.backendgalan.model.response.makito.*;
 import grupoalan.backendgalan.model.response.roly.Items;
 import grupoalan.backendgalan.model.response.roly.ProductsRoly;
 import grupoalan.backendgalan.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -19,12 +17,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class ProductsService {
+public class ProductsService{
     static final Logger logger = LoggerFactory.getLogger(ProductsService.class);
 
     @Autowired
@@ -308,47 +305,6 @@ public class ProductsService {
         }
     }
 
-    //TEST. OBTENER DATOS PRODUCTO ANTES DE PASAR A GRAN PLANO
-    public Products getDataProductID() {
-        String idNumber = "3403";
-        Products testProduct = productsRepository.findByRef(idNumber);
-        List<Descriptions> testDescriptions = descriptionsRepository.findByRef(idNumber);
-        List<Images> testImages = imagesRepository.findByRef(idNumber);
-
-        // AGREGAR LOS DATOS
-        testProduct.setDescriptions(new HashSet<>(testDescriptions)); // Usar HashSet para evitar duplicados en la relación OneToMany
-        testProduct.setImages(new HashSet<>(testImages));
-
-        // Obtener los códigos de colores del producto
-        String colorCodes = testProduct.getColors();
-
-        if (!colorCodes.isEmpty()) {
-            String[] colorArray = colorCodes.split(",\\s*"); // Dividir los códigos por comas
-
-            // Buscar los detalles de cada color y agregarlos al producto
-            List<Colors> testColors = new ArrayList<>();
-            for (String colorCode : colorArray) {
-                List<Colors> colors = colorRepository.findByCode(colorCode.trim());
-                testColors.addAll(colors);
-            }
-
-            // Agregar los colores al producto
-            Set<Colors> colorsSet = new HashSet<>(testColors);
-            testProduct.setColorsSet(colorsSet);
-        }
-
-        // Guardar el producto actualizado en la base de datos
-        productsRepository.save(testProduct);
-
-        return testProduct; // Devolver el producto actualizado
-    }
-
-
-    // Método para encontrar un producto por su ID
-    public Products getProductByID(Long id) {
-        return productsRepository.findById(id).orElse(null);
-    }
-
     // Método para encontrar todos los productos
     public List<Products> getAllProducts() {
         return productsRepository.findAll();
@@ -362,5 +318,10 @@ public class ProductsService {
     // Método para eliminar un producto por su ID
     public void deleteProductByID(Long id) {
         productsRepository.deleteById(id);
+    }
+
+    public Optional<Products> getProductById(Long productId) {
+
+        return productsRepository.findByProductId(productId);
     }
 }

@@ -1,6 +1,5 @@
 package grupoalan.backendgalan.controller;
 
-import grupoalan.backendgalan.model.Categories;
 import grupoalan.backendgalan.model.Products;
 import grupoalan.backendgalan.services.ProductsService;
 import org.slf4j.Logger;

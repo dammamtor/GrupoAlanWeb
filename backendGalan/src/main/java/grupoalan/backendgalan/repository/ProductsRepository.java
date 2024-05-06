@@ -12,6 +12,8 @@ import java.util.Set;
 
 public interface ProductsRepository extends JpaRepository<Products, Long> {
     List<Products> findByName(String name);
+    Optional<Products> findByProductId(Long id);
+
     Products findByRef(String ref); // Cambiar el retorno a List<Products>
     //    Products findByRef(String number);
 
