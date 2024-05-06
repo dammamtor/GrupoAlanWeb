@@ -3,6 +3,8 @@ package grupoalan.backendgalan.services;
 import grupoalan.backendgalan.model.Colors;
 import grupoalan.backendgalan.model.response.makito.ColorsMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
+import grupoalan.backendgalan.model.response.roly.Items;
+import grupoalan.backendgalan.model.response.roly.ProductsRoly;
 import grupoalan.backendgalan.repository.ColorRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +18,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ColorService {
@@ -25,6 +29,8 @@ public class ColorService {
     private RestTemplate restTemplate;
 
     private static final String API_URL = "https://data.makito.es/api/colors";
+    private static final String API_URL_ROLY_ES = "https://clientsws.gorfactory.es:2096/api/v1.1/item/getcatalog?lang=es-ES&brand=roly";
+    private static final String API_URL_ROLY_ENG = "https://clientsws.gorfactory.es:2096/api/v1.1/item/getcatalog?lang=en-GB&brand=roly";
 
     private final ColorRepository colorRepository;
 
@@ -80,6 +86,66 @@ public class ColorService {
         } else {
             logger.error("Error al obtener el objeto StatusCode de la respuesta");
             return false;
+        }
+    }
+
+    public boolean rolyColorsFromApi(String apiToken) {
+        logger.info("ESTAS EN EL COLOR SERVICE");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setBearerAuth(apiToken);
+
+        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+
+        // Para obtener los productos en español
+        try {
+            ResponseEntity<Items> responseES = restTemplate.exchange(
+                    API_URL_ROLY_ES, HttpMethod.GET, requestEntity, Items.class);
+
+            Items itemsES = responseES.getBody();
+
+            // Procesar productos en español
+            processProducts(itemsES, "español", new HashSet<>());
+        } catch (Exception e) {
+            logger.error("Error al obtener productos en español: " + e.getMessage());
+            return false;
+        }
+
+        // Para obtener los productos en inglés
+        try {
+            ResponseEntity<Items> responseENG = restTemplate.exchange(
+                    API_URL_ROLY_ENG, HttpMethod.GET, requestEntity, Items.class);
+
+            Items itemsENG = responseENG.getBody();
+
+            // Procesar productos en inglés
+            processProducts(itemsENG, "inglés", new HashSet<>());
+        } catch (Exception e) {
+            logger.error("Error al obtener productos en inglés: " + e.getMessage());
+            return false;
+        }
+
+        return true;
+    }
+
+
+    private void processProducts(Items items, String language, Set<String> colorCodes) {
+        if (items != null && items.getItem() != null) {
+            List<ProductsRoly> products = items.getItem();
+            for (ProductsRoly product : products) {
+                // Verificar si el código de color ya ha sido procesado
+                if (!colorCodes.contains(product.getColorcode())) {
+                    // Si no se ha procesado, guardar el color en la base de datos
+                    Colors color = new Colors();
+                    color.setCode(product.getColorcode());
+                    color.setName(product.getColorname());
+                    colorRepository.save(color);
+
+                    // Registrar el código de color para evitar repeticiones
+                    colorCodes.add(product.getColorcode());
+
+                    logger.info("Añadido el color " + product.getColorname() + " (" + product.getColorcode() + ") en " + language);
+                }
+            }
         }
     }
 }

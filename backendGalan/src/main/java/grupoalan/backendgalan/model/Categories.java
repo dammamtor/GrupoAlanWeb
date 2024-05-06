@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,6 +17,9 @@ public class Categories {
     private String ref;
     @Column
     private String category;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "parent_id", referencedColumnName = "ref")
+    private List<Categories> subcategories;
 
     //RELACIONES
     @ManyToMany(mappedBy = "categories")
@@ -56,13 +60,21 @@ public class Categories {
         this.products = products;
     }
 
+    public List<Categories> getSubcategories() {
+        return subcategories;
+    }
+
+    public void setSubcategories(List<Categories> subcategories) {
+        this.subcategories = subcategories;
+    }
+
     @Override
     public String toString() {
         return "Categories{" +
                 "category_id=" + category_id +
                 ", ref='" + ref + '\'' +
                 ", category='" + category + '\'' +
-                ", products=" + products +
+                ", subcategories=" + subcategories +
                 '}';
     }
 }

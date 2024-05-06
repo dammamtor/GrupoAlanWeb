@@ -304,7 +304,61 @@ public class ProductsService{
             return false;
         }
     }
+    //METODOS PARA SABER CUANTOS PRODUCTOS HAY EN MAKITO Y ROLY, ANTES DE GUARDARLOS
+    public boolean extProductsCount(String apiToken) {
+        logger.info("ESTAS EN EL PRODUCTS SERVICE");
 
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setBearerAuth(apiToken);
+
+            HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+
+            ResponseEntity<StatusCode> response = restTemplate.exchange(
+                    API_URL, HttpMethod.GET, requestEntity, StatusCode.class);
+
+            StatusCode statusCode = response.getBody();
+
+            if (statusCode != null && statusCode.getProducts() != null) {
+                List<ProductsMakito> productsMakitos = statusCode.getProducts();
+                logger.info("FUNCIONA");
+                int totalProducts = productsMakitos.size();
+                logger.info("Número total de productos de Makito: " + totalProducts);
+            }
+
+            return true;
+        } catch (RestClientException ex) {
+            logger.error("Error al llamar a la API: " + ex.getMessage());
+            return false;
+        }
+    }
+
+    public boolean extProductsCountRoly(String apiToken) {
+        logger.info("ESTAS EN EL PRODUCTS SERVICE");
+
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setBearerAuth(apiToken);
+
+            HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+
+            ResponseEntity<Items> response = restTemplate.exchange(
+                    API_URL_ROLY, HttpMethod.GET, requestEntity, Items.class);
+
+            Items items = response.getBody();
+
+            if (items != null && items.getItem() != null) {
+                List<ProductsRoly> productsRoly = items.getItem();
+                int totalProducts = productsRoly.size();
+                logger.info("Número total de productos de Roly: " + totalProducts);
+            }
+
+            return true;
+        } catch (RestClientException ex) {
+            logger.error("Error al llamar a la API: " + ex.getMessage());
+            return false;
+        }
+    }
     // Método para encontrar todos los productos
     public List<Products> getAllProducts() {
         return productsRepository.findAll();

@@ -17,6 +17,26 @@ public class Images {
     @Column
     private String img_max;
 
+    //ROLY
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    private String productImage;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    private String modelImage;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    private String childImage;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    private String detailsImages;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    private String viewsImages;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    private String otherImages;
+
     //RELACIONES
     @ManyToOne
     @JoinColumn(name = "product_id")
@@ -66,6 +86,54 @@ public class Images {
         this.product = product;
     }
 
+    public String getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
+    }
+
+    public String getModelImage() {
+        return modelImage;
+    }
+
+    public void setModelImage(String modelImage) {
+        this.modelImage = modelImage;
+    }
+
+    public String getChildImage() {
+        return childImage;
+    }
+
+    public void setChildImage(String childImage) {
+        this.childImage = childImage;
+    }
+
+    public String getDetailsImages() {
+        return detailsImages;
+    }
+
+    public void setDetailsImages(String detailsImages) {
+        this.detailsImages = detailsImages;
+    }
+
+    public String getViewsImages() {
+        return viewsImages;
+    }
+
+    public void setViewsImages(String viewsImages) {
+        this.viewsImages = viewsImages;
+    }
+
+    public String getOtherImages() {
+        return otherImages;
+    }
+
+    public void setOtherImages(String otherImages) {
+        this.otherImages = otherImages;
+    }
+
     @Override
     public String toString() {
         return "Images{" +
@@ -73,6 +141,12 @@ public class Images {
                 ", ref='" + ref + '\'' +
                 ", img_min='" + img_min + '\'' +
                 ", img_max='" + img_max + '\'' +
+                ", productImage='" + productImage + '\'' +
+                ", modelImage='" + modelImage + '\'' +
+                ", childImage='" + childImage + '\'' +
+                ", detailsImages='" + detailsImages + '\'' +
+                ", viewsImages='" + viewsImages + '\'' +
+                ", otherImages='" + otherImages + '\'' +
                 '}';
     }
 }

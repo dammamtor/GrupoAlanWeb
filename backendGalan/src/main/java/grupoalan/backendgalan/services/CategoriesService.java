@@ -33,7 +33,8 @@ public class CategoriesService {
 
     private static final String API_URL = "https://data.makito.es/api/categories";
 
-    private static final String API_URL_ROLY = "https://clientsws.gorfactory.es:2096/api/v1.0/item/categories?lang=es-ES&brand=roly";
+    private static final String API_URL_ROLY_ES = "https://clientsws.gorfactory.es:2096/api/v1.0/item/categories?lang=es-ES&brand=roly";
+    private static final String API_URL_ROLY_EN = "https://clientsws.gorfactory.es:2096/api/v1.0/item/categories/tree?lang=en-GB&brand=roly";
 
 
     public boolean makitoCategoriesFromApi(String apiToken) {
@@ -56,8 +57,8 @@ public class CategoriesService {
 
             categoriesRepository.deleteAll();
 
-            for(CategoryResponse categoryName : categoriesList){
-                if (categoryName.getLang() == 1 || categoryName.getLang() == 2){
+            for (CategoryResponse categoryName : categoriesList) {
+                if (categoryName.getLang() == 1 || categoryName.getLang() == 2) {
                     Categories category = new Categories();
                     category.setRef(categoryName.getRef());
                     category.setCategory(categoryName.getCategory());
@@ -122,6 +123,52 @@ public class CategoriesService {
 //            return Collections.emptyList();
 //        }
 //    }
+
+    //METODO DE OBTENCION DE CATEGORIAS DE ROLY
+    public boolean rolyCategoriesFromApi(String apiToken) {
+        logger.info("ESTAS EN EL CATEGORIES SERVICE");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setBearerAuth(apiToken);
+
+        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+
+        // Para obtener los productos en español
+        try {
+            ResponseEntity<CategoriesRoly[]> response = restTemplate.exchange(
+                    API_URL_ROLY_ES, HttpMethod.GET, requestEntity, CategoriesRoly[].class);
+            CategoriesRoly[] categoriesRolyArray = response.getBody();
+
+            logger.info(Arrays.toString(categoriesRolyArray));
+
+            if (categoriesRolyArray != null) {
+                for (CategoriesRoly categoryRoly : categoriesRolyArray) {
+                    Categories category = new Categories();
+                    category.setRef(categoryRoly.getId()); // Establece el ID como referencia
+                    category.setCategory(categoryRoly.getCategory());
+
+                    List<Categories> subcategories = new ArrayList<>();
+                    if (categoryRoly.getSubcategories() != null) {
+                        for (CategoriesRoly subcategoryRoly : categoryRoly.getSubcategories()) {
+                            Categories subcategory = new Categories();
+                            subcategory.setRef(subcategoryRoly.getId());
+                            subcategory.setCategory(subcategoryRoly.getCategory());
+                            subcategories.add(subcategory);
+                        }
+                    }
+                    category.setSubcategories(subcategories);
+                    categoriesRepository.save(category);
+                    logger.info("Categoria guardada: " + category.getCategory());
+                    logger.info(String.valueOf(category));
+                }
+            }
+            logger.info("TERMINADO");
+        } catch (Exception e) {
+            logger.error("Error al obtener las categorias en español: " + e.getMessage());
+            return false;
+        }
+
+        return true;
+    }
 
 
     // Método para encontrar una categoría por su ID

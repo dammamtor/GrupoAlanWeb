@@ -2,6 +2,8 @@ package grupoalan.backendgalan.model.response.roly;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoriesRoly {
 
@@ -11,7 +13,8 @@ public class CategoriesRoly {
     private String parentCategory;
     private String parentId;
     private String brand;
-    private String branchOrder;
+    private String branchorder;
+    private List<CategoriesRoly> subcategories;
 
     public CategoriesRoly() {
     }
@@ -64,12 +67,20 @@ public class CategoriesRoly {
         this.brand = brand;
     }
 
-    public String getBranchOrder() {
-        return branchOrder;
+    public String getBranchorder() {
+        return branchorder;
     }
 
-    public void setBranchOrder(String branchOrder) {
-        this.branchOrder = branchOrder;
+    public void setBranchorder(String branchorder) {
+        this.branchorder = branchorder;
+    }
+
+    public List<CategoriesRoly> getSubcategories() {
+        return subcategories;
+    }
+
+    public void setSubcategories(List<CategoriesRoly> subcategories) {
+        this.subcategories = subcategories;
     }
 
     @Override
@@ -81,7 +92,8 @@ public class CategoriesRoly {
                 ", parentCategory='" + parentCategory + '\'' +
                 ", parentId='" + parentId + '\'' +
                 ", brand='" + brand + '\'' +
-                ", branchOrder='" + branchOrder + '\'' +
+                ", branchorder='" + branchorder + '\'' +
+                ", subcategories=" + subcategories +
                 '}';
     }
 }

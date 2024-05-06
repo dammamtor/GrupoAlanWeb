@@ -84,18 +84,31 @@ public class APIextController {
         }
 
     }
+    @GetMapping("/roly/categories")
+    public ResponseEntity<String> rolyCategories() {
+        // Obtener el token de la API externa
+        String apiToken = getApiRolyToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
-//    @GetMapping("/roly/categories")
-//    public ResponseEntity<List<Categories>> rolyCategories() {
-//        String apiToken = getApiRolyToken();
-//        if (apiToken == null) {
-//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//
-//        logger.info("OBTENCION CATEGORIAS ROLY A BBDD EMPRESA");
-//        List<Categories> categories = categoriesService.rolyCategoriesFromApi(apiToken);
-//        return new ResponseEntity<>(categories, HttpStatus.OK);
-//    }
+        try {
+            logger.info("ACTUALIZACIÓN DE CATEGORIES ROLY EN LA BASE DE DATOS");
+
+            // Realizar la actualización de los productos desde la API
+            boolean updatedSuccessfully = categoriesService.rolyCategoriesFromApi(apiToken);
+
+            if (updatedSuccessfully) {
+                return new ResponseEntity<>("Lista de categorias Roly actualizada correctamente.", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Error al actualizar la lista de categorias Roly", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        } catch (Exception e) {
+            logger.error("Error en la actualización de lista de categorias Roly: " + e.getMessage());
+            return new ResponseEntity<>("Error interno en el servidor", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 
     //PRODUCTS
     @GetMapping("/makito/products")
@@ -181,6 +194,21 @@ public class APIextController {
             return new ResponseEntity<>("Error al actualizar la lista de productos", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/roly/colors")
+    public ResponseEntity<String> rolyColors(){
+        String apiToken = getApiRolyToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        logger.info("OBTENCION COLORES ROLY A BBDD EMPRESA");
+        boolean updatedSuccessfully = colorService.rolyColorsFromApi(apiToken);
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de colores roly actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de productos", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     //DESCRIPTIONS
     @GetMapping("makito/descriptions")
@@ -196,6 +224,21 @@ public class APIextController {
             return new ResponseEntity<>("Lista de descripciones Roly actualizada correctamente.", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Error al actualizar la lista de productos", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @GetMapping("roly/descriptions")
+    public ResponseEntity<String> rolyDescriptions() {
+        String apiToken = getApiRolyToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        logger.info("OBTENCION DESCRIPCIONES ROLY A BBDD EMPRESA");
+        boolean updatedSuccessfully = descriptionService.rolyDescriptionsFromApi(apiToken);
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de descripciones Roly actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de descripciones", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -259,6 +302,59 @@ public class APIextController {
             return new ResponseEntity<>("Lista de images Makito actualizada correctamente.", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Error al actualizar la lista de images", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("roly/images")
+    public ResponseEntity<String> rolyImages(){
+        String apiToken = getApiRolyToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        logger.info("OBTENCION IMAGENES ROLY A BBDD EMPRESA");
+        boolean updatedSuccessfully = imagesService.rolyImagesFromApi(apiToken);
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de imagenes roly actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de imagenes de roly", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    //TOTAL PRODUCTOS
+    @GetMapping("grupoalan/makito/total-productos")
+    public ResponseEntity<String> totalProductos() {
+        String apiToken = getApiToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        logger.info("OBTENCION CANTIDAD TOTAL DE PRODUCTOS");
+        // Realizar la actualización de los productos desde la API
+        boolean updatedSuccessfully = productsService.extProductsCount(apiToken);
+
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Operacion exitosa.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("ERROR. No se pudo ejecutar la operacion", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("grupoalan/roly/total-productos")
+    public ResponseEntity<String> totalProductosRoly() {
+        String apiToken = getApiRolyToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        logger.info("OBTENCION CANTIDAD TOTAL DE PRODUCTOS");
+        // Realizar la actualización de los productos desde la API
+        boolean updatedSuccessfully = productsService.extProductsCountRoly(apiToken);
+
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Operacion exitosa.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("ERROR. No se pudo ejecutar la operacion", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
