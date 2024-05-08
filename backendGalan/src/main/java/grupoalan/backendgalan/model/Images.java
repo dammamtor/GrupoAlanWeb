@@ -16,6 +16,8 @@ public class Images {
     private String img_min;
     @Column
     private String img_max;
+    @Column
+    private Integer  main;
 
     //ROLY
     @Lob
@@ -134,6 +136,14 @@ public class Images {
         this.otherImages = otherImages;
     }
 
+    public Integer getMain() {
+        return main;
+    }
+
+    public void setMain(Integer main) {
+        this.main = main;
+    }
+
     @Override
     public String toString() {
         return "Images{" +
@@ -141,6 +151,7 @@ public class Images {
                 ", ref='" + ref + '\'' +
                 ", img_min='" + img_min + '\'' +
                 ", img_max='" + img_max + '\'' +
+                ", main=" + main +
                 ", productImage='" + productImage + '\'' +
                 ", modelImage='" + modelImage + '\'' +
                 ", childImage='" + childImage + '\'' +

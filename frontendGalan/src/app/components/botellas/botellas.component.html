@@ -51,8 +51,9 @@
         <div class="col-md-4" *ngFor="let item of currentProducts">
           <article class="product-card border border-success">
             <div class="product-image">
-              <img src="{{item.images[0].img_max}}" alt="{{item.name}}" class="img-fluid">
+              <img [src]="item.images[0].img_max" [alt]="item.name" class="img-fluid">
             </div>
+            
 
             <div class="product-details">
               <span class="product-code">{{ item.ref }}</span>
@@ -67,22 +68,14 @@
                   <dd>9 May. - 10 May.</dd>
                 </dl>
               </div>
-              <!-- <div class="color-options">
-                <ng-container *ngIf="item.colorSet && item.colorSet.length > 0; else noColors">
-                  <p>Colores disponibles:</p>
-                  <img *ngFor="let color of item.colorSet" [src]="color.url" alt="{{color.name}}" class="color-option">
-                </ng-container>
-                <ng-template #noColors>
-                  <p>No hay imágenes disponibles para los colores</p>
-                </ng-template>
-              </div> -->
-              <div *ngIf="item.colorSet && item.colorSet.length > 0; else noColors" class="color-options">
+              <!--COLORES-->
+              <div *ngIf="item.colorsSet && item.colorsSet.length > 0; else noColors" class="color-options">
                 <p>Colores disponibles:</p>
-                <img *ngFor="let color of item.colorSet" [src]="color.url" [alt]="color.name" class="color-option">
+                <img *ngFor="let color of item.colorsSet" [src]="color.url" [alt]="color.name" class="color-option">
               </div>
-
+          
               <ng-template #noColors>
-                <p>No hay colores disponibles.</p>
+                <p>Color unico.</p>
               </ng-template>
 
 

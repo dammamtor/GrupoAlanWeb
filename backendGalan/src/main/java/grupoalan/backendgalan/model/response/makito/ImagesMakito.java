@@ -4,7 +4,7 @@ public class ImagesMakito {
     private String ref;
     private String img_min;
     private String img_max;
-    private int main;
+    private Integer main;
 
     public ImagesMakito() {
     }
@@ -33,11 +33,11 @@ public class ImagesMakito {
         this.img_max = img_max;
     }
 
-    public int getMain() {
+    public Integer getMain() {
         return main;
     }
 
-    public void setMain(int main) {
+    public void setMain(Integer main) {
         this.main = main;
     }
 

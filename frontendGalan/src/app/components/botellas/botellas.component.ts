@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChildren } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { Router, RouterLink } from '@angular/router';
 import { Product } from '../../models/Product';
 import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
+import { Image } from '../../models/Image';
 
 @Component({
   selector: 'app-botellas',
@@ -13,8 +14,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './botellas.component.css',
 })
 export class BotellasComponent {
-  public botellasList: any[] = [];
-  constructor(private ruta: Router, private productService: ProductService) { }
+  @ViewChildren('productImage') productImages!: QueryList<any>;
+
+  constructor(private ruta: Router, private productService: ProductService) {
+
+  }
   navegateAbanicos() {
     this.ruta.navigate(['abanicos']);
   }
@@ -55,23 +59,28 @@ export class BotellasComponent {
     this.getProducts();
   }
 
+  ngAfterViewInit(): void {
+    // Esperar a que todas las imágenes estén cargadas antes de establecer loading a false
+    this.productImages.changes.subscribe(() => {
+      console.log("ESPERANDO A QUE SE CARGUEN LAS IMAGENES");
+      this.loading = false;
+    });
+  }
+
   getProducts(): void {
-    this.productService.obtenerProductosBD()
-      .subscribe(
-        products => {
-          this.products = products;
-          console.log("Lista de productos:", this.products); // Aquí se muestra la lista de productos
-          this.loading = false;
-        },
-        error => {
-          this.error = 'Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
-          this.loading = false;
-        }
-      );
+    this.productService.obtenerProductosBD().subscribe(
+      (products) => {
+        this.products = products;
+      },
+      (error) => {
+        this.error = 'Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
+        this.loading = false;
+      }
+    );
   }
 
   currentPage: number = 1;
-  pageSize: number = 100;
+  pageSize: number = 15;
 
   // Método para calcular el índice inicial del primer producto de la página actual
   get startIndex(): number {
@@ -80,8 +89,24 @@ export class BotellasComponent {
 
   // Método para obtener los productos de la página actual
   get currentProducts(): any[] {
-    return this.products.slice(this.startIndex, this.startIndex + this.pageSize);
+    const currentProducts = this.products.slice(this.startIndex, this.startIndex + this.pageSize);
+    console.log("Current Products:", currentProducts);
+    
+    currentProducts.forEach(product => {
+      if (product.images && product.images.length > 0) {
+        const firstImageUrl = product.images[0].img_max;
+        console.log("First Image URL for", product.name + ":", firstImageUrl);
+      } else {
+        console.log("No images found for", product.name);
+      }
+    });
+  
+    return currentProducts;
   }
+  
+  
+  
+  
 
   // Método para cambiar a la página siguiente
   nextPage() {

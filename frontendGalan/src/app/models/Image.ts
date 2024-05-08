@@ -11,5 +11,6 @@ export interface Image {
     detailsImages?: string;
     viewsImages?: string;
     otherImages?: string;
+    main?: number;
     product?: Product; // Debes definir la interfaz Product si no está definida
 }

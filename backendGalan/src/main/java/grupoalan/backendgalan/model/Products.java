@@ -68,6 +68,7 @@ public class Products {
     private Set<Descriptions> descriptions;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OrderBy("imageId ASC") // Orden ascendente por imageId, puedes cambiar ASC a DESC si deseas orden descendente
     private Set<Images> images;
 
     @ManyToMany
