@@ -9,6 +9,10 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
     path: 'abanicos',
     component: BotellasComponent,
   },
@@ -49,7 +53,7 @@ export const routes: Routes = [
     component: BotellasComponent,
   },
   {
-    path: "producto",
-    component: ProductoComponent
-  }
+    path: 'producto',
+    component: ProductoComponent,
+  },
 ];
