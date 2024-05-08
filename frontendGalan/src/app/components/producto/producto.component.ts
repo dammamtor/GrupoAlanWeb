@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/Product';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-producto',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, RouterLink],
   templateUrl: './producto.component.html',
   styleUrl: './producto.component.css'
 })

@@ -14,8 +14,6 @@ import { Image } from '../../models/Image';
   styleUrl: './botellas.component.css',
 })
 export class BotellasComponent {
-  @ViewChildren('productImage') productImages!: QueryList<any>;
-
   constructor(private ruta: Router, private productService: ProductService) {
 
   }
@@ -50,6 +48,17 @@ export class BotellasComponent {
     this.ruta.navigate(['ropaTrabajo']);
   }
 
+  //MOVERSE A PRODUCTOS
+  irAProduct() {
+    this.ruta.navigate(["producto"]);
+    // Desplazarse al principio de la página
+    const element = document.getElementById('topOfPage');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    }
+  }
+  
+
   products: Product[] = [];
   loading: boolean = true;
   error: string | null = null;
@@ -57,14 +66,6 @@ export class BotellasComponent {
 
   ngOnInit(): void {
     this.getProducts();
-  }
-
-  ngAfterViewInit(): void {
-    // Esperar a que todas las imágenes estén cargadas antes de establecer loading a false
-    this.productImages.changes.subscribe(() => {
-      console.log("ESPERANDO A QUE SE CARGUEN LAS IMAGENES");
-      this.loading = false;
-    });
   }
 
   getProducts(): void {
@@ -104,22 +105,28 @@ export class BotellasComponent {
     return currentProducts;
   }
   
-  
-  
-  
-
   // Método para cambiar a la página siguiente
   nextPage() {
     if (this.hasNextPage()) {
       this.currentPage++;
+  
+      // Hacer scroll hacia arriba
+      this.scrollToTop();
     }
   }
-
-  // Método para cambiar a la página anterior
+  
   prevPage() {
     if (this.hasPrevPage()) {
       this.currentPage--;
+  
+      // Hacer scroll hacia arriba
+      this.scrollToTop();
     }
+  }
+  
+  // Método para hacer scroll hacia arriba de la página
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   // Método para verificar si hay una página siguiente
