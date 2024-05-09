@@ -5,6 +5,8 @@ import { Product } from '../../models/Product';
 import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
 import { Image } from '../../models/Image';
+import { CategoryService } from '../../services/category.service';
+import { Category } from '../../models/Category';
 
 @Component({
   selector: 'app-botellas',
@@ -14,9 +16,12 @@ import { Image } from '../../models/Image';
   styleUrl: './botellas.component.css',
 })
 export class BotellasComponent {
-  constructor(private ruta: Router, private productService: ProductService) {
-
+  constructor(
+    private ruta: Router,
+    private productService: ProductService,
+    private categoryService: CategoryService) {
   }
+
   navegateAbanicos() {
     this.ruta.navigate(['abanicos']);
   }
@@ -57,14 +62,16 @@ export class BotellasComponent {
       element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
   }
-  
+
 
   products: Product[] = [];
+  categories: Category[] = [];
   loading: boolean = true;
   error: string | null = null;
 
 
   ngOnInit(): void {
+    this.getCategories();
     this.getProducts();
   }
 
@@ -72,6 +79,8 @@ export class BotellasComponent {
     this.productService.obtenerProductosBD().subscribe(
       (products) => {
         this.products = products;
+        this.loading = false; // Cambiar a falso cuando la carga se completa
+
       },
       (error) => {
         this.error = 'Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
@@ -79,6 +88,20 @@ export class BotellasComponent {
       }
     );
   }
+  getCategories(): void {
+    console.log("Obteniendo categorías únicas desde el servicio...");
+    this.categoryService.obtenerCategoriasUnicasEnBD().subscribe(
+      (categories) => {
+        this.categories = categories;
+        console.log("Categorías obtenidas:", categories);
+      },
+      (error) => {
+        this.error = 'Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
+      }
+    );
+  }
+
+
 
   currentPage: number = 1;
   pageSize: number = 15;
@@ -91,39 +114,39 @@ export class BotellasComponent {
   // Método para obtener los productos de la página actual
   get currentProducts(): any[] {
     const currentProducts = this.products.slice(this.startIndex, this.startIndex + this.pageSize);
-    console.log("Current Products:", currentProducts);
-    
-    currentProducts.forEach(product => {
-      if (product.images && product.images.length > 0) {
-        const firstImageUrl = product.images[0].img_max;
-        console.log("First Image URL for", product.name + ":", firstImageUrl);
-      } else {
-        console.log("No images found for", product.name);
-      }
-    });
-  
+     console.log("Current Products:", currentProducts);
+
+    // currentProducts.forEach(product => {
+    //   if (product.images && product.images.length > 0) {
+    //     const firstImageUrl = product.images[0].img_max;
+    //     console.log("First Image URL for", product.name + ":", firstImageUrl);
+    //   } else {
+    //     console.log("No images found for", product.name);
+    //   }
+    // });
+
     return currentProducts;
   }
-  
+
   // Método para cambiar a la página siguiente
   nextPage() {
     if (this.hasNextPage()) {
       this.currentPage++;
-  
+
       // Hacer scroll hacia arriba
       this.scrollToTop();
     }
   }
-  
+
   prevPage() {
     if (this.hasPrevPage()) {
       this.currentPage--;
-  
+
       // Hacer scroll hacia arriba
       this.scrollToTop();
     }
   }
-  
+
   // Método para hacer scroll hacia arriba de la página
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });

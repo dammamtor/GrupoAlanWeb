@@ -72,7 +72,7 @@ public class ProductsService{
                         addDescriptionsToProduct(existingProduct, productData);
                         addImagesToProduct(existingProduct, productData);
                         addColorsToProduct(existingProduct, productData);
-//                        addCategoriesToProduct(existingProduct, productData);
+                        addCategoriesToProduct(existingProduct, productData);
                         existingProduct = productsRepository.save(existingProduct);
                         logger.info("Producto guardado: " + existingProduct);
 

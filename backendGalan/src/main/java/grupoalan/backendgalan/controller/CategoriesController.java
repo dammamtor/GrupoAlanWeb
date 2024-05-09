@@ -6,6 +6,7 @@ import grupoalan.backendgalan.services.CategoriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200") // Permite solicitudes desde localhost:4200
 public class CategoriesController {
     static final Logger logger = LoggerFactory.getLogger(CategoriesController.class);
 
@@ -41,5 +43,10 @@ public class CategoriesController {
         }
         return new ResponseEntity<>(category, HttpStatus.OK);
     }
-
+    @GetMapping("grupoalan/obtener-categorias-unicas")
+    public ResponseEntity<List<String>> obtenerCategoriasUnicasEnBD() {
+        logger.info("Obteniendo lista de categorías únicas desde la BD");
+        List<String> categoriasUnicas = categoriesService.listaCategoriasUnicas();
+        return new ResponseEntity<>(categoriasUnicas, HttpStatus.OK);
+    }
 }

@@ -1,11 +1,4 @@
-.full-width-main {
-    width: 100%;
-    padding: 20px;
-    border: 2px solid green;
-    /* Cambia el color y el grosor del borde según tus preferencias */
-    box-sizing: border-box;
-    /* Esto asegura que el padding se incluya dentro del ancho total */
-}
+
 
 .product-card {
     background-color: #fff;
@@ -115,60 +108,53 @@
     font-size: 14px;
 }
 
-/*ASIDE CATEGORIAS*/
+/* ASIDE CATEGORIAS */
 .custom-heading {
     font-size: 1.2rem;
-    /* Tamaño de fuente más grande */
     font-weight: bold;
-    /* Peso de fuente en negrita */
     color: #007bff;
-    /* Color primario del texto */
     margin-bottom: 10px;
-    /* Margen debajo del encabezado */
-    padding-bottom: 5px;
-    /* Relleno debajo del encabezado */
-}
-
-.custom-list {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+  }
+  
+  .custom-list {
     padding-left: 0;
-    /* Eliminar relleno de lista predeterminado */
     list-style: none;
-    /* Eliminar estilo de lista predeterminado */
-}
-
-.custom-list-item {
+  }
+  
+  .custom-list-item {
     margin-bottom: 10px;
-    /* Margen entre elementos de lista */
-}
-
-.custom-list-item a {
+  }
+  
+  .custom-list-item button {
     color: #000;
-    /* Color del texto */
     text-decoration: none;
-    /* Quitar subrayado */
-}
-
-.custom-list-item a:hover {
-    color: #0056b3;
-    /* Color al pasar el mouse */
-}
-
-.custom-button {
-    background-color: #4CAF50;
-    /* Green */
+    background: none;
     border: none;
-    color: white;
-    padding: 10px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    padding: 0;
     cursor: pointer;
-    border-radius: 8px;
-}
-
-.custom-button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
+    margin-right: 10px; /* Espacio a la derecha */
+  }
+  
+  .custom-list-item button:hover {
+    color: #0056b3;
+  }
+  
+  .custom-list-item button:focus {
+    outline: none;
+  }
+  
+  .bi-chevron-right {
+    transition: transform 0.3s ease;
+  }
+  
+  .collapsed .bi-chevron-right {
+    transform: rotate(90deg);
+  }
+  
+  .btn-toggle:focus {
+    outline: none;
+  }
+  

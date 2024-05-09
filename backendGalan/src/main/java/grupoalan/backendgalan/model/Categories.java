@@ -16,13 +16,14 @@ public class Categories {
     @Column
     private String ref;
     @Column
+    private Integer lang;
+    @Column
     private String category;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "parent_id", referencedColumnName = "ref")
-    private List<Categories> subcategories;
+
 
     //RELACIONES
     @ManyToMany(mappedBy = "categories")
+    @JsonIgnore
     private Set<Products> products = new HashSet<>();
 
     public Categories() {
@@ -60,12 +61,12 @@ public class Categories {
         this.products = products;
     }
 
-    public List<Categories> getSubcategories() {
-        return subcategories;
+    public Integer getLang() {
+        return lang;
     }
 
-    public void setSubcategories(List<Categories> subcategories) {
-        this.subcategories = subcategories;
+    public void setLang(Integer lang) {
+        this.lang = lang;
     }
 
     @Override
@@ -73,8 +74,8 @@ public class Categories {
         return "Categories{" +
                 "category_id=" + category_id +
                 ", ref='" + ref + '\'' +
+                ", lang=" + lang +
                 ", category='" + category + '\'' +
-                ", subcategories=" + subcategories +
                 '}';
     }
 }

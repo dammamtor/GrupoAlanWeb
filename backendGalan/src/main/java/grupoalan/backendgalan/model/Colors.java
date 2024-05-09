@@ -19,6 +19,8 @@ public class Colors {
     @Column
     private String name;
     @Column
+    private Integer lang;
+    @Column
     private String url;
 
     //RELACIONES
@@ -70,12 +72,21 @@ public class Colors {
         this.products = products;
     }
 
+    public Integer getLang() {
+        return lang;
+    }
+
+    public void setLang(Integer lang) {
+        this.lang = lang;
+    }
+
     @Override
     public String toString() {
         return "Colors{" +
                 "id=" + id +
                 ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
+                ", lang=" + lang +
                 ", url='" + url + '\'' +
                 '}';
     }

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class ColorService {
@@ -76,6 +77,7 @@ public class ColorService {
                     color1.setCode(makito.getColor_code());
                     color1.setName(makito.getName());
                     color1.setUrl(makito.getUrl());
+                    color1.setLang(makito.getLang());
                     color1 = colorRepository.save(color1);
 
                     colorsList.add(color1);
@@ -87,6 +89,15 @@ public class ColorService {
             logger.error("Error al obtener el objeto StatusCode de la respuesta");
             return false;
         }
+    }
+
+    public List<String> listaColoresUnicos() {
+        List<Colors> colors = colorRepository.findAll();
+        return colors.stream()
+                .filter(color -> color.getLang() != null && color.getLang() == 1) // Filtrar por lang igual a 1
+                .map(Colors::getName)
+                .distinct() // Filtrar elementos duplicados
+                .collect(Collectors.toList());
     }
 
     public boolean rolyColorsFromApi(String apiToken) {

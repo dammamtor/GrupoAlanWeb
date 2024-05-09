@@ -84,31 +84,31 @@ public class APIextController {
         }
 
     }
-    @GetMapping("/roly/categories")
-    public ResponseEntity<String> rolyCategories() {
-        // Obtener el token de la API externa
-        String apiToken = getApiRolyToken();
-        if (apiToken == null) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-        try {
-            logger.info("ACTUALIZACIÓN DE CATEGORIES ROLY EN LA BASE DE DATOS");
-
-            // Realizar la actualización de los productos desde la API
-            boolean updatedSuccessfully = categoriesService.rolyCategoriesFromApi(apiToken);
-
-            if (updatedSuccessfully) {
-                return new ResponseEntity<>("Lista de categorias Roly actualizada correctamente.", HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>("Error al actualizar la lista de categorias Roly", HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        } catch (Exception e) {
-            logger.error("Error en la actualización de lista de categorias Roly: " + e.getMessage());
-            return new ResponseEntity<>("Error interno en el servidor", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-    }
+//    @GetMapping("/roly/categories")
+//    public ResponseEntity<String> rolyCategories() {
+//        // Obtener el token de la API externa
+//        String apiToken = getApiRolyToken();
+//        if (apiToken == null) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//
+//        try {
+//            logger.info("ACTUALIZACIÓN DE CATEGORIES ROLY EN LA BASE DE DATOS");
+//
+//            // Realizar la actualización de los productos desde la API
+//            boolean updatedSuccessfully = categoriesService.rolyCategoriesFromApi(apiToken);
+//
+//            if (updatedSuccessfully) {
+//                return new ResponseEntity<>("Lista de categorias Roly actualizada correctamente.", HttpStatus.OK);
+//            } else {
+//                return new ResponseEntity<>("Error al actualizar la lista de categorias Roly", HttpStatus.INTERNAL_SERVER_ERROR);
+//            }
+//        } catch (Exception e) {
+//            logger.error("Error en la actualización de lista de categorias Roly: " + e.getMessage());
+//            return new ResponseEntity<>("Error interno en el servidor", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//
+//    }
 
     //PRODUCTS
     @GetMapping("/makito/products")

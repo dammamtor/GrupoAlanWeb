@@ -22,6 +22,7 @@ import org.springframework.http.HttpHeaders;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoriesService {
@@ -63,10 +64,14 @@ public class CategoriesService {
                     Categories category = new Categories();
                     category.setRef(categoryName.getRef());
                     category.setCategory(categoryName.getCategory());
+                    category.setLang(categoryName.getLang());
                     category = categoriesRepository.save(category);
 
+                    String langString = (category.getLang() == 1) ? "español" : "inglés";
+                    logger.info("Categoría para producto " + category.getRef() + " en " + langString);
                     categories.add(category);
                 }
+
 
             }
             logger.info("Categories obtenidas de la API: " + categories);
@@ -76,6 +81,16 @@ public class CategoriesService {
             return false;
         }
     }
+
+    public List<String> listaCategoriasUnicas() {
+        List<Categories> categories = listaCategories();
+        return categories.stream()
+                .filter(category -> category.getLang() == 1) // Filtrar por lang igual a 1
+                .map(Categories::getCategory)
+                .distinct() // Filtrar elementos duplicados
+                .collect(Collectors.toList());
+    }
+
 
     //METODO DE OBTENCION DE CATEGORIAS DE ROLY
 //    public List<Categories> rolyCategoriesFromApi(String apiToken) {

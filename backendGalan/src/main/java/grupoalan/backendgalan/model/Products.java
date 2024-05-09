@@ -85,7 +85,6 @@ public class Products {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    @JsonIgnore
     private Set<Categories> categories = new HashSet<>();
     // Constructor vacío (obligatorio para JPA)
     public Products() {
@@ -265,6 +264,7 @@ public class Products {
                 ", descriptions=" + descriptions +
                 ", images=" + images +
                 ", colorsSet=" + colorsSet +
+                ", categories=" + categories +
                 '}';
     }
 }
