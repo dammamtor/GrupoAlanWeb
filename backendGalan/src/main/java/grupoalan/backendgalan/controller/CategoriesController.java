@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200") // Permite solicitudes desde localhost:4200
@@ -45,8 +47,16 @@ public class CategoriesController {
     }
     @GetMapping("grupoalan/obtener-categorias-unicas")
     public ResponseEntity<List<String>> obtenerCategoriasUnicasEnBD() {
-        logger.info("Obteniendo lista de categorías únicas desde la BD");
-        List<String> categoriasUnicas = categoriesService.listaCategoriasUnicas();
-        return new ResponseEntity<>(categoriasUnicas, HttpStatus.OK);
+        logger.info("Obteniendo lista de categorías únicas con conteo desde la BD");
+        Map<String, Long> categoriasConConteo = categoriesService.listaCategoriasUnicasConConteo();
+
+        // Formatear la salida según el nuevo formato
+        List<String> response = new ArrayList<>();
+        categoriasConConteo.forEach((categoria, cantidad) -> {
+            response.add(String.format("\"%s (%d)\"", categoria, cantidad));
+        });
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
 }

@@ -30,8 +30,22 @@
               </div>
             </li>
             <li class="border-top my-3"></li>
+            <li class="custom-list-item">
+              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                data-bs-target="#colores-collapse" aria-expanded="true"> <i class="bi bi-chevron-right me-1"></i>Ver
+                Colores
+              </button>
+              <div class="collapse show" id="colores-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li *ngFor="let color of colors">
+                    <a href="#" class="link-dark rounded">{{ color }}</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
           </ul>
         </div>
+        
       </div>
     </div>
     <!--PRODUCTOS-->

@@ -1,5 +1,3 @@
-
-
 .product-card {
     background-color: #fff;
     border: 1px solid #28a745;
@@ -117,44 +115,68 @@
     padding: 10px;
     border-radius: 10px;
     background-color: #f0f0f0;
-  }
-  
-  .custom-list {
+}
+
+.custom-list {
     padding-left: 0;
     list-style: none;
-  }
-  
-  .custom-list-item {
+}
+
+.custom-list-item {
     margin-bottom: 10px;
-  }
-  
-  .custom-list-item button {
+}
+
+.custom-list-item button {
     color: #000;
     text-decoration: none;
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
-    margin-right: 10px; /* Espacio a la derecha */
-  }
-  
-  .custom-list-item button:hover {
+    margin-right: 10px;
+    /* Espacio a la derecha */
+}
+
+.custom-list-item button:hover {
     color: #0056b3;
-  }
-  
-  .custom-list-item button:focus {
+}
+
+.custom-list-item button:focus {
     outline: none;
-  }
-  
-  .bi-chevron-right {
+}
+
+.bi-chevron-right {
     transition: transform 0.3s ease;
-  }
-  
-  .collapsed .bi-chevron-right {
+}
+
+.collapsed .bi-chevron-right {
     transform: rotate(90deg);
-  }
-  
-  .btn-toggle:focus {
+}
+
+.btn-toggle:focus {
     outline: none;
-  }
-  
+}
+
+
+/* Estilo para los botones */
+.custom-button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para el botón desactivado */
+.custom-button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Cambiar estilo al pasar el ratón */
+.custom-button:hover {
+    background-color: #0056b3;
+}

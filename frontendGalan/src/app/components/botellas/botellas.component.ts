@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { Image } from '../../models/Image';
 import { CategoryService } from '../../services/category.service';
 import { Category } from '../../models/Category';
+import { ColorService } from '../../services/color.service';
+import { Color } from '../../models/Color';
 
 @Component({
   selector: 'app-botellas',
@@ -19,7 +21,9 @@ export class BotellasComponent {
   constructor(
     private ruta: Router,
     private productService: ProductService,
-    private categoryService: CategoryService) {
+    private categoryService: CategoryService,
+    private colorService: ColorService
+  ) {
   }
 
   navegateAbanicos() {
@@ -66,12 +70,14 @@ export class BotellasComponent {
 
   products: Product[] = [];
   categories: Category[] = [];
+  colors: Color[] = [];
   loading: boolean = true;
   error: string | null = null;
 
 
   ngOnInit(): void {
     this.getCategories();
+    this.getColors();
     this.getProducts();
   }
 
@@ -92,16 +98,29 @@ export class BotellasComponent {
     console.log("Obteniendo categorías únicas desde el servicio...");
     this.categoryService.obtenerCategoriasUnicasEnBD().subscribe(
       (categories) => {
-        this.categories = categories;
-        console.log("Categorías obtenidas:", categories);
+        // Obtener solo los nombres de categoría y eliminar las comillas dobles y los puntos del final de cada uno
+        this.categories = categories.map(category => category.replace(/^"|"$/g, ''));
+        // console.log("Categorías obtenidas:", this.categories);
       },
       (error) => {
         this.error = 'Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
       }
     );
+
   }
 
-
+  getColors(): void {
+    console.log("Obteniendo lista de colores desde el servicio...");
+    this.colorService.obtenerColoresUnicasEnBD().subscribe(
+      (colors) => {
+        this.colors = colors.map(color => color.replace(/^"|"$/g, ''));
+        console.log("Colores obtenidos: ", this.colors);
+      },
+      (error) => {
+        this.error = 'Error al cargar colores. Por favor, inténtalo de nuevo más tarde.';
+      }
+    )
+  }
 
   currentPage: number = 1;
   pageSize: number = 15;
@@ -113,20 +132,16 @@ export class BotellasComponent {
 
   // Método para obtener los productos de la página actual
   get currentProducts(): any[] {
-    const currentProducts = this.products.slice(this.startIndex, this.startIndex + this.pageSize);
-     console.log("Current Products:", currentProducts);
-
-    // currentProducts.forEach(product => {
-    //   if (product.images && product.images.length > 0) {
-    //     const firstImageUrl = product.images[0].img_max;
-    //     console.log("First Image URL for", product.name + ":", firstImageUrl);
-    //   } else {
-    //     console.log("No images found for", product.name);
-    //   }
-    // });
-
-    return currentProducts;
+    // Verificar si la carga ha finalizado
+    if (!this.loading) {
+      const currentProducts = this.products.slice(this.startIndex, this.startIndex + this.pageSize);
+      // console.log("Current Products:", currentProducts);
+      return currentProducts;
+    } else {
+      return []; // o return null;
+    }
   }
+
 
   // Método para cambiar a la página siguiente
   nextPage() {

@@ -1,6 +1,7 @@
 package grupoalan.backendgalan.services;
 
 import grupoalan.backendgalan.model.Colors;
+import grupoalan.backendgalan.model.Products;
 import grupoalan.backendgalan.model.response.makito.ColorsMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
 import grupoalan.backendgalan.model.response.roly.Items;
@@ -17,10 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -91,13 +89,33 @@ public class ColorService {
         }
     }
 
-    public List<String> listaColoresUnicos() {
+    public Map<String, Long> listaColoresUnicos() {
         List<Colors> colors = colorRepository.findAll();
-        return colors.stream()
-                .filter(color -> color.getLang() != null && color.getLang() == 1) // Filtrar por lang igual a 1
-                .map(Colors::getName)
-                .distinct() // Filtrar elementos duplicados
-                .collect(Collectors.toList());
+        Map<String, Long> colorsConConteo = colors.stream()
+                .flatMap(color -> color.getProducts().stream()) // Obtener todos los productos asociados a cada color
+                .flatMap(producto -> producto.getColorsSet().stream().map(Colors::getName)) // Obtener la secuencia de nombres de colores asociados a cada producto
+                .collect(Collectors.groupingBy(
+                        color -> color, // Agrupar por nombre de color
+                        Collectors.counting() // Contar la cantidad de productos por color
+                ));
+
+        // Filtrar los colores por lang = 1
+        colorsConConteo = colorsConConteo.entrySet().stream()
+                .filter(entry -> colorRepository.findByNameAndLang(entry.getKey(), 1) != null) // Filtrar por lang = 1
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)); // Convertir de nuevo a mapa
+
+        // Imprimir el número de productos por color
+        colorsConConteo.forEach((color, cantidad) -> {
+            logger.info(color + " (" + cantidad + ")");
+        });
+
+        // Loggear los duplicados
+        colorsConConteo.entrySet().stream()
+                .filter(entry -> entry.getValue() > 1)
+                .forEach(entry -> logger.info("Duplicado encontrado para el color: " + entry.getKey()));
+
+        logger.info("TOTAL: " + colorsConConteo.size());
+        return colorsConConteo;
     }
 
     public boolean rolyColorsFromApi(String apiToken) {

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ColorRepository extends JpaRepository<Colors, Long> {
     List<Colors> findByCode(String code);
+    Colors findByNameAndLang(String name, Integer lang);
 }

@@ -3,6 +3,7 @@ package grupoalan.backendgalan.services;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import grupoalan.backendgalan.model.Categories;
+import grupoalan.backendgalan.model.Products;
 import grupoalan.backendgalan.model.response.makito.CategoryResponse;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
 import grupoalan.backendgalan.model.response.roly.CategoriesRoly;
@@ -82,13 +83,27 @@ public class CategoriesService {
         }
     }
 
-    public List<String> listaCategoriasUnicas() {
+    public Map<String, Long> listaCategoriasUnicasConConteo() {
         List<Categories> categories = listaCategories();
-        return categories.stream()
+
+        // Obtener un mapa de categoría a cantidad de productos
+        Map<String, Long> categoriasConConteo = categories.stream()
                 .filter(category -> category.getLang() == 1) // Filtrar por lang igual a 1
-                .map(Categories::getCategory)
-                .distinct() // Filtrar elementos duplicados
-                .collect(Collectors.toList());
+                .flatMap(category -> category.getProducts().stream()) // Obtener todos los productos
+                .map(Products::getCategories) // Obtener las categorías de cada producto
+                .flatMap(Set::stream) // Convertir Set<Categories> en Stream<Categories>
+                .map(Categories::getCategory) // Obtener el nombre de la categoría
+                .collect(Collectors.groupingBy(
+                        category -> category, // Agrupar por nombre de categoría
+                        Collectors.counting() // Contar la cantidad de productos por categoría
+                ));
+
+        // Imprimir el número de productos por categoría
+        categoriasConConteo.forEach((categoria, cantidad) -> {
+            logger.info(categoria + " (" + cantidad + ")");
+        });
+
+        return categoriasConConteo;
     }
 
 

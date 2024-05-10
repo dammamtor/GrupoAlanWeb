@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,13 +28,15 @@ public class ColorController {
 
     @GetMapping("/list-colors")
     public ResponseEntity<List<String>> obtenerColoresenBD() {
-        logger.info("HORA DE OBTENER LAS DESCRIPCIONES DE NUESTRA BD");
-        List<String> colors = colorService.listaColoresUnicos();
-        if (colors.isEmpty()) {
-            logger.error("No se pudieron obtener los colores de la BD de Grupo Alan");
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return new ResponseEntity<>(colors, HttpStatus.OK);
+        logger.info("HORA DE OBTENER LOS COLORES DE NUESTRA BD");
+        Map<String, Long> colors = colorService.listaColoresUnicos();
+        // Formatear la salida según el nuevo formato
+        List<String> response = new ArrayList<>();
+        colors.forEach((color, cantidad) -> {
+            response.add(String.format("\"%s (%d)\"", color, cantidad));
+        });
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 
