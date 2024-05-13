@@ -7,14 +7,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200") // Permite solicitudes desde localhost:4200
+@RequestMapping("/grupo-alan/productos")
 public class ProductsController {
     static final Logger logger = LoggerFactory.getLogger(ProductsController.class);
 
@@ -33,4 +32,17 @@ public class ProductsController {
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
+    @GetMapping("/obtener-producto/{ref}")
+    public ResponseEntity<Products> obtenerProductoPorRef(
+            @PathVariable("ref") String ref
+    ) {
+        logger.info("HORA DE OBTENER UN PRODUCTO DE NUESTRA BD POR SU REFERENCIA");
+        Products product = productsService.getProductByRef(ref);
+        if (product == null) {
+            logger.error("No se pudo encontrar el producto con la referencia: " + ref);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        logger.info("PRODUCTO DEVUELTO: " + product);
+        return new ResponseEntity<>(product, HttpStatus.OK);
+    }
 }

@@ -89,33 +89,49 @@ public class ColorService {
         }
     }
 
-    public Map<String, Long> listaColoresUnicos() {
-        List<Colors> colors = colorRepository.findAll();
-        Map<String, Long> colorsConConteo = colors.stream()
-                .flatMap(color -> color.getProducts().stream()) // Obtener todos los productos asociados a cada color
-                .flatMap(producto -> producto.getColorsSet().stream().map(Colors::getName)) // Obtener la secuencia de nombres de colores asociados a cada producto
-                .collect(Collectors.groupingBy(
-                        color -> color, // Agrupar por nombre de color
-                        Collectors.counting() // Contar la cantidad de productos por color
-                ));
+    public List<String> listaColoresUnicos() {
+        List<Colors> allColors = colorRepository.findAllByLang(1);
+        Map<String, Integer> colorProductCountMap = new HashMap<>();
 
-        // Filtrar los colores por lang = 1
-        colorsConConteo = colorsConConteo.entrySet().stream()
-                .filter(entry -> colorRepository.findByNameAndLang(entry.getKey(), 1) != null) // Filtrar por lang = 1
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)); // Convertir de nuevo a mapa
+        // Iterar sobre todos los colores
+        for (Colors color : allColors) {
+            String colorName = color.getName();
+            int productCount = color.getProducts().size();
 
-        // Imprimir el número de productos por color
-        colorsConConteo.forEach((color, cantidad) -> {
-            logger.info(color + " (" + cantidad + ")");
-        });
+            // Buscar el primer color en el nombre
+            String primaryColor = colorName.split(" ")[0];
 
-        // Loggear los duplicados
-        colorsConConteo.entrySet().stream()
-                .filter(entry -> entry.getValue() > 1)
-                .forEach(entry -> logger.info("Duplicado encontrado para el color: " + entry.getKey()));
+            if (colorName.contains("/")) {
+                // Agregar la cantidad de productos al contador correspondiente
+                colorProductCountMap.put("MULTICOLOR", colorProductCountMap.getOrDefault("MULTICOLOR", 0) + productCount);
+            } else if (productCount > 0) {
+                // Si no, agrégalo normalmente si tiene productos asociados
+                // Agregar la cantidad de productos al contador correspondiente
+                colorProductCountMap.put(primaryColor, colorProductCountMap.getOrDefault(primaryColor, 0) + productCount);
+            }
+        }
 
-        logger.info("TOTAL: " + colorsConConteo.size());
-        return colorsConConteo;
+        List<String> colorsWithProductCount = new ArrayList<>();
+
+        // Colores deseados
+        List<String> desiredColors = Arrays.asList("AMARILLO", "AZUL", "BEIG", "BLANCO", "CAMUFALJE", "DORADO",
+                "FUCSIA", "GRIS", "MARRON", "MORADO", "MULTICOLOR", "NARANJA", "NATURAL", "NEGRO", "PLATEADO", "ROJO",
+                "ROSA", "TRANSPARENTE", "VERDE");
+
+        // Iterar sobre el mapa y construir la lista de colores con el formato deseado
+        for (Map.Entry<String, Integer> entry : colorProductCountMap.entrySet()) {
+            String colorName = entry.getKey();
+            if (desiredColors.contains(colorName)) {
+                int productCount = entry.getValue();
+                String colorWithCount = colorName + " (" + productCount + ")";
+                colorsWithProductCount.add(colorWithCount);
+                logger.info("Color: " + colorName + " Número de productos: " + productCount);
+            }
+        }
+
+        logger.info("Número total de colores en español: " + allColors.size());
+
+        return colorsWithProductCount;
     }
 
     public boolean rolyColorsFromApi(String apiToken) {

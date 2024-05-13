@@ -3,6 +3,7 @@ package grupoalan.backendgalan.services;
 import grupoalan.backendgalan.model.Descriptions;
 import grupoalan.backendgalan.model.Products;
 import grupoalan.backendgalan.model.response.makito.DescriptionsMakito;
+import grupoalan.backendgalan.model.response.makito.DescriptionsMaterial;
 import grupoalan.backendgalan.model.response.makito.ProductsMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
 import grupoalan.backendgalan.model.response.roly.Items;
@@ -31,6 +32,7 @@ public class DescriptionService {
     private RestTemplate restTemplate;
 
     private static final String API_URL = "https://data.makito.es/api/descriptionext";
+    private static final String API_URL_2 = "https://data.makito.es/api/descriptions";
     private static final String API_URL_ROLY_ES = "https://clientsws.gorfactory.es:2096/api/v1.1/item/getcatalog?lang=es-ES&brand=roly";
     private static final String API_URL_ROLY_ENG = "https://clientsws.gorfactory.es:2096/api/v1.1/item/getcatalog?lang=en-GB&brand=roly";
 
@@ -70,7 +72,6 @@ public class DescriptionService {
 
             if (statusCode != null) {
                 List<DescriptionsMakito> descriptionsMakitos = statusCode.getDescriptions();
-                logger.info("LISTA DE DESCRIPTIONS DE MAKITO: {}", descriptionsMakitos);
 
                 // Eliminar todas las descripciones existentes antes de almacenar las nuevas
                 descriptionRepository.deleteAll();
@@ -84,15 +85,17 @@ public class DescriptionService {
                         Descriptions description = new Descriptions();
                         description.setRef(descriptionsData.getRef());
                         description.setDetails(descriptionsData.getDesc());
-
                         description = descriptionRepository.save(description);
                         descriptionsList.add(description);
-                        logger.info("Descripción añadida al producto: {}", description.getRef());
+                        logger.info("Descripción añadida: {}", description);
                     }
                 }
 
                 logger.info("Descripciones obtenidas de la API (lang 1 o 2): {}", descriptionsList);
-                logger.info("Actualización de la lista de descripciones completada");
+
+                // Llamar al método addDescriptionsComposition después de haber almacenado todas las descripciones
+                addDescriptionsComposition(apiToken, descriptionsList);
+
                 return true;
             } else {
                 logger.error("Error al obtener el objeto StatusCode de la respuesta");
@@ -101,6 +104,46 @@ public class DescriptionService {
         } catch (Exception e) {
             logger.error("Error al llamar a la API para obtener las descripciones", e);
             return false;
+        }
+    }
+
+
+    public void addDescriptionsComposition(String apiToken, List<Descriptions> descriptionsList) {
+        logger.info("HORA DE AÑADIR COMP");
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + apiToken);
+
+        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+
+        try {
+            ResponseEntity<StatusCode> response = restTemplate.exchange(
+                    API_URL_2 , HttpMethod.GET, requestEntity, StatusCode.class);
+
+            StatusCode statusCode = response.getBody();
+            if (statusCode != null) {
+                List<DescriptionsMakito> descriptionsMaterialList = statusCode.getDescriptions();
+                // Iterar sobre las descripciones almacenadas
+                for (Descriptions description : descriptionsList) {
+                    String ref = description.getRef();
+                    // Buscar el material con el ref correspondiente
+                    for (DescriptionsMakito material : descriptionsMaterialList) {
+                        if (ref.equals(material.getRef())) {
+                            // Si se encuentra el ref, establecer la composición en la descripción
+                            description.setComp(material.getComp());
+                            // Guardar la descripción actualizada en la base de datos
+                            descriptionRepository.save(description);
+                            logger.info("Composición añadida a la descripción: {}", description);
+                            break; // No es necesario continuar buscando para esta descripción
+                        }
+                    }
+                }
+                logger.info("TERMINADO");
+            } else {
+                logger.error("Error al obtener el objeto StatusCode de la respuesta");
+            }
+        } catch (Exception e) {
+            logger.error("Error al llamar a la API para obtener las composiciones", e);
         }
     }
 

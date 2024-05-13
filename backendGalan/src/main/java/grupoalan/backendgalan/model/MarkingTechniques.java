@@ -10,10 +10,10 @@ public class MarkingTechniques {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long technique_id;
-    @Column(nullable = false)
+    @Column
     private String name;
-    @Column(nullable = false)
-    private String description;
+    @Column
+    private String ref;
 
     //RELACIONES
     @OneToMany(mappedBy = "markingTechnique", cascade = CascadeType.ALL)
@@ -38,19 +38,28 @@ public class MarkingTechniques {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public Set<Products> getProducts() {
         return products;
     }
 
     public void setProducts(Set<Products> products) {
         this.products = products;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @Override
+    public String toString() {
+        return "MarkingTechniques{" +
+                "technique_id=" + technique_id +
+                ", name='" + name + '\'' +
+                ", ref='" + ref + '\'' +
+                '}';
     }
 }

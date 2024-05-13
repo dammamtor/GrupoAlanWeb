@@ -16,6 +16,9 @@ public class Descriptions {
     @Column(name = "details", columnDefinition = "TEXT")
     private String details;
 
+    @Column
+    private String comp;
+
     // Constructor vacío (obligatorio para JPA)
     public Descriptions() {
     }
@@ -59,12 +62,21 @@ public class Descriptions {
         this.product = product;
     }
 
+    public String getComp() {
+        return comp;
+    }
+
+    public void setComp(String comp) {
+        this.comp = comp;
+    }
+
     @Override
     public String toString() {
         return "Descriptions{" +
                 "id=" + id +
                 ", ref='" + ref + '\'' +
                 ", details='" + details + '\'' +
+                ", comp='" + comp + '\'' +
                 '}';
     }
 }

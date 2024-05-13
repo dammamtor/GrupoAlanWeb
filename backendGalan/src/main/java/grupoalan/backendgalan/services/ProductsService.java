@@ -378,4 +378,9 @@ public class ProductsService{
 
         return productsRepository.findByProductId(productId);
     }
+
+    public Products getProductByRef(String ref) {
+
+        return productsRepository.findByRef(ref);
+    }
 }

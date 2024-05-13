@@ -29,14 +29,9 @@ public class ColorController {
     @GetMapping("/list-colors")
     public ResponseEntity<List<String>> obtenerColoresenBD() {
         logger.info("HORA DE OBTENER LOS COLORES DE NUESTRA BD");
-        Map<String, Long> colors = colorService.listaColoresUnicos();
-        // Formatear la salida según el nuevo formato
-        List<String> response = new ArrayList<>();
-        colors.forEach((color, cantidad) -> {
-            response.add(String.format("\"%s (%d)\"", color, cantidad));
-        });
+        List<String> colors = colorService.listaColoresUnicos();
 
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return new ResponseEntity<>(colors, HttpStatus.OK);
     }
 
 

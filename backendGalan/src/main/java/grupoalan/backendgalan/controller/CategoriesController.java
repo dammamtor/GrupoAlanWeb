@@ -48,15 +48,9 @@ public class CategoriesController {
     @GetMapping("grupoalan/obtener-categorias-unicas")
     public ResponseEntity<List<String>> obtenerCategoriasUnicasEnBD() {
         logger.info("Obteniendo lista de categorías únicas con conteo desde la BD");
-        Map<String, Long> categoriasConConteo = categoriesService.listaCategoriasUnicasConConteo();
+        List <String> categoriasConConteo = categoriesService.listaCategoriasUnicasConConteo();
 
-        // Formatear la salida según el nuevo formato
-        List<String> response = new ArrayList<>();
-        categoriasConConteo.forEach((categoria, cantidad) -> {
-            response.add(String.format("\"%s (%d)\"", categoria, cantidad));
-        });
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return new ResponseEntity<>(categoriasConConteo, HttpStatus.OK);
     }
 
 }

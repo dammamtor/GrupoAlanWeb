@@ -1,15 +1,13 @@
 package grupoalan.backendgalan.model.response.makito;
 
-public class DescriptionsMakito {
+public class DescriptionsMaterial {
     private String ref;
-    private String lang;
-    private String desc;
-    private String commercial_desc;
+    private Integer lang;
     private String type;
     private String comp;
     private String info;
 
-    public DescriptionsMakito() {
+    public DescriptionsMaterial() {
     }
 
     public String getRef() {
@@ -20,28 +18,12 @@ public class DescriptionsMakito {
         this.ref = ref;
     }
 
-    public String getLang() {
+    public Integer getLang() {
         return lang;
     }
 
-    public void setLang(String lang) {
+    public void setLang(Integer lang) {
         this.lang = lang;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public String getCommercial_desc() {
-        return commercial_desc;
-    }
-
-    public void setCommercial_desc(String commercial_desc) {
-        this.commercial_desc = commercial_desc;
     }
 
     public String getType() {
@@ -70,11 +52,9 @@ public class DescriptionsMakito {
 
     @Override
     public String toString() {
-        return "DescriptionsMakito{" +
+        return "DescriptionsMaterial{" +
                 "ref='" + ref + '\'' +
-                ", lang='" + lang + '\'' +
-                ", desc='" + desc + '\'' +
-                ", commercial_desc='" + commercial_desc + '\'' +
+                ", lang=" + lang +
                 ", type='" + type + '\'' +
                 ", comp='" + comp + '\'' +
                 ", info='" + info + '\'' +

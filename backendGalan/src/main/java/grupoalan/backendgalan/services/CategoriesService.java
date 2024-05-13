@@ -83,28 +83,22 @@ public class CategoriesService {
         }
     }
 
-    public Map<String, Long> listaCategoriasUnicasConConteo() {
-        List<Categories> categories = listaCategories();
+    public List<String> listaCategoriasUnicasConConteo() {
+        List<Categories> categories = categoriesRepository.findAllByLang(1);
+        List<String> uniqueCategories = new ArrayList<>();
 
-        // Obtener un mapa de categoría a cantidad de productos
-        Map<String, Long> categoriasConConteo = categories.stream()
-                .filter(category -> category.getLang() == 1) // Filtrar por lang igual a 1
-                .flatMap(category -> category.getProducts().stream()) // Obtener todos los productos
-                .map(Products::getCategories) // Obtener las categorías de cada producto
-                .flatMap(Set::stream) // Convertir Set<Categories> en Stream<Categories>
-                .map(Categories::getCategory) // Obtener el nombre de la categoría
-                .collect(Collectors.groupingBy(
-                        category -> category, // Agrupar por nombre de categoría
-                        Collectors.counting() // Contar la cantidad de productos por categoría
-                ));
+        for (Categories category : categories) {
+            int cantidadProductos = category.getProducts().size();
 
-        // Imprimir el número de productos por categoría
-        categoriasConConteo.forEach((categoria, cantidad) -> {
-            logger.info(categoria + " (" + cantidad + ")");
-        });
+            if (!uniqueCategories.contains(category.getCategory())) {
+                uniqueCategories.add(category.getCategory());
+            }
+        }
 
-        return categoriasConConteo;
+        logger.info("Categorias en español: " + uniqueCategories.size());
+        return uniqueCategories;
     }
+
 
 
     //METODO DE OBTENCION DE CATEGORIAS DE ROLY

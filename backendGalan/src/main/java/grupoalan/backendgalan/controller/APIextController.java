@@ -261,16 +261,19 @@ public class APIextController {
 
     //MARKING TECHNIQUES
     @GetMapping("makito/techniques")
-    public ResponseEntity<List<MarkingTechniques>> makitoTechniques(){
+    public ResponseEntity<String> makitoTechniques(){
         String apiToken = getApiToken();
         if (apiToken == null) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        logger.info("OBTENCION MARKING TECHNIQUES A BBDD EMPRESA");
-        List<MarkingTechniques> markingTechniques = markingTechniquesService.makitoMarkingTechniquesFromApi(apiToken);
-        return new ResponseEntity<>(markingTechniques, HttpStatus.OK);
-
+        logger.info("OBTENCION MARKING TECHNIQUES MAKITO A BBDD EMPRESA");
+        boolean updatedSuccessfully = markingTechniquesService.makitoMarkingTechniquesFromApi(apiToken);
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de descripciones Roly actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de descripciones", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     //VARIANTS

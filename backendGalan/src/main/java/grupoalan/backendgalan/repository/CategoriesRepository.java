@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CategoriesRepository extends JpaRepository<Categories, Long> {
     List<Categories> findByRef(String ref);
+
+    List<Categories> findAllByLang(Integer i);
 }

@@ -10,6 +10,7 @@ public class StatusCode {
     private List<ProductsMakito> products;
     private List<ColorsMakito> colors;
     private List<DescriptionsMakito> descriptions;
+    private List<DescriptionsMaterial> descriptionsMaterials;
     private List<ImagesMakito> images;
     private List<PricesMakito> tarifs;
     private List<VariantsMakito> variants;
@@ -118,6 +119,14 @@ public class StatusCode {
         this.markings = markings;
     }
 
+    public List<DescriptionsMaterial> getDescriptionsMaterials() {
+        return descriptionsMaterials;
+    }
+
+    public void setDescriptionsMaterials(List<DescriptionsMaterial> descriptionsMaterials) {
+        this.descriptionsMaterials = descriptionsMaterials;
+    }
+
     @Override
     public String toString() {
         return "StatusCode{" +
@@ -126,6 +135,7 @@ public class StatusCode {
                 ", products=" + products +
                 ", colors=" + colors +
                 ", descriptions=" + descriptions +
+                ", descriptionsMaterials=" + descriptionsMaterials +
                 ", images=" + images +
                 ", tarifs=" + tarifs +
                 ", variants=" + variants +
