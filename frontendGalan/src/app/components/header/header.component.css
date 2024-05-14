@@ -1,10 +1,120 @@
-.navbar-nav .nav-item .nav-link {
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para el color de fondo y el color del texto */
-    color: #ffffff; /* Texto blanco por defecto */
-    border-radius: 10px; /* Borde redondeado */
+/* Estilos para el primer div */
+.header-wrapper {
+    background-color: #343a40;
+    /* Color de fondo */
+    color: #ffffff;
+    /* Color del texto */
+    padding: 10px;
+    /* Espaciado interno */
+    border-bottom: 2px solid #ffffff;
+    /* Borde inferior */
 }
 
-.navbar-nav .nav-item .nav-link:hover {
-    background-color: blue; /* Cambiar a tu color deseado */
-    color: #ffffff; /* Hacer el texto blanco cuando se pasa el ratón */
+/* Estilos para los enlaces del primer div */
+.header-wrapper a {
+    color: #ffffff;
+    /* Color del texto */
+    text-decoration: none;
+    /* Sin subrayado */
+    margin: 0 10px;
+    /* Espacio horizontal */
+    transition: all 0.3s ease;
+    /* Transición suave */
+}
+
+/* Estilos para el span en el primer div */
+.header-wrapper span {
+    color: #6c757d;
+    /* Color del texto */
+}
+
+/* Estilos para el header */
+.header {
+    padding: 15px 0;
+    /* Espaciado interno arriba y abajo */
+}
+
+/* Estilos para el logo */
+.logo img {
+    width: 50px;
+    /* Ancho de la imagen */
+}
+
+/* Estilos para el buscador */
+.search-form {
+    display: flex;
+    /* Mostrar los elementos en línea */
+}
+
+.search-form .form-control {
+    margin-right: 10px;
+    /* Espacio a la derecha */
+}
+
+/* Estilos para el icono de la cesta */
+.cart-icon {
+    font-size: 24px;
+    /* Tamaño del icono */
+    color: #ffffff;
+    /* Color del icono */
+    transition: all 0.3s ease;
+    /* Transición suave */
+}
+
+.cart-icon:hover {
+    transform: scale(1.2);
+    /* Efecto de escala al pasar el ratón */
+}
+
+/* Estilos para los botones de login y sign-up */
+.login-btn {
+    font-size: 14px;
+    /* Tamaño del texto */
+    background-color: #dc3545;
+    /* Color de fondo */
+    border: none;
+    /* Sin borde */
+    transition: all 0.3s ease;
+    /* Transición suave */
+}
+
+.login-btn:hover {
+    background-color: #c82333;
+    /* Color de fondo al pasar el ratón */
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    margin-bottom: 20px;
+    /* Margen inferior */
+}
+
+/* Estilos para los enlaces de la barra de navegación */
+.navbar .nav-link {
+    color: #ffffff;
+    /* Color del texto */
+    font-weight: 500;
+    /* Grosor de la fuente */
+    transition: all 0.3s ease;
+    /* Transición suave */
+}
+
+.navbar .nav-link:hover {
+    color: #f8f9fa;
+    /* Color del texto al pasar el ratón */
+}
+
+/* Estilos para los enlaces de la barra de navegación en dropdown */
+.navbar .dropdown-menu a {
+    color: #343a40;
+    /* Color del texto */
+    transition: all 0.3s ease;
+    /* Transición suave */
+}
+
+.navbar .dropdown-menu a:hover {
+    color: #ffffff;
+    /* Color del texto al pasar el ratón */
+    background-color: #343a40;
+    /* Color de fondo al pasar el ratón */
 }

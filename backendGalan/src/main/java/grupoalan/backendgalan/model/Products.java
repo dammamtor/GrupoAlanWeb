@@ -56,10 +56,8 @@ public class Products {
     @JoinColumn(name = "product_type_id", nullable = true)
     private ProductTypes productType;
 
-
-    @ManyToOne
-    @JoinColumn(name = "technique_id", nullable = true)
-    private MarkingTechniques markingTechnique;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private Set<MarkingTechniques> markingTechnique;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private Set<Variants> variants;
@@ -197,12 +195,11 @@ public class Products {
         this.productType = productType;
     }
 
-
-    public MarkingTechniques getMarkingTechnique() {
+    public Set<MarkingTechniques> getMarkingTechnique() {
         return markingTechnique;
     }
 
-    public void setMarkingTechnique(MarkingTechniques markingTechnique) {
+    public void setMarkingTechnique(Set<MarkingTechniques> markingTechnique) {
         this.markingTechnique = markingTechnique;
     }
 

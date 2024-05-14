@@ -9,6 +9,10 @@ import { CategoryService } from '../../services/category.service';
 import { Category } from '../../models/Category';
 import { ColorService } from '../../services/color.service';
 import { Color } from '../../models/Color';
+import { MarkingTechnique } from '../../models/MarkingTechnique';
+import { MarcajeService } from '../../services/marcaje.service';
+import { Description } from '../../models/Description';
+import { MaterialService } from '../../services/material.service';
 
 @Component({
   selector: 'app-botellas',
@@ -22,7 +26,9 @@ export class BotellasComponent {
     private ruta: Router,
     private productService: ProductService,
     private categoryService: CategoryService,
-    private colorService: ColorService
+    private colorService: ColorService,
+    private markingTechniqueService: MarcajeService,
+    private materialService: MaterialService
   ) {
   }
 
@@ -71,13 +77,17 @@ export class BotellasComponent {
   products: Product[] = [];
   categories: Category[] = [];
   colors: Color[] = [];
+  materials : Description[] = [];
+  markingtechniques: MarkingTechnique[] = [];
   loading: boolean = true;
   error: string | null = null;
 
 
   ngOnInit(): void {
     this.getCategories();
+    this.getMarkingTechniques();
     this.getColors();
+    this.getMaterials();
     this.getProducts();
   }
 
@@ -98,9 +108,7 @@ export class BotellasComponent {
     console.log("Obteniendo categorías únicas desde el servicio...");
     this.categoryService.obtenerCategoriasUnicasEnBD().subscribe(
       (categories) => {
-        // Obtener solo los nombres de categoría y eliminar las comillas dobles y los puntos del final de cada uno
         this.categories = categories.map(category => category.replace(/^"|"$/g, ''));
-        // console.log("Categorías obtenidas:", this.categories);
       },
       (error) => {
         this.error = 'Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
@@ -120,6 +128,32 @@ export class BotellasComponent {
         this.error = 'Error al cargar colores. Por favor, inténtalo de nuevo más tarde.';
       }
     )
+  }
+
+  getMarkingTechniques(): void {
+    console.log("Obteniendo lista de técnicas de marcaje desde el servicio...");
+    this.markingTechniqueService.obtenerMarkingTechniquesenBD().subscribe({
+      next: (markingtechniques) => {
+        this.markingtechniques = markingtechniques.map(markingtechnique => markingtechnique.replace(/^"|"$/g, ''));
+        console.log("Técnicas de marcaje obtenidas: ", this.markingtechniques);
+      },
+      error: (error) => {
+        this.error = 'Error al cargar técnicas de marcaje obtenidas. Por favor, inténtalo de nuevo más tarde.';
+      }
+    });
+  }
+  
+  getMaterials(): void {
+    console.log("Obteniendo lista de materiales desde el servicio...");
+    this.materialService.obtenerListaMaterialesEnBD().subscribe({
+      next: (materials) => {
+        this.materials = materials.map(material => material.replace(/^"|"$/g, ''))
+        console.log("Lista de materiales: ", this.materials);
+      },
+      error: (error) => {
+        this.error = 'Error al cargar la lista de materiales. Por favor, inténtalo de nuevo más tarde.';
+      }
+    })
   }
 
   currentPage: number = 1;

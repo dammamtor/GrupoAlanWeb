@@ -1,5 +1,6 @@
 package grupoalan.backendgalan.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -16,8 +17,10 @@ public class MarkingTechniques {
     private String ref;
 
     //RELACIONES
-    @OneToMany(mappedBy = "markingTechnique", cascade = CascadeType.ALL)
-    private Set<Products> products;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    @JsonIgnore
+    private Products product;
 
     public MarkingTechniques() {
     }
@@ -38,12 +41,12 @@ public class MarkingTechniques {
         this.name = name;
     }
 
-    public Set<Products> getProducts() {
-        return products;
+    public Products getProduct() {
+        return product;
     }
 
-    public void setProducts(Set<Products> products) {
-        this.products = products;
+    public void setProduct(Products product) {
+        this.product = product;
     }
 
     public String getRef() {

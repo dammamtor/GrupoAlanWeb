@@ -33,11 +33,14 @@
             <!-- Buscador -->
             <div class="col-lg-5 col-md-5 col-6">
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search"
+                    <input #searchTerm class="form-control me-2" type="search"
                         placeholder="Introduce el producto que estás buscando" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+                    <button class="btn btn-outline-light" type="button" (click)="irASearch(searchTerm.value)">
+                        <i class="bi bi-search"></i>
+                    </button>
                 </form>
             </div>
+            
 
             <!-- Logo de la cesta -->
             <div class="col-lg-2 col-md-2 col-2 text-end">

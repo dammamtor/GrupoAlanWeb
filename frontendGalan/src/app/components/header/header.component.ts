@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthGoogleService } from '../../services/auth-google.service';
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../models/Product';
 
 @Component({
   selector: 'app-header',
@@ -67,5 +69,10 @@ export class HeaderComponent {
   }
   navegateRopaTrabajo() {
     this.ruta.navigate(['ropaTrabajo']);
+  }
+
+  //ELEMENTOS DE TRABAJO
+  irASearch(searchTerm: string): void {
+    this.ruta.navigate(['search', searchTerm]);
   }
 }

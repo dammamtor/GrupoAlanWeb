@@ -21,9 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class DescriptionService {
@@ -51,7 +49,7 @@ public class DescriptionService {
         return descriptionRepository.findById(id).orElse(null);
     }
 
-    public List<Descriptions> getAllDescripctions(){
+    public List<Descriptions> getAllDescripctions() {
         return descriptionRepository.findAll();
     }
 
@@ -118,7 +116,7 @@ public class DescriptionService {
 
         try {
             ResponseEntity<StatusCode> response = restTemplate.exchange(
-                    API_URL_2 , HttpMethod.GET, requestEntity, StatusCode.class);
+                    API_URL_2, HttpMethod.GET, requestEntity, StatusCode.class);
 
             StatusCode statusCode = response.getBody();
             if (statusCode != null) {
@@ -145,6 +143,31 @@ public class DescriptionService {
         } catch (Exception e) {
             logger.error("Error al llamar a la API para obtener las composiciones", e);
         }
+    }
+
+    public List<String> listaMateriales() {
+        List<Descriptions> listaMateriales = descriptionRepository.findAll();
+        Set<String> primerasPalabras = new HashSet<>();
+
+        for (Descriptions descripcion : listaMateriales) {
+            String comp = descripcion.getComp();
+            if (!comp.isEmpty()) {
+                // Dividir la cadena en palabras usando el espacio como delimitador
+                String[] palabras = comp.split("\\s+");
+                // Obtener la primera palabra y filtrarla según los requisitos
+                String primeraPalabra = palabras[0];
+                // Filtrar palabras que comienzan con números
+                if (!Character.isDigit(primeraPalabra.charAt(0))) {
+                    // Eliminar el símbolo '/' si está presente
+                    if (primeraPalabra.contains("/")) {
+                        primeraPalabra = primeraPalabra.replace("/", "");
+                    }
+                    primerasPalabras.add(primeraPalabra);
+                }
+            }
+        }
+
+        return new ArrayList<>(primerasPalabras);
     }
 
     public boolean rolyDescriptionsFromApi(String apiToken) {

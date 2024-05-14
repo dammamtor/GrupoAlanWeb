@@ -88,10 +88,9 @@ public class CategoriesService {
         List<String> uniqueCategories = new ArrayList<>();
 
         for (Categories category : categories) {
-            int cantidadProductos = category.getProducts().size();
 
-            if (!uniqueCategories.contains(category.getCategory())) {
-                uniqueCategories.add(category.getCategory());
+            if (!uniqueCategories.contains(category.getCategory().toUpperCase())) {
+                uniqueCategories.add(category.getCategory().toUpperCase());
             }
         }
 

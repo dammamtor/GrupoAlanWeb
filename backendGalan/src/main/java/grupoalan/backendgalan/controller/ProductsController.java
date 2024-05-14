@@ -20,7 +20,7 @@ public class ProductsController {
     @Autowired
     private ProductsService productsService;
 
-    @GetMapping("grupoalan/obtener-productos")
+    @GetMapping("/obtener-productos")
     public ResponseEntity<List<Products>> obtenerProductosBD() {
         logger.info("HORA DE OBTENER LOS PRODUCTOS DE NUESTRA BD");
         List<Products> products = productsService.getAllProducts();
@@ -45,4 +45,19 @@ public class ProductsController {
         logger.info("PRODUCTO DEVUELTO: " + product);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
+
+    @GetMapping("/buscar-productos/{searchTerm}")
+    public ResponseEntity<List<Products>> buscarProductosPorTermino(
+            @PathVariable("searchTerm") String searchTerm
+    ) {
+        logger.info("BUSCANDO PRODUCTOS POR TÉRMINO: " + searchTerm);
+        List<Products> matchingProducts = productsService.searchProducts(searchTerm);
+        if (matchingProducts.isEmpty()) {
+            logger.info("No se encontraron productos para el término de búsqueda: " + searchTerm);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        logger.info("PRODUCTOS ENCONTRADOS: " + matchingProducts);
+        return new ResponseEntity<>(matchingProducts, HttpStatus.OK);
+    }
+
 }

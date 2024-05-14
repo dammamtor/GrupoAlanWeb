@@ -36,6 +36,8 @@ public class ProductsService{
     private ColorRepository colorRepository;
     @Autowired
     private CategoriesRepository categoriesRepository;
+    @Autowired
+    private MarkingTechniquesRepository markingTechniquesRepository;
 
     private static final String API_URL = "https://data.makito.es/api/products";
 
@@ -73,6 +75,7 @@ public class ProductsService{
                         addImagesToProduct(existingProduct, productData);
                         addColorsToProduct(existingProduct, productData);
                         addCategoriesToProduct(existingProduct, productData);
+                        addMarkingTechniques(existingProduct, productData);
                         existingProduct = productsRepository.save(existingProduct);
                         logger.info("Producto guardado: " + existingProduct);
 
@@ -169,6 +172,34 @@ public class ProductsService{
         }
     }
 
+    private void addMarkingTechniques(Products product, ProductsMakito productData) {
+        // Buscar las técnicas de marcado asociadas al producto en base al ref
+        List<MarkingTechniques> markingTechniquesList = markingTechniquesRepository.findByRef(productData.getRef());
+
+        // Limpiar las técnicas de marcado existentes del producto si las hay
+        if (product.getMarkingTechnique() == null) {
+            product.setMarkingTechnique(new HashSet<>());
+        }
+        product.getMarkingTechnique().clear();
+        logger.info("Número de técnicas de marcado después de borrar: " + product.getMarkingTechnique().size());
+
+        // Si se encontraron técnicas de marcado asociadas al producto, agregarlas al producto
+        if (!markingTechniquesList.isEmpty()) {
+            Set<MarkingTechniques> markingTechniquesSet = new HashSet<>(markingTechniquesList);
+            product.getMarkingTechnique().addAll(markingTechniquesSet);
+
+            // Establecer la relación inversa en las técnicas de marcado
+            for (MarkingTechniques markingTechnique : markingTechniquesList) {
+                markingTechnique.setProduct(product);
+            }
+
+            logger.info("Técnicas de marcado agregadas al producto: " + product.getName());
+        } else {
+            logger.warn("No se encontraron técnicas de marcado para el producto: " + product.getName());
+        }
+    }
+
+
     private void addCategoriesToProduct(Products product, ProductsMakito productData) {
         // Obtener las categorías asociadas al producto
         List<Categories> categoriesList = categoriesRepository.findByRef(productData.getRef());
@@ -235,6 +266,18 @@ public class ProductsService{
         }
     }
 
+    public List<Products> searchProducts(String searchTerm) {
+        List<Products> allProducts = productsRepository.findAll(); // Suponiendo que tengas un método getAllProducts() en tu ProductsRepository
+        List<Products> matchingProducts = new ArrayList<>();
+
+        for (Products product : allProducts) {
+            if (product.getRef().contains(searchTerm) || product.getName().contains(searchTerm)) {
+                matchingProducts.add(product);
+            }
+        }
+
+        return matchingProducts;
+    }
 
     public boolean rolyProductsFromApi(String apiToken) {
         logger.info("ESTAS EN EL PRODUCTS SERVICE");
