@@ -5,8 +5,6 @@
     color: #ffffff;
     /* Color del texto */
     padding: 10px;
-    /* Espaciado interno */
-    border-bottom: 2px solid #ffffff;
     /* Borde inferior */
 }
 
@@ -16,11 +14,10 @@
     /* Color del texto */
     text-decoration: none;
     /* Sin subrayado */
-    margin: 0 10px;
+    margin: 0 15px;
     /* Espacio horizontal */
-    transition: all 0.3s ease;
-    /* Transición suave */
-    cursor: pointer; /* Cambiar el cursor al pasar sobre los enlaces */
+    cursor: pointer;
+    /* Cambiar el cursor al pasar sobre los enlaces */
 }
 
 /* Estilos para el span en el primer div */
@@ -60,7 +57,8 @@
     /* Color del icono */
     transition: all 0.3s ease;
     /* Transición suave */
-    cursor: pointer; /* Cambiar el cursor al pasar sobre el icono */
+    cursor: pointer;
+    /* Cambiar el cursor al pasar sobre el icono */
 }
 
 .cart-icon:hover {
@@ -78,7 +76,8 @@
     /* Sin borde */
     transition: all 0.3s ease;
     /* Transición suave */
-    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    cursor: pointer;
+    /* Cambiar el cursor al pasar sobre el botón */
 }
 
 .login-btn:hover {
@@ -100,7 +99,8 @@
     /* Grosor de la fuente */
     transition: all 0.3s ease;
     /* Transición suave */
-    cursor: pointer; /* Cambiar el cursor al pasar sobre los enlaces */
+    cursor: pointer;
+    /* Cambiar el cursor al pasar sobre los enlaces */
 }
 
 .navbar .nav-link:hover {
@@ -114,7 +114,8 @@
     /* Color del texto */
     transition: all 0.3s ease;
     /* Transición suave */
-    cursor: pointer; /* Cambiar el cursor al pasar sobre los enlaces */
+    cursor: pointer;
+    /* Cambiar el cursor al pasar sobre los enlaces */
 }
 
 .navbar .dropdown-menu a:hover {

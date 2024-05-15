@@ -1,0 +1,93 @@
+.album {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: #f8f9fa;
+    /* Cambia el color de fondo según tu diseño */
+}
+
+.container {
+    max-width: 1140px;
+    /* Ancho máximo del contenedor */
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.album h2 {
+    font-size: 2.5rem;
+    /* Tamaño de fuente */
+    margin-bottom: 2rem;
+}
+
+.album h1 {
+    font-size: 3.5rem;
+    /* Tamaño de fuente */
+    margin-bottom: 3rem;
+}
+
+.spinner-border {
+    width: 5rem;
+    /* Tamaño del spinner */
+    height: 5rem;
+    /* Tamaño del spinner */
+    border-width: 0.5em;
+    /* Grosor del borde */
+}
+
+.card {
+    border-radius: 1rem;
+    /* Radio de borde */
+}
+
+.card-img-top {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    /* Tamaño de fuente */
+}
+
+.card-footer {
+    border-top: none;
+}
+
+.btn-outline-secondary {
+    color: #6c757d;
+    /* Color del texto */
+    border-color: #6c757d;
+    /* Color del borde */
+}
+
+.text-body-secondary {
+    color: #6c757d;
+    /* Color del texto */
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 5px; /* Añade margen entre los botones */
+}
+
+.pagination-button:hover {
+    background-color: #0056b3;
+}
+
+.pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
