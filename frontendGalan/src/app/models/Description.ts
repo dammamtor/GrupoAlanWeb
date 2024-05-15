@@ -6,5 +6,6 @@ export interface Description {
     ref: string;
     details: string;
     comp: string;
+    type: string;
     product?: Product;
 }

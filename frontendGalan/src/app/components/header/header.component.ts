@@ -41,34 +41,39 @@ export class HeaderComponent {
     this.ruta.navigate(['login']);
   }
   navegateAbanicos() {
-    this.ruta.navigate(['abanicos']);
+    this.ruta.navigate(['types', 'Abanico']);
   }
+
   navegateBotellas() {
-    this.ruta.navigate(['botellas']);
+    this.ruta.navigate(['types', 'Botella']);
   }
+
   navegateBoligrafos() {
-    this.ruta.navigate(['boligrafos']);
+    this.ruta.navigate(['types', 'Bolígrafo']);
   }
+
   navegateBolsas() {
-    this.ruta.navigate(['bolsas']);
+    this.ruta.navigate(['types', 'Bolsa']);
   }
+
   navegateCamisetas() {
-    this.ruta.navigate(['camisetas']);
+    this.ruta.navigate(['types', 'Camiseta']);
   }
+
   navegateGorras() {
-    this.ruta.navigate(['gorras']);
+    this.ruta.navigate(['types', 'Gorra']);
   }
+
   navegateLibretas() {
-    this.ruta.navigate(['libretas']);
+    this.ruta.navigate(['types', 'Libreta']);
   }
+
   navegateMochilas() {
-    this.ruta.navigate(['mochilas']);
+    this.ruta.navigate(['types', 'Mochila']);
   }
+
   navegatePolos() {
-    this.ruta.navigate(['polos']);
-  }
-  navegateRopaTrabajo() {
-    this.ruta.navigate(['ropaTrabajo']);
+    this.ruta.navigate(['types', 'Polo']);
   }
 
   //ELEMENTOS DE TRABAJO

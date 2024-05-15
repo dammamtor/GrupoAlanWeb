@@ -60,4 +60,17 @@ public class ProductsController {
         return new ResponseEntity<>(matchingProducts, HttpStatus.OK);
     }
 
+    @GetMapping("/buscar-productos-por-tipo/{tipo}")
+    public ResponseEntity<List<Products>> buscarProductosPorTipo(
+            @PathVariable("tipo") String tipo
+    ) {
+        logger.info("BUSCANDO PRODUCTOS POR TIPO: " + tipo);
+        List<Products> matchingProducts = productsService.searchProductsByType(tipo);
+        if (matchingProducts.isEmpty()) {
+            logger.info("No se encontraron productos para el tipo de búsqueda: " + tipo);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        logger.info("PRODUCTOS ENCONTRADOS: " + matchingProducts);
+        return new ResponseEntity<>(matchingProducts, HttpStatus.OK);
+    }
 }

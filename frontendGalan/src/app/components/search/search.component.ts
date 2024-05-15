@@ -36,6 +36,7 @@ export class SearchComponent {
     this.productService.buscarProductosPorTermino(searchTerm)
       .subscribe(products => {
         this.products = products;
+        console.log("PRODUCTOS DEVUELTOS: ", products);
       });
   }
 

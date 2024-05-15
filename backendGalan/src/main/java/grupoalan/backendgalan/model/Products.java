@@ -63,6 +63,7 @@ public class Products {
     private Set<Variants> variants;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OrderBy("id ASC") // Orden ascendente por id de descripción, puedes cambiar ASC a DESC si deseas orden descendente
     private Set<Descriptions> descriptions;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)

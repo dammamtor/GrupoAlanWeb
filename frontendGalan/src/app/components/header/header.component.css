@@ -20,6 +20,7 @@
     /* Espacio horizontal */
     transition: all 0.3s ease;
     /* Transición suave */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre los enlaces */
 }
 
 /* Estilos para el span en el primer div */
@@ -59,6 +60,7 @@
     /* Color del icono */
     transition: all 0.3s ease;
     /* Transición suave */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el icono */
 }
 
 .cart-icon:hover {
@@ -76,6 +78,7 @@
     /* Sin borde */
     transition: all 0.3s ease;
     /* Transición suave */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
 }
 
 .login-btn:hover {
@@ -97,6 +100,7 @@
     /* Grosor de la fuente */
     transition: all 0.3s ease;
     /* Transición suave */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre los enlaces */
 }
 
 .navbar .nav-link:hover {
@@ -110,6 +114,7 @@
     /* Color del texto */
     transition: all 0.3s ease;
     /* Transición suave */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre los enlaces */
 }
 
 .navbar .dropdown-menu a:hover {

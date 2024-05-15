@@ -15,7 +15,8 @@ public class Descriptions {
 
     @Column(name = "details", columnDefinition = "TEXT")
     private String details;
-
+    @Column
+    private String type;
     @Column
     private String comp;
 
@@ -70,12 +71,21 @@ public class Descriptions {
         this.comp = comp;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "Descriptions{" +
                 "id=" + id +
                 ", ref='" + ref + '\'' +
                 ", details='" + details + '\'' +
+                ", type='" + type + '\'' +
                 ", comp='" + comp + '\'' +
                 '}';
     }

@@ -105,7 +105,7 @@ public class DescriptionService {
         }
     }
 
-
+    //ESTE METODO ES PARA AÑADIR TANTO COMP COMO TYPE
     public void addDescriptionsComposition(String apiToken, List<Descriptions> descriptionsList) {
         logger.info("HORA DE AÑADIR COMP");
 
@@ -129,9 +129,11 @@ public class DescriptionService {
                         if (ref.equals(material.getRef())) {
                             // Si se encuentra el ref, establecer la composición en la descripción
                             description.setComp(material.getComp());
+                            description.setType(material.getType());
                             // Guardar la descripción actualizada en la base de datos
                             descriptionRepository.save(description);
                             logger.info("Composición añadida a la descripción: {}", description);
+                            logger.info("Type añadido a la descripción: {}", description);
                             break; // No es necesario continuar buscando para esta descripción
                         }
                     }
@@ -168,6 +170,22 @@ public class DescriptionService {
         }
 
         return new ArrayList<>(primerasPalabras);
+    }
+
+    public List<String> listaTipos() {
+        List<Descriptions> listaTipos = descriptionRepository.findAll();
+        Set<String> listaTiposUnicos = new HashSet<>();
+
+        for (Descriptions descripcion : listaTipos) {
+            String type = descripcion.getType();
+            if (type != null) {
+                String[] words = type.split("\\s+"); // Dividir la cadena en palabras
+                if (words.length > 0) {
+                    listaTiposUnicos.add(words[0]); // Agregar la primera palabra
+                }
+            }
+        }
+        return new ArrayList<>(listaTiposUnicos);
     }
 
     public boolean rolyDescriptionsFromApi(String apiToken) {

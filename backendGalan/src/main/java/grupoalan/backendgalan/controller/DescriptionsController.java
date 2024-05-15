@@ -44,4 +44,12 @@ public class DescriptionsController {
         return new ResponseEntity<>(listaMateriales, HttpStatus.OK);
 
     }
+
+    @GetMapping("/lista-tipos")
+    public ResponseEntity<List<String>> listaTipos() {
+        logger.info("OBTENIENDO LA LISTA DE TIPOS DE DESCRIPCIÓN");
+        List<String> tipos = descriptionService.listaTipos();
+        logger.info("LISTA DE TIPOS OBTENIDA: " + tipos);
+        return new ResponseEntity<>(tipos, HttpStatus.OK);
+    }
 }

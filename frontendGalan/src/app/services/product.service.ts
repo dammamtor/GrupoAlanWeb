@@ -19,4 +19,9 @@ export class ProductService {
     console.log("METODO SERVICE. BUSCAR PRODUCTOS POR TÉRMINO: " + searchTerm);
     return this.http.get<Product[]>(`${this.apiUrl}/buscar-productos/${searchTerm}`);
   }
+
+  buscarProductosPorTipo(tipo: string): Observable<Product[]> {
+    console.log("MÉTODO SERVICE. BUSCAR PRODUCTOS POR TIPO: " + tipo);
+    return this.http.get<Product[]>(`${this.apiUrl}/buscar-productos-por-tipo/${tipo}`);
+  }
 }

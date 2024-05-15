@@ -267,17 +267,82 @@ public class ProductsService{
     }
 
     public List<Products> searchProducts(String searchTerm) {
-        List<Products> allProducts = productsRepository.findAll(); // Suponiendo que tengas un método getAllProducts() en tu ProductsRepository
+        List<Products> allProducts = productsRepository.findAll();
         List<Products> matchingProducts = new ArrayList<>();
+        boolean isAmbiguousSearch = true;
+
+        logger.info("Starting product search for searchTerm: " + searchTerm);
 
         for (Products product : allProducts) {
-            if (product.getRef().contains(searchTerm) || product.getName().contains(searchTerm)) {
+            String productDescription = "";
+            Set<String> uniqueTypes = new HashSet<>();
+            Set<Descriptions> descriptions = product.getDescriptions();
+            for (Descriptions description : descriptions) {
+                String type = description.getType();
+                if (type != null) {
+                    uniqueTypes.add(type);
+                }
+            }
+
+            // Concatenamos los tipos únicos al nombre del producto
+            for (String type : uniqueTypes) {
+                productDescription += type + " ";
+            }
+
+            // Agregamos el nombre del producto al final
+            productDescription += product.getName();
+
+            logger.info("Checking product: " + productDescription);
+
+            if (productDescription.equals(searchTerm)) {
+                matchingProducts.clear();
                 matchingProducts.add(product);
+                isAmbiguousSearch = false;
+                logger.info("Exact match found for: " + product.getName());
+                break;
+            } else if (productDescription.contains(searchTerm)) {
+                matchingProducts.add(product);
+                logger.info("Partial match found for: " + product.getName());
             }
         }
 
+        if (isAmbiguousSearch) {
+            logger.info("Ambiguous search term, returning multiple matching products.");
+            return matchingProducts;
+        } else {
+            if (matchingProducts.isEmpty()) {
+                logger.info("No exact matches found.");
+                return null;
+            } else {
+                logger.info("Exact match found, returning the product.");
+                return matchingProducts;
+            }
+        }
+    }
+
+    public List<Products> searchProductsByType(String searchTerm) {
+        List<Products> allProducts = productsRepository.findAll();
+        List<Products> matchingProducts = new ArrayList<>();
+
+        logger.info("Starting product search for searchTerm: " + searchTerm);
+
+        for (Products product : allProducts) {
+            Set<Descriptions> descriptions = product.getDescriptions();
+            for (Descriptions description : descriptions) {
+                String type = description.getType();
+                if (type != null && type.contains(searchTerm)) {
+                    matchingProducts.add(product);
+                    logger.info("Product matches found for: " + product.getName());
+                    break; // Si encontramos una coincidencia, no es necesario continuar con las descripciones
+                }
+            }
+        }
+
+        logger.info("Matches found for searchTerm: " + searchTerm + ". Total products found: " + matchingProducts.size());
         return matchingProducts;
     }
+
+
 
     public boolean rolyProductsFromApi(String apiToken) {
         logger.info("ESTAS EN EL PRODUCTS SERVICE");
