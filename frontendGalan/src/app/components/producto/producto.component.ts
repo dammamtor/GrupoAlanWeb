@@ -9,31 +9,36 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [HeaderComponent, RouterLink],
   templateUrl: './producto.component.html',
-  styleUrl: './producto.component.css'
+  styleUrl: './producto.component.css',
 })
 export class ProductoComponent {
   products: Product[] = [];
   loading: boolean = true;
   error: string | null = null;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.getProducts();
+    this.loadProducts();
   }
 
-  getProducts(): void {
-    this.productService.obtenerProductosBD()
-      .subscribe(
-        products => {
-          this.products = products;
-          console.log("Lista de productos:", this.products); // Aquí se muestra la lista de productos
-          this.loading = false;
-        },
-        error => {
-          this.error = 'Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
-          this.loading = false;
-        }
-      );
+  private loadProducts(): void {
+    this.productService.obtenerProductosBD().subscribe({
+      next: (products) => this.onProductsLoadSuccess(products),
+      error: (error) => this.onProductsLoadError(error),
+    });
+  }
+
+  private onProductsLoadSuccess(products: Product[]): void {
+    this.products = products;
+    this.loading = false;
+    console.log('Lista de productos:', this.products);
+  }
+
+  private onProductsLoadError(error: any): void {
+    console.error('Error al cargar productos:', error);
+    this.error =
+      'Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
+    this.loading = false;
   }
 }

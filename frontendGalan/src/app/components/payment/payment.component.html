@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<!-- carrito.component.html -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Tu cesta ({{ cartItems.length }} artículo)</h2>
+            <div class="list-group">
+                <div *ngFor="let item of cartItems; let i = index" class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-2">
+                            <img [src]="item.image" class="img-fluid" alt="{{ item.name }}">
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="mb-1">{{ item.name }}</h5>
+                            <p class="mb-1">Color: {{ item.color }}</p>
+                            <p class="mb-1">Talla: {{ item.size }}</p>
+                            <p class="mb-1">Precio: {{ item.price }} €</p>
+                        </div>
+                        <div class="col-md-4 text-md-right">
+                            <button class="btn btn-danger btn-sm" (click)="removeItem(i)">Eliminar</button>
+                            <button class="btn btn-secondary btn-sm" (click)="moveToFavorites(i)">Mover a
+                                favoritos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Total</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Subtotal: {{ calculateSubtotal() }} €</p>
+                    <p class="card-text">Envio: {{ shippingCost }} €</p>
+                    <p class="card-text">Total (IVA incluido): {{ calculateTotal() }} €</p>
+                    <button class="btn btn-primary btn-block" (click)="startOrder()">COMENZAR PEDIDO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
