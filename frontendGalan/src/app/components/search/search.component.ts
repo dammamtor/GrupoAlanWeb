@@ -10,10 +10,10 @@ import { Product } from '../../models/Product';
   standalone: true,
   imports: [HeaderComponent, RouterLink, CommonModule],
   templateUrl: './search.component.html',
-  styleUrl: './search.component.css'
+  styleUrl: './search.component.css',
 })
 export class SearchComponent {
-  searchTerm: string = "";
+  searchTerm: string = '';
   products: Product[] = [];
   startIndex: number = 0;
   endIndex: number = 14; // Inicialmente mostramos los primeros 15 elementos
@@ -23,20 +23,28 @@ export class SearchComponent {
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.searchTerm = params['s'];
       this.buscarProducto(this.searchTerm);
     });
   }
 
   buscarProducto(searchTerm: string): void {
-    this.productService.buscarProductosPorTermino(searchTerm)
-      .subscribe(products => {
-        this.products = products;
-      });
+    this.productService.buscarProductosPorTermino(searchTerm).subscribe({
+      next: (products) => this.onSearchSuccess(products),
+      error: (error) => this.onSearchError(error),
+    });
+  }
+
+  private onSearchSuccess(products: Product[]): void {
+    this.products = products;
+  }
+
+  private onSearchError(error: any): void {
+    console.error('Error al buscar productos:', error);
   }
 
   avanzar(): void {
@@ -56,16 +64,12 @@ export class SearchComponent {
   scrollToTop(): void {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
-    if (window.pageYOffset > 300) {
-      this.showScrollToTopBtn = true;
-    } else {
-      this.showScrollToTopBtn = false;
-    }
+    this.showScrollToTopBtn = window.pageYOffset > 300;
   }
 }

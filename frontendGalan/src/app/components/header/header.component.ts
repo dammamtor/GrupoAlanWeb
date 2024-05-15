@@ -40,6 +40,9 @@ export class HeaderComponent {
   navegateLogin() {
     this.ruta.navigate(['login']);
   }
+  navegatePayment() {
+    this.ruta.navigate(['payment']);
+  }
   navegateAbanicos() {
     this.ruta.navigate(['abanicos']);
   }

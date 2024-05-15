@@ -29,8 +29,7 @@ export class BotellasComponent {
     private colorService: ColorService,
     private markingTechniqueService: MarcajeService,
     private materialService: MaterialService
-  ) {
-  }
+  ) {}
 
   navegateAbanicos() {
     this.ruta.navigate(['abanicos']);
@@ -65,23 +64,25 @@ export class BotellasComponent {
 
   //MOVERSE A PRODUCTOS
   irAProduct() {
-    this.ruta.navigate(["producto"]);
+    this.ruta.navigate(['producto']);
     // Desplazarse al principio de la página
     const element = document.getElementById('topOfPage');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
     }
   }
-
 
   products: Product[] = [];
   categories: Category[] = [];
   colors: Color[] = [];
-  materials : Description[] = [];
+  materials: Description[] = [];
   markingtechniques: MarkingTechnique[] = [];
   loading: boolean = true;
   error: string | null = null;
-
 
   ngOnInit(): void {
     this.getCategories();
@@ -92,68 +93,81 @@ export class BotellasComponent {
   }
 
   getProducts(): void {
-    this.productService.obtenerProductosBD().subscribe(
-      (products) => {
+    this.loading = true; // Indicador de carga iniciado
+    this.productService.obtenerProductosBD().subscribe({
+      next: (products) => {
         this.products = products;
         this.loading = false; // Cambiar a falso cuando la carga se completa
-
       },
-      (error) => {
-        this.error = 'Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
+      error: () => {
+        this.error =
+          'Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
         this.loading = false;
-      }
-    );
+      },
+    });
   }
   getCategories(): void {
-    console.log("Obteniendo categorías únicas desde el servicio...");
-    this.categoryService.obtenerCategoriasUnicasEnBD().subscribe(
-      (categories) => {
-        this.categories = categories.map(category => category.replace(/^"|"$/g, ''));
+    console.log('Obteniendo categorías únicas desde el servicio...');
+    this.categoryService.obtenerCategoriasUnicasEnBD().subscribe({
+      next: (categories) => {
+        this.categories = categories.map((category) =>
+          category.replace(/^"|"$/g, '')
+        );
+        console.log('Categorías obtenidas: ', this.categories);
       },
-      (error) => {
-        this.error = 'Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
-      }
-    );
-
+      error: () => {
+        this.error =
+          'Error al cargar categorías. Por favor, inténtalo de nuevo más tarde.';
+      },
+    });
   }
 
   getColors(): void {
-    console.log("Obteniendo lista de colores desde el servicio...");
-    this.colorService.obtenerColoresUnicasEnBD().subscribe(
-      (colors) => {
-        this.colors = colors.map(color => color.replace(/^"|"$/g, ''));
-        console.log("Colores obtenidos: ", this.colors);
+    console.log('Obteniendo lista de colores desde el servicio...');
+
+    this.colorService.obtenerColoresUnicasEnBD().subscribe({
+      next: (colors) => {
+        this.colors = colors.map((color) => color.replace(/^"|"$/g, ''));
+        console.log('Colores obtenidos: ', this.colors);
       },
-      (error) => {
-        this.error = 'Error al cargar colores. Por favor, inténtalo de nuevo más tarde.';
-      }
-    )
+      error: () => {
+        this.error =
+          'Error al cargar colores. Por favor, inténtalo de nuevo más tarde.';
+      },
+    });
   }
 
   getMarkingTechniques(): void {
-    console.log("Obteniendo lista de técnicas de marcaje desde el servicio...");
+    console.log('Obteniendo lista de técnicas de marcaje desde el servicio...');
+
     this.markingTechniqueService.obtenerMarkingTechniquesenBD().subscribe({
       next: (markingtechniques) => {
-        this.markingtechniques = markingtechniques.map(markingtechnique => markingtechnique.replace(/^"|"$/g, ''));
-        console.log("Técnicas de marcaje obtenidas: ", this.markingtechniques);
+        this.markingtechniques = markingtechniques.map((markingtechnique) =>
+          markingtechnique.replace(/^"|"$/g, '')
+        );
+        console.log('Técnicas de marcaje obtenidas: ', this.markingtechniques);
       },
-      error: (error) => {
-        this.error = 'Error al cargar técnicas de marcaje obtenidas. Por favor, inténtalo de nuevo más tarde.';
-      }
+      error: () => {
+        this.error =
+          'Error al cargar técnicas de marcaje. Por favor, inténtalo de nuevo más tarde.';
+      },
     });
   }
-  
+
   getMaterials(): void {
-    console.log("Obteniendo lista de materiales desde el servicio...");
+    console.log('Obteniendo lista de materiales desde el servicio...');
     this.materialService.obtenerListaMaterialesEnBD().subscribe({
       next: (materials) => {
-        this.materials = materials.map(material => material.replace(/^"|"$/g, ''))
-        console.log("Lista de materiales: ", this.materials);
+        this.materials = materials.map((material) =>
+          material.replace(/^"|"$/g, '')
+        );
+        console.log('Lista de materiales: ', this.materials);
       },
       error: (error) => {
-        this.error = 'Error al cargar la lista de materiales. Por favor, inténtalo de nuevo más tarde.';
-      }
-    })
+        this.error =
+          'Error al cargar la lista de materiales. Por favor, inténtalo de nuevo más tarde.';
+      },
+    });
   }
 
   currentPage: number = 1;
@@ -168,14 +182,16 @@ export class BotellasComponent {
   get currentProducts(): any[] {
     // Verificar si la carga ha finalizado
     if (!this.loading) {
-      const currentProducts = this.products.slice(this.startIndex, this.startIndex + this.pageSize);
+      const currentProducts = this.products.slice(
+        this.startIndex,
+        this.startIndex + this.pageSize
+      );
       // console.log("Current Products:", currentProducts);
       return currentProducts;
     } else {
       return []; // o return null;
     }
   }
-
 
   // Método para cambiar a la página siguiente
   nextPage() {

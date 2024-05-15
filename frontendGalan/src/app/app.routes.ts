@@ -3,6 +3,7 @@ import { HomeComponent } from './components/home/home.component';
 import { BotellasComponent } from './components/botellas/botellas.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { SearchComponent } from './components/search/search.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 export const routes: Routes = [
   {
@@ -12,6 +13,10 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent,
   },
   {
     path: 'abanicos',
@@ -58,7 +63,7 @@ export const routes: Routes = [
     component: ProductoComponent,
   },
   {
-    path:'search/:s',
-    component: SearchComponent
-  }
+    path: 'search/:s',
+    component: SearchComponent,
+  },
 ];
