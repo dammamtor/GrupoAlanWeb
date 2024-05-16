@@ -4,6 +4,8 @@ import { BotellasComponent } from './components/botellas/botellas.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { SearchComponent } from './components/search/search.component';
 import { TypesComponent } from './components/types/types.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [
   {
@@ -13,6 +15,14 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: 'abanicos',
@@ -59,11 +69,11 @@ export const routes: Routes = [
     component: ProductoComponent,
   },
   {
-    path:'search/:s',
-    component: SearchComponent
+    path: 'search/:s',
+    component: SearchComponent,
   },
   {
-    path: "types/:t",
-    component: TypesComponent
-  }
+    path: 'types/:t',
+    component: TypesComponent,
+  },
 ];
