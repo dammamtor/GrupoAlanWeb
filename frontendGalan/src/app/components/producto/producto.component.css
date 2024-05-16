@@ -241,4 +241,15 @@
 .product-specs-footer .btn:hover {
     background-color: #218838;
 }
+.media img {
+    max-width: 65%; /* El ancho máximo de la imagen será el 100% del contenedor */
+    height: auto; /* Para mantener la proporción de aspecto de la imagen */
+    display: block; /* Para que la imagen tenga su propio bloque */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%);
+}
 
+  

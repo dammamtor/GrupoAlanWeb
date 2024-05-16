@@ -1,0 +1,10 @@
+/* Estilos para el primer div */
+.header-wrapper {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px;
+}
+
+.header-wrapper p#productos {
+    cursor: pointer;
+}

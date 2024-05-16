@@ -24,4 +24,9 @@ export class ProductService {
     console.log("MÉTODO SERVICE. BUSCAR PRODUCTOS POR TIPO: " + tipo);
     return this.http.get<Product[]>(`${this.apiUrl}/buscar-productos-por-tipo/${tipo}`);
   }
+
+  obtenerProductoPorRef(ref: string): Observable<Product> {
+    console.log("MÉTODO SERVICE. OBTENER PRODUCTO POR REFERENCIA: " + ref);
+    return this.http.get<Product>(`${this.apiUrl}/obtener-producto/${ref}`);
+  }
 }

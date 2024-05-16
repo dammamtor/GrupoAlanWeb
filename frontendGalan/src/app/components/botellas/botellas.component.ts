@@ -63,17 +63,8 @@ export class BotellasComponent {
   }
 
   //MOVERSE A PRODUCTOS
-  irAProduct() {
-    this.ruta.navigate(['producto']);
-    // Desplazarse al principio de la página
-    const element = document.getElementById('topOfPage');
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      });
-    }
+  irAProduct(ref: string) {
+    this.ruta.navigate(['producto', ref]);
   }
 
   products: Product[] = [];

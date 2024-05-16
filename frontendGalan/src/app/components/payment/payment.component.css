@@ -1,0 +1,104 @@
+/* Estilos generales */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 25px;
+}
+
+.btn-outline-danger,
+.btn-outline-secondary {
+    border-width: 2px;
+}
+
+/* Estilos específicos para la sección */
+.py-5 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+.text-primary {
+    color: #007bff !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.card.bg-primary {
+    border-radius: 25px;
+}
+
+.card-body h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Estilos del formulario */
+.form-outline {
+    margin-bottom: 1rem;
+}
+
+.form-outline input {
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-control-lg {
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    height: auto;
+}
+
+/* Estilo del botón de Checkout en un div con fondo de advertencia */
+.bg-warning .btn-info {
+    background-color: #ffcc80; /* Color de fondo del botón */
+    border-color: #ffb74d; /* Color del borde del botón */
+    color: #bf360c; /* Color del texto del botón */
+    box-shadow: 0 4px 6px rgba(255, 193, 7, 0.1); /* Sombra del botón */
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s; /* Transiciones */
+}
+
+.bg-warning .btn-info:hover {
+    background-color: #ff5722; /* Color de fondo del botón en hover */
+    border-color: #e64a19; /* Color del borde del botón en hover */
+    color: #fff; /* Color del texto del botón en hover */
+    box-shadow: 0 6px 8px rgba(255, 87, 34, 0.2); /* Sombra del botón en hover */
+}
+
+/* Añade estilos para el div contenedor de los iconos */
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinea los iconos a la derecha */
+}
+
+/* Estilo adicional para los iconos */
+.svg-icon {
+    width: 40px; /* Reducir el ancho de los iconos */
+    height: auto;
+    fill: #fff; /* Cambia el color de los iconos a blanco */
+    margin-left: 10px; /* Añade un margen a la izquierda para separar los iconos */
+}
+
+

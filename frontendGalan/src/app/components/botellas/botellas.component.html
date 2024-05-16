@@ -93,7 +93,7 @@
     <div class="col-md-8">
       <div class="row">
         <div class="col-md-4" *ngFor="let item of currentProducts">
-          <article class="product-card border border-success" (click)="irAProduct()">
+          <article class="product-card border border-success" (click)="irAProduct(item.ref)">
             <div class="product-image">
               <img [src]="item.images[0].img_max" [alt]="item.name" class="img-fluid">
             </div>

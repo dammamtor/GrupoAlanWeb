@@ -41,7 +41,7 @@ export class HeaderComponent {
     this.ruta.navigate(['login']);
   }
   navegatePayment() {
-    this.ruta.navigate(['payment']);
+    this.ruta.navigate(['payments']);
   }
   navegateAbanicos() {
     this.ruta.navigate(['types', 'Abanico']);
@@ -83,4 +83,5 @@ export class HeaderComponent {
   irASearch(searchTerm: string): void {
     this.ruta.navigate(['search', searchTerm]);
   }
+
 }
