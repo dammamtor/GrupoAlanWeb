@@ -5,6 +5,7 @@ import { Product } from '../../models/Product';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-producto',
   standalone: true,
@@ -34,4 +35,5 @@ export class ProductoComponent {
       });
     });
   }
+
 }

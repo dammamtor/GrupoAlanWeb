@@ -58,8 +58,8 @@ public class ImagesService {
                 Images image1 = new Images();
 
                 image1.setRef(image.getRef());
-                image1.setImg_min(image.getImg_min());
-                image1.setImg_max(image.getImg_max());
+                image1.setImgMin(image.getImg_min());
+                image1.setImgMax(image.getImg_max());
                 image1.setMain(image.getMain());
 
                 logger.info("Producto : " + image.getRef() + " , campo main: " + image.getMain());

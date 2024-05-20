@@ -15,12 +15,11 @@ import { CommonModule } from '@angular/common';
 export class TypesComponent {
   searchTerm: string = "";
   products: Product[] = [];
-  showFullDescription: boolean = false;
   loading: boolean = false; // Agrega esta variable
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
+    private ruta: Router,
     private productService: ProductService
   ) { }
 
@@ -72,5 +71,8 @@ export class TypesComponent {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  irAProduct(t: string, ref: string) {
+    this.ruta.navigate(['types', t, 'producto','ref', ref]);
+  }  
 
 }

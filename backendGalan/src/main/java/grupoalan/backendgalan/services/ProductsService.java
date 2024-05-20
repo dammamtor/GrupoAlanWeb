@@ -38,6 +38,8 @@ public class ProductsService{
     private CategoriesRepository categoriesRepository;
     @Autowired
     private MarkingTechniquesRepository markingTechniquesRepository;
+    @Autowired
+    private VariantsRepository variantsRepository;
 
     private static final String API_URL = "https://data.makito.es/api/products";
 
@@ -73,9 +75,9 @@ public class ProductsService{
                         // Obtener y agregar descripciones al producto utilizando el método personalizado
                         addDescriptionsToProduct(existingProduct, productData);
                         addImagesToProduct(existingProduct, productData);
-                        addColorsToProduct(existingProduct, productData);
                         addCategoriesToProduct(existingProduct, productData);
                         addMarkingTechniques(existingProduct, productData);
+                        addVariantsToProduct(existingProduct, productData);
                         existingProduct = productsRepository.save(existingProduct);
                         logger.info("Producto guardado: " + existingProduct);
 
@@ -89,11 +91,50 @@ public class ProductsService{
                         newProduct.setWidth(productData.getWidth());
                         newProduct.setHeight(productData.getHeight());
                         newProduct.setColors(productData.getColors());
+                        newProduct.setPrintcode(productData.getPrintcode());
+                        newProduct.setDiameter(productData.getDiameter());
+                        newProduct.setIntrastat(productData.getIntrastat());
+                        newProduct.setPf_type(productData.getPf_type());
+                        newProduct.setPf_units(productData.getPf_units());
+                        newProduct.setPf_description(productData.getPf_description());
+                        newProduct.setPf_length(productData.getPf_length());
+                        newProduct.setPf_height(productData.getPf_height());
+                        newProduct.setPf_width(productData.getPf_width());
+                        newProduct.setPf_weight(productData.getPf_weight());
+                        newProduct.setPi2_type(productData.getPi2_type());
+                        newProduct.setPi2_units(productData.getPi2_units());
+                        newProduct.setPi2_description(productData.getPi2_description());
+                        newProduct.setPi2_length(productData.getPi2_length());
+                        newProduct.setPi2_height(productData.getPi2_height());
+                        newProduct.setPi2_width(productData.getPi2_width());
+                        newProduct.setPi2_weight(productData.getPi2_weight());
+                        newProduct.setPi1_type(productData.getPi1_type());
+                        newProduct.setPi1_units(productData.getPi1_units());
+                        newProduct.setPi1_description(productData.getPi1_description());
+                        newProduct.setPi1_length(productData.getPi1_length());
+                        newProduct.setPi1_height(productData.getPi1_height());
+                        newProduct.setPi1_width(productData.getPi1_width());
+                        newProduct.setPi1_weight(productData.getPi1_weight());
+                        newProduct.setPtc_type(productData.getPtc_type());
+                        newProduct.setPtc_units(productData.getPtc_units());
+                        newProduct.setPtc_description(productData.getPtc_description());
+                        newProduct.setPtc_length(productData.getPtc_length());
+                        newProduct.setPtc_height(productData.getPtc_height());
+                        newProduct.setPtc_width(productData.getPtc_width());
+                        newProduct.setPtc_wight(productData.getPtc_wight());
+                        newProduct.setPtc_net_weight(productData.getPtc_net_weight());
+                        newProduct.setPallet_units(productData.getPallet_units());
+                        newProduct.setBundle_pallets(productData.getBundle_pallets());
+                        newProduct.setPallet_weight(productData.getPallet_weight());
+                        newProduct.setSizes(productData.getSizes());
 
                         // Obtener y agregar descripciones al nuevo producto utilizando el método personalizado
                         addDescriptionsToProduct(newProduct, productData);
                         addImagesToProduct(newProduct, productData);
-                        addColorsToProduct(newProduct, productData);
+                        addCategoriesToProduct(newProduct, productData);
+                        addMarkingTechniques(newProduct, productData);
+                        addVariantsToProduct(newProduct, productData);
+//                        addColorsToProduct(newProduct, productData);
                         // Guardar el nuevo producto en la base de datos
                         newProduct = productsRepository.save(newProduct);
 
@@ -236,35 +277,66 @@ public class ProductsService{
             logger.warn("No se encontraron categorías para el producto: " + product.getName());
         }
     }
+    private void addVariantsToProduct(Products product, ProductsMakito productData) {
+        // Obtener las variantes asociadas al producto según alguna referencia (ejemplo: productData.getRef())
+        List<Variants> variantsList = variantsRepository.findByRef(productData.getRef());
 
+        // Limpiar las variantes existentes del producto (no necesaria si sobrescribes todas las variantes)
+        // product.getVariants().clear();
 
-    private void addColorsToProduct(Products product, ProductsMakito productData) {
-        product.getColorsSet().clear();
+        if (!variantsList.isEmpty()) {
+            // Crear un nuevo conjunto de variantes para el producto
+            Set<Variants> newVariants = new HashSet<>();
 
-        // Obtener los códigos de colores del producto
-        String colorCodes = productData.getColors();
-
-        if (!colorCodes.isEmpty()) {
-            String[] colorArray = colorCodes.split(",\\s*"); // Dividir los códigos por comas
-
-            // Buscar los detalles de cada color y agregarlos al producto
-            List<Colors> colorsList = new ArrayList<>();
-            for (String colorCode : colorArray) {
-                List<Colors> colors = colorRepository.findByCode(colorCode.trim());
-                colorsList.addAll(colors);
+            // Iterar sobre las variantes asociadas al producto
+            for (Variants variant : variantsList) {
+                // Asociar el producto con la variante
+                variant.setProduct(product);
+                // Añadir la variante al nuevo conjunto de variantes del producto
+                newVariants.add(variant);
+                logger.info("Producto asociado a la variante: " + variant.getUnique_ref());
             }
 
-            // Agregar los colores al producto
-            Set<Colors> colorsSet = new HashSet<>(colorsList);
-            product.setColorsSet(colorsSet);
+            // Asignar el nuevo conjunto de variantes al producto
+            product.setVariants(newVariants);
 
-            // Mensaje de registro de información
-            logger.info("Colores agregados al producto: " + product.getName());
+            // Guardar los cambios en la base de datos (asumiendo que estás usando JPA)
+            productsRepository.save(product);
+
+            logger.info("Variantes agregadas al producto: " + product.getName());
         } else {
-            // Mensaje de registro de advertencia si no hay códigos de colores
-            logger.warn("No se encontraron colores para el producto: " + product.getName());
+            logger.warn("No se encontraron variantes para el producto: " + product.getName());
         }
     }
+
+
+//    private void addColorsToProduct(Products product, ProductsMakito productData) {
+//        product.getColorsSet().clear();
+//
+//        // Obtener los códigos de colores del producto
+//        String colorCodes = productData.getColors();
+//
+//        if (!colorCodes.isEmpty()) {
+//            String[] colorArray = colorCodes.split(",\\s*"); // Dividir los códigos por comas
+//
+//            // Buscar los detalles de cada color y agregarlos al producto
+//            List<Colors> colorsList = new ArrayList<>();
+//            for (String colorCode : colorArray) {
+//                List<Colors> colors = colorRepository.findByCode(colorCode.trim());
+//                colorsList.addAll(colors);
+//            }
+//
+//            // Agregar los colores al producto
+//            Set<Colors> colorsSet = new HashSet<>(colorsList);
+//            product.setColorsSet(colorsSet);
+//
+//            // Mensaje de registro de información
+//            logger.info("Colores agregados al producto: " + product.getName());
+//        } else {
+//            // Mensaje de registro de advertencia si no hay códigos de colores
+//            logger.warn("No se encontraron colores para el producto: " + product.getName());
+//        }
+//    }
 
     public List<Products> searchProducts(String searchTerm) {
         List<Products> allProducts = productsRepository.findAll();
@@ -342,7 +414,10 @@ public class ProductsService{
         return matchingProducts;
     }
 
-
+//    public List<Products> filtrarProductosPorCategoriasColoresYTipos(List<String> categorias, List<String> colores, List<String> tipos) {
+//        // Implementa la lógica para filtrar los productos en base a las opciones seleccionadas
+//        return productsRepository.findByCategoriasAndColoresAndTipos(categorias, colores, tipos);
+//    }
 
     public boolean rolyProductsFromApi(String apiToken) {
         logger.info("ESTAS EN EL PRODUCTS SERVICE");
@@ -380,7 +455,7 @@ public class ProductsService{
                                 // Si el producto existe, actualizar sus atributos
                                 existingProduct.setRef(productData.getItemcode());
                                 existingProduct.setWeight(productData.getWeight());
-                                existingProduct.setMeasures(productData.getMeasures());
+//                                existingProduct.setMeasures(productData.getMeasures());
                                 existingProduct.setColors(productData.getColorname());
                             } else {
                                 // Si el producto no existe, crear uno nuevo
@@ -388,7 +463,7 @@ public class ProductsService{
                                 newProduct.setName(productData.getItemname());
                                 newProduct.setRef(productData.getItemcode());
                                 newProduct.setWeight(productData.getWeight());
-                                newProduct.setMeasures(productData.getMeasures());
+//                                newProduct.setMeasures(productData.getMeasures());
                                 newProduct.setColors(productData.getColorname());
                                 existingProduct = newProduct;
                             }

@@ -73,4 +73,19 @@ public class ProductsController {
         logger.info("PRODUCTOS ENCONTRADOS: " + matchingProducts);
         return new ResponseEntity<>(matchingProducts, HttpStatus.OK);
     }
+
+    //FILTRADO
+//    @GetMapping("/productos-filtrados")
+//    public ResponseEntity<List<Products>> obtenerProductosFiltrados(
+//            @RequestParam(value = "categorias", required = false) List<String> categorias,
+//            @RequestParam(value = "colores", required = false) List<String> colores,
+//            @RequestParam(value = "tipos", required = false) List<String> tipos) {
+//
+//        logger.info("Filtrando productos por categorías, colores y tipos");
+//
+//        List<Products> productosFiltrados = productsService.filtrarProductosPorCategoriasColoresYTipos(categorias, colores, tipos);
+//        logger.info("DE UNA CAPO, TOMA TU LISTA");
+//        return new ResponseEntity<>(productosFiltrados, HttpStatus.OK);
+//    }
+
 }

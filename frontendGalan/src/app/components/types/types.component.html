@@ -3,7 +3,7 @@
     <div class="container">
         <h2 class="text-center mb-4">PRODUCTOS</h2>
         <h1 class="text-center display-4 mb-5">{{searchTerm}}</h1>
-        
+
         <div class="d-flex justify-content-center align-items-center" *ngIf="loading">
             <div class="spinner-border m-5" role="status"></div>
         </div>
@@ -12,25 +12,25 @@
             <ng-container *ngFor="let item of visibleProducts">
                 <div class="col">
                     <div class="card h-100 shadow-sm">
-                        <img *ngIf="item.images && item.images.length > 0" [src]="item.images[0].img_max" class="card-img-top"
-                            alt="Producto" />
-                        <div class="card-body">
-                            <div *ngIf="item.descriptions && item.descriptions.length > 0">
-                                <p class="card-text" *ngIf="!showFullDescription && item.descriptions[0].details.length > 100">
-                                    {{ item.descriptions[0].details | slice:0:100 }}...
-                                    <button class="btn btn-link btn-sm text-decoration-none" (click)="showFullDescription = !showFullDescription">
-                                        Ver más
-                                    </button>
-                                </p>
-                                <p class="card-text" *ngIf="showFullDescription || item.descriptions[0].details.length <= 100">
-                                    {{ item.descriptions[0].details }}
-                                </p>
-                            </div>
+                        <img *ngIf="item.images && item.images.length > 0" [src]="item.images[0].img_max"
+                            class="card-img-top" alt="Producto" />
+                        <div class="card-body" *ngIf="item.descriptions && item.descriptions.length > 0">
+                            <p class="card-text" *ngIf="item.descriptions[0].details.length > 100">
+                                {{ item.descriptions[0].details | slice:0:100 }}...
+                                <button class="btn btn-link btn-sm text-decoration-none"
+                                    (click)="irAProduct(searchTerm,item.ref)">
+                                    Ver más
+                                </button>
+                            </p>
+                            <p class="card-text" *ngIf="item.descriptions[0].details.length <= 100">
+                                {{ item.descriptions[0].details }}
+                            </p>
                         </div>
                         <div class="card-footer bg-transparent border-top-0">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Ver Producto</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                                        (click)="irAProduct(searchTerm,item.ref)">Ver Producto</button>
                                 </div>
                                 <small class="text-body-secondary">Ref: {{item.ref}}</small>
                             </div>
@@ -40,10 +40,14 @@
             </ng-container>
         </div>
 
+
+
         <div class="pagination-container">
-            <button class="pagination-button btn btn-primary" *ngIf="currentPage > 1" (click)="previousPage()">Anterior</button>
-            <button class="pagination-button btn btn-primary" *ngIf="currentPage < totalPages" (click)="nextPage()">Siguiente</button>
+            <button class="pagination-button btn btn-primary" *ngIf="currentPage > 1"
+                (click)="previousPage()">Anterior</button>
+            <button class="pagination-button btn btn-primary" *ngIf="currentPage < totalPages"
+                (click)="nextPage()">Siguiente</button>
         </div>
-            
+
     </div>
 </div>

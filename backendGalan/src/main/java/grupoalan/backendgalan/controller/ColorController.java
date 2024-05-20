@@ -26,13 +26,13 @@ public class ColorController {
     @Autowired
     private ColorService colorService;
 
-    @GetMapping("/list-colors")
-    public ResponseEntity<List<String>> obtenerColoresenBD() {
-        logger.info("HORA DE OBTENER LOS COLORES DE NUESTRA BD");
-        List<String> colors = colorService.listaColoresUnicos();
-
-        return new ResponseEntity<>(colors, HttpStatus.OK);
-    }
+//    @GetMapping("/list-colors")
+//    public ResponseEntity<List<String>> obtenerColoresenBD() {
+//        logger.info("HORA DE OBTENER LOS COLORES DE NUESTRA BD");
+//        List<String> colors = colorService.listaColoresUnicos();
+//
+//        return new ResponseEntity<>(colors, HttpStatus.OK);
+//    }
 
 
 }

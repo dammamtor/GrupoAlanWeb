@@ -20,7 +20,7 @@ export const routes: Routes = [
     component: BotellasComponent,
   },
   {
-    path: "producto/:ref",
+    path: "lista-productos/producto/ref/:ref",
     component: ProductoComponent
   },
   {
@@ -28,8 +28,16 @@ export const routes: Routes = [
     component: SearchComponent
   },
   {
+    path:"search/:s/producto/ref/:ref",
+    component: ProductoComponent
+  },
+  {
     path: "types/:t",
     component: TypesComponent
+  },
+  {
+    path:"types/:t/producto/ref/:ref",
+    component: ProductoComponent
   },
   {
     path: "payments",

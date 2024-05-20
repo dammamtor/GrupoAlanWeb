@@ -64,7 +64,7 @@ export class BotellasComponent {
 
   //MOVERSE A PRODUCTOS
   irAProduct(ref: string) {
-    this.ruta.navigate(['producto', ref]);
+    this.ruta.navigate(['lista-productos/producto/ref', ref]);
   }
 
   products: Product[] = [];

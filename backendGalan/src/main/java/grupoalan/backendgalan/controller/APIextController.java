@@ -9,12 +9,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/grupo-alan/api-externa")
 public class APIextController {
     static final Logger logger = LoggerFactory.getLogger(APIextController.class);
 
@@ -270,7 +272,7 @@ public class APIextController {
         logger.info("OBTENCION MARKING TECHNIQUES MAKITO A BBDD EMPRESA");
         boolean updatedSuccessfully = markingTechniquesService.makitoMarkingTechniquesFromApi(apiToken);
         if (updatedSuccessfully) {
-            return new ResponseEntity<>("Lista de descripciones Roly actualizada correctamente.", HttpStatus.OK);
+            return new ResponseEntity<>("Lista de markings de makito actualizada correctamente.", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Error al actualizar la lista de descripciones", HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -278,15 +280,19 @@ public class APIextController {
 
     //VARIANTS
     @GetMapping("makito/variants")
-    public ResponseEntity<List<Variants>> makitoVariants(){
+    public ResponseEntity<String> makitoVariants(){
         String apiToken = getApiToken();
         if (apiToken == null) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         logger.info("OBTENCION VARIANTS DE MAKITO A BBDD EMPRESA");
-        List<Variants> variants = variantsService.makitoVariantsTechniquesFromApi(apiToken);
-        return new ResponseEntity<>(variants, HttpStatus.OK);
+        boolean updatedSuccessfully = variantsService.makitoVariantsTechniquesFromApi(apiToken);
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de variants de makito actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de descripciones", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     //IMAGES

@@ -21,7 +21,7 @@ export class SearchComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
+    private ruta: Router,
     private productService: ProductService
   ) { }
 
@@ -69,4 +69,9 @@ export class SearchComponent {
       this.showScrollToTopBtn = false;
     }
   }
+
+  irAProduct(ref: string) {
+    this.ruta.navigate(['search', this.searchTerm, 'producto', 'ref', ref]);
+  }
+
 }

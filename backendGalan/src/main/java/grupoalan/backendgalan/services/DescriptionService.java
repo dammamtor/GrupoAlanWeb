@@ -83,6 +83,7 @@ public class DescriptionService {
                         Descriptions description = new Descriptions();
                         description.setRef(descriptionsData.getRef());
                         description.setDetails(descriptionsData.getDesc());
+                        description.setLang(descriptionsData.getLang());
                         description = descriptionRepository.save(description);
                         descriptionsList.add(description);
                         logger.info("Descripción añadida: {}", description);

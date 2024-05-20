@@ -12,7 +12,8 @@ public class Descriptions {
 
     @Column(nullable = false)
     private String ref; //ACA ENTRARIA LOS CAMPOS REF DE ROLY Y MAKITO
-
+    @Column
+    private String lang;
     @Column(name = "details", columnDefinition = "TEXT")
     private String details;
     @Column
@@ -79,11 +80,20 @@ public class Descriptions {
         this.type = type;
     }
 
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
     @Override
     public String toString() {
         return "Descriptions{" +
                 "id=" + id +
                 ", ref='" + ref + '\'' +
+                ", lang='" + lang + '\'' +
                 ", details='" + details + '\'' +
                 ", type='" + type + '\'' +
                 ", comp='" + comp + '\'' +

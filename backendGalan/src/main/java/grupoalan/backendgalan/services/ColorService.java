@@ -89,50 +89,50 @@ public class ColorService {
         }
     }
 
-    public List<String> listaColoresUnicos() {
-        List<Colors> allColors = colorRepository.findAllByLang(1);
-        Map<String, Integer> colorProductCountMap = new HashMap<>();
-
-        // Iterar sobre todos los colores
-        for (Colors color : allColors) {
-            String colorName = color.getName();
-            int productCount = color.getProducts().size();
-
-            // Buscar el primer color en el nombre
-            String primaryColor = colorName.split(" ")[0];
-
-            if (colorName.contains("/")) {
-                // Agregar la cantidad de productos al contador correspondiente
-                colorProductCountMap.put("MULTICOLOR", colorProductCountMap.getOrDefault("MULTICOLOR", 0) + productCount);
-            } else if (productCount > 0) {
-                // Si no, agrégalo normalmente si tiene productos asociados
-                // Agregar la cantidad de productos al contador correspondiente
-                colorProductCountMap.put(primaryColor, colorProductCountMap.getOrDefault(primaryColor, 0) + productCount);
-            }
-        }
-
-        List<String> colorsWithProductCount = new ArrayList<>();
-
-        // Colores deseados
-        List<String> desiredColors = Arrays.asList("AMARILLO", "AZUL", "BEIG", "BLANCO", "CAMUFALJE", "DORADO",
-                "FUCSIA", "GRIS", "MARRON", "MORADO", "MULTICOLOR", "NARANJA", "NATURAL", "NEGRO", "PLATEADO", "ROJO",
-                "ROSA", "TRANSPARENTE", "VERDE");
-
-        // Iterar sobre el mapa y construir la lista de colores con el formato deseado
-        for (Map.Entry<String, Integer> entry : colorProductCountMap.entrySet()) {
-            String colorName = entry.getKey();
-            if (desiredColors.contains(colorName)) {
-                int productCount = entry.getValue();
-                String colorWithCount = colorName + " (" + productCount + ")";
-                colorsWithProductCount.add(colorWithCount);
-                logger.info("Color: " + colorName + " Número de productos: " + productCount);
-            }
-        }
-
-        logger.info("Número total de colores en español: " + allColors.size());
-
-        return colorsWithProductCount;
-    }
+//    public List<String> listaColoresUnicos() {
+//        List<Colors> allColors = colorRepository.findAllByLang(1);
+//        Map<String, Integer> colorProductCountMap = new HashMap<>();
+//
+//        // Iterar sobre todos los colores
+//        for (Colors color : allColors) {
+//            String colorName = color.getName();
+//            int productCount = color.getProducts().size();
+//
+//            // Buscar el primer color en el nombre
+//            String primaryColor = colorName.split(" ")[0];
+//
+//            if (colorName.contains("/")) {
+//                // Agregar la cantidad de productos al contador correspondiente
+//                colorProductCountMap.put("MULTICOLOR", colorProductCountMap.getOrDefault("MULTICOLOR", 0) + productCount);
+//            } else if (productCount > 0) {
+//                // Si no, agrégalo normalmente si tiene productos asociados
+//                // Agregar la cantidad de productos al contador correspondiente
+//                colorProductCountMap.put(primaryColor, colorProductCountMap.getOrDefault(primaryColor, 0) + productCount);
+//            }
+//        }
+//
+//        List<String> colorsWithProductCount = new ArrayList<>();
+//
+//        // Colores deseados
+//        List<String> desiredColors = Arrays.asList("AMARILLO", "AZUL", "BEIG", "BLANCO", "CAMUFALJE", "DORADO",
+//                "FUCSIA", "GRIS", "MARRON", "MORADO", "MULTICOLOR", "NARANJA", "NATURAL", "NEGRO", "PLATEADO", "ROJO",
+//                "ROSA", "TRANSPARENTE", "VERDE");
+//
+//        // Iterar sobre el mapa y construir la lista de colores con el formato deseado
+//        for (Map.Entry<String, Integer> entry : colorProductCountMap.entrySet()) {
+//            String colorName = entry.getKey();
+//            if (desiredColors.contains(colorName)) {
+//                int productCount = entry.getValue();
+//                String colorWithCount = colorName + " (" + productCount + ")";
+//                colorsWithProductCount.add(colorWithCount);
+//                logger.info("Color: " + colorName + " Número de productos: " + productCount);
+//            }
+//        }
+//
+//        logger.info("Número total de colores en español: " + allColors.size());
+//
+//        return colorsWithProductCount;
+//    }
 
     public boolean rolyColorsFromApi(String apiToken) {
         logger.info("ESTAS EN EL COLOR SERVICE");

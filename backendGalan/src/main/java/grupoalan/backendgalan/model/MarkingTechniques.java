@@ -15,6 +15,8 @@ public class MarkingTechniques {
     private String name;
     @Column
     private String ref;
+    @Column
+    private String technique_ref;
 
     //RELACIONES
     @ManyToOne
@@ -57,12 +59,21 @@ public class MarkingTechniques {
         this.ref = ref;
     }
 
+    public String getTechnique_ref() {
+        return technique_ref;
+    }
+
+    public void setTechnique_ref(String technique_ref) {
+        this.technique_ref = technique_ref;
+    }
+
     @Override
     public String toString() {
         return "MarkingTechniques{" +
                 "technique_id=" + technique_id +
                 ", name='" + name + '\'' +
                 ", ref='" + ref + '\'' +
+                ", technique_ref='" + technique_ref + '\'' +
                 '}';
     }
 }

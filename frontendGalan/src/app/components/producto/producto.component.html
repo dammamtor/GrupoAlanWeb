@@ -49,28 +49,28 @@
                         </div>
 
                     </div>
-                    <div class="media benefit border border-success">
+                    <div class="media benefit">
                         <ng-container *ngIf="product.images && product.images.length > 0">
-                          <div id="carouselExample" class="carousel slide">
-                            <div class="carousel-inner">
-                              <div class="carousel-item" *ngFor="let image of product.images; let i = index" [ngClass]="{'active': i === 0}">
-                                <img [src]="image.img_max" class="d-block w-100" alt="...">
-                              </div>
+                            <div id="carouselExample" class="carousel slide">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item" *ngFor="let image of product.images; let i = index"
+                                        [ngClass]="{'active': i === 0}">
+                                        <img [src]="image.img_max" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div>
                         </ng-container>
-                      </div>
-                      
-
-
+                    </div>
                 </div>
             </div>
 
@@ -106,91 +106,50 @@
                 </button>
             </div>
 
-            <div class="col-md-12">
-                <dl>
-                    <dt class="h2">Te gustará por</dt>
-                    <dd itemprop="description">
-                        <ul class="mg-top-20">
-                            <li>
-                                <span class="bold font-16">Esta botella de cristal con funda de neopreno es duradera y
-                                    práctica para llevarla a cualquier lugar:</span>
-                                <p><strong>Tiene una capacidad de 420 ml</strong>, lo que te permitirá usarla en el día
-                                    a día para la oficina, en tus excursiones de fin de semana o para disfrutar de un
-                                    paseo tranquilo por la ciudad.</p>
-                            </li>
-                            <li>
-                                <span class="bold font-16">Está fabricada con materiales no tóxicos y duraderos:</span>
-                                <p>Nuestras botellas de agua personalizadas están hechas con <strong>materiales seguros,
-                                        sin tóxicos y duraderos</strong>.</p>
-                            </li>
-                            <li>
-                                <span class="bold font-16">Es ligera y cómoda de transportar:</span>
-                                <p>Su capacidad así como la <strong>cinta de transporte del tapón</strong> de nuestra
-                                    botella de cristal con funda de neopreno hace que sea muy cómoda de llevar.</p>
-                            </li>
-                            <li>
-                                <span class="bold font-16">Incluye funda de neopreno personalizable:</span>
-                                <p>En nuestro catálogo encontrarás botellas de cristal con funda de neopreno de
-                                    diferentes colores que podrás personalizar con el <strong>logo de tu empresa o
-                                        marca</strong>.</p>
-                            </li>
-                            <li>
-                                <span class="bold font-16">Contribuyen a reducir el consumo de plástico:</span>
-                                <p>Apostar por botellas de cristal con funda supone dar un paso más para reducir el
-                                    consumo de botellas desechables y plásticos, puesto que <strong>podrás usarlas una y
-                                        otra vez</strong>.</p>
-                            </li>
-                            <li>
-                                <span class="bold font-16">Proporciona una gran visibilidad a tu marca:</span>
-                                <p>Las botellas de cristal con funda de neopreno son artículos muy útiles, perfectas
-                                    como regalo publicitario personalizable: todo el mundo las utiliza, son muy
-                                    prácticas y son aptas en cualquier situación.</p>
-                            </li>
-                        </ul>
-                    </dd>
-                </dl>
-                <table class="table table-striped mg-top-40">
-                    <tbody>
-                        <tr>
-                            <th scope="row">Medidas</th>
-                            <td>19 x (diámetro) 6,4 cm. aprox.</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Tamaño de estampación</th>
-                            <td>
-                                El área máxima es de 80x50 mm. aprox. <span class="pointer font-blue bold"
-                                    data-popover="1"
-                                    data-content="Esta medida es genérica y puede variar dependiendo de tu logo y de la posición donde quieras estamparlo.<br/><br/>Si quieres un tamaño ligeramente superior deberás consultarnos y estudiaremos viabilidad y presupuesto si hubiera variación.<br/><br/>En cualquier caso tranquil@ ya que cuando hagas un pedido, previamente te enviaremos un montaje digital para que veas como va a quedar. Ahí verás la medida y la posición de la estampación que recomendamos. No haremos nada hasta que apruebes ese diseño, que por supuesto si no te gusta podrás pedir modificaciones del mismo sin ningún recargo extra por ello."
-                                    tabindex="0" role="button" data-original-title="" title="">Más info.</span>
-                                <p class="mg-top-10">
-                                    ¿Dudas sobre la estampación?
-                                    Consulta la sección de <span class="font-blue bold" data-toggle="modal"
-                                        data-modal="#layoutModal"
-                                        data-modal-url="https://www.grupobillingham.com/product/marking-doubts/6765?size=md"
-                                        data-href="#">preguntas frecuentes</span>
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Colores disponibles</th>
-                            <td>amarillo, azul, blanco, fucsia, morado, naranja, negro, rojo, verde</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Características</th>
-                            <td>
-                                <dl class="specs">
-                                    <dd>
-                                        <span>400ml</span>
-                                    </dd>
-                                    <dd>
-                                        <span>Cristal/vidrio</span>
-                                    </dd>
-                                </dl>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Medidas y Peso Artículo</th>
+                                    <td>
+                                        El área es {{ product.length }} * {{ product.width ? product.width : '0' }} * {{ product.height }} cm.<br>
+                                        El peso es {{product.weight}} gr.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Colores disponibles</th>
+                                    <td>
+                                        @if (product.colorsSet && product.colorsSet.length > 0)
+                                        {
+                                            @for (item of product.colorsSet; track $index)
+                                            {
+                                                <span>{{item.name}}</span>
+                                            }
+                                        }
+                                        @else
+                                        {
+                                            <span>No hay colores disponibles</span>
+                                        }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Características</th>
+                                    <td>
+                                        @if (product.descriptions && product.descriptions.length > 0)
+                                        {
+                                            {{product.descriptions[0].details}}<br><br>
+                                            {{product.descriptions[0].comp}}
+                                        }
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+            
             <div class="product-specs-footer">
                 <div class="container">
                     <div class="row">

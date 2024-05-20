@@ -12,12 +12,12 @@ public class Images {
     private Long imageId;
     @Column
     private String ref; //esto es para MAKITO
+    @Column(name = "img_min") // Cambiamos el nombre de la columna para que coincida con el nombre de la propiedad
+    private String imgMin;
+    @Column(name = "img_max")
+    private String imgMax;
     @Column
-    private String img_min;
-    @Column
-    private String img_max;
-    @Column
-    private Integer  main;
+    private Integer main;
 
     //ROLY
     @Lob
@@ -64,20 +64,20 @@ public class Images {
         this.ref = ref;
     }
 
-    public String getImg_min() {
-        return img_min;
+    public String getImgMin() {
+        return imgMin;
     }
 
-    public void setImg_min(String img_min) {
-        this.img_min = img_min;
+    public void setImgMin(String imgMin) {
+        this.imgMin = imgMin;
     }
 
-    public String getImg_max() {
-        return img_max;
+    public String getImgMax() {
+        return imgMax;
     }
 
-    public void setImg_max(String img_max) {
-        this.img_max = img_max;
+    public void setImgMax(String imgMax) {
+        this.imgMax = imgMax;
     }
 
     public Products getProduct() {
@@ -149,8 +149,8 @@ public class Images {
         return "Images{" +
                 "imageId=" + imageId +
                 ", ref='" + ref + '\'' +
-                ", img_min='" + img_min + '\'' +
-                ", img_max='" + img_max + '\'' +
+                ", img_min='" + imgMin + '\'' +
+                ", img_max='" + imgMax + '\'' +
                 ", main=" + main +
                 ", productImage='" + productImage + '\'' +
                 ", modelImage='" + modelImage + '\'' +

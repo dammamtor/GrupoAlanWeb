@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -50,7 +51,7 @@ public class VariantsService {
     }
 
     //OTROS METODOS
-    public List<Variants> makitoVariantsTechniquesFromApi(String apiToken){
+    public boolean makitoVariantsTechniquesFromApi(String apiToken) {
         logger.info("ESTAS EN EL MARKING TECHNIQUES SERVICE");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
@@ -64,10 +65,32 @@ public class VariantsService {
 
         StatusCode statusCode = response.getBody();
 
-        if (statusCode!= null){
+        if (statusCode != null) {
             List<VariantsMakito> variantsMakitos = statusCode.getVariants();
-            logger.info("LISTA DE VARIANTS DE MAKITO: " + variantsMakitos);
+            List<Variants> variantsGalan = new ArrayList<>();
+
+            variantsRepository.deleteAll();
+
+            for (VariantsMakito makito : variantsMakitos) {
+                Variants galan = new Variants();
+                galan.setMatnr(makito.getMatnr());
+                galan.setRef(makito.getRef());
+                galan.setUnique_ref(makito.getUnique_ref());
+                galan.setColor(makito.getColor());
+                galan.setSize(makito.getSize());
+                galan.setImg100(makito.getImg100());
+
+                logger.info("Variante de producto: " + galan.getRef() + " incluida");
+                galan = variantsRepository.save(galan);
+                variantsGalan.add(galan);
+            }
+
+            logger.info("Products obtenidas de la API: " + variantsGalan);
+            logger.info("Actualización de la lista de variants completada");
+            return true;
+        } else {
+            logger.error("Error al obtener el objeto StatusCode de la respuesta");
+            return false;
         }
-        return null;
     }
 }

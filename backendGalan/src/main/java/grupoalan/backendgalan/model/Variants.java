@@ -8,15 +8,27 @@ public class Variants {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long variant_id;
-    @Column(nullable = false)
+    @Column
+    private String matnr;
+    @Column
+    private String unique_ref;
+    @Column
+    private String ref;
+    @Column
+    private String color;
+    @Column
     private String size;
-    @Column(nullable = false)
-    private int stock_quantity;
+    @Column
+    private String img100;
 
     //RELACIONES
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Products product;
+
+    @ManyToOne
+    @JoinColumn(name = "color_id")
+    private Colors colorSet;
 
     public Variants() {
     }
@@ -29,6 +41,38 @@ public class Variants {
         this.variant_id = variant_id;
     }
 
+    public String getMatnr() {
+        return matnr;
+    }
+
+    public void setMatnr(String matnr) {
+        this.matnr = matnr;
+    }
+
+    public String getUnique_ref() {
+        return unique_ref;
+    }
+
+    public void setUnique_ref(String unique_ref) {
+        this.unique_ref = unique_ref;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     public String getSize() {
         return size;
     }
@@ -37,12 +81,12 @@ public class Variants {
         this.size = size;
     }
 
-    public int getStock_quantity() {
-        return stock_quantity;
+    public String getImg100() {
+        return img100;
     }
 
-    public void setStock_quantity(int stock_quantity) {
-        this.stock_quantity = stock_quantity;
+    public void setImg100(String img100) {
+        this.img100 = img100;
     }
 
     public Products getProduct() {
@@ -51,5 +95,26 @@ public class Variants {
 
     public void setProduct(Products product) {
         this.product = product;
+    }
+
+    public Colors getColorSet() {
+        return colorSet;
+    }
+
+    public void setColorSet(Colors colorSet) {
+        this.colorSet = colorSet;
+    }
+
+    @Override
+    public String toString() {
+        return "Variants{" +
+                "variant_id=" + variant_id +
+                ", matnr='" + matnr + '\'' +
+                ", unique_ref='" + unique_ref + '\'' +
+                ", ref='" + ref + '\'' +
+                ", color='" + color + '\'' +
+                ", size='" + size + '\'' +
+                ", img100='" + img100 + '\'' +
+                '}';
     }
 }

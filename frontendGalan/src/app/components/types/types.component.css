@@ -60,9 +60,13 @@
     border-color: #6c757d;
     /* Color del borde */
 }
+.btn-outline-secondary:hover {
+    color: #ffffff; /* Color dorado para el texto al pasar el cursor */
+}
+
 
 .text-body-secondary {
-    color: #6c757d;
+    color: #fdfeff;
     /* Color del texto */
 }
 

@@ -97,6 +97,14 @@ public class Markings {
         this.area_img = area_img;
     }
 
+    public Products getProduct() {
+        return product;
+    }
+
+    public void setProduct(Products product) {
+        this.product = product;
+    }
+
     @Override
     public String toString() {
         return "Markings{" +

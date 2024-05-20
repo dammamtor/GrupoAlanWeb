@@ -24,10 +24,8 @@ public class Colors {
     private String url;
 
     //RELACIONES
-    @ManyToMany(mappedBy = "colorsSet") // Especifica el nombre del campo en la clase Products que mapea esta relación
-    @JsonIgnore
-    private Set<Products> products = new HashSet<>();
-
+    @OneToMany(mappedBy = "colorSet", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Variants> variants;
 
     public Colors() {
     }
@@ -64,13 +62,6 @@ public class Colors {
         this.url = url;
     }
 
-    public Set<Products> getProducts() {
-        return products;
-    }
-
-    public void setProducts(Set<Products> products) {
-        this.products = products;
-    }
 
     public Integer getLang() {
         return lang;
@@ -78,6 +69,14 @@ public class Colors {
 
     public void setLang(Integer lang) {
         this.lang = lang;
+    }
+
+    public Set<Variants> getVariants() {
+        return variants;
+    }
+
+    public void setVariants(Set<Variants> variants) {
+        this.variants = variants;
     }
 
     @Override

@@ -17,9 +17,8 @@
                     </button>
                 </div>
                 <!-- Lista de productos -->
-                <a href="#"
-                    class="list-group-item list-group-item-action d-flex flex-column flex-md-row align-items-center"
-                    *ngFor="let product of products.slice(startIndex, endIndex + 1)" aria-current="true">
+                <span class="list-group-item list-group-item-action d-flex flex-column flex-md-row align-items-center"
+                    *ngFor="let product of products.slice(startIndex, endIndex + 1)" aria-current="true" (click)="irAProduct(product.ref)">
                     <img *ngIf="product.images && product.images.length > 0" [src]="product.images[0].img_max"
                         alt="Product Image" width="100" height="100" class="rounded-circle flex-shrink-0">
                     <div class="ms-md-3 mt-3 mt-md-0">
@@ -45,7 +44,8 @@
                         <p class="mb-1">Precio:</p>
                         <h6 class="fw-bold">{{ product.price }}</h6>
                     </div>
-                </a>
+                </span>
+
 
             </div>
         </div>

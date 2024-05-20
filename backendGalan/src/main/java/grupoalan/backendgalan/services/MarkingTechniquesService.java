@@ -77,7 +77,7 @@ public class MarkingTechniquesService {
                 MarkingTechniques markingTechnique1 = new MarkingTechniques();
                 markingTechnique1.setName(makito.getName());
                 markingTechnique1.setRef(makito.getRef());
-
+                markingTechnique1.setTechnique_ref(markingTechnique1.getTechnique_ref());
                 markingTechniquesRepository.save(markingTechnique1);
             }
             // Agregar un registro de la lista guardada

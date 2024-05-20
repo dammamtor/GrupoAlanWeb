@@ -12,6 +12,7 @@ import java.util.Set;
 
 public interface ProductsRepository extends JpaRepository<Products, Long> {
     List<Products> findByName(String name);
+
     Optional<Products> findByProductId(Long id);
 
     Products findByRef(String ref); // Cambiar el retorno a List<Products>
@@ -20,4 +21,16 @@ public interface ProductsRepository extends JpaRepository<Products, Long> {
     // Método para buscar productos por una lista de nombres
     @Query("SELECT p FROM Products p WHERE p.name IN :names")
     List<Products> findByNameIn(@Param("names") List<String> names);
+
+//    @Query("SELECT DISTINCT p FROM Products p " +
+//            "JOIN p.descriptions d " +
+//            "JOIN p.colorsSet c " +
+//            "JOIN p.categories cat " +
+//            "WHERE (:categorias IS NULL OR cat.category IN :categorias) " +
+//            "AND (:colores IS NULL OR c.name IN :colores) " +
+//            "AND (:tipos IS NULL OR d.type IN :tipos)")
+//    List<Products> findByCategoriasAndColoresAndTipos(@Param("categorias") List<String> categorias,
+//                                                      @Param("colores") List<String> colores,
+//                                                      @Param("tipos") List<String> tipos);
+
 }

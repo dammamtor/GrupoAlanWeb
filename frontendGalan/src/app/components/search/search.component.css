@@ -8,6 +8,8 @@
     /* Borde redondeado */
     margin-bottom: 15px;
     /* Separación entre elementos del list-group */
+    cursor: pointer;
+
 }
 
 .list-group-item:hover {
