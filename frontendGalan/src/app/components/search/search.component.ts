@@ -73,5 +73,4 @@ export class SearchComponent {
   irAProduct(ref: string) {
     this.ruta.navigate(['search', this.searchTerm, 'producto', 'ref', ref]);
   }
-
 }

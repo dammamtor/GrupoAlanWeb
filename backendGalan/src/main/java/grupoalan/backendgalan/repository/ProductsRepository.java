@@ -22,15 +22,17 @@ public interface ProductsRepository extends JpaRepository<Products, Long> {
     @Query("SELECT p FROM Products p WHERE p.name IN :names")
     List<Products> findByNameIn(@Param("names") List<String> names);
 
-//    @Query("SELECT DISTINCT p FROM Products p " +
-//            "JOIN p.descriptions d " +
-//            "JOIN p.colorsSet c " +
-//            "JOIN p.categories cat " +
-//            "WHERE (:categorias IS NULL OR cat.category IN :categorias) " +
-//            "AND (:colores IS NULL OR c.name IN :colores) " +
-//            "AND (:tipos IS NULL OR d.type IN :tipos)")
-//    List<Products> findByCategoriasAndColoresAndTipos(@Param("categorias") List<String> categorias,
-//                                                      @Param("colores") List<String> colores,
-//                                                      @Param("tipos") List<String> tipos);
+    @Query("SELECT DISTINCT p FROM Products p " +
+            "LEFT JOIN p.descriptions d " +
+            "LEFT JOIN p.variants v " +
+            "LEFT JOIN v.colorSet c " +
+            "LEFT JOIN p.categories cat " +
+            "WHERE (:categorias IS NULL OR cat.ref IN :categorias) " +
+            "AND (:colores IS NULL OR c.name IN :colores) " +
+            "AND (:tipos IS NULL OR d.type IN :tipos)")
+    List<Products> findByCategoriasAndColoresAndTipos(@Param("categorias") List<String> categorias,
+                                                      @Param("colores") List<String> colores,
+                                                      @Param("tipos") List<String> tipos);
+
 
 }

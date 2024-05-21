@@ -1,6 +1,7 @@
 package grupoalan.backendgalan.controller;
 
 import grupoalan.backendgalan.model.Products;
+import grupoalan.backendgalan.model.response.ProductosFiltradosResponse;
 import grupoalan.backendgalan.services.ProductsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -75,17 +76,28 @@ public class ProductsController {
     }
 
     //FILTRADO
-//    @GetMapping("/productos-filtrados")
-//    public ResponseEntity<List<Products>> obtenerProductosFiltrados(
-//            @RequestParam(value = "categorias", required = false) List<String> categorias,
-//            @RequestParam(value = "colores", required = false) List<String> colores,
-//            @RequestParam(value = "tipos", required = false) List<String> tipos) {
-//
-//        logger.info("Filtrando productos por categorías, colores y tipos");
-//
-//        List<Products> productosFiltrados = productsService.filtrarProductosPorCategoriasColoresYTipos(categorias, colores, tipos);
-//        logger.info("DE UNA CAPO, TOMA TU LISTA");
-//        return new ResponseEntity<>(productosFiltrados, HttpStatus.OK);
-//    }
+    @GetMapping("/productos-filtrados")
+    public ResponseEntity<ProductosFiltradosResponse> obtenerProductosFiltrados(
+            @RequestParam(value = "categorias", required = false) List<String> categorias,
+            @RequestParam(value = "colores", required = false) List<String> colores,
+            @RequestParam(value = "tipos", required = false) List<String> tipos) {
+
+        logger.info("Filtrando productos por categorías, colores y tipos");
+
+        // Obtener productos filtrados
+        List<Products> productosFiltrados = productsService.filtrarProductosPorCategoriasColoresYTipos(categorias, colores, tipos);
+
+        // Obtener la cantidad total de productos asociados
+        int cantidadProductosAsociados = productosFiltrados.size();
+
+        // Registrar el número de productos devueltos
+        logger.info("Se encontraron {} productos después de aplicar los filtros", cantidadProductosAsociados);
+
+        // Crear la respuesta con la lista de productos y la cantidad total de productos asociados
+        ProductosFiltradosResponse respuesta = new ProductosFiltradosResponse(productosFiltrados, cantidadProductosAsociados);
+
+        // Retornar la respuesta
+        return new ResponseEntity<>(respuesta, HttpStatus.OK);
+    }
 
 }

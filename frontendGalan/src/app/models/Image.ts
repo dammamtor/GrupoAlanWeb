@@ -3,8 +3,8 @@ import { Product } from "./Product";
 export interface Image {
     imageId: number;
     ref: string;
-    img_min?: string;
-    img_max?: string;
+    imgMin?: string;
+    imgMax?: string;
     productImage?: string;
     modelImage?: string;
     childImage?: string;

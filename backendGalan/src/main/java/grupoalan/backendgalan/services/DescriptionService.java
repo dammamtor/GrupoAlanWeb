@@ -150,27 +150,16 @@ public class DescriptionService {
 
     public List<String> listaMateriales() {
         List<Descriptions> listaMateriales = descriptionRepository.findAll();
-        Set<String> primerasPalabras = new HashSet<>();
+        Set<String> materiales = new HashSet<>();
 
         for (Descriptions descripcion : listaMateriales) {
-            String comp = descripcion.getComp();
-            if (!comp.isEmpty()) {
-                // Dividir la cadena en palabras usando el espacio como delimitador
-                String[] palabras = comp.split("\\s+");
-                // Obtener la primera palabra y filtrarla según los requisitos
-                String primeraPalabra = palabras[0];
-                // Filtrar palabras que comienzan con números
-                if (!Character.isDigit(primeraPalabra.charAt(0))) {
-                    // Eliminar el símbolo '/' si está presente
-                    if (primeraPalabra.contains("/")) {
-                        primeraPalabra = primeraPalabra.replace("/", "");
-                    }
-                    primerasPalabras.add(primeraPalabra);
-                }
+            String type = descripcion.getType();
+            if (!type.isEmpty()) {
+                materiales.add(type); // Agregar la descripción completa al conjunto
             }
         }
 
-        return new ArrayList<>(primerasPalabras);
+        return new ArrayList<>(materiales);
     }
 
     public List<String> listaTipos() {

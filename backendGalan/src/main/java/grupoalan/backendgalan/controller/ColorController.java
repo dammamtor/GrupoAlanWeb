@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,13 +27,9 @@ public class ColorController {
     @Autowired
     private ColorService colorService;
 
-//    @GetMapping("/list-colors")
-//    public ResponseEntity<List<String>> obtenerColoresenBD() {
-//        logger.info("HORA DE OBTENER LOS COLORES DE NUESTRA BD");
-//        List<String> colors = colorService.listaColoresUnicos();
-//
-//        return new ResponseEntity<>(colors, HttpStatus.OK);
-//    }
-
-
+    @GetMapping("/list-colors")
+    public ResponseEntity<List<String>> getColorsWithProductCount() {
+        List<String> colorsWithProductCount = colorService.getColorsWithProductCount();
+        return ResponseEntity.ok().body(colorsWithProductCount);
+    }
 }

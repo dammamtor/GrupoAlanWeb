@@ -89,6 +89,25 @@ public class ColorService {
         }
     }
 
+    public List<String> getColorsWithProductCount() {
+        logger.info("Llamando al repositorio para obtener colores con el recuento de productos");
+        List<Object[]> colorsWithCount = colorRepository.findColorsWithProductCount();
+        logger.info("Recibidos {} resultados del repositorio", colorsWithCount.size());
+
+        // Lista para almacenar las cadenas resultantes
+        List<String> resultList = new ArrayList<>();
+
+        // Construcción de las cadenas
+        for (Object[] colorWithCount : colorsWithCount) {
+            String colorName = (String) colorWithCount[0];
+            Long productCount = (Long) colorWithCount[1];
+            String resultString = colorName + " (" + productCount + ")";
+            resultList.add(resultString);
+        }
+
+        return resultList;
+    }
+
 //    public List<String> listaColoresUnicos() {
 //        List<Colors> allColors = colorRepository.findAllByLang(1);
 //        Map<String, Integer> colorProductCountMap = new HashMap<>();

@@ -13,7 +13,7 @@
         <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
           <span class="custom-heading mt-5">
             <i class="bi bi-filter-square-fill me-2"></i>
-            Busqueda Avanzada
+            Filtros
           </span>
           <ul class="custom-list ps-0 pt-4">
             <li class="custom-list-item">
@@ -53,31 +53,14 @@
             <li class="custom-list-item">
               <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
                 data-bs-target="#markingtechniques-collapse" aria-expanded="false">
-                <i class="bi bi-chevron-right me-1"></i>Ver Marcaje
+                <i class="bi bi-chevron-right me-1"></i>Ver Tipos
               </button>
               <div class="collapse" id="markingtechniques-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li *ngFor="let marking of markingtechniques">
+                  <li *ngFor="let tipo of tipos">
                     <label class="form-check">
-                      <input type="checkbox" class="form-check-input" value="{{marking}}">
-                      {{ marking }}
-                    </label>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="border-top my-3"></li>
-            <li class="custom-list-item">
-              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                data-bs-target="#materials-collapse" aria-expanded="false">
-                <i class="bi bi-chevron-right me-1"></i>Ver Materiales
-              </button>
-              <div class="collapse" id="materials-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li *ngFor="let material of materials">
-                    <label class="form-check">
-                      <input type="checkbox" class="form-check-input" value="{{material}}">
-                      {{ material }}
+                      <input type="checkbox" class="form-check-input" value="{{tipo}}">
+                      {{ tipo }}
                     </label>
                   </li>
                 </ul>
@@ -95,7 +78,7 @@
         <div class="col-md-4" *ngFor="let item of currentProducts">
           <article class="product-card border border-success" (click)="irAProduct(item.ref)">
             <div class="product-image">
-              <img [src]="item.images[0].img_max" [alt]="item.name" class="img-fluid">
+              <img [src]="item.images[0].imgMax" [alt]="item.name" class="img-fluid">
             </div>
 
 
@@ -113,14 +96,18 @@
                 </dl>
               </div>
               <!--COLORES-->
-              <div *ngIf="item.colorsSet && item.colorsSet.length > 0; else noColors" class="color-options">
-                <p>Colores disponibles:</p>
-                <img *ngFor="let color of item.colorsSet" [src]="color.url" [alt]="color.name" class="color-option">
-              </div>
-
-              <ng-template #noColors>
-                <p>Color unico.</p>
-              </ng-template>
+              <div *ngIf="item.variants && item.variants.length > 0" class="color-options">
+                <div class="d-flex flex-wrap">
+                    <ng-container *ngFor="let variant of item.variants">
+                        <ng-container *ngIf="variant.colorSet">
+                            <img [src]="variant.colorSet.url" [alt]="variant.colorSet.name" class="color-option me-2 mb-2">
+                        </ng-container>
+                        <ng-container *ngIf="!variant.colorSet">
+                            <p>Color Unico</p>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>       
 
 
               <div class="product-price">

@@ -414,10 +414,10 @@ public class ProductsService{
         return matchingProducts;
     }
 
-//    public List<Products> filtrarProductosPorCategoriasColoresYTipos(List<String> categorias, List<String> colores, List<String> tipos) {
-//        // Implementa la lógica para filtrar los productos en base a las opciones seleccionadas
-//        return productsRepository.findByCategoriasAndColoresAndTipos(categorias, colores, tipos);
-//    }
+    public List<Products> filtrarProductosPorCategoriasColoresYTipos(List<String> categorias, List<String> colores, List<String> tipos) {
+        // Implementa la lógica para filtrar los productos en base a las opciones seleccionadas
+        return productsRepository.findByCategoriasAndColoresAndTipos(categorias, colores, tipos);
+    }
 
     public boolean rolyProductsFromApi(String apiToken) {
         logger.info("ESTAS EN EL PRODUCTS SERVICE");

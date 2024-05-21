@@ -10,9 +10,7 @@
 .product-card:hover {
     cursor: pointer;
     background-color: #f0f0f0;
-    /* Cambia el color de fondo al pasar el ratón */
     transition: background-color 0.3s ease;
-    /* Agrega una transición suave */
 }
 
 .product-card:not(:last-child) {
@@ -134,7 +132,6 @@
     padding: 0;
     cursor: pointer;
     margin-right: 10px;
-    /* Espacio a la derecha */
 }
 
 .custom-list-item button:hover {
@@ -156,7 +153,6 @@
 .btn-toggle:focus {
     outline: none;
 }
-
 
 /* Estilo para los botones */
 .custom-button {
@@ -180,3 +176,76 @@
 .custom-button:hover {
     background-color: #0056b3;
 }
+
+/* Estilo para el collapse */
+.collapse {
+    max-height: 200px; /* Ajusta este valor según tus necesidades */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    background-color: #fff;
+    margin-top: 10px;
+  }
+  
+  /* Estilo para los botones de alternar */
+  .custom-list-item button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease, border 0.3s ease; /* Añadimos transición para el borde */
+  }
+  
+  .custom-list-item button:hover {
+    background-color: #ffffff;
+    border: 2px solid #007bff; /* Añadimos un borde azul al hover */
+    color: #007bff; /* Cambiamos el color del texto al color del borde */
+  }
+  
+  /* Estilo para el icono */
+  .custom-list-item i {
+    transition: transform 0.3s ease;
+  }
+  
+  .custom-list-item .collapsed i {
+    transform: rotate(0);
+  }
+  
+  .custom-list-item [aria-expanded="true"] i {
+    transform: rotate(90deg);
+  }
+  
+  /* Estilo para la lista interna */
+  .btn-toggle-nav {
+    padding-left: 20px;
+  }
+  
+  /* Alineación de checkbox y etiquetas */
+  .form-check-label {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+  }
+  
+  .form-check-input {
+    margin-right: 10px;
+  }
+  
+  /* Estilo para los bordes y márgenes */
+  .border-top {
+    border-top: 1px solid #ddd !important;
+  }
+  
+  .my-3 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  

@@ -1,10 +1,12 @@
 package grupoalan.backendgalan.services;
 
+import grupoalan.backendgalan.model.Colors;
 import grupoalan.backendgalan.model.MarkingTechniques;
 import grupoalan.backendgalan.model.Variants;
 import grupoalan.backendgalan.model.response.makito.MarkingTechniquesMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
 import grupoalan.backendgalan.model.response.makito.VariantsMakito;
+import grupoalan.backendgalan.repository.ColorRepository;
 import grupoalan.backendgalan.repository.VariantsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +21,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VariantsService {
@@ -29,6 +32,8 @@ public class VariantsService {
     private static final String API_URL = "https://data.makito.es/api/variants";
     @Autowired
     private VariantsRepository variantsRepository;
+    @Autowired
+    private ColorRepository colorRepository;
 
     // Método para encontrar una variante por su ID
     public Variants getVariantByID(Long id){
@@ -85,6 +90,8 @@ public class VariantsService {
                 variantsGalan.add(galan);
             }
 
+            addColorsToVariants(variantsGalan);
+
             logger.info("Products obtenidas de la API: " + variantsGalan);
             logger.info("Actualización de la lista de variants completada");
             return true;
@@ -92,5 +99,23 @@ public class VariantsService {
             logger.error("Error al obtener el objeto StatusCode de la respuesta");
             return false;
         }
+    }
+
+    private void addColorsToVariants(List<Variants> variants) {
+        logger.info("Iniciando addColorsToVariants");
+
+        for (Variants variant : variants) {
+            List<Colors> colorsList = colorRepository.findByCode(variant.getColor());
+            if (!colorsList.isEmpty()) {
+                Colors selectedColor = colorsList.get(0);  // Seleccionar el primer color encontrado, o agregar lógica adicional si es necesario
+                variant.setColorSet(selectedColor);
+                variantsRepository.save(variant);
+                logger.info("Color asociado a la variante {}: {}", variant.getRef(), selectedColor.getName());
+            } else {
+                logger.warn("No se encontró el color para la variante: {}", variant.getRef());
+            }
+        }
+
+        logger.info("Finalizando addColorsToVariants");
     }
 }

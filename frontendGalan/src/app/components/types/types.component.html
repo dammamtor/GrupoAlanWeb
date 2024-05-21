@@ -12,7 +12,7 @@
             <ng-container *ngFor="let item of visibleProducts">
                 <div class="col">
                     <div class="card h-100 shadow-sm">
-                        <img *ngIf="item.images && item.images.length > 0" [src]="item.images[0].img_max"
+                        <img *ngIf="item.images && item.images.length > 0" [src]="item.images[0].imgMax"
                             class="card-img-top" alt="Producto" />
                         <div class="card-body" *ngIf="item.descriptions && item.descriptions.length > 0">
                             <p class="card-text" *ngIf="item.descriptions[0].details.length > 100">

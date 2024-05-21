@@ -13,6 +13,7 @@ import { MarkingTechnique } from '../../models/MarkingTechnique';
 import { MarcajeService } from '../../services/marcaje.service';
 import { Description } from '../../models/Description';
 import { MaterialService } from '../../services/material.service';
+import { TipoService } from '../../services/tipo.service';
 
 @Component({
   selector: 'app-botellas',
@@ -27,8 +28,7 @@ export class BotellasComponent {
     private productService: ProductService,
     private categoryService: CategoryService,
     private colorService: ColorService,
-    private markingTechniqueService: MarcajeService,
-    private materialService: MaterialService
+    private tipoService: TipoService,
   ) {}
 
   navegateAbanicos() {
@@ -70,17 +70,15 @@ export class BotellasComponent {
   products: Product[] = [];
   categories: Category[] = [];
   colors: Color[] = [];
-  materials: Description[] = [];
-  markingtechniques: MarkingTechnique[] = [];
+  tipos: Description[] = [];
   loading: boolean = true;
   error: string | null = null;
 
   ngOnInit(): void {
     this.getCategories();
-    this.getMarkingTechniques();
     this.getColors();
-    this.getMaterials();
     this.getProducts();
+    this.getTipos();
   }
 
   getProducts(): void {
@@ -128,35 +126,17 @@ export class BotellasComponent {
     });
   }
 
-  getMarkingTechniques(): void {
-    console.log('Obteniendo lista de técnicas de marcaje desde el servicio...');
-
-    this.markingTechniqueService.obtenerMarkingTechniquesenBD().subscribe({
-      next: (markingtechniques) => {
-        this.markingtechniques = markingtechniques.map((markingtechnique) =>
-          markingtechnique.replace(/^"|"$/g, '')
-        );
-        console.log('Técnicas de marcaje obtenidas: ', this.markingtechniques);
-      },
-      error: () => {
-        this.error =
-          'Error al cargar técnicas de marcaje. Por favor, inténtalo de nuevo más tarde.';
-      },
-    });
-  }
-
-  getMaterials(): void {
-    console.log('Obteniendo lista de materiales desde el servicio...');
-    this.materialService.obtenerListaMaterialesEnBD().subscribe({
-      next: (materials) => {
-        this.materials = materials.map((material) =>
-          material.replace(/^"|"$/g, '')
-        );
-        console.log('Lista de materiales: ', this.materials);
+  getTipos(): void {
+    console.log('Obteniendo lista de tipos desde el servicio...');
+    this.tipoService.obtenerListaTiposEnBD().subscribe({
+      next: (tipos) => {
+        this.tipos = tipos
+        ;
+        console.log('Lista de tipos: ', this.tipos);
       },
       error: (error) => {
         this.error =
-          'Error al cargar la lista de materiales. Por favor, inténtalo de nuevo más tarde.';
+          'Error al cargar la lista de tipos. Por favor, inténtalo de nuevo más tarde.';
       },
     });
   }

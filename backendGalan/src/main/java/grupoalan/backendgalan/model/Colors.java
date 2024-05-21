@@ -25,6 +25,7 @@ public class Colors {
 
     //RELACIONES
     @OneToMany(mappedBy = "colorSet", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private Set<Variants> variants;
 
     public Colors() {

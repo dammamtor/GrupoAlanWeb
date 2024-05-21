@@ -55,7 +55,7 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item" *ngFor="let image of product.images; let i = index"
                                         [ngClass]="{'active': i === 0}">
-                                        <img [src]="image.img_max" class="d-block w-100" alt="...">
+                                        <img [src]="image.imgMax" class="d-block w-100" alt="...">
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
@@ -114,23 +114,24 @@
                                 <tr>
                                     <th scope="row">Medidas y Peso Artículo</th>
                                     <td>
-                                        El área es {{ product.length }} * {{ product.width ? product.width : '0' }} * {{ product.height }} cm.<br>
+                                        El área es {{ product.length }} * {{ product.width ? product.width : '0' }} * {{
+                                        product.height }} cm.<br>
                                         El peso es {{product.weight}} gr.
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Colores disponibles</th>
                                     <td>
-                                        @if (product.colorsSet && product.colorsSet.length > 0)
+                                        @if (product.variants && product.variants.length > 0)
                                         {
-                                            @for (item of product.colorsSet; track $index)
-                                            {
-                                                <span>{{item.name}}</span>
-                                            }
+                                        @for (item of product.variants; track $index)
+                                        {
+                                        <span>{{item.colorSet?.name}} </span>
+                                        }
                                         }
                                         @else
                                         {
-                                            <span>No hay colores disponibles</span>
+                                        <span>No hay colores disponibles</span>
                                         }
                                     </td>
                                 </tr>
@@ -139,17 +140,140 @@
                                     <td>
                                         @if (product.descriptions && product.descriptions.length > 0)
                                         {
-                                            {{product.descriptions[0].details}}<br><br>
-                                            {{product.descriptions[0].comp}}
+                                        {{product.descriptions[0].details}}<br><br>
+                                        {{product.descriptions[0].comp}}<br><br>
                                         }
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+
+                        <table class="table table-striped table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Detalles</th>
+                                    <th scope="col">Imagen</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (product.pf_units != 0) {
+                                <tr>
+                                    <th scope="row">Packing final</th>
+                                    <td>
+                                        Uds: {{product.pf_units}}<br>
+                                        @if (product.pf_height != "") {
+                                        Alto: {{product.pf_height}} cm<br>
+                                        }
+                                        @if (product.pf_width != "") {
+                                        Ancho: {{product.pf_width}} cm<br>
+                                        }
+                                        @if (product.pf_length != "") {
+                                        Largo: {{product.pf_length}} cm<br>
+                                        }
+                                        @if (product.pf_weight != "") {
+                                        Peso: {{product.pf_weight}} kg
+                                        }
+                                    </td>
+                                    <td>
+                                        <!-- Puedes agregar una imagen aquí si es necesario -->
+                                    </td>
+                                </tr>
+                                }
+                                @if (product.pi1_units != 0) {
+                                <tr>
+                                    <th scope="row">Packing intermedio 1</th>
+                                    <td>
+                                        Uds: {{product.pi1_units}}<br>
+                                        @if (product.pi1_height != "") {
+                                        Alto: {{product.pi1_height}} cm<br>
+                                        }
+                                        @if (product.pi1_width != "") {
+                                        Ancho: {{product.pi1_width}} cm<br>
+                                        }
+                                        @if (product.pi1_length != "") {
+                                        Largo: {{product.pi1_length}} cm<br>
+                                        }
+                                        @if (product.pi1_weight != "") {
+                                        Peso: {{product.pi1_weight}} kg
+                                        }
+                                    </td>
+                                    <td>
+                                        <img src="../../../assets/images/package-intermedio.png" class="img-fluid" alt="Packing intermedio 1">
+                                    </td>
+                                </tr>
+                                }
+                                @if (product.pi2_units != 0) {
+                                <tr>
+                                    <th scope="row">Packing intermedio 2</th>
+                                    <td>
+                                        Uds: {{product.pi2_units}}<br>
+                                        @if (product.pi2_height != "") {
+                                        Alto: {{product.pi2_height}} cm<br>
+                                        }
+                                        @if (product.pi2_width != "") {
+                                        Ancho: {{product.pi2_width}} cm<br>
+                                        }
+                                        @if (product.pi2_length != "") {
+                                        Largo: {{product.pi2_length}} cm<br>
+                                        }
+                                        @if (product.pi2_weight != "") {
+                                        Peso: {{product.pi2_weight}} kg
+                                        }
+                                    </td>
+                                    <td>
+                                        <img src="../../../assets/images/package-intermedio.png" class="img-fluid" alt="Packing intermedio 2">
+                                    </td>
+                                </tr>
+                                }
+                                @if (product.ptc_units != 0) {
+                                <tr>
+                                    <th scope="row">Caja Master</th>
+                                    <td>
+                                        Uds: {{product.ptc_units}}<br>
+                                        @if (product.ptc_height != "") {
+                                        Alto: {{product.ptc_height}} cm<br>
+                                        }
+                                        @if (product.ptc_width != "") {
+                                        Ancho: {{product.ptc_width}} cm<br>
+                                        }
+                                        @if (product.ptc_length != "") {
+                                        Largo: {{product.ptc_length}} cm<br>
+                                        }
+                                        @if (product.ptc_wight != "") {
+                                        Peso: {{product.ptc_wight}} kg
+                                        }
+                                    </td>
+                                    <td>
+                                        <img src="../../../assets/images/CAJA.png" class="img-fluid" alt="Caja Master">
+                                    </td>
+                                </tr>
+                                }
+                                @if (product.pallet_units != 0) {
+                                <tr>
+                                    <th scope="row">Palet</th>
+                                    <td>
+                                        Uds: {{product.pallet_units}}<br>
+                                        @if (product.bundle_pallets != 0) {
+                                        Bultos: {{product.bundle_pallets}}<br>
+                                        }
+                                        @if (product.pallet_weight != 0) {
+                                        Peso: {{product.pallet_weight}} kg
+                                        }
+                                    </td>
+                                    <td>
+                                        <img src="../../../assets/images/PALET.png" class="img-fluid" alt="Palet">
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                        
+
                     </div>
                 </div>
             </div>
-            
+
             <div class="product-specs-footer">
                 <div class="container">
                     <div class="row">
