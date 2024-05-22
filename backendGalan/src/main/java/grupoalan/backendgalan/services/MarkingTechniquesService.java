@@ -2,10 +2,12 @@ package grupoalan.backendgalan.services;
 
 import grupoalan.backendgalan.model.Categories;
 import grupoalan.backendgalan.model.MarkingTechniques;
+import grupoalan.backendgalan.model.Markings;
 import grupoalan.backendgalan.model.response.makito.MarkingTechniquesMakito;
 import grupoalan.backendgalan.model.response.makito.MarkingsMakito;
 import grupoalan.backendgalan.model.response.makito.StatusCode;
 import grupoalan.backendgalan.repository.MarkingTechniquesRepository;
+import grupoalan.backendgalan.repository.MarkingsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,8 @@ public class MarkingTechniquesService {
 
     @Autowired
     private MarkingTechniquesRepository markingTechniquesRepository;
+    @Autowired
+    private MarkingsRepository markingsRepository;
 
     // Método para encontrar una tecnica por su ID
     public MarkingTechniques getTechniqueByID(Long id) {
@@ -75,24 +79,48 @@ public class MarkingTechniquesService {
 
             for (MarkingTechniquesMakito makito : markingTechniquesMakitosList) {
                 MarkingTechniques markingTechnique1 = new MarkingTechniques();
+
                 markingTechnique1.setName(makito.getName());
                 markingTechnique1.setRef(makito.getRef());
-                markingTechnique1.setTechnique_ref(markingTechnique1.getTechnique_ref());
+                markingTechnique1.setTechnique_ref(makito.getTechnique_ref());
+                markingTechnique1.setCol_inc(makito.getCol_inc());
+                markingTechnique1.setNotice_txt(makito.getNotice_txt());
+                markingTechnique1.setDoublepass(makito.getDoublepass());
+                markingTechnique1.setLayer(makito.getLayer());
+                markingTechnique1.setOption(makito.getOption());
+                markingTechnique1.setMixture(makito.getMixture());
+                markingTechnique1.setSystem(makito.getSystem());
+
+                // Buscar todos los markings correspondientes
+                List<Markings> markingsList = markingsRepository.findAllByRefAndTechniqueRef(makito.getRef(), makito.getTechnique_ref());
+                Set<Markings> markingsSet = new HashSet<>(markingsList);
+
+                markingTechnique1.setMarking(markingsSet);
+
+                // Guardar la relación en cada Marking
+                for (Markings marking : markingsSet) {
+                    marking.setMarkingTechniques(markingTechnique1);
+                    markingsRepository.save(marking);  // Guardar cambios en Markings
+                }
+
                 markingTechniquesRepository.save(markingTechnique1);
             }
+
             // Agregar un registro de la lista guardada
             List<MarkingTechniques> savedMarkingTechniques = markingTechniquesRepository.findAll();
             for (MarkingTechniques savedTechnique : savedMarkingTechniques) {
                 logger.info("Técnica de marcaje guardada: " + savedTechnique);
             }
 
-            logger.info("Terminado el proceso de recoleccion");
+            logger.info("Terminado el proceso de recolección");
             return true;
         } else {
             System.err.println("No se pudo obtener el objeto StatusCode de la respuesta.");
             return false;
         }
     }
+
+}
 
     //MARKING TECHNIQUES LISTA
     public List<String> listaTecnicaMarcajeUnico() {

@@ -77,6 +77,7 @@ public class MarkingService {
                         // Crear un nuevo Markings basado en MarkingsMakito y la imagen encontrada
                         Markings marking = new Markings();
                         marking.setRef(makito.getRef());
+                        marking.setTechnique_ref(makito.getTechnique_ref());
                         marking.setPrint_area_id(makito.getPrint_area_id());
                         marking.setMax_colors(makito.getMax_colors());
                         marking.setPosition(makito.getPosition());

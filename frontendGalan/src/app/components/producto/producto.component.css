@@ -1,9 +1,12 @@
-/* Estilos comunes */
+/* Contenedor principal */
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
 }
 
+/* Tipografía y colores */
 .bold {
     font-weight: bold;
 }
@@ -12,11 +15,47 @@
     color: #007bff;
 }
 
+.font-gray-dark-ms {
+    color: #666;
+}
+
+/* Puntero */
 .pointer {
     cursor: pointer;
 }
 
-/* Estilos para la tabla */
+/* Márgenes y tamaños */
+.mg-left-20 {
+    margin-left: 20px;
+}
+
+.mg-top-20 {
+    margin-top: 20px;
+}
+
+.mg-top-40 {
+    margin-top: 40px;
+}
+
+.font-16 {
+    font-size: 16px;
+}
+
+.font-18 {
+    font-size: 18px;
+}
+
+.h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.h5 {
+    font-size: 1.25rem;
+}
+
+/* Tabla */
 .table-striped {
     width: 100%;
     border-collapse: collapse;
@@ -26,19 +65,35 @@
 .table-striped td {
     padding: 8px;
     border-bottom: 1px solid #dee2e6;
+    max-width: 200px; /* Tamaño máximo de las celdas */
+    overflow: hidden; /* Ocultar el contenido excedente */
+    text-overflow: ellipsis; /* Mostrar puntos suspensivos si el contenido excede el ancho */
+    white-space: nowrap; /* Evitar que el contenido se desborde a la siguiente línea */
 }
 
 .table-striped th {
     text-align: left;
     background-color: #f0f0f0;
     font-weight: bold;
+    width: 200px; /* Ancho fijo de las celdas de encabezado */
 }
 
+.table-striped img {
+    display: block; /* Ajustar imagen como bloque para poder centrarla */
+    margin: 0 auto; /* Centrar la imagen horizontalmente */
+    max-width: 100%; /* Ajustar tamaño máximo de las imágenes al tamaño de la celda */
+    height: auto; /* Mantener la proporción de la imagen */
+}
+
+
+
+/* Product file */
 .product-file {
     background-color: #f8f9fa;
     padding: 15px;
 }
 
+/* Breadcrumb */
 .breadcrumb {
     background-color: transparent;
     padding: 0;
@@ -71,39 +126,13 @@
     color: #555;
 }
 
+/* Product details */
 .product-details {
     background-color: #fff;
     padding: 30px;
 }
 
-.bold {
-    font-weight: bold;
-}
-
-.font-18 {
-    font-size: 18px;
-}
-
-.font-gray-dark-ms {
-    color: #666;
-}
-
-.font-blue {
-    color: #007bff;
-}
-
-.pointer {
-    cursor: pointer;
-}
-
-.mg-left-20 {
-    margin-left: 20px;
-}
-
-.h5 {
-    font-size: 1.25rem;
-}
-
+/* Media */
 .media {
     display: flex;
     align-items: center;
@@ -123,10 +152,19 @@
     margin-right: 15px;
 }
 
+.media img {
+    max-width: 65%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Benefit */
 .benefit p {
     margin-bottom: 0;
 }
 
+/* Delivery dates */
 .delivery-dates {
     margin-top: 30px;
 }
@@ -140,6 +178,7 @@ dt {
     margin-bottom: 10px;
 }
 
+/* Botón verde */
 .btn-green {
     background-color: #28a745;
     border-color: #28a745;
@@ -151,54 +190,17 @@ dt {
     border-color: #1e7e34;
 }
 
-.col-md-12 {
-    padding: 20px;
-    background-color: #f8f9fa;
-}
-
-.h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.font-16 {
-    font-size: 16px;
-}
-
-.mg-top-20 {
-    margin-top: 20px;
-}
-
-.mg-top-40 {
-    margin-top: 40px;
-}
-
-.pointer {
-    cursor: pointer;
-}
-
-.font-blue {
-    color: #007bff;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-/* Estilos para el contenedor principal */
+/* Product specs footer */
 .product-specs-footer {
     background-color: #f9f9f9;
     padding: 30px 0;
 }
 
-/* Estilos para el contenedor interno */
 .product-specs-footer .container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Estilos para el título y el texto de la promoción */
 .product-specs-footer .samples-promotion .title {
     font-size: 18px;
     font-weight: bold;
@@ -210,13 +212,11 @@ dt {
     color: #555;
 }
 
-/* Estilos para el precio y el texto de la promoción */
 .product-specs-footer .samples-promotion span {
     font-size: 16px;
     color: #333;
 }
 
-/* Estilos para el botón */
 .product-specs-footer .btn {
     background-color: #28a745;
     color: #fff;
@@ -233,14 +233,65 @@ dt {
     background-color: #218838;
 }
 
-.media img {
-    max-width: 65%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     filter: invert(100%);
 }
+/* Acordion */
+.accordion {
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+/* Cambio de color al hacer hover */
+.card-header:hover {
+    background-color: #0056b3;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.colColor {
+    width: 50px;
+}
+
+.colIcon img {
+    width: 30px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.colStock {
+    text-align: center;
+}
+

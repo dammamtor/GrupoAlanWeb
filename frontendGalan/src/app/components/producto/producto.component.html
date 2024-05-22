@@ -99,180 +99,222 @@
                         </dd>
                     </dl>
                 </div>
-                <button type="button" class="btn btn-green btn-lg btn-block mg-top-20">
+                <button type="button" class="btn btn-green btn-lg btn-block mg-top-20 mb-4">
                     <span class="glyphicon glyphicon-calculator"></span>
                     CALCULA TU PRECIO Y COMPRA
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </button>
+
+                <div class="accordion">
+                    <div class="card">
+                        <div class="card-header">
+                            <span>ALMACÉN PRINCIPAL</span>
+                        </div>
+
+                        <div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Color</th>
+                                                <th></th>
+                                                <th>Talla</th>
+                                                <th class="colStock">Existencias</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <ng-container *ngIf="product.variants && product.variants.length > 0">
+                                                <tr *ngFor="let item of product.variants; let i = index">
+                                                    <td class="colColor" data-title="Color">
+                                                        {{ item.colorSet?.name }}
+                                                    </td>
+                                                    <td>
+                                                        <ng-container *ngIf="item.colorSet">
+                                                            <img [src]="item.colorSet.url" [alt]="item.colorSet.name" class="color-option me-2 mb-2">
+                                                        </ng-container>
+                                                    </td>
+                                                </tr>
+                                            </ng-container>
+                                            
+                                        </tbody>
+                                        
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <table class="table table-striped">
+                        <h2>Caracteristicas</h2><br>
+                        <table class="table table-striped table-bordered">
                             <tbody>
                                 <tr>
                                     <th scope="row">Medidas y Peso Artículo</th>
                                     <td>
-                                        El área es {{ product.length }} * {{ product.width ? product.width : '0' }} * {{
-                                        product.height }} cm.<br>
-                                        El peso es {{product.weight}} gr.
+                                        El área es {{ product.length }} * {{ product.width || '0' }} * {{ product.height
+                                        }} cm.<br>
+                                        El peso es {{ product.weight }} gr.
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Colores disponibles</th>
                                     <td>
-                                        @if (product.variants && product.variants.length > 0)
-                                        {
-                                        @for (item of product.variants; track $index)
-                                        {
-                                        <span>{{item.colorSet?.name}} </span>
-                                        }
-                                        }
-                                        @else
-                                        {
-                                        <span>No hay colores disponibles</span>
-                                        }
+                                        <ng-container
+                                            *ngIf="product.variants && product.variants.length > 0; else noColors">
+                                            <span *ngFor="let item of product.variants; let i = index">
+                                                {{ item.colorSet?.name }}<span *ngIf="i < product.variants.length - 1">,
+                                                </span>
+                                            </span>
+                                        </ng-container>
+                                        <ng-template #noColors>
+                                            <span>No hay colores disponibles</span>
+                                        </ng-template>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Características</th>
                                     <td>
-                                        @if (product.descriptions && product.descriptions.length > 0)
-                                        {
-                                        {{product.descriptions[0].details}}<br><br>
-                                        {{product.descriptions[0].comp}}<br><br>
-                                        }
+                                        <ng-container *ngIf="product.descriptions && product.descriptions.length > 0">
+                                            <p>{{ product.descriptions[0].details }}</p>
+                                            <p>{{ product.descriptions[0].comp }}</p>
+                                        </ng-container>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
 
+                        <h2>Medidas y Packaging</h2><br>
                         <table class="table table-striped table-bordered">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Descripción</th>
-                                    <th scope="col">Detalles</th>
-                                    <th scope="col">Imagen</th>
-                                </tr>
-                            </thead>
+
                             <tbody>
-                                @if (product.pf_units != 0) {
-                                <tr>
-                                    <th scope="row">Packing final</th>
-                                    <td>
-                                        Uds: {{product.pf_units}}<br>
-                                        @if (product.pf_height != "") {
-                                        Alto: {{product.pf_height}} cm<br>
-                                        }
-                                        @if (product.pf_width != "") {
-                                        Ancho: {{product.pf_width}} cm<br>
-                                        }
-                                        @if (product.pf_length != "") {
-                                        Largo: {{product.pf_length}} cm<br>
-                                        }
-                                        @if (product.pf_weight != "") {
-                                        Peso: {{product.pf_weight}} kg
-                                        }
-                                    </td>
-                                    <td>
-                                        <!-- Puedes agregar una imagen aquí si es necesario -->
-                                    </td>
-                                </tr>
-                                }
-                                @if (product.pi1_units != 0) {
-                                <tr>
-                                    <th scope="row">Packing intermedio 1</th>
-                                    <td>
-                                        Uds: {{product.pi1_units}}<br>
-                                        @if (product.pi1_height != "") {
-                                        Alto: {{product.pi1_height}} cm<br>
-                                        }
-                                        @if (product.pi1_width != "") {
-                                        Ancho: {{product.pi1_width}} cm<br>
-                                        }
-                                        @if (product.pi1_length != "") {
-                                        Largo: {{product.pi1_length}} cm<br>
-                                        }
-                                        @if (product.pi1_weight != "") {
-                                        Peso: {{product.pi1_weight}} kg
-                                        }
-                                    </td>
-                                    <td>
-                                        <img src="../../../assets/images/package-intermedio.png" class="img-fluid" alt="Packing intermedio 1">
-                                    </td>
-                                </tr>
-                                }
-                                @if (product.pi2_units != 0) {
-                                <tr>
-                                    <th scope="row">Packing intermedio 2</th>
-                                    <td>
-                                        Uds: {{product.pi2_units}}<br>
-                                        @if (product.pi2_height != "") {
-                                        Alto: {{product.pi2_height}} cm<br>
-                                        }
-                                        @if (product.pi2_width != "") {
-                                        Ancho: {{product.pi2_width}} cm<br>
-                                        }
-                                        @if (product.pi2_length != "") {
-                                        Largo: {{product.pi2_length}} cm<br>
-                                        }
-                                        @if (product.pi2_weight != "") {
-                                        Peso: {{product.pi2_weight}} kg
-                                        }
-                                    </td>
-                                    <td>
-                                        <img src="../../../assets/images/package-intermedio.png" class="img-fluid" alt="Packing intermedio 2">
-                                    </td>
-                                </tr>
-                                }
-                                @if (product.ptc_units != 0) {
-                                <tr>
-                                    <th scope="row">Caja Master</th>
-                                    <td>
-                                        Uds: {{product.ptc_units}}<br>
-                                        @if (product.ptc_height != "") {
-                                        Alto: {{product.ptc_height}} cm<br>
-                                        }
-                                        @if (product.ptc_width != "") {
-                                        Ancho: {{product.ptc_width}} cm<br>
-                                        }
-                                        @if (product.ptc_length != "") {
-                                        Largo: {{product.ptc_length}} cm<br>
-                                        }
-                                        @if (product.ptc_wight != "") {
-                                        Peso: {{product.ptc_wight}} kg
-                                        }
-                                    </td>
-                                    <td>
-                                        <img src="../../../assets/images/CAJA.png" class="img-fluid" alt="Caja Master">
-                                    </td>
-                                </tr>
-                                }
-                                @if (product.pallet_units != 0) {
-                                <tr>
-                                    <th scope="row">Palet</th>
-                                    <td>
-                                        Uds: {{product.pallet_units}}<br>
-                                        @if (product.bundle_pallets != 0) {
-                                        Bultos: {{product.bundle_pallets}}<br>
-                                        }
-                                        @if (product.pallet_weight != 0) {
-                                        Peso: {{product.pallet_weight}} kg
-                                        }
-                                    </td>
-                                    <td>
-                                        <img src="../../../assets/images/PALET.png" class="img-fluid" alt="Palet">
-                                    </td>
-                                </tr>
-                                }
+                                <ng-container *ngIf="product.pf_units != 0">
+                                    <tr>
+                                        <th scope="row">Packing final</th>
+                                        <td>
+                                            Uds: {{ product.pf_units }}<br>
+                                            <ng-container *ngIf="product.pf_height">
+                                                Alto: {{ product.pf_height }} cm<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.pf_width">
+                                                Ancho: {{ product.pf_width }} cm<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.pf_length">
+                                                Largo: {{ product.pf_length }} cm<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.pf_weight">
+                                                Peso: {{ product.pf_weight }} kg
+                                            </ng-container>
+                                        </td>
+                                        <td>
+                                            <ng-container
+                                                *ngIf="product.images && product.images.length > 0 && product.images[0].imgMin !== ''">
+                                                <img [src]="product.images[0].imgMin" alt="Imagen del producto"
+                                                    class="img-fluid">
+                                            </ng-container>
+                                        </td>
+
+                                    </tr>
+                                </ng-container>
+                                <ng-container *ngIf="product.pi1_units != 0">
+                                    <tr>
+                                        <th scope="row">Packing intermedio 1</th>
+                                        <td>
+                                            Uds: {{ product.pi1_units }}<br>
+                                            <ng-container *ngIf="product.pi1_height">
+                                                Alto: {{ product.pi1_height }} cm<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.pi1_width">
+                                                Ancho: {{ product.pi1_width }} cm<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.pi1_length">
+                                                Largo: {{ product.pi1_length }} cm<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.pi1_weight">
+                                                Peso: {{ product.pi1_weight }} kg
+                                            </ng-container>
+                                        </td>
+                                        <td>
+                                            <img src="../../../assets/images/package-intermedio.png" class="img-fluid"
+                                                alt="Packing intermedio 1">
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                                <ng-container *ngIf="product.pi2_units != 0">
+                                    <tr>
+                                        <th scope="row">Packing intermedio 2</th>
+                                        <td>
+                                            Uds: {{ product.pi2_units }}<br>
+                                            <ng-container *ngIf="product.pi2_height">
+                                                Alto: {{ product.pi2_height }} cm<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.pi2_width">
+                                                Ancho: {{ product.pi2_width }} cm<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.pi2_length">
+                                                Largo: {{ product.pi2_length }} cm<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.pi2_weight">
+                                                Peso: {{ product.pi2_weight }} kg
+                                            </ng-container>
+                                        </td>
+                                        <td>
+                                            <img src="../../../assets/images/package-intermedio.png" class="img-fluid"
+                                                alt="Packing intermedio 2">
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                                <ng-container *ngIf="product.ptc_units != 0">
+                                    <tr>
+                                        <th scope="row">Caja Master</th>
+                                        <td>
+                                            Uds: {{ product.ptc_units }}<br>
+                                            <ng-container *ngIf="product.ptc_height">
+                                                Alto: {{ product.ptc_height }} cm<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.ptc_width">
+                                                Ancho: {{ product.ptc_width }} cm<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.ptc_length">
+                                                Largo: {{ product.ptc_length }} cm<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.ptc_net_weight">
+                                                Peso: {{ product.ptc_net_weight }} kg
+                                            </ng-container>
+                                        </td>
+                                        <td>
+                                            <img src="../../../assets/images/CAJA.png" class="img-fluid"
+                                                alt="Caja Master">
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                                <ng-container *ngIf="product.pallet_units != 0">
+                                    <tr>
+                                        <th scope="row">Palet</th>
+                                        <td>
+                                            Uds: {{ product.pallet_units }}<br>
+                                            <ng-container *ngIf="product.bundle_pallets">
+                                                Bultos: {{ product.bundle_pallets }}<br>
+                                            </ng-container>
+                                            <ng-container *ngIf="product.pallet_weight">
+                                                Peso: {{ product.pallet_weight }} kg
+                                            </ng-container>
+                                        </td>
+                                        <td>
+                                            <img src="../../../assets/images/PALET.png" class="img-fluid" alt="Palet">
+                                        </td>
+                                    </tr>
+                                </ng-container>
                             </tbody>
                         </table>
-                        
-
                     </div>
                 </div>
             </div>
+
 
             <div class="product-specs-footer">
                 <div class="container">

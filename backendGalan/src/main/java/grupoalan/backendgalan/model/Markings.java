@@ -12,6 +12,8 @@ public class Markings {
 
     @Column(nullable = false)
     private String ref; //ACA ENTRARIA LOS CAMPOS EN COMUN CON MAKITO
+    @Column(name = "technique_ref")
+    private String techniqueRef;
     @Column(nullable = false)
     private int print_area_id;
     @Column(nullable = false)
@@ -29,6 +31,11 @@ public class Markings {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Products product;
+
+    @OneToOne(mappedBy = "marking")
+    @JoinColumn(name = "technique_id", referencedColumnName = "technique_id")
+    private MarkingTechniques markingTechnique;
+
 
     public Markings() {
     }
@@ -105,11 +112,28 @@ public class Markings {
         this.product = product;
     }
 
+    public MarkingTechniques getMarkingTechniques() {
+        return markingTechnique;
+    }
+
+    public void setMarkingTechniques(MarkingTechniques markingTechniques) {
+        this.markingTechnique = markingTechniques;
+    }
+
+    public String getTechnique_ref() {
+        return techniqueRef;
+    }
+
+    public void setTechnique_ref(String technique_ref) {
+        this.techniqueRef = technique_ref;
+    }
+
     @Override
     public String toString() {
         return "Markings{" +
                 "id=" + id +
                 ", ref='" + ref + '\'' +
+                ", technique_ref='" + techniqueRef + '\'' +
                 ", print_area_id=" + print_area_id +
                 ", max_colors='" + max_colors + '\'' +
                 ", position='" + position + '\'' +

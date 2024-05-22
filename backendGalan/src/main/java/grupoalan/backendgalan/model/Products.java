@@ -109,7 +109,7 @@ public class Products {
     private ProductTypes productType;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private Set<MarkingTechniques> markingTechnique;
+    private Set<Markings> markings;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private Set<Variants> variants;
@@ -122,13 +122,6 @@ public class Products {
     @OrderBy("imageId ASC") // Orden ascendente por imageId, puedes cambiar ASC a DESC si deseas orden descendente
     private Set<Images> images;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "product_colors",
-//            joinColumns = @JoinColumn(name = "product_id"),
-//            inverseJoinColumns = @JoinColumn(name = "color_id")
-//    )
-//    private Set<Colors> colorsSet = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -508,14 +501,6 @@ public class Products {
         this.productType = productType;
     }
 
-    public Set<MarkingTechniques> getMarkingTechnique() {
-        return markingTechnique;
-    }
-
-    public void setMarkingTechnique(Set<MarkingTechniques> markingTechnique) {
-        this.markingTechnique = markingTechnique;
-    }
-
     public Set<Variants> getVariants() {
         return variants;
     }
@@ -554,6 +539,14 @@ public class Products {
 
     public void setPrices(Prices prices) {
         this.prices = prices;
+    }
+
+    public Set<Markings> getMarkings() {
+        return markings;
+    }
+
+    public void setMarkings(Set<Markings> markings) {
+        this.markings = markings;
     }
 
     @Override

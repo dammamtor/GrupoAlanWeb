@@ -37,7 +37,7 @@ public class ProductsService{
     @Autowired
     private CategoriesRepository categoriesRepository;
     @Autowired
-    private MarkingTechniquesRepository markingTechniquesRepository;
+    private MarkingsRepository markingsRepository;
     @Autowired
     private VariantsRepository variantsRepository;
 
@@ -76,8 +76,9 @@ public class ProductsService{
                         addDescriptionsToProduct(existingProduct, productData);
                         addImagesToProduct(existingProduct, productData);
                         addCategoriesToProduct(existingProduct, productData);
-                        addMarkingTechniques(existingProduct, productData);
                         addVariantsToProduct(existingProduct, productData);
+                        addMarkingsToProduct(existingProduct, productData);
+
                         existingProduct = productsRepository.save(existingProduct);
                         logger.info("Producto guardado: " + existingProduct);
 
@@ -132,9 +133,9 @@ public class ProductsService{
                         addDescriptionsToProduct(newProduct, productData);
                         addImagesToProduct(newProduct, productData);
                         addCategoriesToProduct(newProduct, productData);
-                        addMarkingTechniques(newProduct, productData);
                         addVariantsToProduct(newProduct, productData);
-//                        addColorsToProduct(newProduct, productData);
+                        addMarkingsToProduct(newProduct, productData);
+
                         // Guardar el nuevo producto en la base de datos
                         newProduct = productsRepository.save(newProduct);
 
@@ -213,33 +214,6 @@ public class ProductsService{
         }
     }
 
-    private void addMarkingTechniques(Products product, ProductsMakito productData) {
-        // Buscar las técnicas de marcado asociadas al producto en base al ref
-        List<MarkingTechniques> markingTechniquesList = markingTechniquesRepository.findByRef(productData.getRef());
-
-        // Limpiar las técnicas de marcado existentes del producto si las hay
-        if (product.getMarkingTechnique() == null) {
-            product.setMarkingTechnique(new HashSet<>());
-        }
-        product.getMarkingTechnique().clear();
-        logger.info("Número de técnicas de marcado después de borrar: " + product.getMarkingTechnique().size());
-
-        // Si se encontraron técnicas de marcado asociadas al producto, agregarlas al producto
-        if (!markingTechniquesList.isEmpty()) {
-            Set<MarkingTechniques> markingTechniquesSet = new HashSet<>(markingTechniquesList);
-            product.getMarkingTechnique().addAll(markingTechniquesSet);
-
-            // Establecer la relación inversa en las técnicas de marcado
-            for (MarkingTechniques markingTechnique : markingTechniquesList) {
-                markingTechnique.setProduct(product);
-            }
-
-            logger.info("Técnicas de marcado agregadas al producto: " + product.getName());
-        } else {
-            logger.warn("No se encontraron técnicas de marcado para el producto: " + product.getName());
-        }
-    }
-
 
     private void addCategoriesToProduct(Products product, ProductsMakito productData) {
         // Obtener las categorías asociadas al producto
@@ -309,34 +283,34 @@ public class ProductsService{
         }
     }
 
+    private void addMarkingsToProduct(Products product, ProductsMakito productData) {
+        // Obtener los marcajes asociados al producto según alguna referencia (ejemplo: productData.getRef())
+        List<Markings> markingsList = markingsRepository.findByRef(productData.getRef());
 
-//    private void addColorsToProduct(Products product, ProductsMakito productData) {
-//        product.getColorsSet().clear();
-//
-//        // Obtener los códigos de colores del producto
-//        String colorCodes = productData.getColors();
-//
-//        if (!colorCodes.isEmpty()) {
-//            String[] colorArray = colorCodes.split(",\\s*"); // Dividir los códigos por comas
-//
-//            // Buscar los detalles de cada color y agregarlos al producto
-//            List<Colors> colorsList = new ArrayList<>();
-//            for (String colorCode : colorArray) {
-//                List<Colors> colors = colorRepository.findByCode(colorCode.trim());
-//                colorsList.addAll(colors);
-//            }
-//
-//            // Agregar los colores al producto
-//            Set<Colors> colorsSet = new HashSet<>(colorsList);
-//            product.setColorsSet(colorsSet);
-//
-//            // Mensaje de registro de información
-//            logger.info("Colores agregados al producto: " + product.getName());
-//        } else {
-//            // Mensaje de registro de advertencia si no hay códigos de colores
-//            logger.warn("No se encontraron colores para el producto: " + product.getName());
-//        }
-//    }
+        if (!markingsList.isEmpty()) {
+            // Crear un nuevo conjunto de marcajes para el producto
+            Set<Markings> newMarkings = new HashSet<>();
+
+            // Iterar sobre los marcajes asociados al producto
+            for (Markings marking : markingsList) {
+                // Asociar el producto con el marcaje
+                marking.setProduct(product);
+                // Añadir el marcaje al nuevo conjunto de marcajes del producto
+                newMarkings.add(marking);
+                logger.info("Producto asociado al marcaje: " + marking.getRef());
+            }
+
+            // Asignar el nuevo conjunto de marcajes al producto
+            product.setMarkings(newMarkings);
+
+            // Guardar los cambios en la base de datos (asumiendo que estás usando JPA)
+            productsRepository.save(product);
+
+            logger.info("Marcajes agregados al producto: " + product.getName());
+        } else {
+            logger.warn("No se encontraron marcajes para el producto: " + product.getName());
+        }
+    }
 
     public List<Products> searchProducts(String searchTerm) {
         List<Products> allProducts = productsRepository.findAll();
