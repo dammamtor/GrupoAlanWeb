@@ -131,14 +131,15 @@
                                                     </td>
                                                     <td>
                                                         <ng-container *ngIf="item.colorSet">
-                                                            <img [src]="item.colorSet.url" [alt]="item.colorSet.name" class="color-option me-2 mb-2">
+                                                            <img [src]="item.colorSet.url" [alt]="item.colorSet.name"
+                                                                class="color-option me-2 mb-2">
                                                         </ng-container>
                                                     </td>
                                                 </tr>
                                             </ng-container>
-                                            
+
                                         </tbody>
-                                        
+
                                     </table>
                                 </div>
                             </div>
@@ -187,6 +188,41 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <h2>Marcaje y técnicas recomendadas</h2>
+                        <span>
+                            Áreas y técnicas de impresión recomendadas para éste artículo. Contacte con nosotros si
+                            sus necesidades son otras para estudiar las posibles alternativas.
+                        </span><br><br>
+                        <table id="techniques-table" class="table table-striped table-bordered">
+                            <thead>
+                              <tr>
+                                <th class="table-header-image">Imagen</th>
+                                <th class="table-header-size">Tamaño</th>
+                                <th class="table-header-techniques">Técnicas</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let entry of uniqueMarkingsWithTechniques; let i = index" class="table-row">
+                                <td class="table-cell-image">
+                                  <img [src]="entry.image" alt="Imagen única" class="img-thumbnail" width="100">
+                                </td>
+                                <td class="table-cell-size">
+                                  <p class="size-title">Área máxima de impresión</p>
+                                  <p class="size-dimension">Alto: {{ entry.height }} cm</p>
+                                  <p class="size-dimension">Ancho: {{ entry.width }} cm</p>
+                                </td>
+                                <td class="table-cell-techniques">
+                                  <p class="techniques-zone-title">Zona de impresión {{ i + 1 }}</p>
+                                  <ul class="techniques-list">
+                                    <li *ngFor="let technique of entry.techniques" class="technique-item">
+                                      {{ technique.name }} (max. {{ technique.max_colors }} <br>colores)
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <br>
 
                         <h2>Medidas y Packaging</h2><br>
                         <table class="table table-striped table-bordered">

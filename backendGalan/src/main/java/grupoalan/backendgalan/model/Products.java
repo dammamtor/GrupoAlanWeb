@@ -109,6 +109,7 @@ public class Products {
     private ProductTypes productType;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OrderBy("id ASC")
     private Set<Markings> markings;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)

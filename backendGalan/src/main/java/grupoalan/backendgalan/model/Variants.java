@@ -11,8 +11,8 @@ public class Variants {
     private Long variant_id;
     @Column
     private String matnr;
-    @Column
-    private String unique_ref;
+    @Column(name = "unique_ref")
+    private String uniqueRef;
     @Column
     private String ref;
     @Column
@@ -52,11 +52,11 @@ public class Variants {
     }
 
     public String getUnique_ref() {
-        return unique_ref;
+        return uniqueRef;
     }
 
     public void setUnique_ref(String unique_ref) {
-        this.unique_ref = unique_ref;
+        this.uniqueRef = unique_ref;
     }
 
     public String getRef() {
@@ -112,7 +112,7 @@ public class Variants {
         return "Variants{" +
                 "variant_id=" + variant_id +
                 ", matnr='" + matnr + '\'' +
-                ", unique_ref='" + unique_ref + '\'' +
+                ", unique_ref='" + uniqueRef + '\'' +
                 ", ref='" + ref + '\'' +
                 ", color='" + color + '\'' +
                 ", size='" + size + '\'' +

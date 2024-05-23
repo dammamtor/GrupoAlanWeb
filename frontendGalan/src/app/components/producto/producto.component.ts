@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductoComponent {
   product: Product | undefined;
+  uniqueMarkingsWithTechniques: { image: string, height: number, width: number, techniques: { name: string, max_colors: string }[] }[] = [];
 
   constructor(
     private productService: ProductService,
@@ -28,6 +29,7 @@ export class ProductoComponent {
         next: (product: Product) => {
           this.product = product;
           console.log("Producto obtenido:", this.product);
+          this.groupMarkingsByImage();
         },
         error: (error) => {
           console.error("Error al obtener el producto:", error);
@@ -36,4 +38,37 @@ export class ProductoComponent {
     });
   }
 
+  groupMarkingsByImage() {
+    const imageTechniqueMap = new Map<string, { height: number, width: number, techniques: { name: string, max_colors: string }[] }>();
+
+    if (this.product && this.product.markings) {
+      this.product.markings.forEach(marking => {
+        const technique = {
+          name: marking.markingTechniques.name,
+          max_colors: marking.max_colors
+        };
+
+        if (imageTechniqueMap.has(marking.area_img)) {
+          imageTechniqueMap.get(marking.area_img)?.techniques.push(technique);
+        } else {
+          imageTechniqueMap.set(marking.area_img, {
+            height: marking.height,
+            width: marking.width,
+            techniques: [technique]
+          });
+        }
+      });
+
+      console.log("Mapa de imágenes, tamaños y técnicas:", imageTechniqueMap);
+
+      this.uniqueMarkingsWithTechniques = Array.from(imageTechniqueMap, ([image, data]) => ({
+        image,
+        height: data.height,
+        width: data.width,
+        techniques: data.techniques
+      }));
+
+      console.log("Marcajes únicos con tamaños y técnicas:", this.uniqueMarkingsWithTechniques);
+    }
+  }
 }

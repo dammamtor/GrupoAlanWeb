@@ -20,7 +20,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class MarkingTechniquesService {
@@ -58,11 +60,12 @@ public class MarkingTechniquesService {
 
     //OTROS METODOS
     public boolean makitoMarkingTechniquesFromApi(String apiToken) {
-        logger.info("ESTAS EN EL MARKING TECHNIQUES SERVICE");
+        logger.info("Iniciando el servicio de técnicas de marcado.");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
-
         logger.info("apiToken: " + apiToken);
+        logger.info("Encabezados HTTP preparados con el token de API.");
+
 
         HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
 
@@ -75,6 +78,7 @@ public class MarkingTechniquesService {
             List<MarkingTechniquesMakito> markingTechniquesMakitosList = statusCode.getTechniques();
             logger.info("FUNKA LA LISTA");
 
+            logger.info("Eliminando todas las técnicas de marcado existentes en la base de datos.");
             markingTechniquesRepository.deleteAll();
 
             for (MarkingTechniquesMakito makito : markingTechniquesMakitosList) {
@@ -91,25 +95,23 @@ public class MarkingTechniquesService {
                 markingTechnique1.setMixture(makito.getMixture());
                 markingTechnique1.setSystem(makito.getSystem());
 
+                logger.info("Procesando técnica de marcado: " + makito.getName());
+
                 // Buscar todos los markings correspondientes
                 List<Markings> markingsList = markingsRepository.findAllByRefAndTechniqueRef(makito.getRef(), makito.getTechnique_ref());
                 Set<Markings> markingsSet = new HashSet<>(markingsList);
+
+                logger.info("Se encontraron " + markingsList.size() + " marcas correspondientes a la técnica de marcado.");
 
                 markingTechnique1.setMarking(markingsSet);
 
                 // Guardar la relación en cada Marking
                 for (Markings marking : markingsSet) {
                     marking.setMarkingTechniques(markingTechnique1);
-                    markingsRepository.save(marking);  // Guardar cambios en Markings
                 }
 
+                logger.info("Guardando técnica de marcado: " + markingTechnique1.getName());
                 markingTechniquesRepository.save(markingTechnique1);
-            }
-
-            // Agregar un registro de la lista guardada
-            List<MarkingTechniques> savedMarkingTechniques = markingTechniquesRepository.findAll();
-            for (MarkingTechniques savedTechnique : savedMarkingTechniques) {
-                logger.info("Técnica de marcaje guardada: " + savedTechnique);
             }
 
             logger.info("Terminado el proceso de recolección");
@@ -119,8 +121,6 @@ public class MarkingTechniquesService {
             return false;
         }
     }
-
-}
 
     //MARKING TECHNIQUES LISTA
     public List<String> listaTecnicaMarcajeUnico() {
@@ -139,6 +139,4 @@ public class MarkingTechniquesService {
 
         return markingTechniquesUnique;
     }
-
-
 }

@@ -29,7 +29,7 @@ export class BotellasComponent {
     private categoryService: CategoryService,
     private colorService: ColorService,
     private tipoService: TipoService,
-  ) {}
+  ) { }
 
   navegateAbanicos() {
     this.ruta.navigate(['abanicos']);
@@ -86,11 +86,12 @@ export class BotellasComponent {
     this.productService.obtenerProductosBD().subscribe({
       next: (products) => {
         this.products = products;
+        console.log("LISTA DE PRODUCTOS: ", this.products);
         this.loading = false; // Cambiar a falso cuando la carga se completa
       },
       error: () => {
-        this.error =
-          'Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
+        this.error ='Error al cargar productos. Por favor, inténtalo de nuevo más tarde.';
+        console.log(this.error);
         this.loading = false;
       },
     });
@@ -131,7 +132,7 @@ export class BotellasComponent {
     this.tipoService.obtenerListaTiposEnBD().subscribe({
       next: (tipos) => {
         this.tipos = tipos
-        ;
+          ;
         console.log('Lista de tipos: ', this.tipos);
       },
       error: (error) => {
@@ -157,7 +158,6 @@ export class BotellasComponent {
         this.startIndex,
         this.startIndex + this.pageSize
       );
-      // console.log("Current Products:", currentProducts);
       return currentProducts;
     } else {
       return []; // o return null;

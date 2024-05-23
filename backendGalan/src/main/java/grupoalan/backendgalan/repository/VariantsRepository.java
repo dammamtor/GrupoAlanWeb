@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface VariantsRepository extends JpaRepository<Variants, Long> {
     List<Variants> findByRef(String ref);
+
+    Variants findByUniqueRef(String uniqueRef);
 }

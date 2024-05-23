@@ -1,5 +1,6 @@
 package grupoalan.backendgalan.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -30,10 +31,12 @@ public class Markings {
 
     @ManyToOne
     @JoinColumn(name = "product_id")
+    @JsonIgnore
     private Products product;
 
-    @OneToOne(mappedBy = "marking")
-    @JoinColumn(name = "technique_id", referencedColumnName = "technique_id")
+    @ManyToOne
+    @JoinColumn(name = "technique_id")
+    @JsonIgnore
     private MarkingTechniques markingTechnique;
 
 

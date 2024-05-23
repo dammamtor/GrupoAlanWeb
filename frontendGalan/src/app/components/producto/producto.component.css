@@ -295,3 +295,55 @@ dt {
     text-align: center;
 }
 
+/* General Table Styles */
+#techniques-table {
+    margin: 20px 0;
+  }
+  
+  #techniques-table .table-header-image,
+  #techniques-table .table-header-size,
+  #techniques-table .table-header-techniques {
+    background-color: #f8f9fa;
+    text-align: center;
+  }
+  
+  /* Row Styles */
+  #techniques-table .table-row {
+    transition: background-color 0.3s;
+  }
+  
+  #techniques-table .table-row:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Image Cell Styles */
+  #techniques-table .table-cell-image {
+    text-align: center;
+  }
+  
+  #techniques-table .table-cell-image .img-thumbnail {
+    border-radius: 5px;
+  }
+  
+  /* Size Cell Styles */
+  #techniques-table .table-cell-size .size-title {
+    font-weight: bold;
+  }
+  
+  #techniques-table .table-cell-size .size-dimension {
+    margin: 5px 0;
+  }
+  
+  /* Techniques Cell Styles */
+  #techniques-table .table-cell-techniques .techniques-zone-title {
+    font-weight: bold;
+  }
+  
+  #techniques-table .table-cell-techniques .techniques-list {
+    padding-left: 20px;
+  }
+  
+  #techniques-table .table-cell-techniques .technique-item {
+    margin: 5px 0;
+  }
+  

@@ -33,9 +33,9 @@ public class MarkingTechniques {
     private String system;
 
     //RELACIONES
-    @OneToOne
-    @JoinColumn(name = "technique_id")
-    private Markings marking;
+    @OneToMany(mappedBy = "markingTechnique", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<Markings> marking;
 
 
 
@@ -130,11 +130,11 @@ public class MarkingTechniques {
         this.ref = ref;
     }
 
-    public Markings getMarking() {
+    public Set<Markings> getMarking() {
         return marking;
     }
 
-    public void setMarking(Markings marking) {
+    public void setMarking(Set<Markings> marking) {
         this.marking = marking;
     }
 

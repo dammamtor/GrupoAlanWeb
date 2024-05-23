@@ -2,6 +2,7 @@ import { Category } from "./Category";
 import { Color } from "./Color";
 import { Description } from "./Description";
 import { Image } from "./Image";
+import { Marking } from "./Marking";
 import { Variants } from "./Variants";
 
 export interface Product {
@@ -53,6 +54,7 @@ export interface Product {
     images?: Image[]; // Debes definir la interfaz Image si no está definida
     categories?: Category[]; // Debes definir la interfaz Category si no está definida
     variants?: Variants[];
+    markings?: Marking[]; // Añade esta línea para incluir markings
 }
 
 

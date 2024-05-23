@@ -74,10 +74,11 @@ public class VariantsService {
             List<VariantsMakito> variantsMakitos = statusCode.getVariants();
             List<Variants> variantsGalan = new ArrayList<>();
 
-            variantsRepository.deleteAll();
-
             for (VariantsMakito makito : variantsMakitos) {
-                Variants galan = new Variants();
+                Variants galan = variantsRepository.findByUniqueRef(makito.getUnique_ref());
+                if (galan == null) {
+                    galan = new Variants();
+                }
                 galan.setMatnr(makito.getMatnr());
                 galan.setRef(makito.getRef());
                 galan.setUnique_ref(makito.getUnique_ref());
@@ -85,7 +86,7 @@ public class VariantsService {
                 galan.setSize(makito.getSize());
                 galan.setImg100(makito.getImg100());
 
-                logger.info("Variante de producto: " + galan.getRef() + " incluida");
+                logger.info("Variante de producto: " + galan.getRef() + " incluida o actualizada");
                 galan = variantsRepository.save(galan);
                 variantsGalan.add(galan);
             }
@@ -118,4 +119,5 @@ public class VariantsService {
 
         logger.info("Finalizando addColorsToVariants");
     }
+
 }
