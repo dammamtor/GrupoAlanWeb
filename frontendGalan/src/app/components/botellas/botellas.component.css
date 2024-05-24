@@ -5,79 +5,48 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     padding: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .product-card:hover {
-    cursor: pointer;
     background-color: #f0f0f0;
-    transition: background-color 0.3s ease;
 }
 
 .product-card:not(:last-child) {
     margin-right: 15px;
 }
 
-.product-image {
-    position: relative;
-    margin-bottom: 15px;
-}
-
-.product-image img {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.product-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #28a745;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-size: 12px;
-}
-
 .product-details {
     text-align: left;
 }
 
+.product-code,
+.product-title,
+.delivery-title {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+    display: block;
+}
+
 .product-code {
     font-size: 14px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-    display: block;
 }
 
-.product-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.delivery-info {
+.delivery-info,
+.color-options {
     margin-bottom: 10px;
 }
 
 .delivery-title {
     font-size: 14px;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 5px;
 }
 
 .delivery-dates {
     font-size: 14px;
     color: #555;
     margin-left: 20px;
-}
-
-.color-options {
-    margin-bottom: 10px;
 }
 
 .color-option {
@@ -90,8 +59,8 @@
 
 .product-price {
     font-size: 16px;
-    font-weight: bold;
     color: #333;
+    font-weight: bold;
 }
 
 .price-from,
@@ -104,7 +73,48 @@
     font-size: 14px;
 }
 
+
 /* ASIDE CATEGORIAS */
+/* Estilo para los botones */
+.custom-button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para el botón desactivado */
+.custom-button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Cambiar estilo al pasar el ratón */
+.custom-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el collapse */
+.collapse {
+    max-height: 0;
+    overflow-y: hidden;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+.collapse.collapsing {
+    max-height: none; /* Asegura que la altura se ajuste automáticamente durante la transición */
+}
+
+/* Estilo para los encabezados de la lista */
 .custom-heading {
     font-size: 1.2rem;
     font-weight: bold;
@@ -115,15 +125,19 @@
     background-color: #f0f0f0;
 }
 
+/* Estilo para la lista */
 .custom-list {
     padding-left: 0;
     list-style: none;
+    overflow: hidden; /* Oculta el desbordamiento horizontal */
 }
 
+/* Estilo para los elementos de la lista */
 .custom-list-item {
     margin-bottom: 10px;
 }
 
+/* Estilo para los botones de los elementos de la lista */
 .custom-list-item button {
     color: #000;
     text-decoration: none;
@@ -134,25 +148,31 @@
     margin-right: 10px;
 }
 
+/* Cambio de color al pasar el ratón sobre los botones de los elementos de la lista */
 .custom-list-item button:hover {
     color: #0056b3;
 }
 
+/* Estilo para los botones enfocados de los elementos de la lista */
 .custom-list-item button:focus {
     outline: none;
 }
 
+/* Transición del icono chevron */
 .bi-chevron-right {
     transition: transform 0.3s ease;
 }
 
+/* Rotación del icono chevron cuando el elemento de la lista está colapsado */
 .collapsed .bi-chevron-right {
     transform: rotate(90deg);
 }
 
+/* Estilo para los botones de alternar enfocados */
 .btn-toggle:focus {
     outline: none;
 }
+
 
 /* Estilo para los botones */
 .custom-button {
@@ -187,10 +207,10 @@
     padding: 15px;
     background-color: #fff;
     margin-top: 10px;
-  }
-  
-  /* Estilo para los botones de alternar */
-  .custom-list-item button {
+}
+
+/* Estilo para los botones de alternar */
+.custom-list-item button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -202,50 +222,49 @@
     align-items: center;
     justify-content: space-between;
     transition: background-color 0.3s ease, border 0.3s ease; /* Añadimos transición para el borde */
-  }
-  
-  .custom-list-item button:hover {
+}
+
+.custom-list-item button:hover {
     background-color: #ffffff;
     border: 2px solid #007bff; /* Añadimos un borde azul al hover */
     color: #007bff; /* Cambiamos el color del texto al color del borde */
-  }
-  
-  /* Estilo para el icono */
-  .custom-list-item i {
+}
+
+/* Estilo para el icono */
+.custom-list-item i {
     transition: transform 0.3s ease;
-  }
-  
-  .custom-list-item .collapsed i {
+}
+
+.custom-list-item .collapsed i {
     transform: rotate(0);
-  }
-  
-  .custom-list-item [aria-expanded="true"] i {
+}
+
+.custom-list-item [aria-expanded="true"] i {
     transform: rotate(90deg);
-  }
-  
-  /* Estilo para la lista interna */
-  .btn-toggle-nav {
+}
+
+/* Estilo para la lista interna */
+.btn-toggle-nav {
     padding-left: 20px;
-  }
-  
-  /* Alineación de checkbox y etiquetas */
-  .form-check-label {
+}
+
+/* Alineación de checkbox y etiquetas */
+.form-check-label {
     display: flex;
     align-items: center;
     padding: 5px 0;
-  }
-  
-  .form-check-input {
+}
+
+.form-check-input {
     margin-right: 10px;
-  }
-  
-  /* Estilo para los bordes y márgenes */
-  .border-top {
+}
+
+/* Estilo para los bordes y márgenes */
+.border-top {
     border-top: 1px solid #ddd !important;
-  }
-  
-  .my-3 {
+}
+
+.my-3 {
     margin-top: 1rem !important;
     margin-bottom: 1rem !important;
-  }
-  
+}

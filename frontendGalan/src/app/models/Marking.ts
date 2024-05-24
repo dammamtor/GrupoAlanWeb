@@ -1,4 +1,5 @@
 import { MarkingTechnique } from "./MarkingTechnique";
+import { MarkingsTranslations } from "./MarkingTranslations";
 
 export interface Marking {
     id: number;
@@ -10,5 +11,6 @@ export interface Marking {
     height: number;
     area_img: string;
     technique_ref: string;
-    markingTechniques: MarkingTechnique
+    markingTechniques: MarkingTechnique;
+    markingsTranslations: MarkingsTranslations
 }

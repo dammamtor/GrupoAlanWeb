@@ -1,92 +1,69 @@
 /* Estilos para la lista de productos */
 .list-group-item {
     background-color: #f8f9fa;
-    /* Color de fondo de los elementos de la lista */
-    border: none;
-    /* Elimina el borde */
+    border: 1px solid #dee2e6; /* Añadir un borde delgado */
     border-radius: 10px;
-    /* Borde redondeado */
     margin-bottom: 15px;
-    /* Separación entre elementos del list-group */
     cursor: pointer;
-
+    transition: background-color 0.3s; /* Agregar transición suave */
 }
 
 .list-group-item:hover {
     background-color: #e9ecef;
-    /* Color de fondo al pasar el ratón */
 }
 
 /* Estilos para la imagen del producto */
 .list-group-item img {
     border-radius: 50%;
-    /* Borde redondeado para las imágenes circulares */
     border: 2px solid #fff;
-    /* Borde blanco */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    /* Sombra ligera */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Aumentar la intensidad de la sombra */
 }
 
 /* Estilos para el nombre del producto */
 .list-group-item h6 {
     color: #212529;
-    /* Color del texto */
     font-size: 1.2rem;
-    /* Tamaño de fuente */
 }
 
 /* Estilos para la descripción del producto */
 .list-group-item p {
     color: #6c757d;
-    /* Color del texto */
 }
 
 /* Estilos para los colores disponibles */
 .color-options {
     margin-top: 10px;
-    /* Margen superior */
 }
 
 .color-option {
     width: 30px;
-    /* Ancho de las imágenes de color */
     height: 30px;
-    /* Altura de las imágenes de color */
     border-radius: 50%;
-    /* Borde redondeado */
     margin-right: 5px;
-    /* Margen derecho */
 }
 
 /* Estilos para el precio */
 .list-group-item .text-end h6 {
     color: #007bff;
-    /* Color azul para el precio */
     font-size: 1.2rem;
-    /* Tamaño de fuente */
 }
 
 .list-group-item .text-end p {
     color: #6c757d;
-    /* Color del texto */
 }
 
 /* Estilo para los botones de navegación */
 .btn-navigation {
     margin-right: 10px;
-    /* Espacio entre los botones */
 }
 
 /* Estilo para los botones cuando están deshabilitados */
 .btn-navigation:disabled {
     opacity: 0.5;
-    /* Reducir la opacidad de los botones deshabilitados */
     cursor: not-allowed;
-    /* Cambiar el cursor cuando el botón está deshabilitado */
 }
 
-
-/*BOTON ARRIBA*/
+/* Estilo para el botón de ir arriba */
 .scroll-to-top-btn {
     position: fixed;
     bottom: 20px;

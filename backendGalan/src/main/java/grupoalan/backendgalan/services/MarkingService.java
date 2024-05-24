@@ -1,5 +1,6 @@
 package grupoalan.backendgalan.services;
 
+import grupoalan.backendgalan.model.Descriptions;
 import grupoalan.backendgalan.model.Images;
 import grupoalan.backendgalan.model.Markings;
 import grupoalan.backendgalan.model.response.makito.DescriptionsMakito;
@@ -17,6 +18,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.yaml.snakeyaml.error.Mark;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,7 @@ public class MarkingService {
     private RestTemplate restTemplate;
 
     private static final String API_URL = "https://data.makito.es/api/markings";
+    private static final String API_URL_2 = "https://data.makito.es/api/markingsTranslations";
 
     @Autowired
     private MarkingsRepository markingRepository;
@@ -77,8 +80,8 @@ public class MarkingService {
                         // Crear un nuevo Markings basado en MarkingsMakito y la imagen encontrada
                         Markings marking = new Markings();
                         marking.setRef(makito.getRef());
-                        marking.setTechnique_ref(makito.getTechnique_ref());
-                        marking.setPrint_area_id(makito.getPrint_area_id());
+                        marking.setTechniqueRef(makito.getTechnique_ref());
+                        marking.setPrintAreaId(makito.getPrint_area_id());
                         marking.setMax_colors(makito.getMax_colors());
                         marking.setPosition(makito.getPosition());
                         marking.setWidth(makito.getWidth());
@@ -105,5 +108,48 @@ public class MarkingService {
             return false;
         }
     }
+
+    //AÑADIR ELEMENTOS DEL MARKING TRANSLATIONS A MARKINGS GALAN
+//    public void addMarkingsTranslations(String apiToken, List<Markings> markingsList) {
+//        logger.info("Hora de añadir los elementos faltantes de markings");
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.set("Authorization", "Bearer " + apiToken);
+//
+//        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+//
+//        try {
+//            ResponseEntity<StatusCode> response = restTemplate.exchange(
+//                    API_URL_2, HttpMethod.GET, requestEntity, StatusCode.class);
+//
+//            StatusCode statusCode = response.getBody();
+//            if (statusCode != null) {
+//                List<MarkingsMakito> markingsMakitosList = statusCode.getMarkings();
+//                if (markingsMakitosList != null) {
+//                    // Iterar sobre las descripciones almacenadas
+//                    for (Markings galan : markingsList) {
+//                        int printAreaId = galan.getPrint_area_id();
+//                        // Buscar el material con el ref correspondiente
+//                        for (MarkingsMakito makito : markingsMakitosList) {
+//                            if (printAreaId == makito.getPrint_area_id()) {
+//                                galan.setLang(makito.getLang());
+//                                galan.setTxt(makito.getTxt());
+//
+//                                markingRepository.save(galan);
+//                                break; // No es necesario continuar buscando para esta descripción
+//                            }
+//                        }
+//                    }
+//                    logger.info("TERMINADO");
+//                } else {
+//                    logger.error("La lista markingsMakitosList es nula");
+//                }
+//            } else {
+//                logger.error("Error al obtener el objeto StatusCode de la respuesta");
+//            }
+//        } catch (Exception e) {
+//            logger.error("Error al llamar a la API para obtener las composiciones", e);
+//        }
+//    }
 
 }

@@ -315,13 +315,15 @@ public class ProductsService{
     public List<Products> searchProducts(String searchTerm) {
         List<Products> allProducts = productsRepository.findAll();
         List<Products> matchingProducts = new ArrayList<>();
-        boolean isAmbiguousSearch = true;
+        boolean isExactMatch = false;
 
         logger.info("Starting product search for searchTerm: " + searchTerm);
 
         for (Products product : allProducts) {
-            String productDescription = "";
+            StringBuilder productDescriptionBuilder = new StringBuilder();
             Set<String> uniqueTypes = new HashSet<>();
+
+            // Concatena los tipos de descripción al inicio del nombre del producto
             Set<Descriptions> descriptions = product.getDescriptions();
             for (Descriptions description : descriptions) {
                 String type = description.getType();
@@ -329,21 +331,20 @@ public class ProductsService{
                     uniqueTypes.add(type);
                 }
             }
-
-            // Concatenamos los tipos únicos al nombre del producto
             for (String type : uniqueTypes) {
-                productDescription += type + " ";
+                productDescriptionBuilder.append(type).append(" ");
             }
+            productDescriptionBuilder.append(product.getName()).append(" "); // Agrega el nombre del producto
+            productDescriptionBuilder.append(product.getRef()).append(" "); // Agrega el número de referencia
 
-            // Agregamos el nombre del producto al final
-            productDescription += product.getName();
+            String productDescription = productDescriptionBuilder.toString().trim();
 
             logger.info("Checking product: " + productDescription);
 
             if (productDescription.equals(searchTerm)) {
                 matchingProducts.clear();
                 matchingProducts.add(product);
-                isAmbiguousSearch = false;
+                isExactMatch = true;
                 logger.info("Exact match found for: " + product.getName());
                 break;
             } else if (productDescription.contains(searchTerm)) {
@@ -352,15 +353,15 @@ public class ProductsService{
             }
         }
 
-        if (isAmbiguousSearch) {
-            logger.info("Ambiguous search term, returning multiple matching products.");
+        if (isExactMatch) {
+            logger.info("Exact match found, returning the product.");
             return matchingProducts;
         } else {
             if (matchingProducts.isEmpty()) {
-                logger.info("No exact matches found.");
+                logger.info("No matches found.");
                 return null;
             } else {
-                logger.info("Exact match found, returning the product.");
+                logger.info("Returning multiple matching products.");
                 return matchingProducts;
             }
         }

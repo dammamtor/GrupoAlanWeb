@@ -4,6 +4,8 @@ import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/Product';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Marking } from '../../models/Marking';
+import { MarkingsTranslations } from '../../models/MarkingTranslations';
 
 
 @Component({
@@ -15,8 +17,13 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductoComponent {
   product: Product | undefined;
-  uniqueMarkingsWithTechniques: { image: string, height: number, width: number, techniques: { name: string, max_colors: string }[] }[] = [];
-
+  uniqueMarkingsWithTechniques: {
+    image: string,
+    height: number,
+    width: number,
+    techniques: { name: string, max_colors: string }[],
+    translations: MarkingsTranslations[]
+  }[] = [];
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute
@@ -24,7 +31,7 @@ export class ProductoComponent {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const ref = params['ref']; 
+      const ref = params['ref'];
       this.productService.obtenerProductoPorRef(ref).subscribe({
         next: (product: Product) => {
           this.product = product;
@@ -39,7 +46,12 @@ export class ProductoComponent {
   }
 
   groupMarkingsByImage() {
-    const imageTechniqueMap = new Map<string, { height: number, width: number, techniques: { name: string, max_colors: string }[] }>();
+    const imageTechniqueMap = new Map<string, {
+      height: number,
+      width: number,
+      techniques: { name: string, max_colors: string }[],
+      translations: MarkingsTranslations[]
+    }>();
 
     if (this.product && this.product.markings) {
       this.product.markings.forEach(marking => {
@@ -49,26 +61,32 @@ export class ProductoComponent {
         };
 
         if (imageTechniqueMap.has(marking.area_img)) {
-          imageTechniqueMap.get(marking.area_img)?.techniques.push(technique);
+          const imageData = imageTechniqueMap.get(marking.area_img);
+          imageData?.techniques.push(technique);
+          if (marking.markingsTranslations) {
+            imageData?.translations.push(marking.markingsTranslations);
+          }
         } else {
-          imageTechniqueMap.set(marking.area_img, {
+          const imageData = {
             height: marking.height,
             width: marking.width,
-            techniques: [technique]
-          });
+            techniques: [technique],
+            translations: marking.markingsTranslations ? [marking.markingsTranslations] : []
+          };
+          imageTechniqueMap.set(marking.area_img, imageData);
         }
       });
-
-      console.log("Mapa de imágenes, tamaños y técnicas:", imageTechniqueMap);
 
       this.uniqueMarkingsWithTechniques = Array.from(imageTechniqueMap, ([image, data]) => ({
         image,
         height: data.height,
         width: data.width,
-        techniques: data.techniques
+        techniques: data.techniques,
+        translations: data.translations
       }));
+      console.log("Resultado de la agrupación de marcaciones:", this.uniqueMarkingsWithTechniques);
 
-      console.log("Marcajes únicos con tamaños y técnicas:", this.uniqueMarkingsWithTechniques);
     }
   }
+
 }

@@ -9,6 +9,8 @@ public class MarkingsMakito {
     private int width;
     private int height;
     private String area_img;
+    private Integer lang;
+    private String txt;
 
     public MarkingsMakito() {
     }
@@ -75,6 +77,22 @@ public class MarkingsMakito {
 
     public void setArea_img(String area_img) {
         this.area_img = area_img;
+    }
+
+    public Integer getLang() {
+        return lang;
+    }
+
+    public void setLang(Integer lang) {
+        this.lang = lang;
+    }
+
+    public String getTxt() {
+        return txt;
+    }
+
+    public void setTxt(String txt) {
+        this.txt = txt;
     }
 
     @Override

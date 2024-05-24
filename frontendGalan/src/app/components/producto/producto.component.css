@@ -55,38 +55,6 @@
     font-size: 1.25rem;
 }
 
-/* Tabla */
-.table-striped {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table-striped th,
-.table-striped td {
-    padding: 8px;
-    border-bottom: 1px solid #dee2e6;
-    max-width: 200px; /* Tamaño máximo de las celdas */
-    overflow: hidden; /* Ocultar el contenido excedente */
-    text-overflow: ellipsis; /* Mostrar puntos suspensivos si el contenido excede el ancho */
-    white-space: nowrap; /* Evitar que el contenido se desborde a la siguiente línea */
-}
-
-.table-striped th {
-    text-align: left;
-    background-color: #f0f0f0;
-    font-weight: bold;
-    width: 200px; /* Ancho fijo de las celdas de encabezado */
-}
-
-.table-striped img {
-    display: block; /* Ajustar imagen como bloque para poder centrarla */
-    margin: 0 auto; /* Centrar la imagen horizontalmente */
-    max-width: 100%; /* Ajustar tamaño máximo de las imágenes al tamaño de la celda */
-    height: auto; /* Mantener la proporción de la imagen */
-}
-
-
-
 /* Product file */
 .product-file {
     background-color: #f8f9fa;
@@ -237,6 +205,7 @@ dt {
 .carousel-control-next-icon {
     filter: invert(100%);
 }
+
 /* Acordion */
 .accordion {
     margin-bottom: 20px;
@@ -298,52 +267,176 @@ dt {
 /* General Table Styles */
 #techniques-table {
     margin: 20px 0;
-  }
-  
-  #techniques-table .table-header-image,
-  #techniques-table .table-header-size,
-  #techniques-table .table-header-techniques {
-    background-color: #f8f9fa;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+#techniques-table .table-header-image,
+#techniques-table .table-header-size,
+#techniques-table .table-header-techniques {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
     text-align: center;
-  }
-  
-  /* Row Styles */
-  #techniques-table .table-row {
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+/* Row Styles */
+#techniques-table .table-row {
     transition: background-color 0.3s;
-  }
-  
-  #techniques-table .table-row:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Image Cell Styles */
-  #techniques-table .table-cell-image {
+}
+
+#techniques-table .table-row:hover {
+    background-color: #e2e6ea;
+}
+
+/* Image Cell Styles */
+#techniques-table .table-cell-image {
     text-align: center;
-  }
-  
-  #techniques-table .table-cell-image .img-thumbnail {
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+#techniques-table .table-cell-image .img-thumbnail {
     border-radius: 5px;
-  }
-  
-  /* Size Cell Styles */
-  #techniques-table .table-cell-size .size-title {
+}
+
+/* Size Cell Styles */
+#techniques-table .table-cell-size {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+#techniques-table .table-cell-size .size-title {
     font-weight: bold;
-  }
-  
-  #techniques-table .table-cell-size .size-dimension {
+}
+
+#techniques-table .table-cell-size .size-dimension {
     margin: 5px 0;
-  }
-  
-  /* Techniques Cell Styles */
-  #techniques-table .table-cell-techniques .techniques-zone-title {
+}
+
+/* Techniques Cell Styles */
+#techniques-table .table-cell-techniques {
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+#techniques-table .table-cell-techniques .techniques-zone-title {
     font-weight: bold;
-  }
-  
-  #techniques-table .table-cell-techniques .techniques-list {
+}
+
+#techniques-table .table-cell-techniques .techniques-list {
     padding-left: 20px;
-  }
-  
-  #techniques-table .table-cell-techniques .technique-item {
+}
+
+#techniques-table .table-cell-techniques .technique-item {
     margin: 5px 0;
-  }
-  
+}
+
+
+/* Estilos generales de la tabla */
+#custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+#custom-table th,
+#custom-table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+/* Estilos para la cabecera de la tabla */
+#custom-table th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Estilos para las filas alternas */
+#custom-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Estilos para el hover */
+#custom-table tbody tr:hover {
+    background-color: #e2e6ea;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para la primera columna */
+#custom-table th:first-child,
+#custom-table td:first-child {
+    width: 30%;
+}
+
+/* Estilos para la segunda columna */
+#custom-table th:last-child,
+#custom-table td:last-child {
+    width: 70%;
+}
+
+/* Estilos para los enlaces dentro de la tabla */
+#custom-table a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#custom-table a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+#packing-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilo para la tabla packing-table */
+#packing-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilo para las celdas encabezadas */
+#packing-table th {
+    background-color: #4CAF50;
+    /* Verde */
+    color: white;
+    /* Texto blanco */
+    border: 1px solid #ddd;
+    padding: 12px;
+    /* Aumenta el padding para más espacio alrededor del texto */
+    text-align: left;
+}
+
+/* Estilo para las celdas de datos */
+#packing-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    /* Aumenta el padding para más espacio alrededor del texto */
+}
+
+/* Estilo para las filas impares */
+#packing-table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+    /* Gris claro */
+}
+
+/* Estilo para las imágenes */
+#packing-table img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    /* Añade bordes redondeados a las imágenes */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Añade una suave sombra a las imágenes */
+}

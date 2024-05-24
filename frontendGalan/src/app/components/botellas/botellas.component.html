@@ -67,7 +67,7 @@
               </div>
             </li>
           </ul>
-          
+
         </div>
 
       </div>
@@ -76,16 +76,14 @@
     <div class="col-md-8">
       <div class="row">
         <div class="col-md-4" *ngFor="let item of currentProducts">
-          <article class="product-card border border-success" (click)="irAProduct(item.ref)">
+          <article class="product-card" (click)="irAProduct(item.ref)">
             <div class="product-image">
               <img [src]="item.images[0].imgMax" [alt]="item.name" class="img-fluid">
             </div>
-
-
+    
             <div class="product-details">
               <span class="product-code">{{ item.ref }}</span>
-              <a href="https://www.grupobillingham.com/camiseta-de-mujer-cuello-v-de-mujer-victoria-roly-155"
-                class="product-title">{{ item.name }}</a>
+              <span class="product-title">{{ item.name }}</span>
               <div class="delivery-info">
                 <p class="delivery-title">RECÍBELO:</p>
                 <dl class="delivery-dates">
@@ -98,18 +96,17 @@
               <!--COLORES-->
               <div *ngIf="item.variants && item.variants.length > 0" class="color-options">
                 <div class="d-flex flex-wrap">
-                    <ng-container *ngFor="let variant of item.variants">
-                        <ng-container *ngIf="variant.colorSet">
-                            <img [src]="variant.colorSet.url" [alt]="variant.colorSet.name" class="color-option me-2 mb-2">
-                        </ng-container>
-                        <ng-container *ngIf="!variant.colorSet">
-                            <p>Color Unico</p>
-                        </ng-container>
+                  <ng-container *ngFor="let variant of item.variants">
+                    <ng-container *ngIf="variant.colorSet">
+                      <img [src]="variant.colorSet.url" [alt]="variant.colorSet.name" class="color-option me-2 mb-2">
                     </ng-container>
+                    <ng-container *ngIf="!variant.colorSet">
+                      <p>Color Unico</p>
+                    </ng-container>
+                  </ng-container>
                 </div>
-            </div>       
-
-
+              </div>
+    
               <div class="product-price">
                 <span class="price-from">Desde <strong>€2.08</strong></span>
                 <span class="price-to">a <strong>€5.32</strong></span>
@@ -118,13 +115,13 @@
           </article>
         </div>
       </div>
-
+    
       <div *ngIf="!loading" class="d-flex justify-content-center">
         <!-- Botones para cambiar de página -->
         <button (click)="prevPage()" [disabled]="!hasPrevPage()" class="custom-button">Anterior</button>
         <button (click)="nextPage()" [disabled]="!hasNextPage()" class="custom-button">Siguiente</button>
       </div>
-
     </div>
+    
   </div>
 </main>

@@ -3,6 +3,8 @@ package grupoalan.backendgalan.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "markings")
 public class Markings {
@@ -15,8 +17,8 @@ public class Markings {
     private String ref; //ACA ENTRARIA LOS CAMPOS EN COMUN CON MAKITO
     @Column(name = "technique_ref")
     private String techniqueRef;
-    @Column(nullable = false)
-    private int print_area_id;
+    @Column(name = "print_area_id")
+    private int printAreaId;
     @Column(nullable = false)
     private String max_colors;
     @Column(nullable = false)
@@ -39,6 +41,9 @@ public class Markings {
     @JsonIgnore
     private MarkingTechniques markingTechnique;
 
+    @ManyToOne
+    @JoinColumn(name = "marking_translation_id") // Columna de unión en la tabla Markings
+    private MarkingsTranslations markingsTranslations;
 
     public Markings() {
     }
@@ -59,12 +64,12 @@ public class Markings {
         this.ref = ref;
     }
 
-    public int getPrint_area_id() {
-        return print_area_id;
+    public int getPrintAreaId() {
+        return printAreaId;
     }
 
-    public void setPrint_area_id(int print_area_id) {
-        this.print_area_id = print_area_id;
+    public void setPrintAreaId(int printAreaId) {
+        this.printAreaId = printAreaId;
     }
 
     public String getMax_colors() {
@@ -123,12 +128,20 @@ public class Markings {
         this.markingTechnique = markingTechniques;
     }
 
-    public String getTechnique_ref() {
+    public String getTechniqueRef() {
         return techniqueRef;
     }
 
-    public void setTechnique_ref(String technique_ref) {
-        this.techniqueRef = technique_ref;
+    public void setTechniqueRef(String techniqueRef) {
+        this.techniqueRef = techniqueRef;
+    }
+
+    public MarkingsTranslations getMarkingsTranslations() {
+        return markingsTranslations;
+    }
+
+    public void setMarkingsTranslations(MarkingsTranslations markingsTranslations) {
+        this.markingsTranslations = markingsTranslations;
     }
 
     @Override
@@ -137,7 +150,7 @@ public class Markings {
                 "id=" + id +
                 ", ref='" + ref + '\'' +
                 ", technique_ref='" + techniqueRef + '\'' +
-                ", print_area_id=" + print_area_id +
+                ", print_area_id=" + printAreaId +
                 ", max_colors='" + max_colors + '\'' +
                 ", position='" + position + '\'' +
                 ", width=" + width +

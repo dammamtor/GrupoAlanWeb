@@ -33,6 +33,8 @@ public class APIextController {
     @Autowired
     private MarkingTechniquesService markingTechniquesService;
     @Autowired
+    private MarkingTranslationsService markingTranslationsService;
+    @Autowired
     private VariantsService variantsService;
     @Autowired
     private ImagesService imagesService;
@@ -278,6 +280,21 @@ public class APIextController {
         }
     }
 
+    //MARKING TRANSLATIONS
+    @GetMapping("makito/marking-translations")
+    public ResponseEntity<String> makitoTranslatiions(){
+        String apiToken = getApiToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        boolean updatedSuccessfully = markingTranslationsService.makitoMarkingTranslationsFromApi(apiToken);
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de markings translations de makito actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de descripciones", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     //VARIANTS
     @GetMapping("makito/variants")
     public ResponseEntity<String> makitoVariants(){
