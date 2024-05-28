@@ -5,8 +5,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import grupoalan.backendgalan.controller.UserController;
 import grupoalan.backendgalan.exceptions.UserNotFoundException;
 import grupoalan.backendgalan.model.User;
+import grupoalan.backendgalan.model.VerificationToken;
 import grupoalan.backendgalan.model.request.UsuarioRequest;
 import grupoalan.backendgalan.repository.UserRepository;
+import grupoalan.backendgalan.repository.VerificationTokenRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -25,35 +28,68 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private EmailServiceImpl emailService;
+    @Autowired
+    private VerificationTokenRepository verificationTokenRepository;
 
     // Método para registrar un nuevo usuario.
-    public User registerUser(User user) {
+    public void registerUser(User user) {
         // Verificar si ya existe un usuario con el mismo correo electrónico
         User existingUser = userRepository.findByEmail(user.getEmail());
         if (existingUser != null) {
             throw new RuntimeException("User with email " + user.getEmail() + " already exists");
         }
 
-        // Encriptar la contraseña
+        // Verificar que el tipo de cuenta sea PARTICULAR
+        if (user.getAccountType() != User.AccountType.PARTICULAR) {
+            throw new RuntimeException("Only users with account type PARTICULAR are allowed to register");
+        }
+
         String encryptedPassword = encryptPassword(user.getPassword());
+
         user.setPassword(encryptedPassword);
-
-        // Si la cuenta es profesional, no habilitarla inmediatamente.
-        user.setEnabled(user.getAccountType() != User.AccountType.PROFESSIONAL);
-
-        // Establecer la fecha de creación
+        user.setEnabled(false);
         user.setCreatedAt(LocalDateTime.now());
 
-        // Guardar el usuario en la base de datos
         User savedUser = userRepository.save(user);
 
-        // Enviar correo de confirmación de registro
+        String verificationToken = UUID.randomUUID().toString();
+        VerificationToken token = new VerificationToken();
+        token.setToken(verificationToken);
+        token.setUserId(savedUser.getId());
+        token.setExpiryDate(LocalDateTime.now().plusHours(24)); // El token expira en 24 horas
+        verificationTokenRepository.save(token);
+
+        String verificationLink = "http://localhost:4200/verify/" + verificationToken;
+
         String subject = "Confirmación de registro";
-        String body = String.format("Hola %s,\n\nGracias por registrarte. Aquí están tus datos de registro:\n\nNombre: %s\nCorreo: %s\n\nSaludos,\nTuApp",
-                user.getUsername(), user.getFirstName(), user.getEmail());
+        String body = String.format("Hola %s,\n\nGracias por registrarte. Por favor, haz clic en el siguiente enlace para confirmar tu correo electrónico:\n\n%s\n\nSaludos,\nTuApp",
+                savedUser.getUsername(), verificationLink);
+        emailService.sendVerificationEmail(savedUser.getEmail(), subject, body);
+    }
+
+
+    public boolean verifyUser(String token) {
+        VerificationToken verificationToken = verificationTokenRepository.findByToken(token);
+        if (verificationToken == null || verificationToken.getExpiryDate().isBefore(LocalDateTime.now())) {
+            return false;
+        }
+
+        User user = userRepository.findById(verificationToken.getUserId()).orElse(null);
+        if (user == null) {
+            return false;
+        }
+
+        user.setEnabled(true);
+        userRepository.save(user);
+
+        verificationTokenRepository.delete(verificationToken);
+
+        String subject = "Verificación exitosa";
+        String body = String.format("Hola %s,\n\nTu correo electrónico ha sido verificado exitosamente. Ahora puedes iniciar sesión en tu cuenta.\n\nSaludos,\nTuApp",
+                user.getUsername());
         emailService.sendVerificationEmail(user.getEmail(), subject, body);
 
-        return savedUser;
+        return true;
     }
 
     public User updateUser(Long userId, User updatedUser) {
@@ -88,14 +124,15 @@ public class UserService {
 
     public boolean authenticateUser(UsuarioRequest usuarioRequest) {
         String nombreUsuario = usuarioRequest.getNombreUsuario();
-        String contraseña = usuarioRequest.getContraseña();
+        String contrasena = usuarioRequest.getContrasena();
         logger.info("Nombre de usuario: {}", nombreUsuario);
+        logger.info("Password de usuario: {}", contrasena);
 
         Optional<User> usuarioOptional = userRepository.findByUsername(nombreUsuario);
         if (usuarioOptional.isPresent()) {
             User usuario = usuarioOptional.get();
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-            return encoder.matches(contraseña, usuario.getPassword());
+            return encoder.matches(contrasena, usuario.getPassword());
         } else {
             return false; // Usuario no encontrado
         }
@@ -163,9 +200,74 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    //Restablecimiento de Contraseña
+    public void deleteUser(Long userId) {
+        userRepository.deleteById(userId);
+    }
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new UserNotFoundException("Usuario no encontrado con nombre de usuario: " + username));
+    }
+    public void updatePassword(Long userId, String newPassword) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException("Usuario no encontrado con ID: " + userId));
+        String encryptedPassword = encryptPassword(newPassword);
+        user.setPassword(encryptedPassword);
+        userRepository.save(user);
+    }
 
+    public void initiatePasswordReset(String email) {
+        User user = userRepository.findByEmail(email);
+        if (user != null) {
+            String resetToken = generateResetToken();
 
-    //VERIFICACION DE CORREO ELECTRONICO
+            // Guardar el token de reseteo en la base de datos utilizando la entidad VerificationToken
+            VerificationToken verificationToken = new VerificationToken();
+            verificationToken.setToken(resetToken);
+            verificationToken.setUserId(user.getId());
+            verificationToken.setExpiryDate(LocalDateTime.now().plusHours(24)); // Token expira en 24 horas
+            verificationTokenRepository.save(verificationToken);
+
+            // Enviar correo electrónico con el token de reseteo y las instrucciones
+            String resetLink = "http://localhost:8081/reset-password?token=" + resetToken;
+            String subject = "Instrucciones para restablecer la contraseña";
+            String body = "Hola " + user.getUsername() + ",\n\nParece que has solicitado restablecer tu contraseña. " +
+                    "Haz clic en el siguiente enlace para completar el proceso:\n\n" + resetLink +
+                    "\n\nSi no solicitaste este restablecimiento, puedes ignorar este mensaje.\n\nSaludos,\nTuApp";
+            emailService.sendVerificationEmail(email, subject, body);
+        }
+    }
+
+    private String generateResetToken() {
+        return UUID.randomUUID().toString();
+    }
+
+    public boolean resetPassword(String token, String newPassword) {
+        VerificationToken verificationToken = verificationTokenRepository.findByToken(token);
+        if (verificationToken == null || verificationToken.getExpiryDate().isBefore(LocalDateTime.now())) {
+            return false;
+        }
+
+        User user = userRepository.findById(verificationToken.getUserId()).orElse(null);
+        if (user == null) {
+            // No se pudo encontrar el usuario asociado con el token
+            return false;
+        }
+
+        // Actualizar la contraseña del usuario
+        user.setPassword(encryptPassword(newPassword));
+        userRepository.save(user);
+
+        // Eliminar el token de la base de datos, ya que ya no es necesario
+        verificationTokenRepository.delete(verificationToken);
+
+        // Enviar correo electrónico de confirmación de restablecimiento de contraseña
+        String subject = "Contraseña restablecida exitosamente";
+        String body = "Hola " + user.getUsername() + ",\n\nTu contraseña ha sido restablecida exitosamente.\n\n" +
+                "Si no realizaste esta acción, por favor contacta a nuestro equipo de soporte.\n\nSaludos,\nTuApp";
+        emailService.sendVerificationEmail(user.getEmail(), subject, body);
+
+        return true;
+    }
+
 
 }

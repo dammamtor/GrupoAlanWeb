@@ -1,7 +1,10 @@
 package grupoalan.backendgalan.model;
 
 import jakarta.persistence.*;
+import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,12 +14,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Email
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Size(min = 6, max = 30)
     @Column(nullable = false)
     private String password;
 
+    @Size(min = 3, max = 30)
     @Column(nullable = false)
     private String username;
 
@@ -24,13 +30,15 @@ public class User {
     @Column(nullable = false)
     private AccountType accountType; // Usando el enum
 
-    @Column(nullable = false)
+    @Column
     private boolean isEnabled;
 
     // Campos comunes
+    @Size(max = 50)
     @Column
     private String firstName;
 
+    @Size(max = 100)
     @Column
     private String lastName;
 
@@ -47,6 +55,7 @@ public class User {
 
     @Column
     private String companyPhoneNumber;
+
 
     public enum AccountType {
         PROFESSIONAL,

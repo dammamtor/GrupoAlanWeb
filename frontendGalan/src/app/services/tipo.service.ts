@@ -7,7 +7,7 @@ import { Description } from '../models/Description';
   providedIn: 'root'
 })
 export class TipoService {
-  private apiUrl: string = "http://localhost:8080/grupo-alan/descriptions"
+  private apiUrl: string = "http://localhost:8081/grupo-alan/descriptions"
   constructor(private http: HttpClient) { }
 
   obtenerListaTiposEnBD(): Observable<Description[]> {

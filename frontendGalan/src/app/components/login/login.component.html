@@ -1,47 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header text-center">
-                        <h2>Login</h2>
-                    </div>
-                    <div class="card-body">
-                        <form (ngSubmit)="login()">
-                            <div class="form-group">
-                                <label for="email">Gmail</label>
-                                <input type="email" id="email" class="form-control" [(ngModel)]="user.email"
-                                    name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Contraseña</label>
-                                <input type="password" id="password" class="form-control" [(ngModel)]="user.password"
-                                    name="password" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
-                        </form>
-                        <div class="text-center mt-3">
-                            <p>Don't have an account? <a routerLink="/register">Registrate aquí</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<app-header></app-header>
+<div class="container">
+    <!-- Div de saludo al usuario -->
+    <div class="welcome-message">
+        <h2>Bienvenido de vuelta</h2>
+        <p>¡Nos alegra verte de nuevo en nuestra página de serigrafía!</p>
+        <p>Por favor, inicia sesión para acceder a todas nuestras increíbles ofertas y servicios personalizados.</p>
     </div>
 
-    <!-- Angular scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular-route.min.js"></script>
-</body>
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario"
+                 [(ngModel)]="usuarioRequest.nombreUsuario" required placeholder="Usuario">
+          <label for="nombreUsuario">Usuario</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="contrasena" name="contrasena"
+                 [(ngModel)]="usuarioRequest.contrasena" required placeholder="Contraseña">
+          <label for="contrasena">Contraseña</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+      </form>      
 
-</html>
+    <!-- Enlaces adicionales -->
+    <div class="additional-links">
+        <span>¿Olvidaste tu contraseña?</span>
+        <p>¿No tienes cuenta? <span (click)="registrarUsuario()">Crea tu cuenta particular</span></p>
+        <p>¿Eres una empresa? <span (click)="registrarEmpresa()">Crea una cuenta empresarial con nosotros</span></p>
+    </div>
+</div>

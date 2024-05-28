@@ -1,7 +1,16 @@
+import { AccountType } from "./AccountType";
+
 export interface User {
-  id?: number; // Campo opcional para el ID del usuario.
-  email: string; // Campo para el correo electrónico del usuario.
-  password: string; // Campo para la contraseña del usuario.
-  accountType: 'professional' | 'particular'; // Campo para el tipo de cuenta.
-  isEnabled?: boolean; // Campo opcional para indicar si la cuenta está habilitada.
+  id: number;
+  email: string;
+  password: string;
+  username: string;
+  accountType: AccountType;
+  isEnabled?: boolean;
+  firstName?: string;
+  lastName?: string;
+  createdAt?: string; // Utiliza string para ISO 8601 format date
+  companyName?: string;
+  companyAddress?: string;
+  companyPhoneNumber?: string;
 }

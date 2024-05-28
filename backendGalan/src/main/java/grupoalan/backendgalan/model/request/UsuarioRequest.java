@@ -2,15 +2,13 @@ package grupoalan.backendgalan.model.request;
 
 public class UsuarioRequest {
     private String nombreUsuario;
-    private String contraseña;
+    private String contrasena;
 
-    // Constructor
-    public UsuarioRequest(String nombreUsuario, String contraseña) {
+    public UsuarioRequest(String nombreUsuario, String contrasena) {
         this.nombreUsuario = nombreUsuario;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
 
-    // Métodos getter y setter
     public String getNombreUsuario() {
         return nombreUsuario;
     }
@@ -19,11 +17,11 @@ public class UsuarioRequest {
         this.nombreUsuario = nombreUsuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 }

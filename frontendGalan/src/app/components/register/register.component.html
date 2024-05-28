@@ -1,55 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header text-center">
-                        <h2>Register</h2>
-                    </div>
-                    <div class="card-body">
-                        <form (ngSubmit)="register()">
-                            <div class="form-group">
-                                <label for="email">Gmail</label>
-                                <input type="email" id="email" class="form-control" [(ngModel)]="user.email"
-                                    name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Contraseña</label>
-                                <input type="password" id="password" class="form-control" [(ngModel)]="user.password"
-                                    name="password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="accountType">Tipo de cuenta</label>
-                                <select id="accountType" class="form-control" [(ngModel)]="user.accountType"
-                                    name="accountType" required>
-                                    <option value="particular">Particular</option>
-                                    <option value="professional">Professional</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
-                        </form>
-                        <div class="text-center mt-3">
-                            <p>Ya tienes cuenta? <a routerLink="/login">Inicia Sesión</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<app-header></app-header>
+<div class="container">
+    <h2>¿Quieres ser cliente?</h2>
+    <p>Déjanos tus datos y nos pondremos en contacto contigo.</p>
+    <form (ngSubmit)="registerUser()" #registerForm="ngForm">
+        <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userRegister.email" required>
         </div>
-    </div>
-
-    <!-- Angular scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular-route.min.js"></script>
-</body>
-
-</html>
+        <div class="form-group">
+            <label for="username">Nombre de usuario</label>
+            <input type="text" class="form-control" id="username" name="username" [(ngModel)]="userRegister.username"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" class="form-control" id="password" name="password"
+                [(ngModel)]="userRegister.password" required>
+        </div>
+        <div class="form-group">
+            <label>Tipo de cuenta</label>
+            <input type="text" class="form-control" readonly value="Particular">
+        </div>
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+    </form>
+</div>

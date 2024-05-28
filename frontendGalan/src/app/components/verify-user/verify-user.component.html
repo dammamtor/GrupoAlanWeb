@@ -1,0 +1,9 @@
+<div *ngIf="verifying" class="alert alert-info custom-alert">
+    <p>Verificando usuario...</p>
+</div>
+<div *ngIf="verificationSuccess" class="alert alert-success custom-alert">
+    <p>¡Verificación exitosa! Serás redirigido al inicio de sesión en unos segundos...</p>
+</div>
+<div *ngIf="verificationError" class="alert alert-danger custom-alert">
+    <p>Ocurrió un error al verificar el usuario. Por favor, intenta nuevamente más tarde.</p>
+</div>

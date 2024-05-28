@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MaterialService {
-  private apiUrl: string = "http://localhost:8080/grupo-alan/descriptions"
+  private apiUrl: string = "http://localhost:8081/grupo-alan/descriptions"
   constructor(private http: HttpClient) { }
 
   obtenerListaMaterialesEnBD(): Observable<Description[]> {

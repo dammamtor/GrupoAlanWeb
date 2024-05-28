@@ -20,10 +20,10 @@
     <div class="container">
         <div class="row align-items-center justify-content-between">
             <!-- Logo de la empresa -->
-            <div class="col-lg-2 col-md-3 col-4">
-                <a href="#"><img src="" alt="Logo" width="50"></a>
-            </div>
-
+            <div id="logo-img" class="col-lg-2 col-md-3 col-4" (click)="irAHome()">
+                <span><img src="" alt="Logo" width="50"></span>
+            </div>            
+    
             <!-- Buscador -->
             <div class="col-lg-5 col-md-5 col-6">
                 <form class="d-flex">
@@ -34,20 +34,22 @@
                     </button>
                 </form>
             </div>
-
-
+    
             <!-- Logo de la cesta -->
             <div class="col-lg-2 col-md-2 col-2 text-end">
-                <a (click)="navegatePayment()"><i class="bi bi-cart cart-icon" style="font-size: 24px;"></i></a>
+                <span (click)="navegatePayment()"><i class="bi bi-cart cart-icon" style="font-size: 24px;"></i></span>
             </div>
-
-            <!-- Botones de Login y Sign-up -->
+    
+            <!-- Botón Acceder/Registro con logo de Bootstrap -->
             <div class="col-lg-2 col-md-2 col-2 text-end">
-                <button class="btn btn-danger btn-sm" type="button" (click)="signInWithGoogle()">Inicia sesión con
-                    Google</button>
+                <span>
+                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="irALogin()">
+                        <i class="bi bi-person-circle"></i> Acceder/Registro
+                    </button>
+                </span>
             </div>
         </div>
-    </div>
+    </div>    
 
 
     <!-- Categorías -->
@@ -56,52 +58,52 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <span class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Categorías
-                        </a>
+                        </span>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" (click)="navegateAbanicos()">Abanicos</a></li>
-                            <li><a class="dropdown-item" (click)="navegateBotellas()">Botellas</a></li>
-                            <li><a class="dropdown-item" (click)="navegateBoligrafos()">Bolígrafos</a></li>
-                            <li><a class="dropdown-item" (click)="navegateCamisetas()">Camisetas</a></li>
-                            <li><a class="dropdown-item" (click)="navegateBolsas()">Bolsas</a></li>
-                            <li><a class="dropdown-item" (click)="navegateGorras()">Gorras</a></li>
-                            <li><a class="dropdown-item" (click)="navegateLibretas()">Libretas</a></li>
-                            <li><a class="dropdown-item" (click)="navegateMochilas()">Mochilas</a></li>
-                            <li><a class="dropdown-item" (click)="navegatePolos()">Polos</a></li>
+                            <li><span class="dropdown-item" (click)="navegateAbanicos()">Abanicos</span></li>
+                            <li><span class="dropdown-item" (click)="navegateBotellas()">Botellas</span></li>
+                            <li><span class="dropdown-item" (click)="navegateBoligrafos()">Bolígrafos</span></li>
+                            <li><span class="dropdown-item" (click)="navegateCamisetas()">Camisetas</span></li>
+                            <li><span class="dropdown-item" (click)="navegateBolsas()">Bolsas</span></li>
+                            <li><span class="dropdown-item" (click)="navegateGorras()">Gorras</span></li>
+                            <li><span class="dropdown-item" (click)="navegateLibretas()">Libretas</span></li>
+                            <li><span class="dropdown-item" (click)="navegateMochilas()">Mochilas</span></li>
+                            <li><span class="dropdown-item" (click)="navegatePolos()">Polos</span></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="navegateAbanicos()">Abanicos</a>
+                        <span class="nav-link" (click)="navegateAbanicos()">Abanicos</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="navegateBotellas()">Botellas</a>
+                        <span class="nav-link" (click)="navegateBotellas()">Botellas</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="navegateBoligrafos()">Bolígrafos</a>
+                        <span class="nav-link" (click)="navegateBoligrafos()">Bolígrafos</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="navegateBolsas()">Bolsas</a>
+                        <span class="nav-link" (click)="navegateBolsas()">Bolsas</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="navegateCamisetas()">Camisetas</a>
+                        <span class="nav-link" (click)="navegateCamisetas()">Camisetas</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="navegateGorras()">Gorras</a>
+                        <span class="nav-link" (click)="navegateGorras()">Gorras</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="navegateLibretas()">Libretas</a>
+                        <span class="nav-link" (click)="navegateLibretas()">Libretas</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="navegateMochilas()">Mochilas</a>
+                        <span class="nav-link" (click)="navegateMochilas()">Mochilas</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="navegatePolos()">Polos</a>
+                        <span class="nav-link" (click)="navegatePolos()">Polos</span>
                     </li>
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav>    
 </header>
 

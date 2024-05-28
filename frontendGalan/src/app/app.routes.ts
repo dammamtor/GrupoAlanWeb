@@ -5,6 +5,9 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { SearchComponent } from './components/search/search.component';
 import { TypesComponent } from './components/types/types.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { VerifyUserComponent } from './components/verify-user/verify-user.component';
 
 export const routes: Routes = [
   {
@@ -24,11 +27,11 @@ export const routes: Routes = [
     component: ProductoComponent
   },
   {
-    path:'search/:s',
+    path: 'search/:s',
     component: SearchComponent
   },
   {
-    path:"search/:s/producto/ref/:ref",
+    path: "search/:s/producto/ref/:ref",
     component: ProductoComponent
   },
   {
@@ -36,11 +39,24 @@ export const routes: Routes = [
     component: TypesComponent
   },
   {
-    path:"types/:t/producto/ref/:ref",
+    path: "types/:t/producto/ref/:ref",
     component: ProductoComponent
   },
   {
     path: "payments",
     component: PaymentComponent
-  }
+  },
+  {
+    path: "login",
+    component: LoginComponent
+  },
+  {
+    path: "register-user",
+    component: RegisterComponent
+  },
+  {
+    path: 'verify/:token',
+    component: VerifyUserComponent
+  },
+
 ];

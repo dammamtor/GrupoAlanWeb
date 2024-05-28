@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MarcajeService {
-  private apiUrl : string = "http://localhost:8080/grupo-alan/markings"
+  private apiUrl : string = "http://localhost:8081/grupo-alan/markings"
   constructor(private http: HttpClient) { }
 
   //

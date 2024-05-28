@@ -10,7 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200") // Permite solicitudes desde localhost:4200
@@ -23,9 +25,19 @@ public class UserController {
 
     // Punto de entrada para registrar un nuevo usuario.
     @PostMapping("/register")
-    public ResponseEntity<User> registerUser(@RequestBody User user) {
-        User registeredUser = userService.registerUser(user);
-        return ResponseEntity.ok(registeredUser);
+    public ResponseEntity<String> registerUser(@RequestBody User userDTO) {
+        userService.registerUser(userDTO);
+        return ResponseEntity.status(HttpStatus.OK).body("{\"message\": \"Registro exitoso. Por favor, revisa tu correo electrónico para confirmar tu cuenta.\"}");
+    }
+
+    @GetMapping("/verify")
+    public ResponseEntity<String> verifyUser(@RequestParam("token") String token) {
+        boolean isVerified = userService.verifyUser(token);
+        if (isVerified) {
+            return ResponseEntity.ok("{\"message\": \"Verificación exitosa. Ahora puedes iniciar sesión.\"}");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Token de verificación inválido o expirado.");
+        }
     }
 
     // Punto de entrada para iniciar sesión.
@@ -62,11 +74,57 @@ public class UserController {
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<String> authenticateUser(@RequestBody UsuarioRequest usuarioRequest) {
+    public ResponseEntity<Map<String, String>> authenticateUser(@RequestBody UsuarioRequest usuarioRequest) {
+        Map<String, String> response = new HashMap<>();
         if (userService.authenticateUser(usuarioRequest)) {
-            return ResponseEntity.ok("Usuario autenticado correctamente");
+            response.put("message", "Usuario autenticado correctamente");
+            return ResponseEntity.ok(response);
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales inválidas");
+            response.put("message", "Credenciales inválidas");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
     }
+
+    // Punto de entrada para iniciar el proceso de restablecimiento de contraseña.
+    @PostMapping("/reset-password")
+    public ResponseEntity<String> initiatePasswordReset(@RequestParam String email) {
+        userService.initiatePasswordReset(email);
+        return ResponseEntity.ok("Se ha enviado un correo electrónico con instrucciones para restablecer tu contraseña.");
+    }
+
+    // Punto de entrada para restablecer la contraseña utilizando el token recibido.
+    @PostMapping("/reset-password/{token}")
+    public ResponseEntity<String> resetPassword(@PathVariable String token, @RequestBody String newPassword) {
+        boolean isResetSuccessful = userService.resetPassword(token, newPassword);
+        if (isResetSuccessful) {
+            return ResponseEntity.ok("Contraseña restablecida exitosamente.");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Token de restablecimiento de contraseña inválido o expirado.");
+        }
+    }
+
+    @PostMapping("/delete/{userId}")
+    public ResponseEntity<String> deleteUser(@PathVariable Long userId) {
+        userService.deleteUser(userId);
+        return ResponseEntity.ok("Usuario eliminado exitosamente.");
+    }
+
+    @GetMapping("/find-by-username/{username}")
+    public ResponseEntity<User> findByUsername(@PathVariable String username) {
+        User user = userService.findByUsername(username);
+        return ResponseEntity.ok(user);
+    }
+
+    @PostMapping("/update-password/{userId}")
+    public ResponseEntity<String> updatePassword(@PathVariable Long userId, @RequestBody String newPassword) {
+        userService.updatePassword(userId, newPassword);
+        return ResponseEntity.ok("Contraseña actualizada exitosamente.");
+    }
+
+    @PostMapping("/update-user/{userId}")
+    public ResponseEntity<User> updateUser(@PathVariable Long userId, @RequestBody User updatedUser) {
+        User user = userService.updateUser(userId, updatedUser);
+        return ResponseEntity.ok(user);
+    }
+
 }

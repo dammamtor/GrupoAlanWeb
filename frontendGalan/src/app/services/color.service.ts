@@ -7,7 +7,7 @@ import { Color } from '../models/Color';
   providedIn: 'root'
 })
 export class ColorService {
-  private baseUrl: string = "http://localhost:8080/grupo-alan/colors/";
+  private baseUrl: string = "http://localhost:8081/grupo-alan/colors/";
 
   constructor(private http: HttpClient) { }
 

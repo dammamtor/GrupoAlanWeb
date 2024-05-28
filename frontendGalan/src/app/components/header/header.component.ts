@@ -15,27 +15,7 @@ import { Product } from '../../models/Product';
 export class HeaderComponent {
   private ruta = inject(Router);
   public botellasList: any[] = [];
-  private authService = inject(AuthGoogleService);
   profile: any;
-
-  // inicio LOGIN
-  signInWithGoogle() {
-    this.authService.login();
-  }
-
-  ngOnInit(): void {
-    this.showData();
-  }
-
-  showData() {
-    this.profile = this.authService.getProfile();
-  }
-
-  logOut() {
-    this.authService.logout();
-    this.ruta.navigate(['/login']);
-  }
-  // fin LOGIN
 
   navegateLogin() {
     this.ruta.navigate(['login']);
@@ -84,4 +64,11 @@ export class HeaderComponent {
     this.ruta.navigate(['search', searchTerm]);
   }
 
+  irAHome(): void {
+    this.ruta.navigate([""]);
+  }
+
+  irALogin(): void {
+    this.ruta.navigate(["login"]);
+  }
 }
