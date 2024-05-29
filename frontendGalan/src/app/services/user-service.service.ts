@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UsuarioRequest } from '../models/UsuarioRequest';
 import { User } from '../models/user';
+import { UsuarioParticularRequest } from '../models/UsuarioParticularRequest';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class UserServiceService {
 
   constructor(private http: HttpClient) { }
 
-  registerUser(userDTO: User): Observable<string> {
+  registerUser(userDTO: UsuarioParticularRequest): Observable<string> {
     return this.http.post<string>(`${this.apiUrl}/register`, userDTO);
   }
 

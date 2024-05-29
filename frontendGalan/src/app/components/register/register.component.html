@@ -2,11 +2,75 @@
 <div class="container">
     <h2>¿Quieres ser cliente?</h2>
     <p>Déjanos tus datos y nos pondremos en contacto contigo.</p>
-    <form (ngSubmit)="registerUser()" #registerForm="ngForm">
+    <form (ngSubmit)="registerUser(registerForm)" #registerForm="ngForm">
+        <!-- Información de contacto -->
+        <h2>Información de contacto</h2>
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userRegister.name" required>
+            <div *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)"
+                class="alert alert-danger">
+                Debes introducir un nombre.
+            </div>
+        </div>
         <div class="form-group">
             <label for="email">Correo electrónico</label>
             <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userRegister.email" required>
+            <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)"
+                class="alert alert-danger">
+                Debes introducir un correo electrónico válido.
+            </div>
         </div>
+        <div class="form-group">
+            <label for="phoneNumber">Número de teléfono</label>
+            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
+                [(ngModel)]="userRegister.phoneNumber" required>
+            <div *ngIf="registerForm.controls['phoneNumber'].invalid && (registerForm.controls['phoneNumber'].dirty || registerForm.controls['phoneNumber'].touched)"
+                class="alert alert-danger">
+                El número de teléfono es obligatorio.
+            </div>
+        </div>
+
+        <!-- Dirección de envío -->
+        <h2>Dirección de envío</h2>
+        <div class="form-group">
+            <label for="country">País</label>
+            <input type="text" class="form-control" id="country" name="country" [(ngModel)]="userRegister.country"
+                required>
+            <div *ngIf="registerForm.controls['country'].invalid && (registerForm.controls['country'].dirty || registerForm.controls['country'].touched)"
+                class="alert alert-danger">
+                El país es obligatorio.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="city">Ciudad</label>
+            <input type="text" class="form-control" id="city" name="city" [(ngModel)]="userRegister.city" required>
+            <div *ngIf="registerForm.controls['city'].invalid && (registerForm.controls['city'].dirty || registerForm.controls['city'].touched)"
+                class="alert alert-danger">
+                La ciudad es obligatoria.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address">Dirección</label>
+            <input type="text" class="form-control" id="address" name="address" [(ngModel)]="userRegister.address"
+                required>
+            <div *ngIf="registerForm.controls['address'].invalid && (registerForm.controls['address'].dirty || registerForm.controls['address'].touched)"
+                class="alert alert-danger">
+                La dirección es obligatoria.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="postalCode">Código Postal</label>
+            <input type="text" class="form-control" id="postalCode" name="postalCode"
+                [(ngModel)]="userRegister.postalCode" required>
+            <div *ngIf="registerForm.controls['postalCode'].invalid && (registerForm.controls['postalCode'].dirty || registerForm.controls['postalCode'].touched)"
+                class="alert alert-danger">
+                El código postal es obligatorio.
+            </div>
+        </div>
+
+        <!-- Datos de cuenta -->
+        <h2>Datos de cuenta</h2>
         <div class="form-group">
             <label for="username">Nombre de usuario</label>
             <input type="text" class="form-control" id="username" name="username" [(ngModel)]="userRegister.username"
@@ -18,9 +82,18 @@
                 [(ngModel)]="userRegister.password" required>
         </div>
         <div class="form-group">
+            <label for="repeatPassword">Repetir contraseña</label>
+            <input type="password" class="form-control" id="repeatPassword" name="repeatPassword"
+                [(ngModel)]="userRegister.repeatPassword" required>
+            <div *ngIf="userRegister.password !== userRegister.repeatPassword && (registerForm.controls['repeatPassword'].dirty || registerForm.controls['repeatPassword'].touched)"
+                class="alert alert-danger">
+                Las contraseñas no coinciden.
+            </div>
+        </div>
+        <div class="form-group">
             <label>Tipo de cuenta</label>
             <input type="text" class="form-control" readonly value="Particular">
         </div>
-        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid || !passwordsMatch()">Registrarse</button>
     </form>
 </div>

@@ -6,6 +6,8 @@ import grupoalan.backendgalan.controller.UserController;
 import grupoalan.backendgalan.exceptions.UserNotFoundException;
 import grupoalan.backendgalan.model.User;
 import grupoalan.backendgalan.model.VerificationToken;
+import grupoalan.backendgalan.model.request.UsuarioParticularRegisterRequest;
+import grupoalan.backendgalan.model.request.UsuarioProfesionalRegisterRequest;
 import grupoalan.backendgalan.model.request.UsuarioRequest;
 import grupoalan.backendgalan.repository.UserRepository;
 import grupoalan.backendgalan.repository.VerificationTokenRepository;
@@ -32,26 +34,45 @@ public class UserService {
     private VerificationTokenRepository verificationTokenRepository;
 
     // Método para registrar un nuevo usuario.
-    public void registerUser(User user) {
+    public void registerUser(UsuarioParticularRegisterRequest userRequest) {
         // Verificar si ya existe un usuario con el mismo correo electrónico
-        User existingUser = userRepository.findByEmail(user.getEmail());
+        User existingUser = userRepository.findByEmail(userRequest.getEmail());
         if (existingUser != null) {
-            throw new RuntimeException("User with email " + user.getEmail() + " already exists");
+            throw new RuntimeException("User with email " + userRequest.getEmail() + " already exists");
         }
 
         // Verificar que el tipo de cuenta sea PARTICULAR
-        if (user.getAccountType() != User.AccountType.PARTICULAR) {
+        if (userRequest.getAccountType() != UsuarioParticularRegisterRequest.AccountType.PARTICULAR) {
             throw new RuntimeException("Only users with account type PARTICULAR are allowed to register");
         }
 
-        String encryptedPassword = encryptPassword(user.getPassword());
+        // Verificar que las contraseñas coincidan
+        if (!userRequest.getPassword().equals(userRequest.getRepeatPassword())) {
+            throw new RuntimeException("Passwords do not match");
+        }
 
+        // Crear la entidad User a partir del DTO
+        User user = new User();
+        user.setName(userRequest.getName());
+        user.setEmail(userRequest.getEmail());
+        user.setPhoneNumber(userRequest.getPhoneNumber());
+        user.setCountry(userRequest.getCountry());
+        user.setCity(userRequest.getCity());
+        user.setAddress(userRequest.getAddress());
+        user.setPostalCode(userRequest.getPostalCode());
+        user.setUsername(userRequest.getUsername());
+        user.setAccountType(User.AccountType.PARTICULAR);
+
+        // Encriptar la contraseña
+        String encryptedPassword = encryptPassword(userRequest.getPassword());
         user.setPassword(encryptedPassword);
         user.setEnabled(false);
         user.setCreatedAt(LocalDateTime.now());
 
+        // Guardar el usuario en el repositorio
         User savedUser = userRepository.save(user);
 
+        // Crear y guardar el token de verificación
         String verificationToken = UUID.randomUUID().toString();
         VerificationToken token = new VerificationToken();
         token.setToken(verificationToken);
@@ -59,14 +80,46 @@ public class UserService {
         token.setExpiryDate(LocalDateTime.now().plusHours(24)); // El token expira en 24 horas
         verificationTokenRepository.save(token);
 
+        // Construir el enlace de verificación
         String verificationLink = "http://localhost:4200/verify/" + verificationToken;
 
+        // Enviar el correo de verificación
         String subject = "Confirmación de registro";
         String body = String.format("Hola %s,\n\nGracias por registrarte. Por favor, haz clic en el siguiente enlace para confirmar tu correo electrónico:\n\n%s\n\nSaludos,\nTuApp",
                 savedUser.getUsername(), verificationLink);
         emailService.sendVerificationEmail(savedUser.getEmail(), subject, body);
     }
 
+    public void registerProfessionalUser(UsuarioProfesionalRegisterRequest userRequest) {
+        // Verificar si ya existe un usuario con el mismo correo electrónico
+        User existingUser = userRepository.findByEmail(userRequest.getEmail());
+        if (existingUser != null) {
+            throw new RuntimeException("User with email " + userRequest.getEmail() + " already exists");
+        }
+
+        // Verificar que el tipo de cuenta sea PROFESIONAL
+        if (userRequest.getAccountType() != UsuarioProfesionalRegisterRequest.AccountType.PROFESSIONAL) {
+            throw new RuntimeException("Only users with account type PROFESIONAL are allowed to register");
+        }
+
+        // Crear la entidad User a partir del DTO
+        User user = new User();
+        user.setEmail(userRequest.getEmail());
+        user.setUsername(userRequest.getUsername());
+        user.setAccountType(User.AccountType.PROFESSIONAL);
+        user.setCompanyName(userRequest.getCompanyName());
+        user.setCompanyAddress(userRequest.getCompanyAddress());
+        user.setCompanyPhoneNumber(userRequest.getCompanyPhoneNumber());
+
+        // Encriptar la contraseña
+        String encryptedPassword = encryptPassword(userRequest.getPassword());
+        user.setPassword(encryptedPassword);
+        user.setEnabled(false);  // El usuario no está habilitado inicialmente
+        user.setCreatedAt(LocalDateTime.now());
+
+        // Guardar el usuario en el repositorio
+        userRepository.save(user);
+    }
 
     public boolean verifyUser(String token) {
         VerificationToken verificationToken = verificationTokenRepository.findByToken(token);
@@ -103,8 +156,7 @@ public class UserService {
             user.setUsername(updatedUser.getUsername());
             user.setAccountType(updatedUser.getAccountType());
             user.setEnabled(updatedUser.isEnabled());
-            user.setFirstName(updatedUser.getFirstName());
-            user.setLastName(updatedUser.getLastName());
+            user.setName(updatedUser.getName());
             user.setCreatedAt(updatedUser.getCreatedAt());
 
             // Update fields specific to business account
@@ -131,6 +183,10 @@ public class UserService {
         Optional<User> usuarioOptional = userRepository.findByUsername(nombreUsuario);
         if (usuarioOptional.isPresent()) {
             User usuario = usuarioOptional.get();
+            if (!usuario.isEnabled()) {
+                logger.info("Usuario deshabilitado: {}", nombreUsuario);
+                return false; // Usuario deshabilitado
+            }
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             return encoder.matches(contrasena, usuario.getPassword());
         } else {
@@ -184,11 +240,17 @@ public class UserService {
 
     // Método para habilitar un usuario por su ID.
     public User enableUser(Long userId) {
+        // Buscar el usuario por su ID
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado segun ID: " + userId));
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado según ID: " + userId));
+
+        // Habilitar el usuario
         user.setEnabled(true);
+
+        // Guardar y devolver el usuario actualizado
         return userRepository.save(user);
     }
+
 
     private String encryptPassword(String password) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(15);
@@ -203,10 +265,12 @@ public class UserService {
     public void deleteUser(Long userId) {
         userRepository.deleteById(userId);
     }
+
     public User findByUsername(String username) {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("Usuario no encontrado con nombre de usuario: " + username));
     }
+
     public void updatePassword(Long userId, String newPassword) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException("Usuario no encontrado con ID: " + userId));

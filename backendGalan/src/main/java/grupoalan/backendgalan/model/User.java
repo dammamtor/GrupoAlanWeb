@@ -34,17 +34,27 @@ public class User {
     private boolean isEnabled;
 
     // Campos comunes
-    @Size(max = 50)
     @Column
-    private String firstName;
-
-    @Size(max = 100)
-    @Column
-    private String lastName;
+    private String name;
 
     @Column
     private LocalDateTime createdAt;
 
+    // Campos adicionales
+    @Column
+    private String phoneNumber;
+
+    @Column
+    private String country;
+
+    @Column
+    private String city;
+
+    @Column
+    private String address;
+
+    @Column
+    private String postalCode;
 
     // Campos para cuenta empresarial
     @Column
@@ -59,7 +69,8 @@ public class User {
 
     public enum AccountType {
         PROFESSIONAL,
-        PARTICULAR
+        PARTICULAR,
+        ADMIN,
     }
 
     public User() {
@@ -105,20 +116,12 @@ public class User {
         isEnabled = enabled;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -162,6 +165,46 @@ public class User {
         this.username = username;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -171,9 +214,13 @@ public class User {
                 ", username='" + username + '\'' +
                 ", accountType=" + accountType +
                 ", isEnabled=" + isEnabled +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", name='" + name + '\'' +
                 ", createdAt=" + createdAt +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", address='" + address + '\'' +
+                ", postalCode='" + postalCode + '\'' +
                 ", companyName='" + companyName + '\'' +
                 ", companyAddress='" + companyAddress + '\'' +
                 ", companyPhoneNumber='" + companyPhoneNumber + '\'' +

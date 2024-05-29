@@ -1,6 +1,7 @@
 package grupoalan.backendgalan.controller;
 
 import grupoalan.backendgalan.model.User;
+import grupoalan.backendgalan.model.request.UsuarioParticularRegisterRequest;
 import grupoalan.backendgalan.model.request.UsuarioRequest;
 import grupoalan.backendgalan.services.UserService;
 import org.slf4j.Logger;
@@ -25,7 +26,7 @@ public class UserController {
 
     // Punto de entrada para registrar un nuevo usuario.
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody User userDTO) {
+    public ResponseEntity<String> registerUser(@RequestBody UsuarioParticularRegisterRequest userDTO) {
         userService.registerUser(userDTO);
         return ResponseEntity.status(HttpStatus.OK).body("{\"message\": \"Registro exitoso. Por favor, revisa tu correo electrónico para confirmar tu cuenta.\"}");
     }

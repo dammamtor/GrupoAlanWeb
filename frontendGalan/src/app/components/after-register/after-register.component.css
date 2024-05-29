@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.alert {
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    /* Añade margen superior */
+}

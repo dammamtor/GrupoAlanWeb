@@ -8,6 +8,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { VerifyUserComponent } from './components/verify-user/verify-user.component';
+import { AfterRegisterComponent } from './components/after-register/after-register.component';
 
 export const routes: Routes = [
   {
@@ -58,5 +59,8 @@ export const routes: Routes = [
     path: 'verify/:token',
     component: VerifyUserComponent
   },
-
+  {
+    path: "correct-registration/:username",
+    component: AfterRegisterComponent    
+  }
 ];
