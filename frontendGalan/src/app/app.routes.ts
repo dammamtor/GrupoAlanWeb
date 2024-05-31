@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { VerifyUserComponent } from './components/verify-user/verify-user.component';
 import { AfterRegisterComponent } from './components/after-register/after-register.component';
+import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 
 export const routes: Routes = [
   {
@@ -62,5 +63,9 @@ export const routes: Routes = [
   {
     path: "correct-registration/:username",
     component: AfterRegisterComponent    
+  },
+  {
+    path: "admin/home",
+    component: HomeAdminComponent
   }
 ];

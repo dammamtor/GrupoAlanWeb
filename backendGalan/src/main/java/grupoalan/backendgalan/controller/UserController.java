@@ -4,6 +4,7 @@ import grupoalan.backendgalan.model.User;
 import grupoalan.backendgalan.model.request.UsuarioParticularRegisterRequest;
 import grupoalan.backendgalan.model.request.UsuarioRequest;
 import grupoalan.backendgalan.services.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,9 +76,13 @@ public class UserController {
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<Map<String, String>> authenticateUser(@RequestBody UsuarioRequest usuarioRequest) {
+    public ResponseEntity<Map<String, String>> authenticateUser(@RequestBody UsuarioRequest usuarioRequest,
+                                                                HttpSession session) {
         Map<String, String> response = new HashMap<>();
         if (userService.authenticateUser(usuarioRequest)) {
+            // Usuario autenticado correctamente, establece la sesión
+            session.setAttribute("currentUser", usuarioRequest.getNombreUsuario());
+            logger.info("User {} authenticated successfully", usuarioRequest.getNombreUsuario());
             response.put("message", "Usuario autenticado correctamente");
             return ResponseEntity.ok(response);
         } else {

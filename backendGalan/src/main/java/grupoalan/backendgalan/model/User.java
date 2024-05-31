@@ -18,7 +18,6 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Size(min = 6, max = 30)
     @Column(nullable = false)
     private String password;
 

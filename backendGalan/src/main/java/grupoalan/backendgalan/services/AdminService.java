@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class AdminService {
@@ -19,16 +20,14 @@ public class AdminService {
     @Autowired // Inyecta automáticamente una instancia de UserRepository.
     private UserRepository userRepository;
 
-    public void registerAdminUser(UsuarioAdminRegisterRequest userRequest) {
-        // Verificar si ya existe un usuario con el mismo correo electrónico
-        User existingUser = userRepository.findByEmail(userRequest.getEmail());
-        if (existingUser != null) {
-            throw new RuntimeException("User with email " + userRequest.getEmail() + " already exists");
-        }
+    public void registerAdminUser(UsuarioAdminRegisterRequest userRequest, String currentUser) {
+        // Verificar si el usuario actual es un administrador
+        User requestingUser = userRepository.findByUsernameAndAccountType(currentUser, User.AccountType.ADMIN)
+                .orElseThrow(() -> new RuntimeException("Only ADMIN users can register other admins"));
 
-        // Verificar que el tipo de cuenta sea ADMIN
-        if (userRequest.getAccountType() != UsuarioAdminRegisterRequest.AccountType.ADMIN) {
-            throw new RuntimeException("Only users with account type ADMIN are allowed to register");
+        // Verificar si ya existe un usuario con el mismo correo electrónico
+        if (userRepository.existsByEmail(userRequest.getEmail())) {
+            throw new RuntimeException("User with email " + userRequest.getEmail() + " already exists");
         }
 
         // Crear la entidad User a partir del DTO
@@ -37,18 +36,51 @@ public class AdminService {
         user.setUsername(userRequest.getUsername());
         user.setAccountType(User.AccountType.ADMIN);
 
-        // Encriptar la contraseña
+        // Encriptar la contraseña con el nivel de seguridad adecuado para administradores
         String encryptedPassword = encryptPassword(userRequest.getPassword());
         user.setPassword(encryptedPassword);
-        user.setEnabled(true);
+        user.setEnabled(true);  // El usuario está habilitado inicialmente
         user.setCreatedAt(LocalDateTime.now());
 
         // Guardar el usuario en el repositorio
         userRepository.save(user);
     }
 
+    public void createDefaultAdminUser() {
+        logger.info("CREANDO USUARIO ADMIN DEFAULT");
+        // Verificar si ya existe un usuario administrador por defecto
+        if (userRepository.existsByUsernameAndAccountType("admin", User.AccountType.ADMIN)) {
+            logger.info("Default admin user already exists.");
+            return;
+        }
+
+        logger.info("Creating default admin user...");
+
+        // Crear el usuario administrador por defecto
+        User defaultAdmin = new User();
+        defaultAdmin.setEmail("admin@example.com");
+        defaultAdmin.setUsername("admin");
+        defaultAdmin.setAccountType(User.AccountType.ADMIN);
+        defaultAdmin.setEnabled(true);
+        defaultAdmin.setCreatedAt(LocalDateTime.now());
+
+        logger.info("USUARIO RELLENO, FALTA LA CONTRASEÑA");
+
+        // Encriptar la contraseña
+        String encryptedPassword = encryptPassword("adminPassword");
+        defaultAdmin.setPassword(encryptedPassword);
+
+        logger.info("CONTRASEÑA ESTABLECIDAD");
+
+        // Guardar el usuario por defecto en el repositorio
+        userRepository.save(defaultAdmin);
+
+        logger.info("Default admin user created successfully.");
+    }
+
     private String encryptPassword(String password) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(30);
+        logger.info("Contraseña a encriptar: {}", password);
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(20);
         return encoder.encode(password);
     }
 }

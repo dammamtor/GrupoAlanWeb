@@ -187,12 +187,26 @@ public class UserService {
                 logger.info("Usuario deshabilitado: {}", nombreUsuario);
                 return false; // Usuario deshabilitado
             }
-            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+            BCryptPasswordEncoder encoder;
+            switch (usuario.getAccountType()) {
+                case ADMIN:
+                    encoder = new BCryptPasswordEncoder(20);
+                    break;
+                case PARTICULAR, PROFESSIONAL:
+                    encoder = new BCryptPasswordEncoder(15);
+                    break;
+                default:
+                    logger.info("Tipo de cuenta desconocido para el usuario: {}", nombreUsuario);
+                    return false;
+            }
+
             return encoder.matches(contrasena, usuario.getPassword());
         } else {
             return false; // Usuario no encontrado
         }
     }
+
 
     // Método para verificar las credenciales del usuario
     public boolean verificarCredenciales(Long userId, String contraseñaJSON) {
