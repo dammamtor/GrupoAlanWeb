@@ -1,8 +1,11 @@
 package grupoalan.backendgalan.services;
 
+import grupoalan.backendgalan.exceptions.UserAlreadyEnabledException;
+import grupoalan.backendgalan.exceptions.UserNotFoundException;
 import grupoalan.backendgalan.model.User;
 import grupoalan.backendgalan.model.request.UsuarioAdminRegisterRequest;
 import grupoalan.backendgalan.model.request.UsuarioProfesionalRegisterRequest;
+import grupoalan.backendgalan.model.request.UsuarioRequest;
 import grupoalan.backendgalan.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,4 +86,29 @@ public class AdminService {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(20);
         return encoder.encode(password);
     }
+
+    // Método para habilitar un usuario por su ID.
+    public void manageUser(Long userId, boolean enable) {
+        // Buscar el usuario por su ID
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException("Usuario no encontrado según ID: " + userId));
+
+        if (enable) {
+            // Verificar si el usuario ya está habilitado
+            if (user.isEnabled()) {
+                throw new UserAlreadyEnabledException("El usuario con ID " + userId + " ya está habilitado");
+            }
+
+            // Habilitar el usuario
+            user.setEnabled(true);
+
+            // Guardar el usuario actualizado
+            userRepository.save(user);
+        } else {
+            // Rechazar y eliminar el usuario
+            userRepository.delete(user);
+        }
+    }
+
+
 }

@@ -8,6 +8,8 @@ public class UsuarioProfesionalRegisterRequest {
     private String companyAddress;
     private String companyPhoneNumber;
     private AccountType accountType;
+    private String city;
+    private String postalCode;
 
     public enum AccountType {
         PROFESSIONAL,
@@ -72,4 +74,22 @@ public class UsuarioProfesionalRegisterRequest {
     public void setAccountType(AccountType accountType) {
         this.accountType = accountType;
     }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+
 }

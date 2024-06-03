@@ -1,6 +1,7 @@
 package grupoalan.backendgalan.controller;
 
 import grupoalan.backendgalan.model.User;
+import grupoalan.backendgalan.model.request.SessionInfo;
 import grupoalan.backendgalan.model.request.UsuarioParticularRegisterRequest;
 import grupoalan.backendgalan.model.request.UsuarioRequest;
 import grupoalan.backendgalan.services.UserService;
@@ -53,12 +54,12 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build(); // Retorna 401 si las credenciales son incorrectas o la cuenta no está habilitada.
     }
 
-    // Punto de entrada para habilitar un usuario profesional.
-    @PostMapping("/enable/{userId}")
-    public ResponseEntity<User> enableUser(@PathVariable Long userId) {
-        User enabledUser = userService.enableUser(userId);
-        return ResponseEntity.ok(enabledUser);
-    }
+//    // Punto de entrada para habilitar un usuario profesional.
+//    @PostMapping("/enable/{userId}")
+//    public ResponseEntity<User> enableUser(@PathVariable Long userId) {
+//        User enabledUser = userService.enableUser(userId);
+//        return ResponseEntity.ok(enabledUser);
+//    }
 
     @GetMapping("/all")
     public ResponseEntity<List<User>> getAllUsers() {
@@ -76,20 +77,37 @@ public class UserController {
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<Map<String, String>> authenticateUser(@RequestBody UsuarioRequest usuarioRequest,
-                                                                HttpSession session) {
-        Map<String, String> response = new HashMap<>();
-        if (userService.authenticateUser(usuarioRequest)) {
-            // Usuario autenticado correctamente, establece la sesión
-            session.setAttribute("currentUser", usuarioRequest.getNombreUsuario());
-            logger.info("User {} authenticated successfully", usuarioRequest.getNombreUsuario());
-            response.put("message", "Usuario autenticado correctamente");
-            return ResponseEntity.ok(response);
+    public ResponseEntity<String> authenticateUser(@RequestBody UsuarioRequest usuarioRequest,
+                                                   HttpSession session) {
+        User authenticatedUser = userService.authenticateUser(usuarioRequest);
+        if (authenticatedUser != null) {
+            // Usuario autenticado correctamente, establece la sesión con nombre de usuario y tipo de cuenta
+            session.setAttribute("currentUser", authenticatedUser.getUsername());
+            session.setAttribute("currentAccountType", authenticatedUser.getAccountType().toString());
+
+            logger.info("Usuario actual: {}", authenticatedUser.getUsername());
+            logger.info("Tipo de cuenta actual: {}", authenticatedUser.getAccountType().toString());
+            logger.info("Usuario {} autenticado correctamente", authenticatedUser.getUsername());
+            return ResponseEntity.ok("{\"message\": \"Verificación exitosa. Ahora puedes iniciar sesión.\"}");
         } else {
-            response.put("message", "Credenciales inválidas");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales inválidas");
         }
     }
+
+    @GetMapping("/session-info")
+    public ResponseEntity<SessionInfo> getSessionInfo(HttpSession session) {
+        logger.info("ESTAS EN SESSION. HORA DE EXTRAER");
+        String currentUser = (String) session.getAttribute("currentUser");
+        String currentAccountType = (String) session.getAttribute("currentAccountType");
+        logger.info("Usuario actual: {}", currentUser);
+        logger.info("Tipo de cuenta actual: {}", currentAccountType);
+
+        SessionInfo sessionInfo = new SessionInfo();
+        sessionInfo.setCurrentUser(currentUser);
+        sessionInfo.setCurrentAccountType(currentAccountType);
+        return ResponseEntity.ok(sessionInfo);
+    }
+
 
     // Punto de entrada para iniciar el proceso de restablecimiento de contraseña.
     @PostMapping("/reset-password")

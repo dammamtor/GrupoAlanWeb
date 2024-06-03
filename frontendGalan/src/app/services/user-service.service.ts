@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UsuarioRequest } from '../models/UsuarioRequest';
 import { User } from '../models/user';
 import { UsuarioParticularRequest } from '../models/UsuarioParticularRequest';
+import { SessionInfo } from '../models/SessionInfo';
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +40,10 @@ export class UserServiceService {
 
   authenticateUser(usuarioRequest: UsuarioRequest): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/authenticate`, usuarioRequest);
+  }
+
+  getSessionInfo(): Observable<SessionInfo> {
+    return this.http.get<SessionInfo>(`${this.apiUrl}/session-info`);
   }
 
   initiatePasswordReset(email: string): Observable<string> {

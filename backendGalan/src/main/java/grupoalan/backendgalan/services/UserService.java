@@ -3,6 +3,7 @@ package grupoalan.backendgalan.services;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import grupoalan.backendgalan.controller.UserController;
+import grupoalan.backendgalan.exceptions.UserAlreadyEnabledException;
 import grupoalan.backendgalan.exceptions.UserNotFoundException;
 import grupoalan.backendgalan.model.User;
 import grupoalan.backendgalan.model.VerificationToken;
@@ -110,6 +111,8 @@ public class UserService {
         user.setCompanyName(userRequest.getCompanyName());
         user.setCompanyAddress(userRequest.getCompanyAddress());
         user.setCompanyPhoneNumber(userRequest.getCompanyPhoneNumber());
+        user.setCity(userRequest.getCity());
+        user.setPostalCode(userRequest.getPostalCode());
 
         // Encriptar la contraseña
         String encryptedPassword = encryptPassword(userRequest.getPassword());
@@ -174,7 +177,7 @@ public class UserService {
 
     }
 
-    public boolean authenticateUser(UsuarioRequest usuarioRequest) {
+    public User authenticateUser(UsuarioRequest usuarioRequest) {
         String nombreUsuario = usuarioRequest.getNombreUsuario();
         String contrasena = usuarioRequest.getContrasena();
         logger.info("Nombre de usuario: {}", nombreUsuario);
@@ -185,7 +188,7 @@ public class UserService {
             User usuario = usuarioOptional.get();
             if (!usuario.isEnabled()) {
                 logger.info("Usuario deshabilitado: {}", nombreUsuario);
-                return false; // Usuario deshabilitado
+                return null; // Usuario deshabilitado
             }
 
             BCryptPasswordEncoder encoder;
@@ -193,17 +196,24 @@ public class UserService {
                 case ADMIN:
                     encoder = new BCryptPasswordEncoder(20);
                     break;
-                case PARTICULAR, PROFESSIONAL:
+                case PARTICULAR:
+                case PROFESSIONAL:
                     encoder = new BCryptPasswordEncoder(15);
                     break;
                 default:
                     logger.info("Tipo de cuenta desconocido para el usuario: {}", nombreUsuario);
-                    return false;
+                    return null;
             }
 
-            return encoder.matches(contrasena, usuario.getPassword());
+            if (encoder.matches(contrasena, usuario.getPassword())) {
+                return usuario;
+            } else {
+                logger.info("Contraseña incorrecta para el usuario: {}", nombreUsuario);
+                return null; // Contraseña incorrecta
+            }
         } else {
-            return false; // Usuario no encontrado
+            logger.info("Usuario no encontrado: {}", nombreUsuario);
+            return null; // Usuario no encontrado
         }
     }
 
@@ -253,16 +263,27 @@ public class UserService {
     }
 
     // Método para habilitar un usuario por su ID.
-    public User enableUser(Long userId) {
+    public User manageUser(Long userId, boolean enable) {
         // Buscar el usuario por su ID
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado según ID: " + userId));
+                .orElseThrow(() -> new UserNotFoundException("Usuario no encontrado según ID: " + userId));
 
-        // Habilitar el usuario
-        user.setEnabled(true);
+        if (enable) {
+            // Verificar si el usuario ya está habilitado
+            if (user.isEnabled()) {
+                throw new UserAlreadyEnabledException("El usuario con ID " + userId + " ya está habilitado");
+            }
 
-        // Guardar y devolver el usuario actualizado
-        return userRepository.save(user);
+            // Habilitar el usuario
+            user.setEnabled(true);
+
+            // Guardar y devolver el usuario actualizado
+            return userRepository.save(user);
+        } else {
+            // Rechazar y eliminar el usuario
+            userRepository.delete(user);
+            return null;  // O podrías lanzar una excepción o devolver un mensaje indicando que el usuario fue eliminado
+        }
     }
 
 

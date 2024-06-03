@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { VerifyUserComponent } from './components/verify-user/verify-user.component';
 import { AfterRegisterComponent } from './components/after-register/after-register.component';
 import { HomeAdminComponent } from './components/home-admin/home-admin.component';
+import { RegisterProfesionalComponent } from './components/register-profesional/register-profesional.component';
 
 export const routes: Routes = [
   {
@@ -55,6 +56,10 @@ export const routes: Routes = [
   {
     path: "register-user",
     component: RegisterComponent
+  },
+  {
+    path: "register-professional-user",
+    component: RegisterProfesionalComponent
   },
   {
     path: 'verify/:token',

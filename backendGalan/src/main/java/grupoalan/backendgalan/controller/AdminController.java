@@ -1,5 +1,8 @@
 package grupoalan.backendgalan.controller;
 
+import grupoalan.backendgalan.exceptions.UserAlreadyEnabledException;
+import grupoalan.backendgalan.exceptions.UserManagementException;
+import grupoalan.backendgalan.exceptions.UserNotFoundException;
 import grupoalan.backendgalan.model.User;
 import grupoalan.backendgalan.model.request.UsuarioAdminRegisterRequest;
 import grupoalan.backendgalan.model.request.UsuarioRequest;
@@ -60,7 +63,7 @@ public class AdminController {
             // Accede a la sesión del usuario
             String currentUser = (String) session.getAttribute("currentUser");
 
-            if(currentUser == null) {
+            if (currentUser == null) {
                 // El usuario no está autenticado
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuario no autenticado");
             }
@@ -95,6 +98,24 @@ public class AdminController {
             return ResponseEntity.ok("Sesión cerrada exitosamente");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al cerrar la sesión: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/manage-user/{userId}")
+    public ResponseEntity<String> manageUser(
+            @PathVariable Long userId,
+            @RequestParam boolean enable) {
+        try {
+            adminService.manageUser(userId, enable);
+            return ResponseEntity.ok("Operación de gestión de usuario realizada exitosamente");
+        } catch (UserNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (UserAlreadyEnabledException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        } catch (UserManagementException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al gestionar el usuario: " + e.getMessage());
         }
     }
 }

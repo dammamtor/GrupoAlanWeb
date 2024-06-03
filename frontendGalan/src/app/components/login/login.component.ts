@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
 import { UsuarioRequest } from '../../models/UsuarioRequest';
 import { CommonModule } from '@angular/common';
+import { SessionInfo } from '../../models/SessionInfo';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,7 @@ export class LoginComponent {
 
   constructor(
     private userService: UserServiceService,
-    private ruta: Router
+    private router: Router
   ) {
     this.usuarioRequest = {
       nombreUsuario: '',
@@ -32,22 +34,38 @@ export class LoginComponent {
     this.userService.authenticateUser(this.usuarioRequest)
       .subscribe({
         next: (response: any) => {
-          console.log('Respuesta del servidor:', response.message);
-          // Manejar la respuesta del servidor, por ejemplo, guardar el token de autenticación
-          this.errorMessage = null; // Limpiar el mensaje de error si la autenticación es exitosa
+          console.log('Respuesta del servidor:', response);
+          this.getSessionInfo().subscribe({
+            next: (sessionInfo: SessionInfo) => {
+              console.log('Información de sesión:', sessionInfo);
+            },
+            error: (error) => {
+              console.error('Error obteniendo información de sesión:', error);
+            }
+          });
         },
         error: (error) => {
           console.error('Error en la solicitud:', error);
-          this.errorMessage = error.error.message || 'Error en la autenticación';
         }
       });
   }
-
-  registrarUsuario(): void {
-    this.ruta.navigate(["register-user"]);
+  
+  getSessionInfo() {
+    return this.userService.getSessionInfo().pipe(
+      tap(console.log)
+    );
+  }
+  
+  
+  redirectToAdminHome(): void {
+    this.router.navigate(["admin/home"]);
   }
 
-  registrarEmpresa(): void {
-    this.ruta.navigate(["register-user"]);
+  redirectToRegisterUser(): void {
+    this.router.navigate(["register-user"]);
+  }
+
+  redirectToRegisterProfessionalUser(): void {
+    this.router.navigate(["register-professional-user"]);
   }
 }

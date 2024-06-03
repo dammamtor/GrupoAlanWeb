@@ -65,7 +65,6 @@ public class User {
     @Column
     private String companyPhoneNumber;
 
-
     public enum AccountType {
         PROFESSIONAL,
         PARTICULAR,
@@ -203,6 +202,7 @@ public class User {
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
+
 
     @Override
     public String toString() {
