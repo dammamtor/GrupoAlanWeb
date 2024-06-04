@@ -11,6 +11,7 @@ import { VerifyUserComponent } from './components/verify-user/verify-user.compon
 import { AfterRegisterComponent } from './components/after-register/after-register.component';
 import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 import { RegisterProfesionalComponent } from './components/register-profesional/register-profesional.component';
+import { AdminUsuariosComponent } from './components/admin-usuarios/admin-usuarios.component';
 
 export const routes: Routes = [
   {
@@ -67,10 +68,14 @@ export const routes: Routes = [
   },
   {
     path: "correct-registration/:username",
-    component: AfterRegisterComponent    
+    component: AfterRegisterComponent
   },
   {
     path: "admin/home",
     component: HomeAdminComponent
+  }, 
+  {
+    path: "admin/users",
+    component: AdminUsuariosComponent
   }
 ];

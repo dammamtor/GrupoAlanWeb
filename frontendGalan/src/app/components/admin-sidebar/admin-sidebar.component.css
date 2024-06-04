@@ -1,0 +1,65 @@
+/* Estilo para la barra lateral */
+.sidebar {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    color: #333;
+    /* Color de texto más oscuro */
+    background-color: #f8f9fa;
+    /* Color de fondo gris claro */
+    padding-top: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra ligera */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fuente más legible */
+}
+
+/* Estilo para los íconos */
+.bi {
+    width: 1.8em;
+    height: 1.8em;
+    margin-right: 0.5rem;
+    /* Espacio entre iconos y texto */
+    margin-left: 1rem;
+}
+
+/* Estilo para los enlaces */
+.nav-link {
+    color: #555;
+    /* Color de texto gris */
+    padding: 0.8rem 1rem;
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+    /* Bordes redondeados */
+    cursor: pointer;
+}
+
+/* Estilo para los enlaces al pasar el ratón */
+.nav-link:hover {
+    background-color: #e9ecef;
+    /* Color de fondo gris más claro */
+    color: #333;
+    /* Color de texto más oscuro */
+}
+
+/* Estilo para el enlace activo */
+.nav-link.active {
+    background-color: #6c757d;
+    /* Color de fondo gris más oscuro */
+    color: #fff;
+    /* Color de texto blanco */
+}
+
+/* Estilo para la línea horizontal */
+.hr {
+    border-top: 1px solid #ccc;
+    /* Línea gris más clara */
+    margin: 1.5rem 0;
+    /* Mayor margen vertical */
+}
+
+/* Estilo para el contenido */
+.content {
+    padding: 2rem;
+    /* Relleno interno */
+}

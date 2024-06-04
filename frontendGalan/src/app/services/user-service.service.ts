@@ -5,6 +5,7 @@ import { UsuarioRequest } from '../models/UsuarioRequest';
 import { User } from '../models/user';
 import { UsuarioParticularRequest } from '../models/UsuarioParticularRequest';
 import { SessionInfo } from '../models/SessionInfo';
+import { UsuarioProfesionalRequest } from '../models/UsuarioProfesionalRequest';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +17,10 @@ export class UserServiceService {
 
   registerUser(userDTO: UsuarioParticularRequest): Observable<string> {
     return this.http.post<string>(`${this.apiUrl}/register`, userDTO);
+  }
+
+  registerProfessionalUser(professionalUserDTO: UsuarioProfesionalRequest): Observable<string> {
+    return this.http.post<string>(`${this.apiUrl}/registerProfessionalUser`, professionalUserDTO);
   }
 
   verifyUser(token: string): Observable<string> {

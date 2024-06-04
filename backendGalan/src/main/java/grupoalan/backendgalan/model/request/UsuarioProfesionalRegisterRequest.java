@@ -3,11 +3,13 @@ package grupoalan.backendgalan.model.request;
 public class UsuarioProfesionalRegisterRequest {
     private String email;
     private String password;
+    private String repeatPassword;
     private String username;
     private String companyName;
     private String companyAddress;
     private String companyPhoneNumber;
     private AccountType accountType;
+    private String country;
     private String city;
     private String postalCode;
 
@@ -91,5 +93,19 @@ public class UsuarioProfesionalRegisterRequest {
         this.postalCode = postalCode;
     }
 
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
 
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
 }

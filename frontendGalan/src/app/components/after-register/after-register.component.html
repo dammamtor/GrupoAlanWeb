@@ -1,9 +1,22 @@
 <app-header></app-header>
-<div class="container">
+<!-- <div class="container">
     <div class="alert alert-success" role="alert">
         <h2>¡Registro Exitoso!</h2>
         <p>¡Bienvenido, {{ username }}!</p>
         <p>Se le ha enviado un correo con un enlace de verificación para habilitar su cuenta. Si no lo verifica, no
             podrá iniciar sesión.</p>
     </div>
+</div> -->
+<div *ngIf="userType === 'professional'">
+    <div class="container">
+        <div class="alert alert-success" role="alert">
+            <h2>¡Solicitud de registro enviada!</h2>
+            <p>¡Saludos, {{ username }}!</p>
+            <p>Su cuenta profesional será revisada y verificada por nuestros administradores. Espero nuestro correo para
+                que sepa cuando su cuenta será activada.</p>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="userType === 'particular'">
 </div>

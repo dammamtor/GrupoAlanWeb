@@ -3,53 +3,164 @@
     padding: 0;
 }
 
-/* Estilo para la barra lateral */
-.sidebar {
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    color: #333; /* Color de texto más oscuro */
-    background-color: #f8f9fa; /* Color de fondo gris claro */
-    padding-top: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más legible */
-}
+/*PANEL DE CONTROL*/
+/* cards.css */
 
-/* Estilo para los íconos */
-.bi {
-    width: 1.8em;
-    height: 1.8em;
-    margin-right: 0.5rem; /* Espacio entre iconos y texto */
-    margin-left: 1rem;
-}
-
-/* Estilo para los enlaces */
-.nav-link {
-    color: #555; /* Color de texto gris */
-    padding: 0.8rem 1rem;
+.card {
+    border-radius: 1rem;
+    /* Add rounded corners to cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
     transition: all 0.3s ease;
-    border-radius: 0.5rem; /* Bordes redondeados */
+    /* Enable smooth transitions */
+    margin-bottom: 20px;
 }
 
-/* Estilo para los enlaces al pasar el ratón */
-.nav-link:hover {
-    background-color: #e9ecef; /* Color de fondo gris más claro */
-    color: #333; /* Color de texto más oscuro */
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Enhance shadow on hover */
 }
 
-/* Estilo para el enlace activo */
-.nav-link.active {
-    background-color: #6c757d; /* Color de fondo gris más oscuro */
-    color: #fff; /* Color de texto blanco */
+.card-body {
+    padding: 20px;
+    /* Adjust card body padding */
 }
 
-/* Estilo para la línea horizontal */
-.hr {
-    border-top: 1px solid #ccc; /* Línea gris más clara */
-    margin: 1.5rem 0; /* Mayor margen vertical */
+.illustration-text {
+    margin: 0;
+    /* Remove default margins */
 }
 
-/* Estilo para el contenido */
-.content {
-    padding: 2rem; /* Relleno interno */
+.illustration-img {
+    max-width: 80px;
+    /* Adjust image size */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+.stat svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    /* Use card body text color for icons */
+}
+
+.badge {
+    font-size: 0.8rem;
+    /* Reduce badge size */
+}
+
+#top-selling-products {
+    /* Target the card with the id "top-selling-products" */
+    border: 1px solid #ddd;
+    /* Add a thin border */
+    border-radius: 5px;
+    /* Add rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+    background-color: #f8f9fa;
+    /* Set a light background color */
+    margin-bottom: 20px;
+    /* Add some space below the card */
+}
+
+.list-group-item {
+    /* Style the list items */
+    padding: 10px 15px;
+    /* Add some padding */
+    border-bottom: 1px solid #eee;
+    /* Add a border between items */
+}
+
+.list-group-item:last-child {
+    /* Style the last list item */
+    border-bottom: none;
+    /* Remove the bottom border for the last item */
+}
+
+.img-fluid {
+    /* Adjust image size and style */
+    max-width: 75px;
+    height: auto;
+    object-fit: cover;
+    /* Maintain aspect ratio and crop if necessary */
+}
+
+/* Target elements within #top-viewed-products */
+#top-viewed-products .card {
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#top-viewed-products .card-header {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+#top-viewed-products .card-body {
+    padding: 20px;
+}
+
+#top-viewed-products .list-group {
+    margin: 0;
+    padding: 0;
+}
+
+#top-viewed-products .list-group-item {
+    border-top: 1px solid #ddd;
+    padding: 15px;
+    cursor: pointer;
+}
+
+#top-viewed-products .list-group-item:hover {
+    background-color: #f0f0f0;
+}
+
+#top-viewed-products .product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#top-viewed-products .product-item img {
+    max-width: 80px;
+    height: auto;
+    margin-right: 20px;
+}
+
+#top-viewed-products .product-item h4 {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+#top-viewed-products .product-item p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+#top-viewed-products .badge {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+/* Specific badge colors */
+#top-viewed-products .badge-primary {
+    background-image: linear-gradient(to right, #007bff 0%, #00c5ec 100%);
+    color: #fff;
+    border: none;
+    /* Remove border for a cleaner look */
+}
+
+
+#top-viewed-products .badge-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+#top-viewed-products .badge-info {
+    background-color: #17a2b8;
+    color: #fff;
 }

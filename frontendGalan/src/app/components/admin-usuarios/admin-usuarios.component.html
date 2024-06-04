@@ -1,0 +1,152 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <app-admin-sidebar class="col-md-3 col-lg-2 p-0"></app-admin-sidebar>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-4">
+            <h2>Gestión de Usuarios</h2>
+
+            <!-- Botón para agregar un nuevo usuario -->
+            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addUserModal">Agregar
+                Usuario</button>
+
+            <!-- Tabla para mostrar la lista de usuarios -->
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Rol</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se listarían los usuarios -->
+                        <tr>
+                            <td>Nombre Usuario</td>
+                            <td>usuario.example.com</td>
+                            <td>Administrador</td>
+                            <td>
+                                <!-- Botones para editar y eliminar usuarios -->
+                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#editUserModal">Editar</button>
+                                <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#deleteUserModal">Eliminar</button>
+                            </td>
+                        </tr>
+                        <!-- Otros usuarios se listarían aquí -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Formulario de Registro de Usuarios -->
+            <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addUserModalLabel">Agregar Nuevo Usuario</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Nombre del usuario">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email"
+                                        placeholder="Correo electrónico del usuario">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control" id="password"
+                                        placeholder="Contraseña del usuario">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="role" class="form-label">Rol</label>
+                                    <select class="form-select" id="role">
+                                        <option value="admin">Administrador</option>
+                                        <option value="user">Usuario</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtros y Búsqueda -->
+            <div class="mt-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Buscar usuarios...">
+                    <button class="btn btn-outline-secondary" type="button">Buscar</button>
+                </div>
+
+                <!-- Filtros adicionales -->
+                <div class="mt-2">
+                    <label for="filterRole" class="form-label">Filtrar por Rol:</label>
+                    <select class="form-select" id="filterRole">
+                        <option value="all">Todos</option>
+                        <option value="admin">Administrador</option>
+                        <option value="user">Usuario</option>
+                    </select>
+                </div>
+
+                <!-- Ordenar usuarios -->
+                <div class="mt-2">
+                    <label for="sortBy" class="form-label">Ordenar por:</label>
+                    <select class="form-select" id="sortBy">
+                        <option value="name">Nombre</option>
+                        <option value="email">Correo electrónico</option>
+                        <option value="role">Rol</option>
+                    </select>
+                </div>
+
+                <!-- Mostrar cantidad de resultados -->
+                <div class="mt-2">
+                    <label for="resultsPerPage" class="form-label">Resultados por página:</label>
+                    <select class="form-select" id="resultsPerPage">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+
+                <!-- Botón para restablecer filtros -->
+                <div class="mt-2">
+                    <button class="btn btn-outline-danger" type="button">Restablecer Filtros</button>
+                </div>
+            </div>
+
+            <!-- Notificaciones y Mensajes -->
+            <div class="mt-3">
+                <!-- Lista de notificaciones -->
+                <h4>Notificaciones Recientes</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Usuario1</strong> ha actualizado su perfil.
+                        <span class="badge bg-primary">Nuevo</span>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Usuario2</strong> ha creado un nuevo pedido.
+                        <span class="badge bg-primary">Nuevo</span>
+                    </li>
+                    <!-- Otras notificaciones se listarían aquí -->
+                </ul>
+
+                <!-- Botón para enviar una nueva notificación -->
+                <button class="btn btn-success mt-3" data-bs-toggle="modal"
+                    data-bs-target="#sendNotificationModal">Enviar Notificación</button>
+            </div>
+
+            <!-- Modal para enviar una nueva notificación -->
+            <div class="modal fade" id="sendNotificationModal" tabindex="-1"
+                aria-labelledby="sendNotificationModalLabel" aria-hidden="true">
+                <!-- Contenido del modal para enviar una nueva notificación -->
+            </div>
+
+        </main>
+    </div>
+</div>

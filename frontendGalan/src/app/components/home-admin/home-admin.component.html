@@ -2,192 +2,204 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body">
-            <div class="offcanvas-md offcanvas-end bg-body">
-                <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="#">
-                                <i class="bi bi-house-door-fill me-2"></i>
-                                Panel de control
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="#">
-                                <i class="bi bi-file-earmark me-2"></i>
-                                Pedidos
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="#">
-                                <i class="bi bi-cart me-2"></i>
-                                Productos
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="#">
-                                <i class="bi bi-people me-2"></i>
-                                Clientes
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="#">
-                                <i class="bi bi-bar-chart me-2"></i>
-                                Reports
-                            </a>
-                        </li>
-                    </ul>
+        <app-admin-sidebar class="col-md-3 col-lg-2 p-0"></app-admin-sidebar>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-4 ">
 
-                    <hr class="my-3">
-
-                    <ul class="nav flex-column mb-auto">
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="#">
-                                <i class="bi bi-gear-wide-connected me-2"></i>
-                                Configuracion
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="#">
-                                <i class="bi bi-door-closed me-2"></i>
-                                Cerrar sesion
-                            </a>
-                        </li>
-                    </ul>
+            <h2>Panel de control</h2>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-xxl-3 d-flex">
+                    <div class="card illustration flex-fill">
+                        <div class="card-body p-0 d-flex flex-fill">
+                            <div class="row g-0 w-100">
+                                <div class="col-6">
+                                    <div class="illustration-text p-3 m-1">
+                                        <h4 class="illustration-text">Welcome Back, Chris!</h4>
+                                        <p class="mb-0">AppStack Dashboard</p>
+                                    </div>
+                                </div>
+                                <div class="col-6 align-self-end text-end">
+                                    <img src="img/illustrations/customer-support.png" alt="Customer Support"
+                                        class="img-fluid illustration-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xxl-3 d-flex">
+                    <div class="card flex-fill">
+                        <div class="card-body py-4">
+                            <div class="d-flex align-items-start">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-2">$ 24.300</h3>
+                                    <p class="mb-2">Total Earnings</p>
+                                    <div class="mb-0">
+                                        <span class="badge badge-subtle-success me-2"> +5.35% </span>
+                                        <span class="text-muted">Since last week</span>
+                                    </div>
+                                </div>
+                                <div class="d-inline-block ms-3">
+                                    <div class="stat">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" data-lucide="dollar-sign"
+                                            class="lucide lucide-dollar-sign align-middle text-success">
+                                            <line x1="12" x2="12" y1="2" y2="22"></line>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xxl-3 d-flex">
+                    <div class="card flex-fill">
+                        <div class="card-body py-4">
+                            <div class="d-flex align-items-start">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-2">43</h3>
+                                    <p class="mb-2">Pending Orders</p>
+                                    <div class="mb-0">
+                                        <span class="badge badge-subtle-danger me-2"> -4.25% </span>
+                                        <span class="text-muted">Since last week</span>
+                                    </div>
+                                </div>
+                                <div class="d-inline-block ms-3">
+                                    <div class="stat">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" data-lucide="shopping-bag"
+                                            class="lucide lucide-shopping-bag align-middle text-danger">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xxl-3 d-flex">
+                    <div class="card flex-fill">
+                        <div class="card-body py-4">
+                            <div class="d-flex align-items-start">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-2">$ 18.700</h3>
+                                    <p class="mb-2">Total Revenue</p>
+                                    <div class="mb-0">
+                                        <span class="badge badge-subtle-success me-2"> +8.65% </span>
+                                        <span class="text-muted">Since last week</span>
+                                    </div>
+                                </div>
+                                <div class="d-inline-block ms-3">
+                                    <div class="stat">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" data-lucide="dollar-sign"
+                                            class="lucide lucide-dollar-sign align-middle text-info">
+                                            <line x1="12" x2="12" y1="2" y2="22"></line>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="col-md-12">
+                <div class="card" id="top-selling-products">
+                    <div class="card-header">
+                        <h3>Top Selling Products</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <img src="product1.jpg" alt="Product 1" class="img-fluid mr-3">
+                                    <div>
+                                        <h4>Product Name 1</h4>
+                                        <p>Brief product description.</p>
+                                    </div>
+                                    <span class="badge badge-success text-dark">Revenue: $$1111</span>
+                                    <span class="badge badge-info text-dark">Revenue (%): 12%</span>
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                                </div>
+                            </li>
 
-            <h2>Section title</h2>
-            <div class="table-responsive small">
-                <table class="table table-striped table-sm">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Header</th>
-                            <th scope="col">Header</th>
-                            <th scope="col">Header</th>
-                            <th scope="col">Header</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1,001</td>
-                            <td>random</td>
-                            <td>data</td>
-                            <td>placeholder</td>
-                            <td>text</td>
-                        </tr>
-                        <tr>
-                            <td>1,002</td>
-                            <td>placeholder</td>
-                            <td>irrelevant</td>
-                            <td>visual</td>
-                            <td>layout</td>
-                        </tr>
-                        <tr>
-                            <td>1,003</td>
-                            <td>data</td>
-                            <td>rich</td>
-                            <td>dashboard</td>
-                            <td>tabular</td>
-                        </tr>
-                        <tr>
-                            <td>1,003</td>
-                            <td>information</td>
-                            <td>placeholder</td>
-                            <td>illustrative</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>1,004</td>
-                            <td>text</td>
-                            <td>random</td>
-                            <td>layout</td>
-                            <td>dashboard</td>
-                        </tr>
-                        <tr>
-                            <td>1,005</td>
-                            <td>dashboard</td>
-                            <td>irrelevant</td>
-                            <td>text</td>
-                            <td>placeholder</td>
-                        </tr>
-                        <tr>
-                            <td>1,006</td>
-                            <td>dashboard</td>
-                            <td>illustrative</td>
-                            <td>rich</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>1,007</td>
-                            <td>placeholder</td>
-                            <td>tabular</td>
-                            <td>information</td>
-                            <td>irrelevant</td>
-                        </tr>
-                        <tr>
-                            <td>1,008</td>
-                            <td>random</td>
-                            <td>data</td>
-                            <td>placeholder</td>
-                            <td>text</td>
-                        </tr>
-                        <tr>
-                            <td>1,009</td>
-                            <td>placeholder</td>
-                            <td>irrelevant</td>
-                            <td>visual</td>
-                            <td>layout</td>
-                        </tr>
-                        <tr>
-                            <td>1,010</td>
-                            <td>data</td>
-                            <td>rich</td>
-                            <td>dashboard</td>
-                            <td>tabular</td>
-                        </tr>
-                        <tr>
-                            <td>1,011</td>
-                            <td>information</td>
-                            <td>placeholder</td>
-                            <td>illustrative</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>1,012</td>
-                            <td>text</td>
-                            <td>placeholder</td>
-                            <td>layout</td>
-                            <td>dashboard</td>
-                        </tr>
-                        <tr>
-                            <td>1,013</td>
-                            <td>dashboard</td>
-                            <td>irrelevant</td>
-                            <td>text</td>
-                            <td>visual</td>
-                        </tr>
-                        <tr>
-                            <td>1,014</td>
-                            <td>dashboard</td>
-                            <td>illustrative</td>
-                            <td>rich</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>1,015</td>
-                            <td>random</td>
-                            <td>tabular</td>
-                            <td>information</td>
-                            <td>text</td>
-                        </tr>
-                    </tbody>
-                </table>
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <img src="product2.jpg" alt="Product 2" class="img-fluid mr-3">
+                                    <div>
+                                        <h4>Product Name 2</h4>
+                                        <p>Brief product description.</p>
+                                    </div>
+                                    <span class="badge badge-success text-dark">Revenue: $$1111</span>
+                                    <span class="badge badge-info text-dark">Revenue (%): 12%</span>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <img src="product3.jpg" alt="Product 3" class="img-fluid mr-3">
+                                    <div>
+                                        <h4>Product Name 3</h4>
+                                        <p>Brief product description.</p>
+                                    </div>
+
+                                    <span class="badge badge-success text-dark">Revenue: $$1111</span>
+                                    <span class="badge badge-info text-dark">Revenue (%): 12%</span>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card" id="top-viewed-products">
+                    <div class="card-header">
+                        <h3>Top Viewed Products</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <img src="product1.jpg" alt="Product 1" class="img-fluid mr-3">
+                                    <div>
+                                        <h4>Product Name 1</h4>
+                                        <p>This product has been viewed extensively!</p>
+                                    </div>
+                                    <span class="badge badge-primary text-dark">Views: 1000</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <img src="product2.jpg" alt="Product 2" class="img-fluid mr-3">
+                                    <div>
+                                        <h4>Product Name 2</h4>
+                                        <p>Gaining popularity with a high view count.</p>
+                                    </div>
+                                    <span class="badge badge-primary text-dark">Views: 850</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <img src="product3.jpg" alt="Product 3" class="img-fluid mr-3">
+                                    <div>
+                                        <h4>Product Name 3</h4>
+                                        <p>A rising star with increasing views.</p>
+                                    </div>
+                                    <span class="badge badge-primary text-dark">Views: 725</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
+
+
         </main>
     </div>
 </div>

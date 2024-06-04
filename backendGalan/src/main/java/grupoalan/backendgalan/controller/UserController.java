@@ -3,6 +3,7 @@ package grupoalan.backendgalan.controller;
 import grupoalan.backendgalan.model.User;
 import grupoalan.backendgalan.model.request.SessionInfo;
 import grupoalan.backendgalan.model.request.UsuarioParticularRegisterRequest;
+import grupoalan.backendgalan.model.request.UsuarioProfesionalRegisterRequest;
 import grupoalan.backendgalan.model.request.UsuarioRequest;
 import grupoalan.backendgalan.services.UserService;
 import jakarta.servlet.http.HttpSession;
@@ -31,6 +32,18 @@ public class UserController {
     public ResponseEntity<String> registerUser(@RequestBody UsuarioParticularRegisterRequest userDTO) {
         userService.registerUser(userDTO);
         return ResponseEntity.status(HttpStatus.OK).body("{\"message\": \"Registro exitoso. Por favor, revisa tu correo electrónico para confirmar tu cuenta.\"}");
+    }
+
+    @PostMapping("/registerProfessionalUser")
+    public ResponseEntity<String> registerProfessionalUser(
+            @RequestBody UsuarioProfesionalRegisterRequest userRequest
+    ) {
+        try {
+            userService.registerProfessionalUser(userRequest);
+            return ResponseEntity.status(HttpStatus.OK).body("{\"message\": \"Registro exitoso\"}");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error: " + e.getMessage());
+        }
     }
 
     @GetMapping("/verify")

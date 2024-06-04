@@ -3,11 +3,14 @@ import { UsuarioProfesionalRequest } from '../../models/UsuarioProfesionalReques
 import { UserServiceService } from '../../services/user-service.service';
 import { Router } from '@angular/router';
 import { AccountType } from '../../models/AccountType';
+import { FormsModule, NgForm } from '@angular/forms';
+import { HeaderComponent } from '../header/header.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register-profesional',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, HeaderComponent, CommonModule],
   templateUrl: './register-profesional.component.html',
   styleUrl: './register-profesional.component.css'
 })
@@ -20,14 +23,44 @@ export class RegisterProfesionalComponent {
     this.userRegister = {
       email: '',
       password: '',
+      repeatPassword: "",
       username: '',
       companyName: '',
       companyAddress: '',
       companyPhoneNumber: '',
       accountType: AccountType.PROFESSIONAL,
       city: '',
-      postalCode: ''
+      postalCode: '',
+      country: ""
     };
+  }
+
+  registerUser(form: NgForm) {
+    if (this.passwordsMatch()) {
+      console.log("Objeto recibido: ", this.userRegister);
+      this.userService.registerProfessionalUser(this.userRegister).subscribe({
+        next: (response) => {
+          console.log('Usuario registrado exitosamente');
+          this.messageRegistration();
+        },
+        error: (error) => {
+          console.error('Error al registrar usuario', error);
+        }
+      });
+    } else {
+      console.error('Las contraseñas no coinciden.');
+    }
+  }
+
+  passwordsMatch(): boolean {
+    return this.userRegister.password === this.userRegister.repeatPassword;
+  }
+
+  messageRegistration() {
+    console.log("Vamonos");
+    this.ruta.navigate(["correct-registration", this.userRegister.username], {
+      queryParams: { userType: "professional" }
+    })
   }
 
 }

@@ -1,1 +1,106 @@
-<p>register-profesional works!</p>
+<app-header></app-header>
+<div class="container">
+    <h2>Crear una cuenta profesional</h2>
+    <p>Este tipo de cuenta va orientada a profesionales y empresas relacionadas con el sector del regalo promocional:
+        publicistas,
+        impresores, agencias de publicidad y eventos, imprentas, rotulistas, ropa laboral, etc.</p>
+    <form (ngSubmit)="registerUser(registerForm)" #registerForm="ngForm">
+        <h2>Información general</h2>
+        <div class="form-group">
+            <label for="name">Nombre comercial</label>
+            <input type="text" class="form-control" id="companyName" name="companyName"
+                [(ngModel)]="userRegister.companyName" required>
+            <div *ngIf="registerForm.controls['companyName'].invalid && (registerForm.controls['companyName'].dirty || registerForm.controls['companyName'].touched)"
+                class="alert alert-danger">
+                Debes introducir un nombre comercial.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userRegister.email" required>
+            <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)"
+                class="alert alert-danger">
+                Debes introducir un correo electrónico válido.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Número de teléfono</label>
+            <input type="text" class="form-control" id="companyPhoneNumber" name="companyPhoneNumber"
+                [(ngModel)]="userRegister.companyPhoneNumber" required>
+            <div *ngIf="registerForm.controls['companyPhoneNumber'].invalid && (registerForm.controls['companyPhoneNumber'].dirty || registerForm.controls['companyPhoneNumber'].touched)"
+                class="alert alert-danger">
+                El número de teléfono es obligatorio.
+            </div>
+        </div>
+
+        <!-- Dirección de envío -->
+        <h2>Dirección de envío</h2>
+        <div class="form-group">
+            <label for="country">País</label>
+            <input type="text" class="form-control" id="country" name="country" [(ngModel)]="userRegister.country"
+                required>
+            <div *ngIf="registerForm.controls['country'].invalid && (registerForm.controls['country'].dirty || registerForm.controls['country'].touched)"
+                class="alert alert-danger">
+                El país es obligatorio.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="city">Ciudad</label>
+            <input type="text" class="form-control" id="city" name="city" [(ngModel)]="userRegister.city" required>
+            <div *ngIf="registerForm.controls['city'].invalid && (registerForm.controls['city'].dirty || registerForm.controls['city'].touched)"
+                class="alert alert-danger">
+                La ciudad es obligatoria.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address">Dirección</label>
+            <input type="text" class="form-control" id="companyAddress" name="companyAddress"
+                [(ngModel)]="userRegister.companyAddress" required>
+            <div *ngIf="registerForm.controls['companyAddress'].invalid && (registerForm.controls['companyAddress'].dirty || registerForm.controls['companyAddress'].touched)"
+                class="alert alert-danger">
+                La dirección es obligatoria.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="postalCode">Código Postal</label>
+            <input type="text" class="form-control" id="postalCode" name="postalCode"
+                [(ngModel)]="userRegister.postalCode" required>
+            <div *ngIf="registerForm.controls['postalCode'].invalid && (registerForm.controls['postalCode'].dirty || registerForm.controls['postalCode'].touched)"
+                class="alert alert-danger">
+                El código postal es obligatorio.
+            </div>
+        </div>
+
+        <!-- Datos de cuenta -->
+        <h2>Datos de cuenta</h2>
+        <div class="form-group">
+            <label for="username">Nombre de usuario</label>
+            <input type="text" class="form-control" id="username" name="username" [(ngModel)]="userRegister.username"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" class="form-control" id="password" name="password"
+                [(ngModel)]="userRegister.password" required>
+        </div>
+        <div class="form-group">
+            <label for="repeatPassword">Repetir contraseña</label>
+            <input type="password" class="form-control" id="repeatPassword" name="repeatPassword"
+                [(ngModel)]="userRegister.repeatPassword" required>
+            <div *ngIf="userRegister.password !== userRegister.repeatPassword && (registerForm.controls['repeatPassword'].dirty || registerForm.controls['repeatPassword'].touched)"
+                class="alert alert-danger">
+                Las contraseñas no coinciden.
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Tipo de cuenta</label>
+            <input type="text" class="form-control" readonly value="Profesional">
+        </div>
+        <div id="notification">
+            <p>Una vez que haya mandado el formulario, se le notificará por email si su cuenta ha sido activada o no</p>
+        </div>
+        
+        <button type="submit" class="btn btn-primary"
+            [disabled]="!registerForm.valid || !passwordsMatch()">Registrarse</button>
+    </form>
+</div>
