@@ -12,6 +12,9 @@ import { AfterRegisterComponent } from './components/after-register/after-regist
 import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 import { RegisterProfesionalComponent } from './components/register-profesional/register-profesional.component';
 import { AdminUsuariosComponent } from './components/admin-usuarios/admin-usuarios.component';
+import { AdminPedidosComponent } from './components/admin-pedidos/admin-pedidos.component';
+import { AdminDetallesPedidosComponent } from './components/admin-detalles-pedidos/admin-detalles-pedidos.component';
+import { HomeUserComponent } from './components/home-user/home-user.component';
 
 export const routes: Routes = [
   {
@@ -77,5 +80,17 @@ export const routes: Routes = [
   {
     path: "admin/users",
     component: AdminUsuariosComponent
+  },
+  {
+    path: "admin/pedidos",
+    component: AdminPedidosComponent
+  },
+  {
+    path: "admin/detalles-pedido",
+    component: AdminDetallesPedidosComponent
+  },
+  {
+    path: "user/home",
+    component: HomeUserComponent
   }
 ];

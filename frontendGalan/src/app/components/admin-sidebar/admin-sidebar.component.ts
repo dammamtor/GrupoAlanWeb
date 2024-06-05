@@ -22,4 +22,8 @@ export class AdminSidebarComponent {
   redirectToUsuariosPanel() {
     this.ruta.navigate(["admin/users"]);
   }
+
+  redirectToPedidosPanel() {
+    this.ruta.navigate(["admin/pedidos"]);
+  }
 }
