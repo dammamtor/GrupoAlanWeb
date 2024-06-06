@@ -6,6 +6,11 @@
     /* Color del texto */
     padding: 10px 0;
     /* Espaciado interno del encabezado */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra ligera */
 }
 
 .header-wrapper a {
@@ -37,6 +42,10 @@
 .navbar {
     background-color: #333;
     /* Color de fondo de la barra de navegación */
+    padding: 10px 0;
+    /* Espaciado interno de la barra de navegación */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra ligera */
 }
 
 .navbar .nav-link {
@@ -89,6 +98,11 @@
     /* Tamaño máximo del logotipo */
     cursor: pointer;
     /* Cambia el cursor al pasar sobre el logotipo */
+    transition: transform 0.3s; /* Transición suave para el cambio de escala */
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.2); /* Aumenta el tamaño al 120% */
 }
 
 /* Estilos para el ícono de la cesta */
@@ -112,8 +126,7 @@
     /* Color del texto del botón */
     border-color: white;
     /* Color del borde del botón */
-    transition: background-color 0.3s, color 0.3s;
-    /* Transición suave para el cambio de color */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transición suave para el cambio de color y escala */
     cursor: pointer;
     /* Cambia el cursor al pasar sobre el botón */
 }
@@ -123,12 +136,5 @@
     /* Cambia el color de fondo del botón al pasar el ratón sobre él */
     color: #333;
     /* Cambia el color del texto del botón al pasar el ratón sobre él */
-}
-
-/* Estilos para el logotipo */
-#logo-img {
-    max-width: 50px;
-    /* Tamaño máximo del logotipo */
-    cursor: pointer;
-    /* Cambia el cursor al pasar sobre el logotipo */
+    transform: scale(1.1); /* Aumenta el tamaño al 110% */
 }

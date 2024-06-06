@@ -4,14 +4,19 @@
     position: sticky;
     top: 0;
     color: #333;
-    /* Color de texto más oscuro */
     background-color: #f8f9fa;
-    /* Color de fondo gris claro */
     padding-top: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra ligera */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Fuente más legible */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sidebar:hover {
+    background-color: #f1f3f5;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* Estilo para los íconos */
@@ -19,47 +24,104 @@
     width: 1.8em;
     height: 1.8em;
     margin-right: 0.5rem;
-    /* Espacio entre iconos y texto */
     margin-left: 1rem;
+    color: #007ae1;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover .bi {
+    color: #005bb5;
 }
 
 /* Estilo para los enlaces */
 .nav-link {
     color: #555;
-    /* Color de texto gris */
     padding: 0.8rem 1rem;
     transition: all 0.3s ease;
     border-radius: 0.5rem;
-    /* Bordes redondeados */
     cursor: pointer;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
-/* Estilo para los enlaces al pasar el ratón */
 .nav-link:hover {
     background-color: #e9ecef;
-    /* Color de fondo gris más claro */
     color: #333;
-    /* Color de texto más oscuro */
 }
 
-/* Estilo para el enlace activo */
 .nav-link.active {
     background-color: #6c757d;
-    /* Color de fondo gris más oscuro */
     color: #fff;
-    /* Color de texto blanco */
+}
+
+.nav-link.active .bi {
+    color: #fff;
 }
 
 /* Estilo para la línea horizontal */
 .hr {
     border-top: 1px solid #ccc;
-    /* Línea gris más clara */
     margin: 1.5rem 0;
-    /* Mayor margen vertical */
+    width: 80%;
 }
 
 /* Estilo para el contenido */
 .content {
     padding: 2rem;
-    /* Relleno interno */
+    flex: 1;
+    width: 100%;
+}
+
+/* Estilo adicional para los encabezados de secciones en la barra lateral */
+.sidebar .section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #007ae1;
+    margin: 1rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* Estilo para un logo o título en la parte superior de la barra lateral */
+.sidebar .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Agregar un gradiente sutil al fondo de la barra lateral */
+.sidebar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    z-index: -1;
+}
+
+/* Mejora para dispositivos móviles */
+@media (max-width: 768px) {
+    .sidebar {
+        height: auto;
+        position: relative;
+    }
+
+    .nav-link {
+        justify-content: center;
+    }
+
+    .hr {
+        display: none;
+    }
+
+    .content {
+        padding: 1rem;
+    }
 }

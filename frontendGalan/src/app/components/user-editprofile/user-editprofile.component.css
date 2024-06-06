@@ -1,0 +1,126 @@
+.container-fluid {
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding-top: 40px;
+    color: #2e323c;
+    background: #f5f6fa;
+    position: relative;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.account-settings .user-profile {
+    margin-bottom: 1rem;
+    padding: 20px;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.account-settings .user-profile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.account-settings .user-profile .user-avatar {
+    margin-bottom: 1rem;
+}
+
+.account-settings .user-profile .user-avatar img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.account-settings .user-profile .user-avatar img:hover {
+    transform: scale(1.1);
+}
+
+.account-settings .user-profile h5.user-name {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #007ae1;
+    transition: color 0.3s ease;
+}
+
+.account-settings .user-profile h5.user-name:hover {
+    color: #005bb5;
+}
+
+.account-settings .user-profile h6.user-email {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #9fa8b9;
+}
+
+.account-settings .about {
+    margin-top: 2rem;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.account-settings .about:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.account-settings .about h5 {
+    margin-bottom: 15px;
+    color: #007ae1;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.account-settings .about h5:hover {
+    color: #005bb5;
+}
+
+.account-settings .about p {
+    font-size: 0.875rem;
+    color: #2e323c;
+}
+
+.form-control {
+    border: 1px solid #cfd1d8;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    background: #ffffff;
+    color: #2e323c;
+    padding: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007ae1;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 0;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

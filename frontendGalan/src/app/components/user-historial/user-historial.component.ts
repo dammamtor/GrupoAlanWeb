@@ -4,21 +4,20 @@ import { UserSidebarComponent } from '../user-sidebar/user-sidebar.component';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home-user',
+  selector: 'app-user-historial',
   standalone: true,
   imports: [HeaderComponent, UserSidebarComponent],
-  templateUrl: './home-user.component.html',
-  styleUrl: './home-user.component.css'
+  templateUrl: './user-historial.component.html',
+  styleUrl: './user-historial.component.css'
 })
-export class HomeUserComponent {
+export class UserHistorialComponent {
   constructor(
     private ruta: Router
   ){
 
   }
 
-  redirectToEditUser() {
-    this.ruta.navigate(["user/edit-user"]);
+  redirectToDetalles() {
+    this.ruta.navigate(["user/historial/pedido/id"]);
   }
-
 }

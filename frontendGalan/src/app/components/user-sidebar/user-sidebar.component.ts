@@ -18,4 +18,20 @@ export class UserSidebarComponent {
   redirectToPanelDeControl() {
     this.ruta.navigate(["user/home"]);
   }
+
+  redirectToNotificaciones() {
+    this.ruta.navigate(["user/notificaciones"]);
+  }
+
+  redirectToHistorial() {
+    this.ruta.navigate(["user/historial"]);
+  }
+
+  redirectToFavoritos() {
+    this.ruta.navigate(["user/favoritos"]);
+  }
+
+  redirectToConfiguracion() {
+    this.ruta.navigate(["user/configuracion"]);
+  }
 }

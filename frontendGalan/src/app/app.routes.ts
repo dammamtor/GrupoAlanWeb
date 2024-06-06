@@ -15,6 +15,12 @@ import { AdminUsuariosComponent } from './components/admin-usuarios/admin-usuari
 import { AdminPedidosComponent } from './components/admin-pedidos/admin-pedidos.component';
 import { AdminDetallesPedidosComponent } from './components/admin-detalles-pedidos/admin-detalles-pedidos.component';
 import { HomeUserComponent } from './components/home-user/home-user.component';
+import { UserEditprofileComponent } from './components/user-editprofile/user-editprofile.component';
+import { UserNotificacionesComponent } from './components/user-notificaciones/user-notificaciones.component';
+import { UserHistorialComponent } from './components/user-historial/user-historial.component';
+import { UserHistorialDetallesComponent } from './components/user-historial-detalles/user-historial-detalles.component';
+import { UserFavoritosComponent } from './components/user-favoritos/user-favoritos.component';
+import { UserConfiguracionComponent } from './components/user-configuracion/user-configuracion.component';
 
 export const routes: Routes = [
   {
@@ -92,5 +98,29 @@ export const routes: Routes = [
   {
     path: "user/home",
     component: HomeUserComponent
+  },
+  {
+    path: "user/edit-user",
+    component: UserEditprofileComponent
+  },
+  {
+    path: "user/notificaciones",
+    component: UserNotificacionesComponent
+  },
+  {
+    path: "user/historial",
+    component: UserHistorialComponent
+  },
+  {
+    path: "user/historial/pedido/id",
+    component: UserHistorialDetallesComponent
+  },
+  {
+    path: "user/favoritos",
+    component: UserFavoritosComponent
+  },
+  {
+    path: "user/configuracion",
+    component: UserConfiguracionComponent
   }
 ];

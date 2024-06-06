@@ -1,0 +1,55 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row">
+        <app-user-sidebar class="col-md-3 col-lg-2 p-0"></app-user-sidebar>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-4">
+            <!-- Título de Notificaciones -->
+            <h2 class="mb-4">Notificaciones</h2>
+            <!-- Template de Notificaciones -->
+            <div class="notification-container">
+                <!-- Notificación de éxito -->
+                <div class="alert alert-success notification-item" role="alert">
+                    <div class="notification-icon">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                    <div class="notification-content">
+                        <strong>Éxito:</strong> Tu pedido ha sido procesado exitosamente.
+                    </div>
+                </div>
+        
+                <!-- Notificación de advertencia -->
+                <div class="alert alert-warning notification-item" role="alert">
+                    <div class="notification-icon">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                    </div>
+                    <div class="notification-content">
+                        <strong>Advertencia:</strong> La fecha de entrega de tu pedido ha sido modificada.
+                    </div>
+                </div>
+        
+                <!-- Notificación de error -->
+                <div class="alert alert-danger notification-item" role="alert">
+                    <div class="notification-icon">
+                        <i class="bi bi-x-circle-fill"></i>
+                    </div>
+                    <div class="notification-content">
+                        <strong>Error:</strong> Se ha producido un error al procesar tu pago.
+                    </div>
+                </div>
+        
+                <!-- Notificación informativa -->
+                <div class="alert alert-info notification-item" role="alert">
+                    <div class="notification-icon">
+                        <i class="bi bi-info-circle-fill"></i>
+                    </div>
+                    <div class="notification-content">
+                        <strong>Información:</strong> ¡Nuevo diseño disponible en nuestra galería!
+                    </div>
+                </div>
+            </div>
+            <!-- Fin del Template de Notificaciones -->
+        </main>
+        
+    </div>
+</div>

@@ -1,0 +1,180 @@
+/* Resetear el padding del contenedor */
+.container-fluid {
+    padding: 0;
+}
+
+/* Estilos para las tablas */
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+    background-color: #f0f5ff;
+    /* Azul claro */
+    border: 1px solid #b3c6ff;
+    /* Borde azul */
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.table th,
+.table td {
+    padding: 1rem;
+    vertical-align: top;
+    border-top: 1px solid #b3c6ff;
+    /* Borde azul */
+    font-size: 0.9rem;
+    /* Tamaño de fuente */
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #b3c6ff;
+    /* Borde azul */
+    background-color: #d9e6ff;
+    /* Azul claro para encabezado */
+    color: #333;
+    /* Color de texto */
+    font-weight: bold;
+    /* Negrita */
+    text-transform: uppercase;
+    /* Mayúsculas */
+}
+
+.table tbody+tbody {
+    border-top: 2px solid #b3c6ff;
+    /* Borde azul */
+}
+
+/* Estilos para las tarjetas */
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    /* Más espacio de relleno */
+    margin-bottom: 2rem;
+    /* Mayor margen inferior */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    /* Transición suave */
+}
+
+.card:hover {
+    transform: scale(1.05);
+    /* Aumenta el tamaño al pasar el ratón */
+    box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.1);
+    /* Sutil sombra al pasar el ratón */
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    /* Borde superior */
+}
+
+/* Otros estilos */
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
+.address-lg {
+    font-size: 16px;
+}
+
+.header-title {
+    color: #333;
+    font-size: 24px;
+    /* Tamaño de fuente aumentado */
+    margin-bottom: 30px;
+    /* Mayor margen inferior */
+    text-transform: uppercase;
+    /* Mayúsculas */
+}
+
+/* Estilos para la pista de progreso */
+.track {
+    position: relative;
+    background-color: #ddd;
+    height: 7px;
+    display: flex;
+    margin-bottom: 80px;
+    /* Mayor margen inferior */
+    margin-top: 60px;
+    /* Mayor margen superior */
+}
+
+/* Estilos para cada paso en la pista */
+.track .step {
+    flex-grow: 1;
+    width: 25%;
+    margin-top: -18px;
+    text-align: center;
+    position: relative;
+}
+
+/* Estilos para el indicador de cada paso */
+.track .step::before {
+    height: 7px;
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    top: 18px;
+}
+
+/* Estilos para el estado activo de cada paso */
+.track .step.active:before {
+    background: #FF5722;
+}
+
+/* Estilos para el ícono de cada paso */
+.track .icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    border-radius: 100%;
+    background: #ddd;
+    transition: background-color 0.3s ease;
+    /* Transición suave */
+}
+
+/* Estilos para el estado activo del ícono */
+.track .step.active .icon {
+    background: #ee5435;
+    color: #fff;
+}
+
+/* Estilos para el texto de cada paso */
+.track .text {
+    display: block;
+    margin-top: 7px;
+    font-weight: 500;
+    /* Texto más grueso */
+    color: #444;
+    /* Color de texto más oscuro */
+}
+
+/* Hover para botones */
+.btn:hover {
+    background-color: #ee5435;
+    color: #fff;
+}
+
+/* Hover para enlaces */
+a:hover {
+    color: #ee5435;
+    text-decoration: underline;
+}

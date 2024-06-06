@@ -4,21 +4,20 @@ import { UserSidebarComponent } from '../user-sidebar/user-sidebar.component';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home-user',
+  selector: 'app-user-editprofile',
   standalone: true,
   imports: [HeaderComponent, UserSidebarComponent],
-  templateUrl: './home-user.component.html',
-  styleUrl: './home-user.component.css'
+  templateUrl: './user-editprofile.component.html',
+  styleUrl: './user-editprofile.component.css'
 })
-export class HomeUserComponent {
+export class UserEditprofileComponent {
   constructor(
     private ruta: Router
   ){
 
   }
 
-  redirectToEditUser() {
-    this.ruta.navigate(["user/edit-user"]);
+  redirectToUser() {
+    this.ruta.navigate(["user/home"]);
   }
-
 }
