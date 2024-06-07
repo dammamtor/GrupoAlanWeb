@@ -1,140 +1,82 @@
-/* Estilos para el encabezado */
+/* Estilo para el encabezado */
 .header-wrapper {
-    background-color: #333;
-    /* Color de fondo del encabezado */
-    color: white;
-    /* Color del texto */
-    padding: 10px 0;
-    /* Espaciado interno del encabezado */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Sombra ligera */
+    background-color: #343a40; /* Color de fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    padding: 10px 0; /* Espaciado interno arriba y abajo */
 }
 
 .header-wrapper a {
-    color: white;
-    /* Color de los enlaces en el encabezado */
-    text-decoration: none;
-    /* Quita el subrayado de los enlaces */
-    margin: 0 15px;
-    /* Espaciado entre enlaces */
-    transition: color 0.3s;
-    /* Transición suave para el cambio de color */
-    cursor: pointer;
-    /* Cambia el cursor al pasar sobre el enlace */
+    color: #ffffff; /* Enlaces en color blanco */
+    text-decoration: none; /* Sin subrayado */
+    margin: 0 10px; /* Margen entre enlaces */
+    transition: color 0.3s ease; /* Transición suave de color */
+    cursor: pointer; /* Cambio de cursor a mano */
 }
 
 .header-wrapper a:hover {
-    color: #ffd700;
-    /* Cambia el color de los enlaces al pasar el ratón sobre ellos */
+    text-decoration: underline; /* Subrayado en el hover */
+    color: #ffcc00; /* Cambio de color en el hover */
 }
 
-.header-wrapper span {
-    color: white;
-    /* Color de los separadores */
-    margin: 0 10px;
-    /* Espaciado entre separadores */
-}
-
-/* Estilos para la barra de navegación */
+/* Estilo para la barra de navegación superior */
 .navbar {
-    background-color: #333;
-    /* Color de fondo de la barra de navegación */
-    padding: 10px 0;
-    /* Espaciado interno de la barra de navegación */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Sombra ligera */
+    background-color: #343a40; /* Color de fondo oscuro */
 }
 
-.navbar .nav-link {
-    color: white;
-    /* Color de los enlaces en la barra de navegación */
-    padding: 10px 15px;
-    /* Espaciado interno de los enlaces */
-    transition: color 0.3s;
-    /* Transición suave para el cambio de color */
-    cursor: pointer;
-    /* Cambia el cursor al pasar sobre el enlace */
+.nav-link {
+    color: #ffffff !important; /* Texto blanco */
+    transition: color 0.3s ease; /* Transición suave de color */
+    cursor: pointer; /* Cambio de cursor a mano */
 }
 
-.navbar .nav-link:hover {
-    color: #ffd700;
-    /* Cambia el color de los enlaces al pasar el ratón sobre ellos */
+.nav-link:hover {
+    color: #ffcc00 !important; /* Texto en amarillo en hover */
 }
 
-/* Estilos para el botón de búsqueda */
-.navbar .form-control {
-    background-color: #444;
-    /* Color de fondo del campo de búsqueda */
-    color: white;
-    /* Color del texto en el campo de búsqueda */
-    border-color: transparent;
-    /* Quita el borde del campo de búsqueda */
+/* Estilo para el botón de búsqueda */
+.btn-outline-light {
+    color: #ffffff; /* Texto blanco */
+    border-color: #ffffff; /* Borde blanco */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+    cursor: pointer; /* Cambio de cursor a mano */
 }
 
-.navbar .btn-outline-light {
-    color: white;
-    /* Color del texto del botón de búsqueda */
-    border-color: white;
-    /* Color del borde del botón de búsqueda */
-    transition: background-color 0.3s, color 0.3s;
-    /* Transición suave para el cambio de color */
-    cursor: pointer;
-    /* Cambia el cursor al pasar sobre el botón */
+.btn-outline-light:hover {
+    background-color: #ffffff; /* Fondo blanco en hover */
+    color: #ffcc00; /* Texto en amarillo en hover */
 }
 
-.navbar .btn-outline-light:hover {
-    background-color: white;
-    /* Cambia el color de fondo del botón de búsqueda al pasar el ratón sobre él */
-    color: #333;
-    /* Cambia el color del texto del botón de búsqueda al pasar el ratón sobre él */
+/* Estilo para el botón de búsqueda avanzada */
+.btn-outline-light.btn-sm {
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    transition: color 0.3s ease; /* Transición suave de color */
+    cursor: pointer; /* Cambio de cursor a mano */
 }
 
-/* Estilos para el logotipo */
-.navbar-brand img {
-    max-width: 50px;
-    /* Tamaño máximo del logotipo */
-    cursor: pointer;
-    /* Cambia el cursor al pasar sobre el logotipo */
-    transition: transform 0.3s; /* Transición suave para el cambio de escala */
+.btn-outline-light.btn-sm:hover {
+    color: #ffcc00; /* Texto en amarillo en hover */
 }
 
-.navbar-brand img:hover {
-    transform: scale(1.2); /* Aumenta el tamaño al 120% */
-}
-
-/* Estilos para el ícono de la cesta */
+/* Estilo para el icono de carrito */
 .cart-icon {
-    color: white;
-    /* Color del ícono de la cesta */
-    transition: color 0.3s;
-    /* Transición suave para el cambio de color */
-    cursor: pointer;
-    /* Cambia el cursor al pasar sobre el ícono */
+    color: #ffffff; /* Icono blanco */
+    transition: color 0.3s ease; /* Transición suave de color */
+    cursor: pointer; /* Cambio de cursor a mano */
 }
 
 .cart-icon:hover {
-    color: #ffd700;
-    /* Cambia el color del ícono de la cesta al pasar el ratón sobre él */
+    color: #ffcc00; /* Icono en amarillo en hover */
 }
 
-/* Estilos para el botón Acceder/Registro */
-.btn-access {
-    color: white;
-    /* Color del texto del botón */
-    border-color: white;
-    /* Color del borde del botón */
-    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transición suave para el cambio de color y escala */
-    cursor: pointer;
-    /* Cambia el cursor al pasar sobre el botón */
+/* Estilo para el botón de acceso/registro */
+.btn-outline-primary.btn-sm {
+    color: #007bff; /* Texto azul */
+    border-color: #007bff; /* Borde azul */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+    cursor: pointer; /* Cambio de cursor a mano */
 }
 
-.btn-access:hover {
-    background-color: white;
-    /* Cambia el color de fondo del botón al pasar el ratón sobre él */
-    color: #333;
-    /* Cambia el color del texto del botón al pasar el ratón sobre él */
-    transform: scale(1.1); /* Aumenta el tamaño al 110% */
+.btn-outline-primary.btn-sm:hover {
+    background-color: #007bff; /* Fondo azul en hover */
+    color: #ffffff; /* Texto blanco en hover */
 }

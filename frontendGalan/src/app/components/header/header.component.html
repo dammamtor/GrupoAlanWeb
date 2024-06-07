@@ -22,17 +22,24 @@
             <!-- Logo de la empresa -->
             <div id="logo-img" class="col-lg-2 col-md-3 col-4" (click)="irAHome()">
                 <span><img src="" alt="Logo" width="50"></span>
-            </div>            
+            </div>
     
-            <!-- Buscador -->
-            <div class="col-lg-5 col-md-5 col-6">
-                <form class="d-flex">
+            <!-- Contenedor para los botones de búsqueda y cesta -->
+            <div class="col-lg-6 col-md-6 col-7 d-flex align-items-center">
+                <!-- Buscador -->
+                <form class="d-flex" style="width: 100%;">
                     <input #searchTerm class="form-control me-2" type="search"
-                        placeholder="Introduce el producto que estás buscando" aria-label="Search">
+                        placeholder="Introduce el producto que estás buscando" aria-label="Search"
+                        style="width: 100%;">
                     <button class="btn btn-outline-light" type="button" (click)="irASearch(searchTerm.value)">
                         <i class="bi bi-search"></i>
                     </button>
                 </form>
+    
+                <!-- Botón de búsqueda avanzada -->
+                <button class="btn btn-outline-light btn-sm ms-2" type="button">
+                    <i class="bi bi-gear"></i> Búsqueda Avanzada
+                </button>
             </div>
     
             <!-- Logo de la cesta -->
@@ -49,7 +56,9 @@
                 </span>
             </div>
         </div>
-    </div>    
+    </div>
+    
+    
 
 
     <!-- Categorías -->
@@ -104,6 +113,5 @@
                 </ul>
             </div>
         </div>
-    </nav>    
+    </nav>
 </header>
-

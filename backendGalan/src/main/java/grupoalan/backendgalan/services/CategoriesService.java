@@ -88,15 +88,15 @@ public class CategoriesService {
         List<String> uniqueCategories = new ArrayList<>();
 
         for (Categories category : categories) {
-
-            if (!uniqueCategories.contains(category.getCategory().toUpperCase())) {
-                uniqueCategories.add(category.getCategory().toUpperCase());
+            if (!uniqueCategories.contains(category.getCategory())) {
+                uniqueCategories.add(category.getCategory());
             }
         }
 
         logger.info("Categorias en español: " + uniqueCategories.size());
         return uniqueCategories;
     }
+
 
 
 

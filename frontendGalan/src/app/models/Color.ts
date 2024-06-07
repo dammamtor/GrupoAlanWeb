@@ -1,6 +1,7 @@
 import { Product } from "./Product";
 
 export interface Color {
+    value: any;
     replace: any;
     id: number;
     code: string;
