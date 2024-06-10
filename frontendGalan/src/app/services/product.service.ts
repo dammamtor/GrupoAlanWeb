@@ -29,4 +29,13 @@ export class ProductService {
     console.log("MÉTODO SERVICE. OBTENER PRODUCTO POR REFERENCIA: " + ref);
     return this.http.get<Product>(`${this.apiUrl}/obtener-producto/${ref}`);
   }
+
+  obtenerProductosFiltrados(categorias: string, colores: string[], tipos: string[]): Observable<Product[]> {
+    const params = {
+      categorias: categorias,
+      colores: colores.join(","),
+      tipos: tipos.join(",")
+    };
+    return this.http.get<Product[]>(`${this.apiUrl}/productos-filtrados`, { params: params });
+  }
 }

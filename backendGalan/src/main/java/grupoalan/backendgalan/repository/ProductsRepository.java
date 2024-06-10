@@ -27,7 +27,7 @@ public interface ProductsRepository extends JpaRepository<Products, Long> {
             "LEFT JOIN p.variants v " +
             "LEFT JOIN v.colorSet c " +
             "LEFT JOIN p.categories cat " +
-            "WHERE (:categorias IS NULL OR cat.ref IN :categorias) " +
+            "WHERE (:categorias IS NULL OR cat.category IN :categorias) " +
             "AND (:colores IS NULL OR c.name IN :colores) " +
             "AND (:tipos IS NULL OR d.type IN :tipos)")
     List<Products> findByCategoriasAndColoresAndTipos(@Param("categorias") List<String> categorias,

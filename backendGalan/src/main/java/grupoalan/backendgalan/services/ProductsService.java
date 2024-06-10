@@ -17,7 +17,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.Normalizer;
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Service
@@ -371,13 +373,16 @@ public class ProductsService{
         List<Products> allProducts = productsRepository.findAll();
         List<Products> matchingProducts = new ArrayList<>();
 
+        // Normalizar el término de búsqueda para eliminar tildes y convertir a minúsculas
+        String normalizedSearchTerm = normalizeString(searchTerm.toLowerCase());
+
         logger.info("Starting product search for searchTerm: " + searchTerm);
 
         for (Products product : allProducts) {
             Set<Descriptions> descriptions = product.getDescriptions();
             for (Descriptions description : descriptions) {
                 String type = description.getType();
-                if (type != null && type.contains(searchTerm)) {
+                if (type != null && normalizeString(type.toLowerCase()).contains(normalizedSearchTerm)) {
                     matchingProducts.add(product);
                     logger.info("Product matches found for: " + product.getName());
                     break; // Si encontramos una coincidencia, no es necesario continuar con las descripciones
@@ -388,6 +393,16 @@ public class ProductsService{
         logger.info("Matches found for searchTerm: " + searchTerm + ". Total products found: " + matchingProducts.size());
         return matchingProducts;
     }
+
+    private String normalizeString(String input) {
+        logger.info("Normalizing string: " + input);
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        String result = pattern.matcher(normalized).replaceAll("");
+        logger.info("Normalized result: " + result);
+        return result;
+    }
+
 
     public List<Products> filtrarProductosPorCategoriasColoresYTipos(List<String> categorias, List<String> colores, List<String> tipos) {
         // Implementa la lógica para filtrar los productos en base a las opciones seleccionadas

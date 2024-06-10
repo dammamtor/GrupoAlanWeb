@@ -31,37 +31,6 @@ export class BotellasComponent {
     private tipoService: TipoService,
   ) { }
 
-  navegateAbanicos() {
-    this.ruta.navigate(['abanicos']);
-  }
-  navegateBotellas() {
-    this.ruta.navigate(['botellas']);
-  }
-  navegateBoligrafos() {
-    this.ruta.navigate(['boligrafos']);
-  }
-  navegateBolsas() {
-    this.ruta.navigate(['bolsas']);
-  }
-  navegateCamisetas() {
-    this.ruta.navigate(['camisetas']);
-  }
-  navegateGorras() {
-    this.ruta.navigate(['gorras']);
-  }
-  navegateLibretas() {
-    this.ruta.navigate(['libretas']);
-  }
-  navegateMochilas() {
-    this.ruta.navigate(['mochilas']);
-  }
-  navegatePolos() {
-    this.ruta.navigate(['polos']);
-  }
-  navegateRopaTrabajo() {
-    this.ruta.navigate(['ropaTrabajo']);
-  }
-
   //MOVERSE A PRODUCTOS
   irAProduct(ref: string) {
     this.ruta.navigate(['lista-productos/producto/ref', ref]);
@@ -75,11 +44,10 @@ export class BotellasComponent {
   error: string | null = null;
 
   ngOnInit(): void {
-    this.getCategories();
-    this.getColors();
     this.getProducts();
-    this.getTipos();
   }
+
+
 
   getProducts(): void {
     this.loading = true; // Indicador de carga iniciado
@@ -96,51 +64,51 @@ export class BotellasComponent {
       },
     });
   }
-  getCategories(): void {
-    console.log('Obteniendo categorías únicas desde el servicio...');
-    this.categoryService.obtenerCategoriasUnicasEnBD().subscribe({
-      next: (categories) => {
-        this.categories = categories.map((category) =>
-          category.replace(/^"|"$/g, '')
-        );
-        console.log('Categorías obtenidas: ', this.categories);
-      },
-      error: () => {
-        this.error =
-          'Error al cargar categorías. Por favor, inténtalo de nuevo más tarde.';
-      },
-    });
-  }
+  // getCategories(): void {
+  //   console.log('Obteniendo categorías únicas desde el servicio...');
+  //   this.categoryService.obtenerCategoriasUnicasEnBD().subscribe({
+  //     next: (categories) => {
+  //       this.categories = categories.map((category) =>
+  //         category.replace(/^"|"$/g, '')
+  //       );
+  //       console.log('Categorías obtenidas: ', this.categories);
+  //     },
+  //     error: () => {
+  //       this.error =
+  //         'Error al cargar categorías. Por favor, inténtalo de nuevo más tarde.';
+  //     },
+  //   });
+  // }
 
-  getColors(): void {
-    console.log('Obteniendo lista de colores desde el servicio...');
+  // getColors(): void {
+  //   console.log('Obteniendo lista de colores desde el servicio...');
 
-    this.colorService.obtenerColoresUnicasEnBD().subscribe({
-      next: (colors) => {
-        this.colors = colors.map((color) => color.replace(/^"|"$/g, ''));
-        console.log('Colores obtenidos: ', this.colors);
-      },
-      error: () => {
-        this.error =
-          'Error al cargar colores. Por favor, inténtalo de nuevo más tarde.';
-      },
-    });
-  }
+  //   this.colorService.obtenerColoresUnicasEnBD().subscribe({
+  //     next: (colors) => {
+  //       this.colors = colors.map((color) => color.replace(/^"|"$/g, ''));
+  //       console.log('Colores obtenidos: ', this.colors);
+  //     },
+  //     error: () => {
+  //       this.error =
+  //         'Error al cargar colores. Por favor, inténtalo de nuevo más tarde.';
+  //     },
+  //   });
+  // }
 
-  getTipos(): void {
-    console.log('Obteniendo lista de tipos desde el servicio...');
-    this.tipoService.obtenerListaTiposEnBD().subscribe({
-      next: (tipos) => {
-        this.tipos = tipos
-          ;
-        console.log('Lista de tipos: ', this.tipos);
-      },
-      error: (error) => {
-        this.error =
-          'Error al cargar la lista de tipos. Por favor, inténtalo de nuevo más tarde.';
-      },
-    });
-  }
+  // getTipos(): void {
+  //   console.log('Obteniendo lista de tipos desde el servicio...');
+  //   this.tipoService.obtenerListaTiposEnBD().subscribe({
+  //     next: (tipos) => {
+  //       this.tipos = tipos
+  //         ;
+  //       console.log('Lista de tipos: ', this.tipos);
+  //     },
+  //     error: (error) => {
+  //       this.error =
+  //         'Error al cargar la lista de tipos. Por favor, inténtalo de nuevo más tarde.';
+  //     },
+  //   });
+  // }
 
   currentPage: number = 1;
   pageSize: number = 15;

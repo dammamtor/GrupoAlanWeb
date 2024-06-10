@@ -100,13 +100,12 @@ public class ColorService {
         // Construcción de las cadenas
         for (Object[] colorWithCount : colorsWithCount) {
             String colorName = (String) colorWithCount[0];
-            Long productCount = (Long) colorWithCount[1];
-            String resultString = colorName + " (" + productCount + ")";
-            resultList.add(resultString);
+            resultList.add(colorName);
         }
 
         return resultList;
     }
+
 
 //    public List<String> listaColoresUnicos() {
 //        List<Colors> allColors = colorRepository.findAllByLang(1);
