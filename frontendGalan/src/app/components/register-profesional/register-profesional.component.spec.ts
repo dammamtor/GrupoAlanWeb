@@ -8,10 +8,9 @@ describe('RegisterProfesionalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegisterProfesionalComponent]
-    })
-    .compileComponents();
-    
+      imports: [RegisterProfesionalComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(RegisterProfesionalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -2,9 +2,23 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import { provideOAuthClient } from 'angular-oauth2-oidc';
+import { JwtInterceptor } from '@auth0/angular-jwt';
+import { AdminService } from './services/admin.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/guards/auth.guard';
+import { UserServiceService } from './services/user-service.service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideHttpClient(), provideOAuthClient()],
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(),
+    provideOAuthClient(),
+    AuthService,
+    AdminService,
+    UserServiceService,
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
 };

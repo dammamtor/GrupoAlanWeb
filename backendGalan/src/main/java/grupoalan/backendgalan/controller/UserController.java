@@ -27,7 +27,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // Punto de entrada para registrar un nuevo usuario.
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody UsuarioParticularRegisterRequest userDTO) {
         userService.registerUser(userDTO);
@@ -56,23 +55,17 @@ public class UserController {
         }
     }
 
-    // Punto de entrada para iniciar sesión.
     @PostMapping("/login")
-    public ResponseEntity<User> loginUser(@RequestBody User user) {
-        User existingUser = userService.findByEmail(user.getEmail());
-        // Verifica las credenciales y si la cuenta está habilitada.
-        if (existingUser != null && existingUser.getPassword().equals(user.getPassword()) && existingUser.isEnabled()) {
-            return ResponseEntity.ok(existingUser);
+    public ResponseEntity<Map<String, String>> authenticateUser(@RequestBody UsuarioRequest usuarioRequest) {
+        try {
+            String token = userService.authenticateUser(usuarioRequest);
+            Map<String, String> response = new HashMap<>();
+            response.put("token", token);
+            return ResponseEntity.ok(response);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build(); // Retorna 401 si las credenciales son incorrectas o la cuenta no está habilitada.
     }
-
-//    // Punto de entrada para habilitar un usuario profesional.
-//    @PostMapping("/enable/{userId}")
-//    public ResponseEntity<User> enableUser(@PathVariable Long userId) {
-//        User enabledUser = userService.enableUser(userId);
-//        return ResponseEntity.ok(enabledUser);
-//    }
 
     @GetMapping("/all")
     public ResponseEntity<List<User>> getAllUsers() {
@@ -89,47 +82,12 @@ public class UserController {
         return ResponseEntity.ok(credentialsValid);
     }
 
-    @PostMapping("/authenticate")
-    public ResponseEntity<String> authenticateUser(@RequestBody UsuarioRequest usuarioRequest,
-                                                   HttpSession session) {
-        User authenticatedUser = userService.authenticateUser(usuarioRequest);
-        if (authenticatedUser != null) {
-            // Usuario autenticado correctamente, establece la sesión con nombre de usuario y tipo de cuenta
-            session.setAttribute("currentUser", authenticatedUser.getUsername());
-            session.setAttribute("currentAccountType", authenticatedUser.getAccountType().toString());
-
-            logger.info("Usuario actual: {}", authenticatedUser.getUsername());
-            logger.info("Tipo de cuenta actual: {}", authenticatedUser.getAccountType().toString());
-            logger.info("Usuario {} autenticado correctamente", authenticatedUser.getUsername());
-            return ResponseEntity.ok("{\"message\": \"Verificación exitosa. Ahora puedes iniciar sesión.\"}");
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales inválidas");
-        }
-    }
-
-    @GetMapping("/session-info")
-    public ResponseEntity<SessionInfo> getSessionInfo(HttpSession session) {
-        logger.info("ESTAS EN SESSION. HORA DE EXTRAER");
-        String currentUser = (String) session.getAttribute("currentUser");
-        String currentAccountType = (String) session.getAttribute("currentAccountType");
-        logger.info("Usuario actual: {}", currentUser);
-        logger.info("Tipo de cuenta actual: {}", currentAccountType);
-
-        SessionInfo sessionInfo = new SessionInfo();
-        sessionInfo.setCurrentUser(currentUser);
-        sessionInfo.setCurrentAccountType(currentAccountType);
-        return ResponseEntity.ok(sessionInfo);
-    }
-
-
-    // Punto de entrada para iniciar el proceso de restablecimiento de contraseña.
     @PostMapping("/reset-password")
     public ResponseEntity<String> initiatePasswordReset(@RequestParam String email) {
         userService.initiatePasswordReset(email);
         return ResponseEntity.ok("Se ha enviado un correo electrónico con instrucciones para restablecer tu contraseña.");
     }
 
-    // Punto de entrada para restablecer la contraseña utilizando el token recibido.
     @PostMapping("/reset-password/{token}")
     public ResponseEntity<String> resetPassword(@PathVariable String token, @RequestBody String newPassword) {
         boolean isResetSuccessful = userService.resetPassword(token, newPassword);
@@ -139,7 +97,6 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Token de restablecimiento de contraseña inválido o expirado.");
         }
     }
-
     @PostMapping("/delete/{userId}")
     public ResponseEntity<String> deleteUser(@PathVariable Long userId) {
         userService.deleteUser(userId);
@@ -163,5 +120,4 @@ public class UserController {
         User user = userService.updateUser(userId, updatedUser);
         return ResponseEntity.ok(user);
     }
-
 }

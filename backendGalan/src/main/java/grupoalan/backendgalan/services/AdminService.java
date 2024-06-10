@@ -7,59 +7,60 @@ import grupoalan.backendgalan.model.request.UsuarioAdminRegisterRequest;
 import grupoalan.backendgalan.model.request.UsuarioProfesionalRegisterRequest;
 import grupoalan.backendgalan.model.request.UsuarioRequest;
 import grupoalan.backendgalan.repository.UserRepository;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
 public class AdminService {
     static final Logger logger = LoggerFactory.getLogger(AdminService.class);
 
-    @Autowired // Inyecta automáticamente una instancia de UserRepository.
+    @Autowired
     private UserRepository userRepository;
 
+    @Value("${jwt.secret}")
+    private String secret;
+
     public void registerAdminUser(UsuarioAdminRegisterRequest userRequest, String currentUser) {
-        // Verificar si el usuario actual es un administrador
         User requestingUser = userRepository.findByUsernameAndAccountType(currentUser, User.AccountType.ADMIN)
                 .orElseThrow(() -> new RuntimeException("Only ADMIN users can register other admins"));
 
-        // Verificar si ya existe un usuario con el mismo correo electrónico
         if (userRepository.existsByEmail(userRequest.getEmail())) {
             throw new RuntimeException("User with email " + userRequest.getEmail() + " already exists");
         }
 
-        // Crear la entidad User a partir del DTO
         User user = new User();
         user.setEmail(userRequest.getEmail());
         user.setUsername(userRequest.getUsername());
         user.setAccountType(User.AccountType.ADMIN);
 
-        // Encriptar la contraseña con el nivel de seguridad adecuado para administradores
         String encryptedPassword = encryptPassword(userRequest.getPassword());
         user.setPassword(encryptedPassword);
-        user.setEnabled(true);  // El usuario está habilitado inicialmente
+        user.setEnabled(true);
         user.setCreatedAt(LocalDateTime.now());
 
-        // Guardar el usuario en el repositorio
         userRepository.save(user);
     }
 
     public void createDefaultAdminUser() {
         logger.info("CREANDO USUARIO ADMIN DEFAULT");
-        // Verificar si ya existe un usuario administrador por defecto
         if (userRepository.existsByUsernameAndAccountType("admin", User.AccountType.ADMIN)) {
             logger.info("Default admin user already exists.");
             return;
         }
 
-        logger.info("Creating default admin user...");
-
-        // Crear el usuario administrador por defecto
         User defaultAdmin = new User();
         defaultAdmin.setEmail("admin@example.com");
         defaultAdmin.setUsername("admin");
@@ -67,15 +68,9 @@ public class AdminService {
         defaultAdmin.setEnabled(true);
         defaultAdmin.setCreatedAt(LocalDateTime.now());
 
-        logger.info("USUARIO RELLENO, FALTA LA CONTRASEÑA");
-
-        // Encriptar la contraseña
         String encryptedPassword = encryptPassword("adminPassword");
         defaultAdmin.setPassword(encryptedPassword);
 
-        logger.info("CONTRASEÑA ESTABLECIDAD");
-
-        // Guardar el usuario por defecto en el repositorio
         userRepository.save(defaultAdmin);
 
         logger.info("Default admin user created successfully.");
@@ -87,28 +82,42 @@ public class AdminService {
         return encoder.encode(password);
     }
 
-    // Método para habilitar un usuario por su ID.
     public void manageUser(Long userId, boolean enable) {
-        // Buscar el usuario por su ID
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException("Usuario no encontrado según ID: " + userId));
 
         if (enable) {
-            // Verificar si el usuario ya está habilitado
             if (user.isEnabled()) {
                 throw new UserAlreadyEnabledException("El usuario con ID " + userId + " ya está habilitado");
             }
-
-            // Habilitar el usuario
             user.setEnabled(true);
-
-            // Guardar el usuario actualizado
             userRepository.save(user);
         } else {
-            // Rechazar y eliminar el usuario
             userRepository.delete(user);
         }
     }
 
+    public String authenticateAdmin(UsuarioRequest usuarioRequest) {
+        User admin = userRepository.findByUsernameAndAccountType(usuarioRequest.getNombreUsuario(), User.AccountType.ADMIN)
+                .orElseThrow(() -> new RuntimeException("Admin not found"));
 
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(20);
+        if (encoder.matches(usuarioRequest.getContrasena(), admin.getPassword())) {
+            return generateToken(admin);
+        } else {
+            throw new RuntimeException("Invalid credentials");
+        }
+    }
+
+    private String generateToken(User user) {
+        Map<String, Object> claims = new HashMap<>();
+        return Jwts.builder().setClaims(claims).setSubject(user.getUsername()).setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
+                .signWith(SignatureAlgorithm.HS256, secret).compact();
+    }
+
+    public String getCurrentUserFromToken(String token) {
+        Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token.replace("Bearer ", "")).getBody();
+        return claims.getSubject();
+    }
 }
