@@ -164,18 +164,17 @@ public class DescriptionService {
 
     public List<String> listaTipos() {
         List<Descriptions> listaTipos = descriptionRepository.findAll();
-        Set<String> listaTiposUnicos = new HashSet<>();
+        List<String> listaTiposUnicos = new ArrayList<>();
 
         for (Descriptions descripcion : listaTipos) {
             String type = descripcion.getType();
             if (type != null) {
-                String[] words = type.split("\\s+"); // Dividir la cadena en palabras
-                if (words.length > 0) {
-                    listaTiposUnicos.add(words[0]); // Agregar la primera palabra
+                if (!listaTiposUnicos.contains(type)) {
+                    listaTiposUnicos.add(type);
                 }
             }
         }
-        return new ArrayList<>(listaTiposUnicos);
+        return listaTiposUnicos;
     }
 
     public boolean rolyDescriptionsFromApi(String apiToken) {

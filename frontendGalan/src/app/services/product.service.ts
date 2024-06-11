@@ -30,12 +30,15 @@ export class ProductService {
     return this.http.get<Product>(`${this.apiUrl}/obtener-producto/${ref}`);
   }
 
-  obtenerProductosFiltrados(categorias: string, colores: string[], tipos: string[]): Observable<Product[]> {
+  obtenerProductosFiltrados(categorias: string[], colores: string[], tipos: string[]): Observable<any> {
     const params = {
       categorias: categorias,
-      colores: colores.join(","),
-      tipos: tipos.join(",")
+      colores: colores,
+      tipos: tipos
     };
-    return this.http.get<Product[]>(`${this.apiUrl}/productos-filtrados`, { params: params });
+
+    console.log("MÉTODO SERVICE. OBTENER PRODUCTOS FILTRADOS");
+
+    return this.http.get<any>(`${this.apiUrl}/productos-filtrados`, { params });
   }
 }

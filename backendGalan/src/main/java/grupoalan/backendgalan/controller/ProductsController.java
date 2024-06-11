@@ -80,21 +80,11 @@ public class ProductsController {
     //FILTRADO
     @GetMapping("/productos-filtrados")
     public ResponseEntity<ProductosFiltradosResponse> obtenerProductosFiltrados(
-            @RequestParam(value = "categorias", required = false) String categoriasParam,
+            @RequestParam(value = "categorias", required = false) List<String> categorias,
             @RequestParam(value = "colores", required = false) List<String> colores,
             @RequestParam(value = "tipos", required = false) List<String> tipos) {
 
         logger.info("Filtrando productos por categorías, colores y tipos");
-
-        List<String> categorias = new ArrayList<>();
-
-        // Verificar si se recibieron categorías y dividirlas por el delimitador
-        if (categoriasParam != null && !categoriasParam.isEmpty()) {
-            // Elimina espacios adicionales antes de dividir la cadena
-            categorias = Arrays.asList(categoriasParam.trim().split(";"));
-        }
-
-        logger.info("Categorias: {}", categorias);
 
         // Obtener productos filtrados
         List<Products> productosFiltrados = productsService.filtrarProductosPorCategoriasColoresYTipos(categorias, colores, tipos);

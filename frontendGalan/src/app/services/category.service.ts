@@ -11,9 +11,9 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerCategoriasUnicasEnBD(): Observable<Category[]> {
+  obtenerCategoriasUnicasEnBD(): Observable<string[]> {
     const apiUrl = this.baseUrl + 'obtener-categorias-unicas';
     console.log("METODO SERVICE. OBTENER CATEGORIAS UNICAS");
-    return this.http.get<Category[]>(apiUrl);
+    return this.http.get<string[]>(apiUrl);
   }
 }

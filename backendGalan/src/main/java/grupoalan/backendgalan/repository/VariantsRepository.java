@@ -9,4 +9,6 @@ public interface VariantsRepository extends JpaRepository<Variants, Long> {
     List<Variants> findByRef(String ref);
 
     Variants findByUniqueRef(String uniqueRef);
+
+    Variants findByRefAndMatnr(String ref, String matnr);
 }

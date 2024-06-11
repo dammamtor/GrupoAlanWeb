@@ -2,18 +2,18 @@ package grupoalan.backendgalan.model.response.makito;
 
 public class PricesMakito {
     private String ref;
-    private double section1;
-    private double price1;
-    private double section2;
-    private double price2;
-    private double section3;
-    private double price3;
-    private double section4;
-    private double price4;
-    private double section5;
-    private double price5;
-    private double section6;
-    private double price6;
+    private double section_1;
+    private double price_1;
+    private double section_2;
+    private double price_2;
+    private double section_3;
+    private double price_3;
+    private double section_4;
+    private double price_4;
+    private double section_5;
+    private double price_5;
+    private double section_6;
+    private double price_6;
 
     public PricesMakito() {
     }
@@ -26,118 +26,118 @@ public class PricesMakito {
         this.ref = ref;
     }
 
-    public double getSection1() {
-        return section1;
+    public double getSection_1() {
+        return section_1;
     }
 
-    public void setSection1(double section1) {
-        this.section1 = section1;
+    public void setSection_1(double section_1) {
+        this.section_1 = section_1;
     }
 
-    public double getPrice1() {
-        return price1;
+    public double getPrice_1() {
+        return price_1;
     }
 
-    public void setPrice1(double price1) {
-        this.price1 = price1;
+    public void setPrice_1(double price_1) {
+        this.price_1 = price_1;
     }
 
-    public double getSection2() {
-        return section2;
+    public double getSection_2() {
+        return section_2;
     }
 
-    public void setSection2(double section2) {
-        this.section2 = section2;
+    public void setSection_2(double section_2) {
+        this.section_2 = section_2;
     }
 
-    public double getPrice2() {
-        return price2;
+    public double getPrice_2() {
+        return price_2;
     }
 
-    public void setPrice2(double price2) {
-        this.price2 = price2;
+    public void setPrice_2(double price_2) {
+        this.price_2 = price_2;
     }
 
-    public double getSection3() {
-        return section3;
+    public double getSection_3() {
+        return section_3;
     }
 
-    public void setSection3(double section3) {
-        this.section3 = section3;
+    public void setSection_3(double section_3) {
+        this.section_3 = section_3;
     }
 
-    public double getPrice3() {
-        return price3;
+    public double getPrice_3() {
+        return price_3;
     }
 
-    public void setPrice3(double price3) {
-        this.price3 = price3;
+    public void setPrice_3(double price_3) {
+        this.price_3 = price_3;
     }
 
-    public double getSection4() {
-        return section4;
+    public double getSection_4() {
+        return section_4;
     }
 
-    public void setSection4(double section4) {
-        this.section4 = section4;
+    public void setSection_4(double section_4) {
+        this.section_4 = section_4;
     }
 
-    public double getPrice4() {
-        return price4;
+    public double getPrice_4() {
+        return price_4;
     }
 
-    public void setPrice4(double price4) {
-        this.price4 = price4;
+    public void setPrice_4(double price_4) {
+        this.price_4 = price_4;
     }
 
-    public double getSection5() {
-        return section5;
+    public double getSection_5() {
+        return section_5;
     }
 
-    public void setSection5(double section5) {
-        this.section5 = section5;
+    public void setSection_5(double section_5) {
+        this.section_5 = section_5;
     }
 
-    public double getPrice5() {
-        return price5;
+    public double getPrice_5() {
+        return price_5;
     }
 
-    public void setPrice5(double price5) {
-        this.price5 = price5;
+    public void setPrice_5(double price_5) {
+        this.price_5 = price_5;
     }
 
-    public double getSection6() {
-        return section6;
+    public double getSection_6() {
+        return section_6;
     }
 
-    public void setSection6(double section6) {
-        this.section6 = section6;
+    public void setSection_6(double section_6) {
+        this.section_6 = section_6;
     }
 
-    public double getPrice6() {
-        return price6;
+    public double getPrice_6() {
+        return price_6;
     }
 
-    public void setPrice6(double price6) {
-        this.price6 = price6;
+    public void setPrice_6(double price_6) {
+        this.price_6 = price_6;
     }
 
     @Override
     public String toString() {
         return "PricesMakito{" +
                 "ref='" + ref + '\'' +
-                ", section1=" + section1 +
-                ", price1=" + price1 +
-                ", section2=" + section2 +
-                ", price2=" + price2 +
-                ", section3=" + section3 +
-                ", price3=" + price3 +
-                ", section4=" + section4 +
-                ", price4=" + price4 +
-                ", section5=" + section5 +
-                ", price5=" + price5 +
-                ", section6=" + section6 +
-                ", price6=" + price6 +
+                ", section_1=" + section_1 +
+                ", price_1=" + price_1 +
+                ", section_2=" + section_2 +
+                ", price_2=" + price_2 +
+                ", section_3=" + section_3 +
+                ", price_3=" + price_3 +
+                ", section_4=" + section_4 +
+                ", price_4=" + price_4 +
+                ", section_5=" + section_5 +
+                ", price_5=" + price_5 +
+                ", section_6=" + section_6 +
+                ", price_6=" + price_6 +
                 '}';
     }
 }

@@ -11,9 +11,9 @@ export class ColorService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerColoresUnicasEnBD(): Observable<Color[]> {
+  obtenerColoresUnicasEnBD(): Observable<string[]> {
     const apiUrl = this.baseUrl + 'list-colors';
     console.log("METODO SERVICE. OBTENER COLOROES UNICAS");
-    return this.http.get<Color[]>(apiUrl);
+    return this.http.get<string[]>(apiUrl);
   }
 }

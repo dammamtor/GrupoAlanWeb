@@ -18,7 +18,7 @@ public class StatusCode {
     private List<MarkingTechniquesPricesMakito> techniquesPrices;
     private List<MarkingTechniquesTypesMakito> techniquesTypes;
     private List<MarkingsMakito> markings;
-
+    private List<StockMakito> stock;
 
     public StatusCode() {
     }
@@ -127,6 +127,14 @@ public class StatusCode {
         this.descriptionsMaterials = descriptionsMaterials;
     }
 
+    public List<StockMakito> getStock() {
+        return stock;
+    }
+
+    public void setStock(List<StockMakito> stock) {
+        this.stock = stock;
+    }
+
     @Override
     public String toString() {
         return "StatusCode{" +
@@ -143,6 +151,7 @@ public class StatusCode {
                 ", techniquesPrices=" + techniquesPrices +
                 ", techniquesTypes=" + techniquesTypes +
                 ", markings=" + markings +
+                ", stock=" + stock +
                 '}';
     }
 }

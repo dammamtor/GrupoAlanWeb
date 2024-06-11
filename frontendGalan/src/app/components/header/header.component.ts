@@ -14,8 +14,6 @@ import { Product } from '../../models/Product';
 })
 export class HeaderComponent {
   private ruta = inject(Router);
-  public botellasList: any[] = [];
-  profile: any;
 
   navegateLogin() {
     this.ruta.navigate(['login']);
@@ -70,5 +68,9 @@ export class HeaderComponent {
 
   irALogin(): void {
     this.ruta.navigate(["login"]);
+  }
+
+  irABusquedaAvanzada(): void {
+    this.ruta.navigate(["busqueda-avanzada"]);
   }
 }

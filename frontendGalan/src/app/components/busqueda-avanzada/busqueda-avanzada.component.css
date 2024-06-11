@@ -1,0 +1,147 @@
+/* Estilos para el separate-div con sombreado */
+.separate-div {
+    margin-top: 20px;
+    padding: 20px;
+    /* Espaciado interno */
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombreado */
+}
+
+/* Estilos para aumentar el tamaño del texto de los labels de los checkbox */
+.separate-div label {
+    font-size: 20px;
+    /* Ajusta este valor según sea necesario */
+}
+
+
+/* Estilos para los botones */
+.btn {
+    margin-right: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 22px;
+    /* Tamaño de texto aumentado */
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* Estilos para los botones de categorías */
+.btn-toggle {
+    width: 100%;
+    text-align: left;
+    font-size: 24px;
+    /* Tamaño de texto aumentado */
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border: none;
+}
+
+.btn-toggle:after {
+    content: "\25BC";
+    float: right;
+    transition: transform 0.3s ease;
+}
+
+.btn-toggle.collapsed:after {
+    transform: rotate(-90deg);
+}
+
+.btn-toggle:focus {
+    outline: none;
+}
+
+/* Estilos para los encabezados */
+h1.display-4 {
+    margin-bottom: 30px;
+    color: #343a40;
+    font-size: 56px;
+    /* Tamaño de texto aumentado */
+}
+
+p.lead {
+    margin-bottom: 0;
+    color: #6c757d;
+    font-size: 24px;
+    /* Tamaño de texto aumentado */
+}
+
+/* Estilos para los botones de búsqueda */
+.d-flex .btn-primary {
+    background-color: #007bff;
+    border: none;
+    transition: all 0.3s ease;
+    font-size: 22px;
+    /* Tamaño de texto aumentado */
+}
+
+.d-flex .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para los botones de limpiar */
+.d-flex .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    transition: all 0.3s ease;
+    font-size: 22px;
+    /* Tamaño de texto aumentado */
+}
+
+.d-flex .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Estilos para los elementos de lista */
+li {
+    padding-left: 20px;
+    /* Padding izquierdo añadido */
+}
+
+/* Estilos para los divs con clase col-md-3 */
+.col-md-3 {
+    max-height: 300px;
+    /* Altura fija, ajusta según sea necesario */
+    overflow-y: auto;
+    /* Habilita el desplazamiento vertical */
+}
+
+/* Asegúrate de que el contenedor padre tenga suficiente espacio */
+.row {
+    display: flex;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert-danger strong {
+    font-weight: bold;
+}
+
+.alert-danger p {
+    margin-bottom: 0;
+}
+
+.alert-danger::before {
+    content: "¡Error! ";
+    font-weight: bold;
+}
+/* Estilos para los checkbox */
+input[type="checkbox"] {
+    width: 18px; /* Cambia este valor según sea necesario */
+    height: 18px; /* Cambia este valor según sea necesario */
+}
