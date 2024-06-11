@@ -10,16 +10,16 @@
   <form (ngSubmit)="login()" #loginForm="ngForm">
     <div class="form-floating">
       <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario"
-             [(ngModel)]="usuarioRequest.nombreUsuario" required placeholder="Usuario">
+        [(ngModel)]="usuarioRequest.nombreUsuario" required placeholder="Usuario">
       <label for="nombreUsuario">Usuario</label>
     </div>
     <div class="form-floating">
       <input type="password" class="form-control" id="contrasena" name="contrasena"
-             [(ngModel)]="usuarioRequest.contrasena" required placeholder="Contraseña">
+        [(ngModel)]="usuarioRequest.contrasena" required placeholder="Contraseña">
       <label for="contrasena">Contraseña</label>
     </div>
     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-  </form>      
+  </form>
 
   <!-- Mostrar mensaje de error si existe -->
   <div *ngIf="errorMessage" id="error-message" class="alert alert-danger" role="alert">
@@ -30,6 +30,7 @@
   <div class="additional-links">
     <span>¿Olvidaste tu contraseña?</span>
     <p>¿No tienes cuenta? <span (click)="redirectToRegisterUser()">Crea tu cuenta particular</span></p>
-    <p>¿Eres una empresa? <span (click)="redirectToRegisterProfessionalUser()">Crea una cuenta empresarial con nosotros</span></p>
+    <p>¿Eres una empresa? <span (click)="redirectToRegisterProfessionalUser()">Crea una cuenta empresarial con
+        nosotros</span></p>
   </div>
 </div>

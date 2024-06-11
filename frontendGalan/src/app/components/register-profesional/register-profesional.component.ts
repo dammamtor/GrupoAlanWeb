@@ -12,18 +12,16 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [FormsModule, HeaderComponent, CommonModule],
   templateUrl: './register-profesional.component.html',
-  styleUrl: './register-profesional.component.css'
+  styleUrls: ['./register-profesional.component.css'],
 })
 export class RegisterProfesionalComponent {
   public userRegister: UsuarioProfesionalRequest;
-  constructor(
-    private userService: UserServiceService,
-    private ruta: Router
-  ) {
+
+  constructor(private userService: UserServiceService, private router: Router) {
     this.userRegister = {
       email: '',
       password: '',
-      repeatPassword: "",
+      repeatPassword: '',
       username: '',
       companyName: '',
       companyAddress: '',
@@ -31,13 +29,13 @@ export class RegisterProfesionalComponent {
       accountType: AccountType.PROFESSIONAL,
       city: '',
       postalCode: '',
-      country: ""
+      country: '',
     };
   }
 
   registerUser(form: NgForm) {
     if (this.passwordsMatch()) {
-      console.log("Objeto recibido: ", this.userRegister);
+      console.log('Objeto recibido: ', this.userRegister);
       this.userService.registerProfessionalUser(this.userRegister).subscribe({
         next: (response) => {
           console.log('Usuario registrado exitosamente');
@@ -45,7 +43,7 @@ export class RegisterProfesionalComponent {
         },
         error: (error) => {
           console.error('Error al registrar usuario', error);
-        }
+        },
       });
     } else {
       console.error('Las contraseñas no coinciden.');
@@ -57,10 +55,9 @@ export class RegisterProfesionalComponent {
   }
 
   messageRegistration() {
-    console.log("Vamonos");
-    this.ruta.navigate(["correct-registration", this.userRegister.username], {
-      queryParams: { userType: "professional" }
-    })
+    console.log('Vamonos');
+    this.router.navigate(['correct-registration', this.userRegister.username], {
+      queryParams: { userType: 'professional' },
+    });
   }
-
 }

@@ -21,14 +21,10 @@ import { UserHistorialComponent } from './components/user-historial/user-histori
 import { UserHistorialDetallesComponent } from './components/user-historial-detalles/user-historial-detalles.component';
 import { UserFavoritosComponent } from './components/user-favoritos/user-favoritos.component';
 import { UserConfiguracionComponent } from './components/user-configuracion/user-configuracion.component';
-import { BusquedaAvanzadaComponent } from './components/busqueda-avanzada/busqueda-avanzada.component';
-import { ProductosFiltradosComponent } from './components/productos-filtrados/productos-filtrados.component';
+import { AuthGuard } from './services/guards/auth.guard';
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent,
-  },
+  { path: '', component: HomeComponent },
   {
     path: 'home',
     component: HomeComponent,
@@ -38,103 +34,91 @@ export const routes: Routes = [
     component: BotellasComponent,
   },
   {
-    path: "lista-productos/producto/ref/:ref",
-    component: ProductoComponent
+    path: 'lista-productos/producto/ref/:ref',
+    component: ProductoComponent,
   },
   {
     path: 'search/:s',
-    component: SearchComponent
+    component: SearchComponent,
   },
   {
-    path: "search/:s/producto/ref/:ref",
-    component: ProductoComponent
+    path: 'search/:s/producto/ref/:ref',
+    component: ProductoComponent,
   },
   {
-    path: "types/:t",
-    component: TypesComponent
+    path: 'types/:t',
+    component: TypesComponent,
   },
   {
-    path: "types/:t/producto/ref/:ref",
-    component: ProductoComponent
+    path: 'types/:t/producto/ref/:ref',
+    component: ProductoComponent,
   },
   {
-    path: "payments",
-    component: PaymentComponent
+    path: 'payments',
+    component: PaymentComponent,
   },
   {
-    path: "login",
-    component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: "register-user",
-    component: RegisterComponent
+    path: 'register-user',
+    component: RegisterComponent,
   },
   {
-    path: "register-professional-user",
-    component: RegisterProfesionalComponent
+    path: 'register-professional-user',
+    component: RegisterProfesionalComponent,
   },
   {
     path: 'verify/:token',
-    component: VerifyUserComponent
+    component: VerifyUserComponent,
   },
   {
-    path: "correct-registration/:username",
-    component: AfterRegisterComponent
+    path: 'correct-registration/:username',
+    component: AfterRegisterComponent,
   },
   {
-    path: "admin/home",
-    component: HomeAdminComponent
-  }, 
-  {
-    path: "admin/users",
-    component: AdminUsuariosComponent
+    path: 'admin/home',
+    component: HomeAdminComponent,
   },
   {
-    path: "admin/pedidos",
-    component: AdminPedidosComponent
+    path: 'admin/users',
+    component: AdminUsuariosComponent,
   },
   {
-    path: "admin/detalles-pedido",
-    component: AdminDetallesPedidosComponent
+    path: 'admin/pedidos',
+    component: AdminPedidosComponent,
   },
   {
-    path: "user/home",
-    component: HomeUserComponent
+    path: 'admin/detalles-pedido',
+    component: AdminDetallesPedidosComponent,
   },
   {
-    path: "user/edit-user",
-    component: UserEditprofileComponent
+    path: 'user/home',
+    component: HomeUserComponent,
   },
   {
-    path: "user/notificaciones",
-    component: UserNotificacionesComponent
+    path: 'user/edit-user',
+    component: UserEditprofileComponent,
   },
   {
-    path: "user/historial",
-    component: UserHistorialComponent
+    path: 'user/notificaciones',
+    component: UserNotificacionesComponent,
   },
   {
-    path: "user/historial/pedido/id",
-    component: UserHistorialDetallesComponent
+    path: 'user/historial',
+    component: UserHistorialComponent,
   },
   {
-    path: "user/favoritos",
-    component: UserFavoritosComponent
+    path: 'user/historial/pedido/id',
+    component: UserHistorialDetallesComponent,
   },
   {
-    path: "user/configuracion",
-    component: UserConfiguracionComponent
+    path: 'user/favoritos',
+    component: UserFavoritosComponent,
   },
   {
-    path: "busqueda-avanzada",
-    component: BusquedaAvanzadaComponent
+    path: 'user/configuracion',
+    component: UserConfiguracionComponent,
   },
-  {
-    path: "busqueda-avanzada/productos-filtrados",
-    component: ProductosFiltradosComponent
-  },
-  {
-    path: "busqueda-avanzada/productos-filtrados/ref/:ref",
-    component: ProductoComponent
-  }
 ];

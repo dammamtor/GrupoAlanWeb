@@ -12,47 +12,46 @@ import grupoalan.backendgalan.model.request.UsuarioProfesionalRegisterRequest;
 import grupoalan.backendgalan.model.request.UsuarioRequest;
 import grupoalan.backendgalan.repository.UserRepository;
 import grupoalan.backendgalan.repository.VerificationTokenRepository;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class UserService {
     static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
-    @Autowired // Inyecta automáticamente una instancia de UserRepository.
+    @Autowired
     private UserRepository userRepository;
     @Autowired
     private EmailServiceImpl emailService;
     @Autowired
     private VerificationTokenRepository verificationTokenRepository;
 
-    // Método para registrar un nuevo usuario.
+    @Value("${jwt.secret}")
+    private String secret;
+
     public void registerUser(UsuarioParticularRegisterRequest userRequest) {
-        // Verificar si ya existe un usuario con el mismo correo electrónico
         User existingUser = userRepository.findByEmail(userRequest.getEmail());
         if (existingUser != null) {
             throw new RuntimeException("User with email " + userRequest.getEmail() + " already exists");
         }
 
-        // Verificar que el tipo de cuenta sea PARTICULAR
         if (userRequest.getAccountType() != UsuarioParticularRegisterRequest.AccountType.PARTICULAR) {
             throw new RuntimeException("Only users with account type PARTICULAR are allowed to register");
         }
 
-        // Verificar que las contraseñas coincidan
         if (!userRequest.getPassword().equals(userRequest.getRepeatPassword())) {
             throw new RuntimeException("Passwords do not match");
         }
 
-        // Crear la entidad User a partir del DTO
         User user = new User();
         user.setName(userRequest.getName());
         user.setEmail(userRequest.getEmail());
@@ -64,27 +63,22 @@ public class UserService {
         user.setUsername(userRequest.getUsername());
         user.setAccountType(User.AccountType.PARTICULAR);
 
-        // Encriptar la contraseña
         String encryptedPassword = encryptPassword(userRequest.getPassword());
         user.setPassword(encryptedPassword);
         user.setEnabled(false);
         user.setCreatedAt(LocalDateTime.now());
 
-        // Guardar el usuario en el repositorio
         User savedUser = userRepository.save(user);
 
-        // Crear y guardar el token de verificación
         String verificationToken = UUID.randomUUID().toString();
         VerificationToken token = new VerificationToken();
         token.setToken(verificationToken);
         token.setUserId(savedUser.getId());
-        token.setExpiryDate(LocalDateTime.now().plusHours(24)); // El token expira en 24 horas
+        token.setExpiryDate(LocalDateTime.now().plusHours(24));
         verificationTokenRepository.save(token);
 
-        // Construir el enlace de verificación
         String verificationLink = "http://localhost:4200/verify/" + verificationToken;
 
-        // Enviar el correo de verificación
         String subject = "Confirmación de registro";
         String body = String.format("Hola %s,\n\nGracias por registrarte. Por favor, haz clic en el siguiente enlace para confirmar tu correo electrónico:\n\n%s\n\nSaludos,\nTuApp",
                 savedUser.getUsername(), verificationLink);
@@ -92,18 +86,15 @@ public class UserService {
     }
 
     public void registerProfessionalUser(UsuarioProfesionalRegisterRequest userRequest) {
-        // Verificar si ya existe un usuario con el mismo correo electrónico
         User existingUser = userRepository.findByEmail(userRequest.getEmail());
         if (existingUser != null) {
             throw new RuntimeException("User with email " + userRequest.getEmail() + " already exists");
         }
 
-        // Verificar que el tipo de cuenta sea PROFESIONAL
         if (userRequest.getAccountType() != UsuarioProfesionalRegisterRequest.AccountType.PROFESSIONAL) {
             throw new RuntimeException("Only users with account type PROFESIONAL are allowed to register");
         }
 
-        // Crear la entidad User a partir del DTO
         User user = new User();
         user.setEmail(userRequest.getEmail());
         user.setUsername(userRequest.getUsername());
@@ -114,13 +105,11 @@ public class UserService {
         user.setCity(userRequest.getCity());
         user.setPostalCode(userRequest.getPostalCode());
 
-        // Encriptar la contraseña
         String encryptedPassword = encryptPassword(userRequest.getPassword());
         user.setPassword(encryptedPassword);
-        user.setEnabled(false);  // El usuario no está habilitado inicialmente
+        user.setEnabled(false);
         user.setCreatedAt(LocalDateTime.now());
 
-        // Guardar el usuario en el repositorio
         userRepository.save(user);
     }
 
@@ -154,7 +143,6 @@ public class UserService {
         if (userOptional.isPresent()) {
             User user = userOptional.get();
 
-            // Update common fields
             user.setEmail(updatedUser.getEmail());
             user.setUsername(updatedUser.getUsername());
             user.setAccountType(updatedUser.getAccountType());
@@ -162,7 +150,6 @@ public class UserService {
             user.setName(updatedUser.getName());
             user.setCreatedAt(updatedUser.getCreatedAt());
 
-            // Update fields specific to business account
             if (user.getAccountType() == User.AccountType.PROFESSIONAL) {
                 user.setCompanyName(updatedUser.getCompanyName());
                 user.setCompanyAddress(updatedUser.getCompanyAddress());
@@ -171,13 +158,11 @@ public class UserService {
 
             return userRepository.save(user);
         } else {
-            // Handle the case where the user with the given ID is not found
             throw new UserNotFoundException("User with ID " + userId + " not found");
         }
-
     }
 
-    public User authenticateUser(UsuarioRequest usuarioRequest) {
+    public String authenticateUser(UsuarioRequest usuarioRequest) {
         String nombreUsuario = usuarioRequest.getNombreUsuario();
         String contrasena = usuarioRequest.getContrasena();
         logger.info("Nombre de usuario: {}", nombreUsuario);
@@ -188,38 +173,23 @@ public class UserService {
             User usuario = usuarioOptional.get();
             if (!usuario.isEnabled()) {
                 logger.info("Usuario deshabilitado: {}", nombreUsuario);
-                return null; // Usuario deshabilitado
+                return null;
             }
 
-            BCryptPasswordEncoder encoder;
-            switch (usuario.getAccountType()) {
-                case ADMIN:
-                    encoder = new BCryptPasswordEncoder(20);
-                    break;
-                case PARTICULAR:
-                case PROFESSIONAL:
-                    encoder = new BCryptPasswordEncoder(15);
-                    break;
-                default:
-                    logger.info("Tipo de cuenta desconocido para el usuario: {}", nombreUsuario);
-                    return null;
-            }
-
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(15);
             if (encoder.matches(contrasena, usuario.getPassword())) {
-                return usuario;
+                return generateToken(usuario);
             } else {
                 logger.info("Contraseña incorrecta para el usuario: {}", nombreUsuario);
-                return null; // Contraseña incorrecta
+                return null;
             }
         } else {
             logger.info("Usuario no encontrado: {}", nombreUsuario);
-            return null; // Usuario no encontrado
+            return null;
         }
     }
 
-
-    // Método para verificar las credenciales del usuario
-    public boolean verificarCredenciales(Long userId, String contraseñaJSON) {
+    public boolean verificarCredenciales(Long userId, String passwordJSON) {
         Optional<User> usuarioOpcional = userRepository.findById(userId);
         if (usuarioOpcional.isPresent()) {
             User usuario = usuarioOpcional.get();
@@ -228,15 +198,15 @@ public class UserService {
 
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
-                JsonNode jsonNode = objectMapper.readTree(contraseñaJSON);
-                String contraseña = jsonNode.get("password").asText();
-                logger.info("Contraseña introducida: {}", contraseña);
+                JsonNode jsonNode = objectMapper.readTree(passwordJSON);
+                String password = jsonNode.get("password").asText();
+                logger.info("Contraseña introducida: {}", password);
 
-                String contraseñaCodificada = codificador.encode(contraseña);
-                logger.info("Contraseña codificada introducida: {}", contraseñaCodificada);
+                String EncryptedPassword = codificador.encode(password);
+                logger.info("Contraseña codificada introducida: {}", EncryptedPassword);
                 logger.info("Contraseña almacenada: {}", usuario.getPassword());
 
-                boolean credencialesValidas = codificador.matches(contraseña, usuario.getPassword());
+                boolean credencialesValidas = codificador.matches(password, usuario.getPassword());
                 if (credencialesValidas) {
                     logger.info("Credenciales válidas para usuario con ID {}", userId);
                 } else {
@@ -245,7 +215,7 @@ public class UserService {
                 return credencialesValidas;
             } catch (Exception e) {
                 logger.error("Error al obtener la contraseña introducida: {}", e.getMessage());
-                return false; // Si ocurre un error, retornamos false
+                return false;
             }
         } else {
             logger.error("Usuario con ID {} no encontrado", userId);
@@ -253,7 +223,6 @@ public class UserService {
         }
     }
 
-    // Método para encontrar un usuario por su correo electrónico.
     public User findByEmail(String email) {
         User user = userRepository.findByEmail(email);
         if (user == null) {
@@ -262,37 +231,27 @@ public class UserService {
         return user;
     }
 
-    // Método para habilitar un usuario por su ID.
     public User manageUser(Long userId, boolean enable) {
-        // Buscar el usuario por su ID
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException("Usuario no encontrado según ID: " + userId));
 
         if (enable) {
-            // Verificar si el usuario ya está habilitado
             if (user.isEnabled()) {
-                throw new UserAlreadyEnabledException("El usuario con ID " + userId + " ya está habilitado");
+                throw new RuntimeException("El usuario con ID " + userId + " ya está habilitado");
             }
-
-            // Habilitar el usuario
             user.setEnabled(true);
-
-            // Guardar y devolver el usuario actualizado
             return userRepository.save(user);
         } else {
-            // Rechazar y eliminar el usuario
             userRepository.delete(user);
-            return null;  // O podrías lanzar una excepción o devolver un mensaje indicando que el usuario fue eliminado
+            return null;
         }
     }
-
 
     private String encryptPassword(String password) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(15);
         return encoder.encode(password);
     }
 
-    // Método para obtener la lista de todos los usuarios
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -319,14 +278,12 @@ public class UserService {
         if (user != null) {
             String resetToken = generateResetToken();
 
-            // Guardar el token de reseteo en la base de datos utilizando la entidad VerificationToken
             VerificationToken verificationToken = new VerificationToken();
             verificationToken.setToken(resetToken);
             verificationToken.setUserId(user.getId());
-            verificationToken.setExpiryDate(LocalDateTime.now().plusHours(24)); // Token expira en 24 horas
+            verificationToken.setExpiryDate(LocalDateTime.now().plusHours(24));
             verificationTokenRepository.save(verificationToken);
 
-            // Enviar correo electrónico con el token de reseteo y las instrucciones
             String resetLink = "http://localhost:8081/reset-password?token=" + resetToken;
             String subject = "Instrucciones para restablecer la contraseña";
             String body = "Hola " + user.getUsername() + ",\n\nParece que has solicitado restablecer tu contraseña. " +
@@ -348,18 +305,14 @@ public class UserService {
 
         User user = userRepository.findById(verificationToken.getUserId()).orElse(null);
         if (user == null) {
-            // No se pudo encontrar el usuario asociado con el token
             return false;
         }
 
-        // Actualizar la contraseña del usuario
         user.setPassword(encryptPassword(newPassword));
         userRepository.save(user);
 
-        // Eliminar el token de la base de datos, ya que ya no es necesario
         verificationTokenRepository.delete(verificationToken);
 
-        // Enviar correo electrónico de confirmación de restablecimiento de contraseña
         String subject = "Contraseña restablecida exitosamente";
         String body = "Hola " + user.getUsername() + ",\n\nTu contraseña ha sido restablecida exitosamente.\n\n" +
                 "Si no realizaste esta acción, por favor contacta a nuestro equipo de soporte.\n\nSaludos,\nTuApp";
@@ -368,5 +321,10 @@ public class UserService {
         return true;
     }
 
-
+    private String generateToken(User user) {
+        Map<String, Object> claims = new HashMap<>();
+        return Jwts.builder().setClaims(claims).setSubject(user.getUsername()).setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
+                .signWith(SignatureAlgorithm.HS256, secret).compact();
+    }
 }

@@ -2,12 +2,11 @@
 <div class="container">
     <h2>Crear una cuenta profesional</h2>
     <p>Este tipo de cuenta va orientada a profesionales y empresas relacionadas con el sector del regalo promocional:
-        publicistas,
-        impresores, agencias de publicidad y eventos, imprentas, rotulistas, ropa laboral, etc.</p>
+        publicistas, impresores, agencias de publicidad y eventos, imprentas, rotulistas, ropa laboral, etc.</p>
     <form (ngSubmit)="registerUser(registerForm)" #registerForm="ngForm">
         <h2>Información general</h2>
         <div class="form-group">
-            <label for="name">Nombre comercial</label>
+            <label for="companyName">Nombre comercial</label>
             <input type="text" class="form-control" id="companyName" name="companyName"
                 [(ngModel)]="userRegister.companyName" required>
             <div *ngIf="registerForm.controls['companyName'].invalid && (registerForm.controls['companyName'].dirty || registerForm.controls['companyName'].touched)"
@@ -24,7 +23,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="phoneNumber">Número de teléfono</label>
+            <label for="companyPhoneNumber">Número de teléfono</label>
             <input type="text" class="form-control" id="companyPhoneNumber" name="companyPhoneNumber"
                 [(ngModel)]="userRegister.companyPhoneNumber" required>
             <div *ngIf="registerForm.controls['companyPhoneNumber'].invalid && (registerForm.controls['companyPhoneNumber'].dirty || registerForm.controls['companyPhoneNumber'].touched)"
@@ -53,7 +52,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="address">Dirección</label>
+            <label for="companyAddress">Dirección</label>
             <input type="text" class="form-control" id="companyAddress" name="companyAddress"
                 [(ngModel)]="userRegister.companyAddress" required>
             <div *ngIf="registerForm.controls['companyAddress'].invalid && (registerForm.controls['companyAddress'].dirty || registerForm.controls['companyAddress'].touched)"
@@ -99,7 +98,7 @@
         <div id="notification">
             <p>Una vez que haya mandado el formulario, se le notificará por email si su cuenta ha sido activada o no</p>
         </div>
-        
+
         <button type="submit" class="btn btn-primary"
             [disabled]="!registerForm.valid || !passwordsMatch()">Registrarse</button>
     </form>

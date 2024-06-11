@@ -40,33 +40,24 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/session")
-    public String getSession(HttpSession session) {
-        // Verificar si el objeto HttpSession es nulo
-        if (session == null) {
-            return "La sesión es nula";
-        } else {
-            String sessionId = session.getId();
-            String currentUser = (String) session.getAttribute("currentUser");
-            String message = "Id de sesión: " + sessionId + (currentUser != null ? ", Usuario actual: " + currentUser : "");
-            logger.info(message);
-            return "La sesión no es nula";
-
+    @PostMapping("/login")
+    public ResponseEntity<Map<String, String>> authenticateAdmin(@RequestBody UsuarioRequest usuarioRequest) {
+        try {
+            String token = adminService.authenticateAdmin(usuarioRequest);
+            Map<String, String> response = new HashMap<>();
+            response.put("token", token);
+            return ResponseEntity.ok(response);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }
     }
 
     @PostMapping("/register")
     public ResponseEntity<String> registerAdmin(
             @RequestBody UsuarioAdminRegisterRequest userRequest,
-            HttpSession session) {
+            @RequestHeader("Authorization") String token) {
         try {
-            // Accede a la sesión del usuario
-            String currentUser = (String) session.getAttribute("currentUser");
-
-            if (currentUser == null) {
-                // El usuario no está autenticado
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuario no autenticado");
-            }
+            String currentUser = adminService.getCurrentUserFromToken(token);
 
             // Registra el usuario administrador
             adminService.registerAdminUser(userRequest, currentUser);
@@ -74,30 +65,6 @@ public class AdminController {
             return ResponseEntity.ok("Usuario administrador registrado exitosamente");
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
-    }
-
-    @DeleteMapping("/logout")
-    public ResponseEntity<String> logout(HttpSession session) {
-        try {
-            // Obtener el usuario actual antes de invalidar la sesión
-            String currentUser = (String) session.getAttribute("currentUser");
-
-            // Invalidar la sesión actual
-            if (session != null) {
-                session.invalidate();
-            }
-
-            // Registrar en el log que la sesión del usuario actual se ha cerrado
-            if (currentUser != null) {
-                logger.info("La sesión del usuario {} se ha cerrado", currentUser);
-            } else {
-                logger.info("Sesión cerrada para un usuario no identificado");
-            }
-
-            return ResponseEntity.ok("Sesión cerrada exitosamente");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al cerrar la sesión: " + e.getMessage());
         }
     }
 
