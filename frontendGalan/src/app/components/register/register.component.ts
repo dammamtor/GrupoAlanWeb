@@ -1,9 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserServiceService } from '../../services/user-service.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AccountType } from '../../models/AccountType';
 import { Router } from '@angular/router';
-import { User } from '../../models/user';
 import { HeaderComponent } from '../header/header.component';
 import { UsuarioParticularRequest } from '../../models/UsuarioParticularRequest';
 import { CommonModule } from '@angular/common';
@@ -13,15 +12,12 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [FormsModule, HeaderComponent, CommonModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css',
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
   public userRegister: UsuarioParticularRequest;
 
-  constructor(
-    private userService: UserServiceService,
-    private ruta: Router
-  ) {
+  constructor(private userService: UserServiceService, private router: Router) {
     this.userRegister = {
       name: '',
       email: '',
@@ -33,13 +29,13 @@ export class RegisterComponent {
       username: '',
       password: '',
       repeatPassword: '',
-      accountType: AccountType.PARTICULAR
+      accountType: AccountType.PARTICULAR,
     };
   }
 
   registerUser(form: NgForm) {
     if (this.passwordsMatch()) {
-      console.log("Objeto recibido: ", this.userRegister);
+      console.log('Objeto recibido: ', this.userRegister);
       this.userService.registerUser(this.userRegister).subscribe({
         next: (response) => {
           console.log('Usuario registrado exitosamente');
@@ -47,7 +43,7 @@ export class RegisterComponent {
         },
         error: (error) => {
           console.error('Error al registrar usuario', error);
-        }
+        },
       });
     } else {
       console.error('Las contraseñas no coinciden.');
@@ -59,6 +55,6 @@ export class RegisterComponent {
   }
 
   messageRegistration() {
-    this.ruta.navigate(["correct-registration", this.userRegister.username]);
+    this.router.navigate(['correct-registration', this.userRegister.username]);
   }
 }

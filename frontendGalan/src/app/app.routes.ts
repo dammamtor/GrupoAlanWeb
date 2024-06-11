@@ -24,7 +24,7 @@ import { UserConfiguracionComponent } from './components/user-configuracion/user
 import { AuthGuard } from './services/guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent },
   {
     path: 'home',
     component: HomeComponent,

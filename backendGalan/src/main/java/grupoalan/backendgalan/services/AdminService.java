@@ -4,7 +4,6 @@ import grupoalan.backendgalan.exceptions.UserAlreadyEnabledException;
 import grupoalan.backendgalan.exceptions.UserNotFoundException;
 import grupoalan.backendgalan.model.User;
 import grupoalan.backendgalan.model.request.UsuarioAdminRegisterRequest;
-import grupoalan.backendgalan.model.request.UsuarioProfesionalRegisterRequest;
 import grupoalan.backendgalan.model.request.UsuarioRequest;
 import grupoalan.backendgalan.repository.UserRepository;
 import io.jsonwebtoken.Claims;
@@ -21,7 +20,6 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 @Service
 public class AdminService {
@@ -88,7 +86,7 @@ public class AdminService {
 
         if (enable) {
             if (user.isEnabled()) {
-                throw new UserAlreadyEnabledException("El usuario con ID " + userId + " ya está habilitado");
+                throw new UserAlreadyEnabledException("El usuario con ID " + userId + "ya está habilitado");
             }
             user.setEnabled(true);
             userRepository.save(user);
