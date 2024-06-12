@@ -1,4 +1,4 @@
-<app-header></app-header>
+<!-- <app-header></app-header> -->
 <div class="container">
     <h2>¿Quieres ser cliente?</h2>
     <p>Déjanos tus datos y nos pondremos en contacto contigo.</p>
@@ -95,6 +95,8 @@
             <input type="text" class="form-control" readonly value="Particular">
         </div>
         <button type="submit" class="btn btn-primary"
-            [disabled]="!registerForm.valid || !passwordsMatch()">Registrarse</button>
+            [disabled]="!registerForm.valid || !passwordsMatch()">Registrarse</button> |
+        <button class="btn btn-secondary" type="submit" (click)="redirectToLogin()">Cancelar</button>
     </form>
+
 </div>

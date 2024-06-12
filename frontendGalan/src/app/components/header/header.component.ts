@@ -18,6 +18,9 @@ export class HeaderComponent {
   navegatePayment() {
     this.ruta.navigate(['payments']);
   }
+  navegateCart() {
+    this.ruta.navigate(['carrito']);
+  }
   navegateAbanicos() {
     this.ruta.navigate(['types', 'abanico']);
   }
@@ -68,6 +71,6 @@ export class HeaderComponent {
   }
 
   irABusquedaAvanzada(): void {
-    this.ruta.navigate(["busqueda-avanzada"]);
+    this.ruta.navigate(['busqueda-avanzada']);
   }
 }

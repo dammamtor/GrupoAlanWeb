@@ -1,4 +1,4 @@
-<app-header></app-header>
+<!-- <app-header></app-header> -->
 <div class="container">
     <h2>Crear una cuenta profesional</h2>
     <p>Este tipo de cuenta va orientada a profesionales y empresas relacionadas con el sector del regalo promocional:
@@ -100,6 +100,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary"
-            [disabled]="!registerForm.valid || !passwordsMatch()">Registrarse</button>
+            [disabled]="!registerForm.valid || !passwordsMatch()">Registrarse</button> |
+        <button class="btn btn-secondary" type="submit" (click)="redirectToLogin()">Cancelar</button>
     </form>
 </div>

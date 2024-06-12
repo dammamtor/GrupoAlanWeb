@@ -9,6 +9,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/guards/auth.guard';
 import { UserServiceService } from './services/user-service.service';
 import { JwtInterceptor } from './services/interceptors/jtw.interceptors';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +20,6 @@ export const appConfig: ApplicationConfig = {
     AdminService,
     UserServiceService,
     AuthGuard,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, provideAnimationsAsync(),
   ],
 };

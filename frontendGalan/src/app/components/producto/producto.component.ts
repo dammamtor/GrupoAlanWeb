@@ -4,60 +4,73 @@ import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/Product';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Marking } from '../../models/Marking';
 import { MarkingsTranslations } from '../../models/MarkingTranslations';
-
+import { CartService } from '../../services/cart.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SharedModule } from '../../shared.module';
+import { Variants } from '../../models/Variants';
 
 @Component({
   selector: 'app-producto',
   standalone: true,
-  imports: [HeaderComponent, RouterLink, CommonModule],
+  imports: [
+    HeaderComponent,
+    RouterLink,
+    CommonModule,
+    MatSnackBarModule,
+    SharedModule,
+  ],
   templateUrl: './producto.component.html',
   styleUrl: './producto.component.css',
 })
 export class ProductoComponent {
   product: Product | undefined;
+  selectedVariant: Variants | undefined;
   uniqueMarkingsWithTechniques: {
-    image: string,
-    height: number,
-    width: number,
-    techniques: { name: string, max_colors: string }[],
-    translations: MarkingsTranslations[]
+    image: string;
+    height: number;
+    width: number;
+    techniques: { name: string; max_colors: string }[];
+    translations: MarkingsTranslations[];
   }[] = [];
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       const ref = params['ref'];
       this.productService.obtenerProductoPorRef(ref).subscribe({
         next: (product: Product) => {
           this.product = product;
-          console.log("Producto obtenido:", this.product);
+          console.log('Producto obtenido:', this.product);
           this.groupMarkingsByImage();
         },
         error: (error) => {
-          console.error("Error al obtener el producto:", error);
-        }
+          console.error('Error al obtener el producto:', error);
+        },
       });
     });
   }
 
   groupMarkingsByImage() {
-    const imageTechniqueMap = new Map<string, {
-      height: number,
-      width: number,
-      techniques: { name: string, max_colors: string }[],
-      translations: MarkingsTranslations[]
-    }>();
+    const imageTechniqueMap = new Map<
+      string,
+      {
+        height: number;
+        width: number;
+        techniques: { name: string; max_colors: string }[];
+        translations: MarkingsTranslations[];
+      }
+    >();
 
     if (this.product && this.product.markings) {
-      this.product.markings.forEach(marking => {
+      this.product.markings.forEach((marking) => {
         const technique = {
           name: marking.markingTechniques.name,
-          max_colors: marking.max_colors
+          max_colors: marking.max_colors,
         };
 
         if (imageTechniqueMap.has(marking.area_img)) {
@@ -71,22 +84,37 @@ export class ProductoComponent {
             height: marking.height,
             width: marking.width,
             techniques: [technique],
-            translations: marking.markingsTranslations ? [marking.markingsTranslations] : []
+            translations: marking.markingsTranslations
+              ? [marking.markingsTranslations]
+              : [],
           };
           imageTechniqueMap.set(marking.area_img, imageData);
         }
       });
 
-      this.uniqueMarkingsWithTechniques = Array.from(imageTechniqueMap, ([image, data]) => ({
-        image,
-        height: data.height,
-        width: data.width,
-        techniques: data.techniques,
-        translations: data.translations
-      }));
-      console.log("Resultado de la agrupación de marcaciones:", this.uniqueMarkingsWithTechniques);
-
+      this.uniqueMarkingsWithTechniques = Array.from(
+        imageTechniqueMap,
+        ([image, data]) => ({
+          image,
+          height: data.height,
+          width: data.width,
+          techniques: data.techniques,
+          translations: data.translations,
+        })
+      );
+      console.log(
+        'Resultado de la agrupación de marcaciones:',
+        this.uniqueMarkingsWithTechniques
+      );
     }
   }
-
+  // Añadir al carrito
+  addToCart() {
+    if (this.product && this.selectedVariant) {
+      this.cartService.addToCart(this.product, this.selectedVariant);
+      console.log('Producto añadido al carrito:', this.product);
+    } else {
+      console.log('No se ha seleccionado ninguna variante.');
+    }
+  }
 }
