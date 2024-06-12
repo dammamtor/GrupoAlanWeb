@@ -24,6 +24,7 @@ import { UserConfiguracionComponent } from './components/user-configuracion/user
 import { AuthGuard } from './services/guards/auth.guard';
 import { BusquedaAvanzadaComponent } from './components/busqueda-avanzada/busqueda-avanzada.component';
 import { ProductosFiltradosComponent } from './components/productos-filtrados/productos-filtrados.component';
+import { CartComponent } from './components/cart/cart.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -45,6 +46,10 @@ export const routes: Routes = [
   },
   {
     path: 'search/:s/producto/ref/:ref',
+    component: ProductoComponent,
+  },
+  {
+    path: 'producto/:ref',
     component: ProductoComponent,
   },
   {
@@ -70,6 +75,10 @@ export const routes: Routes = [
   {
     path: 'register-professional-user',
     component: RegisterProfesionalComponent,
+  },
+  {
+    path: 'carrito',
+    component: CartComponent,
   },
   {
     path: 'verify/:token',
@@ -124,15 +133,15 @@ export const routes: Routes = [
     component: UserConfiguracionComponent,
   },
   {
-    path: "busqueda-avanzada",
-    component: BusquedaAvanzadaComponent
+    path: 'busqueda-avanzada',
+    component: BusquedaAvanzadaComponent,
   },
   {
-    path: "busqueda-avanzada/productos-filtrados",
-    component: ProductosFiltradosComponent
+    path: 'busqueda-avanzada/productos-filtrados',
+    component: ProductosFiltradosComponent,
   },
   {
-    path: "busqueda-avanzada/productos-filtrados/ref/:ref",
-    component: ProductoComponent
-  }
+    path: 'busqueda-avanzada/productos-filtrados/ref/:ref',
+    component: ProductoComponent,
+  },
 ];

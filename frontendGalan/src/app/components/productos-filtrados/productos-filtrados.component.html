@@ -26,7 +26,20 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-outline-secondary"
-                                    (click)="goToRef(item.ref)">Ver Producto</button>
+                                        (click)="goToRef(item.ref)">Ver Producto</button>
+
+                                    <!-- Selector de variante -->
+                                    <select *ngIf="item.variants && item.variants.length > 0"
+                                        [(ngModel)]="selectedVariants[item.productId]" class="form-select">
+                                        <option *ngFor="let variant of item.variants" [ngValue]="variant">
+                                            {{ variant.color }} - {{ variant.size }} (Stock: {{ variant.stock?.stock ||
+                                            0 }})
+                                        </option>
+                                    </select>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                                        (click)="addToCart(item, selectedVariants[item.productId])">
+                                        <i class="bi bi-cart"></i>
+                                    </button>
                                 </div>
                                 <small class="text-body-secondary">Ref: {{item.ref}}</small>
                             </div>
@@ -45,3 +58,55 @@
 
     </div>
 </div>
+
+<!-- <app-header></app-header>
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <h2 class="text-center mb-4">LISTA DE PRODUCTOS FILTRADOS</h2>
+        <h3>Se han encontrado {{productosFiltrados.length}} productos</h3>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <ng-container *ngFor="let item of visibleProducts">
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img *ngIf="item.images && item.images.length > 0" [src]="item.images[0].imgMax"
+                            class="card-img-top" alt="Producto" />
+                        <div class="card-body" *ngIf="item.descriptions && item.descriptions.length > 0">
+                            <p class="card-text" *ngIf="item.descriptions[0].details.length > 100">
+                                {{ item.descriptions[0].details | slice:0:100 }}...
+                                <button class="btn btn-link btn-sm text-decoration-none" (click)="goToRef(item.ref)">
+                                    Ver más
+                                </button>
+                            </p>
+                            <p class="card-text" *ngIf="item.descriptions[0].details.length <= 100">
+                                {{ item.descriptions[0].details }}
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                                        (click)="goToRef(item.ref)">Ver Producto</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                                        (click)="addToCart(item)">
+                                        <i class="bi bi-cart"></i>
+                                    </button>
+                                </div>
+                                <small class="text-body-secondary">Ref: {{item.ref}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="pagination-container d-flex justify-content-center">
+            <button class="pagination-button btn btn-primary" *ngIf="currentPage > 1"
+                (click)="previousPage()">Anterior</button>
+            <button class="pagination-button btn btn-primary ms-2" *ngIf="currentPage < totalPages"
+                (click)="nextPage()">Siguiente</button>
+        </div>
+
+    </div>
+</div> -->

@@ -60,4 +60,7 @@ export class RegisterProfesionalComponent {
       queryParams: { userType: 'professional' },
     });
   }
+  redirectToLogin(): void {
+    this.router.navigate(['login']);
+  }
 }

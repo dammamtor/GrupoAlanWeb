@@ -57,4 +57,7 @@ export class RegisterComponent {
   messageRegistration() {
     this.router.navigate(['correct-registration', this.userRegister.username]);
   }
+  redirectToLogin(): void {
+    this.router.navigate(['login']);
+  }
 }

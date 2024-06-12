@@ -1,0 +1,51 @@
+<app-header></app-header><br>
+<div class="container">
+    <h2>Carrito de Compras</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Imagen</th>
+                <th>Color</th>
+                <th>Talla</th>
+                <th>Referencia</th>
+                <th>Precio Unitario</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cart">
+                <td>
+                    <a [routerLink]="['/producto', item.product.ref]">{{ item.product.name }}</a>
+                </td>
+                <td>
+                    <img *ngIf="item.product.images && item.product.images.length > 0"
+                        [src]="item.product.images[0].imgMax" alt="{{ item.product.name }}"
+                        style="width: 100px; height: auto;">
+                </td>
+                <td>{{ item.variant.color || 'N/A' }}</td>
+                <td>{{ item.variant.size || 'N/A' }}</td>
+                <td>{{ item.product.ref }}</td>
+                <td>{{ item.product.price }} €</td>
+                <td>
+                    <button (click)="updateQuantity(item.product.productId, item.variant.variantId!, item.quantity - 1)"
+                        class="btn btn-sm btn-outline-secondary">-</button>
+                    {{ item.quantity }}
+                    <button (click)="updateQuantity(item.product.productId, item.variant.variantId!, item.quantity + 1)"
+                        class="btn btn-sm btn-outline-secondary"
+                        [disabled]="item.quantity >= (item.variant.stock?.stock || 0)">+</button>
+                </td>
+                <td>
+                    <button (click)="removeFromCart(item.product.productId, item.variant.variantId!)"
+                        class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-end">
+        <h4>Total: {{ totalPrice }} €</h4>
+    </div>
+    <button (click)="clearCart()" class="btn btn-warning">Vaciar Carrito</button> |
+    <button (click)="irAHome()" class="btn btn-secondary">Volver al inicio</button>
+</div>
