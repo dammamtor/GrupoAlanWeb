@@ -59,10 +59,10 @@ export class LoginComponent {
   }
 
   redirectToRegisterUser(): void {
-    this.router.navigate(['register']);
+    this.router.navigate(['register-user']);
   }
 
   redirectToRegisterProfessionalUser(): void {
-    this.router.navigate(['register-profesional']);
+    this.router.navigate(['register-professional-user']);
   }
 }

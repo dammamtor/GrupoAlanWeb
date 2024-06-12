@@ -9,7 +9,7 @@
             <label for="companyName">Nombre comercial</label>
             <input type="text" class="form-control" id="companyName" name="companyName"
                 [(ngModel)]="userRegister.companyName" required>
-            <div *ngIf="registerForm.controls['companyName'].invalid && (registerForm.controls['companyName'].dirty || registerForm.controls['companyName'].touched)"
+            <div *ngIf="registerForm.controls['companyName']?.invalid && (registerForm.controls['companyName']?.dirty || registerForm.controls['companyName']?.touched)"
                 class="alert alert-danger">
                 Debes introducir un nombre comercial.
             </div>
@@ -17,7 +17,7 @@
         <div class="form-group">
             <label for="email">Correo electrónico</label>
             <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userRegister.email" required>
-            <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)"
+            <div *ngIf="registerForm.controls['email']?.invalid && (registerForm.controls['email']?.dirty || registerForm.controls['email']?.touched)"
                 class="alert alert-danger">
                 Debes introducir un correo electrónico válido.
             </div>
@@ -26,7 +26,7 @@
             <label for="companyPhoneNumber">Número de teléfono</label>
             <input type="text" class="form-control" id="companyPhoneNumber" name="companyPhoneNumber"
                 [(ngModel)]="userRegister.companyPhoneNumber" required>
-            <div *ngIf="registerForm.controls['companyPhoneNumber'].invalid && (registerForm.controls['companyPhoneNumber'].dirty || registerForm.controls['companyPhoneNumber'].touched)"
+            <div *ngIf="registerForm.controls['companyPhoneNumber']?.invalid && (registerForm.controls['companyPhoneNumber']?.dirty || registerForm.controls['companyPhoneNumber']?.touched)"
                 class="alert alert-danger">
                 El número de teléfono es obligatorio.
             </div>
@@ -38,7 +38,7 @@
             <label for="country">País</label>
             <input type="text" class="form-control" id="country" name="country" [(ngModel)]="userRegister.country"
                 required>
-            <div *ngIf="registerForm.controls['country'].invalid && (registerForm.controls['country'].dirty || registerForm.controls['country'].touched)"
+            <div *ngIf="registerForm.controls['country']?.invalid && (registerForm.controls['country']?.dirty || registerForm.controls['country']?.touched)"
                 class="alert alert-danger">
                 El país es obligatorio.
             </div>
@@ -46,7 +46,7 @@
         <div class="form-group">
             <label for="city">Ciudad</label>
             <input type="text" class="form-control" id="city" name="city" [(ngModel)]="userRegister.city" required>
-            <div *ngIf="registerForm.controls['city'].invalid && (registerForm.controls['city'].dirty || registerForm.controls['city'].touched)"
+            <div *ngIf="registerForm.controls['city']?.invalid && (registerForm.controls['city']?.dirty || registerForm.controls['city']?.touched)"
                 class="alert alert-danger">
                 La ciudad es obligatoria.
             </div>
@@ -55,7 +55,7 @@
             <label for="companyAddress">Dirección</label>
             <input type="text" class="form-control" id="companyAddress" name="companyAddress"
                 [(ngModel)]="userRegister.companyAddress" required>
-            <div *ngIf="registerForm.controls['companyAddress'].invalid && (registerForm.controls['companyAddress'].dirty || registerForm.controls['companyAddress'].touched)"
+            <div *ngIf="registerForm.controls['companyAddress']?.invalid && (registerForm.controls['companyAddress']?.dirty || registerForm.controls['companyAddress']?.touched)"
                 class="alert alert-danger">
                 La dirección es obligatoria.
             </div>
@@ -64,7 +64,7 @@
             <label for="postalCode">Código Postal</label>
             <input type="text" class="form-control" id="postalCode" name="postalCode"
                 [(ngModel)]="userRegister.postalCode" required>
-            <div *ngIf="registerForm.controls['postalCode'].invalid && (registerForm.controls['postalCode'].dirty || registerForm.controls['postalCode'].touched)"
+            <div *ngIf="registerForm.controls['postalCode']?.invalid && (registerForm.controls['postalCode']?.dirty || registerForm.controls['postalCode']?.touched)"
                 class="alert alert-danger">
                 El código postal es obligatorio.
             </div>
@@ -86,7 +86,7 @@
             <label for="repeatPassword">Repetir contraseña</label>
             <input type="password" class="form-control" id="repeatPassword" name="repeatPassword"
                 [(ngModel)]="userRegister.repeatPassword" required>
-            <div *ngIf="userRegister.password !== userRegister.repeatPassword && (registerForm.controls['repeatPassword'].dirty || registerForm.controls['repeatPassword'].touched)"
+            <div *ngIf="userRegister.password !== userRegister.repeatPassword && (registerForm.controls['repeatPassword']?.dirty || registerForm.controls['repeatPassword']?.touched)"
                 class="alert alert-danger">
                 Las contraseñas no coinciden.
             </div>
