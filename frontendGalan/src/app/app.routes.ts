@@ -22,6 +22,8 @@ import { UserHistorialDetallesComponent } from './components/user-historial-deta
 import { UserFavoritosComponent } from './components/user-favoritos/user-favoritos.component';
 import { UserConfiguracionComponent } from './components/user-configuracion/user-configuracion.component';
 import { AuthGuard } from './services/guards/auth.guard';
+import { BusquedaAvanzadaComponent } from './components/busqueda-avanzada/busqueda-avanzada.component';
+import { ProductosFiltradosComponent } from './components/productos-filtrados/productos-filtrados.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -121,4 +123,16 @@ export const routes: Routes = [
     path: 'user/configuracion',
     component: UserConfiguracionComponent,
   },
+  {
+    path: "busqueda-avanzada",
+    component: BusquedaAvanzadaComponent
+  },
+  {
+    path: "busqueda-avanzada/productos-filtrados",
+    component: ProductosFiltradosComponent
+  },
+  {
+    path: "busqueda-avanzada/productos-filtrados/ref/:ref",
+    component: ProductoComponent
+  }
 ];

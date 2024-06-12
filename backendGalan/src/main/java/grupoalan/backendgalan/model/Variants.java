@@ -32,6 +32,9 @@ public class Variants {
     @JoinColumn(name = "color_id")
     private Colors colorSet;
 
+    @OneToOne(mappedBy = "variants", cascade = CascadeType.ALL)
+    private Stock stock;
+
     public Variants() {
     }
 
@@ -105,6 +108,14 @@ public class Variants {
 
     public void setColorSet(Colors colorSet) {
         this.colorSet = colorSet;
+    }
+
+    public Stock getStock() {
+        return stock;
+    }
+
+    public void setStock(Stock stock) {
+        this.stock = stock;
     }
 
     @Override

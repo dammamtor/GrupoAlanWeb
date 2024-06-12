@@ -1,0 +1,78 @@
+/* Estilos para la clase album */
+.album {
+    padding-top: 5rem;
+    background-color: #f8f9fa; /* Color de fondo */
+    display: flex; /* Usar flexbox para alinear elementos */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+    justify-content: space-around; /* Distribuir los elementos de manera uniforme */
+}
+
+/* Estilos para el título */
+.album h2 {
+    color: #333; /* Color del texto */
+    font-size: 3rem; /* Tamaño del texto */
+    margin-bottom: 1.5rem; /* Espaciado inferior */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Estilos para el número de productos */
+.album h3 {
+    color: #666; /* Color del texto */
+    font-size: 1.5rem; /* Tamaño del texto */
+    margin-bottom: 1.5rem; /* Espaciado inferior */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Estilos para las tarjetas de producto */
+.album .card {
+    border: none; /* Sin borde */
+    transition: box-shadow 0.3s, transform 0.3s; /* Transición de sombra y transformación */
+    border-radius: 10px; /* Radio de borde */
+    background-color: #fff; /* Color de fondo */
+    width: 350px; /* Ancho de la tarjeta */
+    margin-bottom: 2rem; /* Espaciado inferior */
+}
+
+.album .card:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra al hacer hover */
+    transform: scale(1.05); /* Escalar al 105% del tamaño original */
+}
+
+
+/* Estilos para el botón "Ver Producto" */
+.album .btn-outline-secondary {
+    color: #007bff; /* Color del texto */
+    border-color: #007bff; /* Color del borde */
+    font-size: 1.2rem; /* Tamaño del texto */
+    transition: background-color 0.3s, color 0.3s; /* Transición */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    width: 100%; /* Ancho completo */
+    display: block; /* Convertir a bloque para centrar */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+.album .btn-outline-secondary:hover {
+    background-color: #007bff; /* Color de fondo al hacer hover */
+    border-color: #007bff; /* Color del borde al hacer hover */
+    color: #fff; /* Color del texto al hacer hover */
+}
+
+/* Estilos para el número de referencia */
+.album .text-body-secondary {
+    color: #999; /* Color del texto */
+    font-size: 1rem; /* Tamaño del texto */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Estilos para los botones de paginación */
+.pagination-container .pagination-button {
+    margin-top: 2rem; /* Espaciado superior */
+    font-size: 1.2rem; /* Tamaño del texto */
+}
+
+.pagination-container .pagination-button:hover {
+    background-color: #007bff; /* Color de fondo al hacer hover */
+    border-color: #007bff; /* Color del borde al hacer hover */
+    color: #fff; /* Color del texto al hacer hover */
+}

@@ -10,8 +10,8 @@ export class MaterialService {
   private apiUrl: string = "http://localhost:8081/grupo-alan/descriptions"
   constructor(private http: HttpClient) { }
 
-  obtenerListaMaterialesEnBD(): Observable<Description[]> {
+  obtenerListaMaterialesEnBD(): Observable<string[]> {
     console.log("METODO SERVICE. OBTENER LISTA DE MATERIALES");
-    return this.http.get<Description[]>(`${this.apiUrl}/lista-materiales`);
+    return this.http.get<string[]>(`${this.apiUrl}/lista-materiales`);
   }
 }

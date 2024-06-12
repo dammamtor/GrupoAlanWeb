@@ -39,6 +39,10 @@ public class APIextController {
     @Autowired
     private ImagesService imagesService;
     @Autowired
+    private StockService stockService;
+    @Autowired
+    private PricesService pricesService;
+    @Autowired
     private APITokenService apiTokenService;
 
     //ESTE CONTROLLER ESTA EXCLUSIVAMENTE DEDICADO A LA OBTENCION DE BBDD DE LAS APIS EXTERNAS
@@ -328,6 +332,44 @@ public class APIextController {
             return new ResponseEntity<>("Lista de images Makito actualizada correctamente.", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Error al actualizar la lista de images", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    //STOCK
+    @GetMapping("makito/stock")
+    public ResponseEntity<String> makitoStock(){
+        String apiToken = getApiToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        logger.info("OBTENCION DATOS DE STOCK DE MAKITO A BBDD EMPRESA");
+        // Realizar la actualización de los productos desde la API
+        boolean updatedSuccessfully = stockService.makitoStockFromApi(apiToken);
+
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de stock de Makito actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de stock", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    //PRECIOS
+    @GetMapping("makito/prices")
+    public ResponseEntity<String> makitoPrices(){
+        String apiToken = getApiToken();
+        if (apiToken == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        logger.info("OBTENCION DATOS DE PRECIOS DE MAKITO A BBDD EMPRESA");
+        // Realizar la actualización de los productos desde la API
+        boolean updatedSuccessfully = pricesService.makitoPricesFromApi(apiToken);
+
+        if (updatedSuccessfully) {
+            return new ResponseEntity<>("Lista de precios de Makito actualizada correctamente.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error al actualizar la lista de precios", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

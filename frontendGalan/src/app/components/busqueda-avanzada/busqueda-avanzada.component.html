@@ -1,1 +1,127 @@
-<p>busqueda-avanzada works!</p>
+<app-header></app-header>
+<div class="container">
+  <h1 class="display-4">Búsqueda avanzada</h1>
+  <div class="content-box">
+    <form id="searchForm" (submit)="onSubmit($event)">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex align-items-center justify-content-between">
+            <p class="lead">Seleccione sus preferencias y pulse el botón para buscar</p>
+            <div class="d-flex">
+              <button type="reset" class="btn btn-secondary" form="searchForm">Limpiar todo</button>
+              <button type="submit" class="btn btn-primary">Buscar productos</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separate-div">
+        <div class="row">
+          <!-- Categorías -->
+          <div class="col-md-3">
+            <ul class="list-unstyled ps-0">
+              <li class="mb-1">
+                <button type="button" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#home-collapse1" aria-expanded="false">
+                  Categorías
+                </button>
+                <div class="collapse" id="home-collapse1">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li *ngFor="let category of categories">
+                      <label>
+                        <input type="checkbox" id="{{ category }}" [value]="category">
+                        {{ category }}
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- Resto de los elementos -->
+          <!-- Marcaje (Tipos) -->
+          <div class="col-md-3">
+            <ul class="list-unstyled ps-0">
+              <li class="mb-1">
+                <button type="button" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#home-collapse2" aria-expanded="false">
+                  Marcaje
+                </button>
+                <div class="collapse" id="home-collapse2">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li *ngFor="let tipo of tipos">
+                      <label>
+                        <input type="checkbox" id="{{ tipo }}" [value]="tipo">
+                        {{ tipo }}
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- Colores -->
+          <div class="col-md-3">
+            <ul class="list-unstyled ps-0">
+              <li class="mb-1">
+                <button type="button" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#home-collapse3" aria-expanded="false">
+                  Colores
+                </button>
+                <div class="collapse" id="home-collapse3">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li *ngFor="let color of colors">
+                      <label>
+                        <input type="checkbox" id="{{ color }}" [value]="color">
+                        {{ color }}
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- Material -->
+          <div class="col-md-3">
+            <ul class="list-unstyled ps-0">
+              <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#home-collapse4" aria-expanded="false">
+                  Material
+                </button>
+                <div class="collapse" id="home-collapse4">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li>
+                      <label>
+                        <input type="checkbox" id="Overview" value="Overview">
+                        Overview
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input type="checkbox" id="Updates" value="Updates">
+                        Updates
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input type="checkbox" id="Reports" value="Reports">
+                        Reports
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </form>
+    
+    <!-- Nuevo div para mostrar el mensaje de error -->
+    <div *ngIf="showError" class="alert alert-danger" role="alert">
+      No se encontraron productos que coincidan con los criterios de búsqueda. Pruebe con otra combinacion.
+    </div>
+  </div>
+  
+  <br>
+</div>
