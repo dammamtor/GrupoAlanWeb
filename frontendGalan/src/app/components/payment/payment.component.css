@@ -1,104 +1,72 @@
-/* Estilos generales */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.card {
-    border: none;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.card-body {
-    padding: 1.5rem;
-}
-
-.btn {
-    display: flex;
-    align-items: center;
-    text-transform: uppercase;
-    font-weight: 600;
-    border-radius: 25px;
-}
-
-.btn-outline-danger,
-.btn-outline-secondary {
-    border-width: 2px;
-}
-
-/* Estilos específicos para la sección */
-.py-5 {
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
-
-.bg-light {
+/* Estilos para el contenedor principal */
+.section-container {
     background-color: #f8f9fa;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
-.text-primary {
-    color: #007bff !important;
+/* Estilos para la tarjeta de detalles del carrito */
+.cart-details-card {
+    background-color: #fff;
+    color: #212529;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
-.text-white {
-    color: #fff !important;
+/* Estilos para el ícono del usuario */
+.user-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
 }
 
-.card.bg-primary {
-    border-radius: 25px;
+/* Estilos para los iconos de métodos de pago */
+.payment-icons {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
 }
 
-.card-body h5 {
-    font-size: 1.25rem;
-    font-weight: 600;
+/* Estilos para los campos de entrada */
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    color: #495057;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease;
 }
 
-/* Estilos del formulario */
-.form-outline {
-    margin-bottom: 1rem;
+/* Estilos para las etiquetas de los campos de entrada */
+.form-label {
+    color: #495057;
 }
 
-.form-outline input {
-    border-radius: 10px;
-    padding: 10px;
-    width: 100%;
+/* Estilos para los botones */
+.btn {
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
 }
 
-.form-control-lg {
-    font-size: 1rem;
-    padding: 0.75rem 1.25rem;
-    height: auto;
+/* Estilos para el botón de checkout */
+.checkout-btn {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo del botón de Checkout en un div con fondo de advertencia */
-.bg-warning .btn-info {
-    background-color: #ffcc80; /* Color de fondo del botón */
-    border-color: #ffb74d; /* Color del borde del botón */
-    color: #bf360c; /* Color del texto del botón */
-    box-shadow: 0 4px 6px rgba(255, 193, 7, 0.1); /* Sombra del botón */
-    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s; /* Transiciones */
+/* Estilos para los elementos de la lista de precios */
+.price-list-item {
+    font-weight: bold;
 }
 
-.bg-warning .btn-info:hover {
-    background-color: #ff5722; /* Color de fondo del botón en hover */
-    border-color: #e64a19; /* Color del borde del botón en hover */
-    color: #fff; /* Color del texto del botón en hover */
-    box-shadow: 0 6px 8px rgba(255, 87, 34, 0.2); /* Sombra del botón en hover */
+/* Hover state para botones */
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-/* Añade estilos para el div contenedor de los iconos */
-.icon-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Alinea los iconos a la derecha */
+/* Hover state para botón de checkout */
+.checkout-btn:hover {
+    background-color: #0056b3;
 }
-
-/* Estilo adicional para los iconos */
-.svg-icon {
-    width: 40px; /* Reducir el ancho de los iconos */
-    height: auto;
-    fill: #fff; /* Cambia el color de los iconos a blanco */
-    margin-left: 10px; /* Añade un margen a la izquierda para separar los iconos */
-}
-
-
