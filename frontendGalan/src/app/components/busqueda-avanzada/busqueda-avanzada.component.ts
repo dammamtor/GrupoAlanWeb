@@ -24,6 +24,7 @@ export class BusquedaAvanzadaComponent {
   colors: string[] = [];
   tipos: string[] = [];
   error: string | null = null;
+  isLoading: boolean = true;
 
   constructor(
     private ruta: Router,
@@ -76,13 +77,16 @@ export class BusquedaAvanzadaComponent {
           tipo.replace(/^"|"$/g, '')
         );
         console.log('Lista de tipos: ', this.tipos);
+        this.isLoading = false; // Se apaga el spinner cuando se han cargado los tipos
       },
       error: (error) => {
         this.error =
           'Error al cargar la lista de tipos. Por favor, inténtalo de nuevo más tarde.';
+        this.isLoading = false; // En caso de error, también se apaga el spinner
       },
     });
   }
+  
   showError: boolean = false;
 
   onSubmit(event: Event): void {

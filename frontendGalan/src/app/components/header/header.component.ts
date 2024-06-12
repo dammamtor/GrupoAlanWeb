@@ -1,16 +1,51 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { TipoService } from '../../services/tipo.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, FormsModule, ReactiveFormsModule],
+  imports: [RouterLink, FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  private ruta = inject(Router);
+  tipos: string[] = [];
+  error: string | null = null;
+  isLoading: boolean = true; // Variable para controlar el estado de carga
+
+  constructor(
+    private ruta: Router,
+    private tipoService: TipoService,
+  ) { }
+
+  ngOnInit(): void {
+    this.getTipos();
+  }
+
+  getTipos(): void {
+    console.log('Obteniendo lista de tipos desde el servicio...');
+    this.tipoService.obtenerListaTiposEnBD().subscribe({
+      next: (tipos) => {
+        this.tipos = tipos.map((tipo) =>
+          tipo.replace(/^"|"$/g, '')
+        );
+        console.log('Lista de tipos: ', this.tipos);
+        this.isLoading = false; // Se apaga el spinner cuando se han cargado los tipos
+      },
+      error: (error) => {
+        this.error =
+          'Error al cargar la lista de tipos. Por favor, inténtalo de nuevo más tarde.';
+        this.isLoading = false; // En caso de error, también se apaga el spinner
+      },
+    });
+  }
+
+  navigateToTypes(type: string) {
+    this.ruta.navigate(['types', type]);
+  }
 
   navegateLogin() {
     this.ruta.navigate(['login']);

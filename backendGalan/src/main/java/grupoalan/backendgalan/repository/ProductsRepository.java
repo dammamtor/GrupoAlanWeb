@@ -35,4 +35,15 @@ public interface ProductsRepository extends JpaRepository<Products, Long> {
                                                       @Param("tipos") List<String> tipos);
 
 
+    @Query("SELECT DISTINCT p FROM Products p " +
+            "LEFT JOIN p.categories cat " +
+            "LEFT JOIN p.variants v " +
+            "LEFT JOIN v.stock s " +
+            "WHERE (:categorias IS NULL OR cat.category IN :categorias) " +
+            "AND (:unidadesMin IS NULL OR :unidadesMax IS NULL OR (s.stock BETWEEN :unidadesMin AND :unidadesMax))")
+    List<Products> findByCategoriasAndUnidades(@Param("categorias") List<String> categorias,
+                                               @Param("unidadesMin") float unidadesMin,
+                                               @Param("unidadesMax") float unidadesMax);
+
+
 }

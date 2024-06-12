@@ -44,17 +44,23 @@
               <li class="mb-1">
                 <button type="button" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                   data-bs-toggle="collapse" data-bs-target="#home-collapse2" aria-expanded="false">
-                  Marcaje
+                  Tipos
                 </button>
                 <div class="collapse" id="home-collapse2">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li *ngFor="let tipo of tipos">
-                      <label>
-                        <input type="checkbox" id="{{ tipo }}" [value]="tipo">
-                        {{ tipo }}
-                      </label>
-                    </li>
+                    <ng-container *ngIf="isLoading; else loadedContent">
+                      <li class="loading-text">Cargando...</li>
+                    </ng-container>
+                    <ng-template #loadedContent>
+                      <li *ngFor="let tipo of tipos">
+                        <label>
+                          <input type="checkbox" id="{{ tipo }}" [value]="tipo">
+                          {{ tipo }}
+                        </label>
+                      </li>
+                    </ng-template>
                   </ul>
+                  
                 </div>
               </li>
             </ul>
@@ -119,7 +125,7 @@
     
     <!-- Nuevo div para mostrar el mensaje de error -->
     <div *ngIf="showError" class="alert alert-danger" role="alert">
-      No se encontraron productos que coincidan con los criterios de búsqueda. Pruebe con otra combinacion.
+      Lamentablemente no contamos con tales productos que cumplan con esas características. Pruebe buscando otro producto.
     </div>
   </div>
   

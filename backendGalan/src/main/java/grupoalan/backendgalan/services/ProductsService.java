@@ -9,6 +9,9 @@ import grupoalan.backendgalan.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -315,6 +318,9 @@ public class ProductsService{
     }
 
     public List<Products> searchProducts(String searchTerm) {
+        // Convertir el término de búsqueda a minúsculas y remover tildes
+        searchTerm = normalizeString(searchTerm.toLowerCase());
+
         List<Products> allProducts = productsRepository.findAll();
         List<Products> matchingProducts = new ArrayList<>();
         boolean isExactMatch = false;
@@ -325,7 +331,7 @@ public class ProductsService{
             StringBuilder productDescriptionBuilder = new StringBuilder();
             Set<String> uniqueTypes = new HashSet<>();
 
-            // Concatena los tipos de descripción al inicio del nombre del producto
+            // Concatenar los tipos de descripción al inicio del nombre del producto
             Set<Descriptions> descriptions = product.getDescriptions();
             for (Descriptions description : descriptions) {
                 String type = description.getType();
@@ -336,10 +342,10 @@ public class ProductsService{
             for (String type : uniqueTypes) {
                 productDescriptionBuilder.append(type).append(" ");
             }
-            productDescriptionBuilder.append(product.getName()).append(" "); // Agrega el nombre del producto
-            productDescriptionBuilder.append(product.getRef()).append(" "); // Agrega el número de referencia
+            productDescriptionBuilder.append(product.getName()).append(" "); // Agregar el nombre del producto
+            productDescriptionBuilder.append(product.getRef()).append(" "); // Agregar el número de referencia
 
-            String productDescription = productDescriptionBuilder.toString().trim();
+            String productDescription = normalizeString(productDescriptionBuilder.toString().toLowerCase().trim());
 
             logger.info("Checking product: " + productDescription);
 
@@ -369,6 +375,14 @@ public class ProductsService{
         }
     }
 
+    private String normalizeString(String str) {
+        // Remover tildes
+        str = Normalizer.normalize(str, Normalizer.Form.NFD);
+        str = str.replaceAll("[^\\p{ASCII}]", "");
+        return str;
+    }
+
+
     public List<Products> searchProductsByType(String searchTerm) {
         List<Products> allProducts = productsRepository.findAll();
         List<Products> matchingProducts = new ArrayList<>();
@@ -394,14 +408,14 @@ public class ProductsService{
         return matchingProducts;
     }
 
-    private String normalizeString(String input) {
-        logger.info("Normalizing string: " + input);
-        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
-        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
-        String result = pattern.matcher(normalized).replaceAll("");
-        logger.info("Normalized result: " + result);
-        return result;
-    }
+//    private String normalizeString(String input) {
+//        logger.info("Normalizing string: " + input);
+//        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+//        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+//        String result = pattern.matcher(normalized).replaceAll("");
+//        logger.info("Normalized result: " + result);
+//        return result;
+//    }
 
 
     public List<Products> filtrarProductosPorCategoriasColoresYTipos(List<String> categorias, List<String> colores, List<String> tipos) {
@@ -555,5 +569,24 @@ public class ProductsService{
     public Products getProductByRef(String ref) {
 
         return productsRepository.findByRef(ref);
+    }
+
+    public List<Products> getProductsByPage(int page, int size) {
+        logger.info("Obteniendo productos de la página {} con tamaño {}", page, size);
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Products> pagedResult = productsRepository.findAll(pageable);
+
+        if (pagedResult.hasContent()) {
+            logger.info("Se encontraron {} productos en la página {}", pagedResult.getNumberOfElements(), page);
+            return pagedResult.getContent();
+        } else {
+            logger.info("No se encontraron productos en la página {}", page);
+            return new ArrayList<Products>();
+        }
+    }
+
+    public List<Products> filtrarProductosPorCategoriasYUnidades(List<String> categorias, float unidadesMin, float unidadesMax) {
+        return productsRepository.findByCategoriasAndUnidades(categorias, unidadesMin, unidadesMax);
     }
 }

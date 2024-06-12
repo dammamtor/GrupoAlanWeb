@@ -12,9 +12,9 @@
       <h1 class="text-center mb-4">PRODUCTOS</h1>
       <h2 class="text-center mb-5">Bienvenido a toda la gama de productos que ofrecemos</h2>
     </div>
-    <div class="col-md-4 mb-4" *ngFor="let item of currentProducts">
+    <div class="col-md-4 mb-4" *ngFor="let item of products">
       <div class="card" (click)="irAProduct(item.ref)">
-        <img [src]="item.images[0].imgMax" [alt]="item.name" class="card-img-top">
+        <img *ngIf="item.images && item.images[0]" [src]="item.images[0].imgMax" [alt]="item.name" class="card-img-top">
         <div class="card-body">
           <p class="card-text">{{ item.name }}</p>
           <div class="delivery-info">
@@ -52,6 +52,6 @@
 
 <!-- BOTONES PARA CAMBIAR DE PÁGINA -->
 <div *ngIf="!loading" class="d-flex justify-content-center">
-  <button (click)="prevPage()" [disabled]="!hasPrevPage()" class="btn btn-primary me-2">Anterior</button>
-  <button (click)="nextPage()" [disabled]="!hasNextPage()" class="btn btn-primary">Siguiente</button>
+  <button class="btn btn-primary me-2" (click)="paginaAnterior()" [disabled]="currentPage === 0">Anterior</button>
+  <button class="btn btn-primary" (click)="paginaSiguiente()">Siguiente</button>
 </div>

@@ -123,9 +123,9 @@ li {
 }
 
 .alert-danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
 }
 
 .alert-danger strong {
@@ -136,12 +136,18 @@ li {
     margin-bottom: 0;
 }
 
-.alert-danger::before {
-    content: "¡Error! ";
-    font-weight: bold;
-}
 /* Estilos para los checkbox */
 input[type="checkbox"] {
-    width: 18px; /* Cambia este valor según sea necesario */
-    height: 18px; /* Cambia este valor según sea necesario */
+    width: 18px;
+    /* Cambia este valor según sea necesario */
+    height: 18px;
+    /* Cambia este valor según sea necesario */
+}
+
+.loading-text {
+    padding-top: 5px;
+    font-style: italic;
+    color: #888;
+    font-size: 24px;
+    /* Otros estilos que desees agregar */
 }

@@ -23,30 +23,29 @@
             <div id="logo-img" class="col-lg-2 col-md-3 col-4" (click)="irAHome()">
                 <span><img src="" alt="Logo" width="50"></span>
             </div>
-    
+
             <!-- Contenedor para los botones de búsqueda y cesta -->
             <div class="col-lg-6 col-md-6 col-7 d-flex align-items-center">
                 <!-- Buscador -->
                 <form class="d-flex" style="width: 100%;">
                     <input #searchTerm class="form-control me-2" type="search"
-                        placeholder="Introduce el producto que estás buscando" aria-label="Search"
-                        style="width: 100%;">
+                        placeholder="Introduce el producto que estás buscando" aria-label="Search" style="width: 100%;">
                     <button class="btn btn-outline-light" type="button" (click)="irASearch(searchTerm.value)">
                         <i class="bi bi-search"></i>
                     </button>
                 </form>
-    
+
                 <!-- Botón de búsqueda avanzada -->
                 <button class="btn btn-outline-light btn-sm ms-2" type="button" (click)="irABusquedaAvanzada()">
                     <i class="bi bi-gear"></i> Búsqueda Avanzada
                 </button>
             </div>
-    
+
             <!-- Logo de la cesta -->
             <div class="col-lg-2 col-md-2 col-2 text-end">
                 <span (click)="navegatePayment()"><i class="bi bi-cart cart-icon" style="font-size: 24px;"></i></span>
             </div>
-    
+
             <!-- Botón Acceder/Registro con logo de Bootstrap -->
             <div class="col-lg-2 col-md-2 col-2 text-end">
                 <span>
@@ -57,8 +56,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
 
 
     <!-- Categorías -->
@@ -69,19 +68,19 @@
                     <li class="nav-item dropdown">
                         <span class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorías
+                            Tipos
                         </span>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><span class="dropdown-item" (click)="navegateAbanicos()">Abanicos</span></li>
-                            <li><span class="dropdown-item" (click)="navegateBotellas()">Botellas</span></li>
-                            <li><span class="dropdown-item" (click)="navegateBoligrafos()">Bolígrafos</span></li>
-                            <li><span class="dropdown-item" (click)="navegateCamisetas()">Camisetas</span></li>
-                            <li><span class="dropdown-item" (click)="navegateBolsas()">Bolsas</span></li>
-                            <li><span class="dropdown-item" (click)="navegateGorras()">Gorras</span></li>
-                            <li><span class="dropdown-item" (click)="navegateLibretas()">Libretas</span></li>
-                            <li><span class="dropdown-item" (click)="navegateMochilas()">Mochilas</span></li>
-                            <li><span class="dropdown-item" (click)="navegatePolos()">Polos</span></li>
-                        </ul>
+                            <ng-container *ngIf="isLoading; else loadedContent">
+                              <li class="loading-text">Cargando...</li>
+                            </ng-container>
+                            <ng-template #loadedContent>
+                              <li *ngFor="let tipo of tipos" (click)="navigateToTypes(tipo)" style="cursor: pointer;">
+                                {{ tipo }}
+                              </li>
+                            </ng-template>
+                          </ul>
+                          
                     </li>
                     <li class="nav-item">
                         <span class="nav-link" (click)="navegateAbanicos()">Abanicos</span>

@@ -13,6 +13,6 @@ export class HeaderSectionComponent {
 
   }
   navigateProductos() {
-    this.ruta.navigate(["lista-productos"]);
-  }
+    this.ruta.navigate(["lista-productos", 0]); // 0 para la página inicial
+  }  
 }

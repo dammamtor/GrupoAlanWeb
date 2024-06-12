@@ -32,7 +32,7 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'lista-productos',
+    path: 'lista-productos/:page',
     component: BotellasComponent,
   },
   {

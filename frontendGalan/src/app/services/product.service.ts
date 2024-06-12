@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/Product';
@@ -14,6 +14,12 @@ export class ProductService {
   obtenerProductosBD(): Observable<Product[]> {
     console.log('METODO SERVICE. OBTENER PRODUCTOS');
     return this.http.get<Product[]>(`${this.apiUrl}/obtener-productos`);
+  }
+
+  obtenerProductosPaginados(page: number = 0, size: number = 15): Observable<Product[]> {
+    console.log('METODO SERVICE. OBTENER PRODUCTOS PAGINADOS');
+    let params = new HttpParams().set('page', page.toString()).set('size', size.toString());
+    return this.http.get<Product[]>(`${this.apiUrl}/obtener-productos-paginados`, { params });
   }
 
   buscarProductosPorTermino(searchTerm: string): Observable<Product[]> {

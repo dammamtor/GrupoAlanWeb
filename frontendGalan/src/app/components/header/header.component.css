@@ -80,3 +80,28 @@
     background-color: #007bff; /* Fondo azul en hover */
     color: #ffffff; /* Texto blanco en hover */
 }
+
+/* Estilo para el contenedor del menú desplegable */
+.dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px; /* Altura máxima del menú desplegable */
+    overflow-y: auto; /* Habilitar el desplazamiento vertical */
+  }
+  
+  /* Estilo para cada elemento de la lista */
+  .dropdown-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  /* Estilo cuando se pasa el ratón por encima de un elemento de la lista */
+  .dropdown-menu li:hover {
+    background-color: #f0f0f0;
+  }
+  .loading-text {
+    padding: 10px 20px;
+    color: gray; /* Color del texto de carga */
+  }
+  

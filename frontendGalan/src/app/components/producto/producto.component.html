@@ -126,7 +126,13 @@
                                         <ng-container *ngIf="product.variants && product.variants.length > 0">
                                             <tr *ngFor="let item of product.variants; let i = index">
                                                 <td class="colColor" data-title="Color">
-                                                    {{ item.colorSet?.name }}
+                                                    <ng-container *ngIf="item.colorSet; else noColor">
+                                                        <img [src]="item.colorSet.url" [alt]="item.colorSet.name"
+                                                            class="color-option me-2 mb-2">
+                                                    </ng-container>
+                                                    <ng-template #noColor>
+                                                        <span>Único</span>
+                                                    </ng-template>
                                                 </td>
                                                 <td>
                                                     <ng-container *ngIf="item.colorSet">
@@ -173,16 +179,13 @@
                                 <tr id="colores-disponibles">
                                     <th scope="row">Colores disponibles</th>
                                     <td>
-                                        <ng-container
-                                            *ngIf="product.variants && product.variants.length > 0; else noColors">
+                                        <ng-container *ngIf="product.variants && product.variants.length > 0">
                                             <span *ngFor="let item of product.variants; let i = index">
-                                                {{ item.colorSet?.name }}<span
+                                                {{ item.colorSet?.name || 'Color único' }}<span
                                                     *ngIf="i < product.variants.length - 1">,</span>
                                             </span>
                                         </ng-container>
-                                        <ng-template #noColors>
-                                            <span>No hay colores disponibles</span>
-                                        </ng-template>
+
                                     </td>
                                 </tr>
                                 <tr id="caracteristicas">
