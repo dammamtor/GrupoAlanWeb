@@ -29,13 +29,13 @@
                                         (click)="goToRef(item.ref)">Ver Producto</button>
 
                                     <!-- Selector de variante -->
-                                    <select *ngIf="item.variants && item.variants.length > 0"
+                                    <!-- <select *ngIf="item.variants && item.variants.length > 0"
                                         [(ngModel)]="selectedVariants[item.productId]" class="form-select">
                                         <option *ngFor="let variant of item.variants" [ngValue]="variant">
                                             {{ variant.color }} - {{ variant.size }} (Stock: {{ variant.stock?.stock ||
                                             0 }})
                                         </option>
-                                    </select>
+                                    </select> -->
                                     <button type="button" class="btn btn-sm btn-outline-secondary"
                                         (click)="addToCart(item, selectedVariants[item.productId])">
                                         <i class="bi bi-cart"></i>
