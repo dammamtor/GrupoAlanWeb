@@ -1,434 +1,546 @@
 /* Contenedor principal */
 .container {
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f8f9fa;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
 }
 
 /* Tipografía y colores */
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .font-blue {
-    color: #007bff;
+  color: #007bff;
 }
 
 .font-gray-dark-ms {
-    color: #666;
+  color: #666;
 }
 
 /* Puntero */
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* Márgenes y tamaños */
 .mg-left-20 {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .mg-top-20 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .mg-top-40 {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 .font-16 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .font-18 {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .h5 {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 /* Product file */
 .product-file {
-    background-color: #f8f9fa;
-    padding: 15px;
+  background-color: #f8f9fa;
+  padding: 15px;
 }
 
 /* Breadcrumb */
 .breadcrumb {
-    background-color: transparent;
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
 }
 
 .breadcrumb-item {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .breadcrumb-item:last-child {
-    color: #333;
+  color: #333;
 }
 
 .breadcrumb-item:last-child::after {
-    display: none;
+  display: none;
 }
 
 .breadcrumb-item a {
-    text-decoration: none;
-    color: #007bff;
+  text-decoration: none;
+  color: #007bff;
 }
 
 .breadcrumb-item a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .breadcrumb-item.active {
-    color: #555;
+  color: #555;
 }
 
 /* Product details */
 .product-details {
-    background-color: #fff;
-    padding: 30px;
+  background-color: #fff;
+  padding: 30px;
 }
 
 /* Media */
 .media {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .icon-container {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: #f0f0f0;
-    border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
 }
 
 .media-left {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .media img {
-    max-width: 65%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+  max-width: 65%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Benefit */
 .benefit p {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* Delivery dates */
 .delivery-dates {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .delivery-dates-title {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 .delivery-dates-title,
 dt {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 /* Botón verde */
 .btn-green {
-    background-color: #28a745;
-    border-color: #28a745;
-    color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #fff;
 }
 
 .btn-green:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
+  background-color: #218838;
+  border-color: #1e7e34;
 }
 
 /* Product specs footer */
 .product-specs-footer {
-    background-color: #f9f9f9;
-    padding: 30px 0;
+  background-color: #f9f9f9;
+  padding: 30px 0;
 }
 
 .product-specs-footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .product-specs-footer .samples-promotion .title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
 }
 
 .product-specs-footer .samples-promotion p {
-    font-size: 16px;
-    color: #555;
+  font-size: 16px;
+  color: #555;
 }
 
 .product-specs-footer .samples-promotion span {
-    font-size: 16px;
-    color: #333;
+  font-size: 16px;
+  color: #333;
 }
 
 .product-specs-footer .btn {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 15px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .product-specs-footer .btn:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    filter: invert(100%);
+  filter: invert(100%);
 }
 
 /* Acordion */
 
 .card-header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 15px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px;
 }
 
 .card-header:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .card-body {
-    padding: 15px;
+  padding: 15px;
 }
 
 .table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .table th,
 .table td {
-    padding: 10px;
-    padding-top: 20px; /* Agregar espacio en la parte superior */
+  padding: 10px;
+  padding-top: 20px; /* Agregar espacio en la parte superior */
 
-    border-bottom: 1px solid #dee2e6;
-    text-align: left;
+  border-bottom: 1px solid #dee2e6;
+  text-align: left;
 }
 
 .table th {
-    background-color: #f0f0f0;
-    font-weight: bold;
+  background-color: #f0f0f0;
+  font-weight: bold;
 }
 
 .table tbody tr:hover {
-    background-color: #f8f9fa;
+  background-color: #f8f9fa;
 }
 
 .colColor {
-    width: 50px;
+  width: 50px;
 }
 
 .colIcon img {
-    width: 30px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
+  width: 30px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
 /* General Table Styles */
 #techniques-table {
-    margin: 20px 0;
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ccc;
+  margin: 20px 0;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
 }
 
 #techniques-table .table-header-image,
 #techniques-table .table-header-size,
 #techniques-table .table-header-techniques {
-    background-color: #007bff;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-    padding: 12px;
-    border: 1px solid #ccc;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid #ccc;
 }
 
 /* Row Styles */
 #techniques-table .table-row {
-    transition: background-color 0.3s;
+  transition: background-color 0.3s;
 }
 
 #techniques-table .table-row:hover {
-    background-color: #e2e6ea;
+  background-color: #e2e6ea;
 }
 
 /* Image Cell Styles */
 #techniques-table .table-cell-image {
-    text-align: center;
-    padding: 12px;
-    border: 1px solid #ccc;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid #ccc;
 }
 
 #techniques-table .table-cell-image .img-thumbnail {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 /* Size Cell Styles */
 #techniques-table .table-cell-size {
-    text-align: center;
-    padding: 12px;
-    border: 1px solid #ccc;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid #ccc;
 }
 
 #techniques-table .table-cell-size .size-title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #techniques-table .table-cell-size .size-dimension {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 /* Techniques Cell Styles */
 #techniques-table .table-cell-techniques {
-    padding: 12px;
-    border: 1px solid #ccc;
+  padding: 12px;
+  border: 1px solid #ccc;
 }
 
 #techniques-table .table-cell-techniques .techniques-zone-title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #techniques-table .table-cell-techniques .techniques-list {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 #techniques-table .table-cell-techniques .technique-item {
-    margin: 5px 0;
+  margin: 5px 0;
 }
-
 
 /* Estilos generales de la tabla */
 #custom-table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ccc;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
 }
 
 #custom-table th,
 #custom-table td {
-    padding: 12px;
-    border: 1px solid #ccc;
+  padding: 12px;
+  border: 1px solid #ccc;
 }
 
 /* Estilos para la cabecera de la tabla */
 #custom-table th {
-    background-color: #007bff;
-    color: #fff;
-    font-weight: bold;
-    text-align: left;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  text-align: left;
 }
 
 /* Estilos para las filas alternas */
 #custom-table tbody tr:nth-child(even) {
-    background-color: #f8f9fa;
+  background-color: #f8f9fa;
 }
 
 /* Estilos para el hover */
 #custom-table tbody tr:hover {
-    background-color: #e2e6ea;
-    transition: background-color 0.3s ease;
+  background-color: #e2e6ea;
+  transition: background-color 0.3s ease;
 }
 
 /* Estilos para la primera columna */
 #custom-table th:first-child,
 #custom-table td:first-child {
-    width: 30%;
+  width: 30%;
 }
 
 /* Estilos para la segunda columna */
 #custom-table th:last-child,
 #custom-table td:last-child {
-    width: 70%;
+  width: 70%;
 }
 
 /* Estilos para los enlaces dentro de la tabla */
 #custom-table a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 #custom-table a:hover {
-    color: #0056b3;
-    text-decoration: underline;
+  color: #0056b3;
+  text-decoration: underline;
 }
 
 #packing-table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 /* Estilo para la tabla packing-table */
 #packing-table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 /* Estilo para las celdas encabezadas */
 #packing-table th {
-    background-color: #4CAF50;
-    /* Verde */
-    color: white;
-    /* Texto blanco */
-    border: 1px solid #ddd;
-    padding: 12px;
-    /* Aumenta el padding para más espacio alrededor del texto */
-    text-align: left;
+  background-color: #4caf50;
+  /* Verde */
+  color: white;
+  /* Texto blanco */
+  border: 1px solid #ddd;
+  padding: 12px;
+  /* Aumenta el padding para más espacio alrededor del texto */
+  text-align: left;
 }
 
 /* Estilo para las celdas de datos */
 #packing-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    /* Aumenta el padding para más espacio alrededor del texto */
+  border: 1px solid #ddd;
+  padding: 12px;
+  /* Aumenta el padding para más espacio alrededor del texto */
 }
 
 /* Estilo para las filas impares */
 #packing-table tr:nth-child(odd) {
-    background-color: #f2f2f2;
-    /* Gris claro */
+  background-color: #f2f2f2;
+  /* Gris claro */
 }
 
 /* Estilo para las imágenes */
 #packing-table img {
-    max-width: 100px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 5px;
-    /* Añade bordes redondeados a las imágenes */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Añade una suave sombra a las imágenes */
+  max-width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+  /* Añade bordes redondeados a las imágenes */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Añade una suave sombra a las imágenes */
+}
+
+/* Calcular precio y compra */
+
+.calculator-container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 1200px;
+  margin: 20px auto; /* Ajuste el margen superior según sea necesario */
+}
+
+.calculator-header {
+  margin-bottom: 20px;
+}
+
+.calculator-header h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff;
+  margin: 0;
+}
+
+.calculator-content {
+  font-size: 14px;
+  color: #333;
+}
+
+.quantity-section,
+.stamp-section,
+.shipping-section,
+.price-section,
+.submit-section {
+  margin-bottom: 20px;
+}
+
+.quantity-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quantity-inputs > div {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.quantity-inputs > div:last-child {
+  margin-right: 0;
+}
+
+.quantity-inputs input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.stamp-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stamp-options > div {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.stamp-options > div:last-child {
+  margin-right: 0;
+}
+
+.stamp-options select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.shipping-section p {
+  font-size: 16px;
+  color: #007bff;
+  margin: 0;
+}
+
+.price-section p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.price-section strong {
+  font-size: 18px;
+  color: #007bff;
+}
+
+.submit-section {
+  text-align: center;
+}
+
+.submit-section .btn {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-section .btn:hover {
+  background-color: #218838;
 }
