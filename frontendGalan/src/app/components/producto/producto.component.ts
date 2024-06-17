@@ -11,6 +11,9 @@ import { SharedModule } from '../../shared.module';
 import { Variants } from '../../models/Variants';
 import { FormsModule } from '@angular/forms';
 
+// Declaración de bootstrap
+declare var bootstrap: any;
+
 @Component({
   selector: 'app-producto',
   standalone: true,
@@ -28,6 +31,11 @@ import { FormsModule } from '@angular/forms';
 export class ProductoComponent {
   product: Product | undefined;
   selectedVariant: Variants | undefined;
+  uniqueColors: {
+    name: string,
+    sizes: string[],
+    url: string  // Added URL property for storing color URL
+  }[] = [];
   uniqueMarkingsWithTechniques: {
     image: string;
     height: number;
@@ -57,6 +65,7 @@ export class ProductoComponent {
         next: (product: Product) => {
           this.product = product;
           console.log('Producto obtenido:', this.product);
+          this.findUniqueColors();
           this.groupMarkingsByImage();
         },
         error: (error) => {
@@ -65,6 +74,60 @@ export class ProductoComponent {
       });
     });
   }
+  activeSlideIndex = 0;
+
+  setActiveSlide(index: number): void {
+    this.activeSlideIndex = index;
+    const carouselElement: any = document.querySelector('#carouselExample');
+    const carousel = new bootstrap.Carousel(carouselElement);
+    carousel.to(index);
+  }
+  findUniqueColors(): void {
+    if (!this.product || !this.product.variants) {
+      return;
+    }
+
+    const uniqueColorsMap = new Map<string, { sizes: string[], url: string }>();
+
+    this.product.variants.forEach(variant => {
+      if (variant.colorSet && variant.size) {
+        const colorName = variant.colorSet.name;
+        if (!uniqueColorsMap.has(colorName)) {
+          uniqueColorsMap.set(colorName, {
+            sizes: [],
+            url: variant.colorSet.url || ''  // Set URL if available
+          });
+        }
+        uniqueColorsMap.get(colorName)?.sizes.push(variant.size);
+      }
+    });
+
+    this.uniqueColors = Array.from(uniqueColorsMap.entries()).map(([name, details]) => ({
+      name,
+      sizes: details.sizes,
+      url: details.url
+    }));
+  }
+
+  // getUniqueImages(): string[] {
+  //   if (!this.product || !this.product.images) {
+  //     return [];
+  //   }
+  //
+  //   const imageSet = new Set<string>();
+  //
+  //   this.product.images.forEach(image => {
+  //     if (image.imgMin) {
+  //       imageSet.add(image.imgMin);
+  //     }
+  //     if (image.imgMax) {
+  //       imageSet.add(image.imgMax);
+  //     }
+  //   });
+  //
+  //   return Array.from(imageSet);
+  // }
+
 
   groupMarkingsByImage() {
     const imageTechniqueMap = new Map<

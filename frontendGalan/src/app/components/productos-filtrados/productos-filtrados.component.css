@@ -29,9 +29,10 @@
     border: none; /* Sin borde */
     transition: box-shadow 0.3s, transform 0.3s; /* Transición de sombra y transformación */
     border-radius: 10px; /* Radio de borde */
-    background-color: #fff; /* Color de fondo */
+    background-color: #17A6A6; /* Color de fondo */
     width: 350px; /* Ancho de la tarjeta */
     margin-bottom: 2rem; /* Espaciado inferior */
+    color: #ffffff;
 }
 
 .album .card:hover {
@@ -39,11 +40,15 @@
     transform: scale(1.05); /* Escalar al 105% del tamaño original */
 }
 
+.album .card img {
+  cursor: pointer;
+}
+
 
 /* Estilos para el botón "Ver Producto" */
 .album .btn-outline-secondary {
-    color: #007bff; /* Color del texto */
-    border-color: #007bff; /* Color del borde */
+    color: #ffffff; /* Color del texto */
+    border-color: #ffffff; /* Color del borde */
     font-size: 1.2rem; /* Tamaño del texto */
     transition: background-color 0.3s, color 0.3s; /* Transición */
     text-transform: uppercase; /* Convertir texto a mayúsculas */
@@ -53,8 +58,8 @@
 }
 
 .album .btn-outline-secondary:hover {
-    background-color: #007bff; /* Color de fondo al hacer hover */
-    border-color: #007bff; /* Color del borde al hacer hover */
+    background-color: #025951; /* Color de fondo al hacer hover */
+    border-color: #ffffff; /* Color del borde al hacer hover */
     color: #fff; /* Color del texto al hacer hover */
 }
 
@@ -69,10 +74,34 @@
 .pagination-container .pagination-button {
     margin-top: 2rem; /* Espaciado superior */
     font-size: 1.2rem; /* Tamaño del texto */
+  background-color: #17A6A6; /* Color de fondo al hacer hover */
+  border-color: #17A6A6;
 }
 
 .pagination-container .pagination-button:hover {
-    background-color: #007bff; /* Color de fondo al hacer hover */
-    border-color: #007bff; /* Color del borde al hacer hover */
+    background-color: #025951; /* Color de fondo al hacer hover */
+    border-color: #025951; /* Color del borde al hacer hover */
     color: #fff; /* Color del texto al hacer hover */
 }
+
+.btn-link {
+  background-color: transparent;
+  border: none;
+  color: #ffffff; /* Color azul por defecto */
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 0; /* Elimina el relleno predeterminado */
+  font-weight: bold;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+  text-decoration: underline; /* Subraya el texto al pasar el ratón o enfocar */
+  outline: none; /* Elimina el contorno al enfocar */
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem; /* Ajusta el padding para un tamaño más pequeño */
+}
+

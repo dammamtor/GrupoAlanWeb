@@ -1,93 +1,113 @@
 /* Estilos para la lista de productos */
 .list-group-item {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6; /* Añadir un borde delgado */
-    border-radius: 10px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s; /* Agregar transición suave */
+  background-color: #17A6A6;
+  border: 1px solid #dee2e6; /* Añadir un borde delgado */
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Agregar transición suave */
 }
 
 .list-group-item:hover {
-    background-color: #e9ecef;
+  background-color: #038C7F;
 }
 
-/* Estilos para la imagen del producto */
+/* Estilos para el imagen del producto */
 .list-group-item img {
-    border-radius: 50%;
-    border: 2px solid #fff;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Aumentar la intensidad de la sombra */
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Aumentar la intensidad de la sombra */
 }
 
 /* Estilos para el nombre del producto */
 .list-group-item h6 {
-    color: #212529;
-    font-size: 1.2rem;
+  color: black; /* Color negro original */
+  font-size: 1.2rem;
+  font-weight: normal; /* Asegurar que no herede el bold del hover por defecto */
+  transition: font-weight 0.3s; /* Transición para el cambio de peso de fuente */
+}
+
+.list-group-item:hover h6 {
+  font-weight: bold; /* Hacer bold al pasar el ratón sobre el h6 */
 }
 
 /* Estilos para la descripción del producto */
 .list-group-item p {
-    color: #6c757d;
+  color: #ffffff; /* Color gris original */
+  font-weight: normal; /* Asegurar que no herede el bold del hover por defecto */
+  transition: font-weight 0.3s; /* Transición para el cambio de peso de fuente */
 }
+
+.list-group-item:hover p {
+  font-weight: bold; /* Hacer bold al pasar el ratón sobre el p */
+}
+
 
 /* Estilos para los colores disponibles */
 .color-options {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .color-option {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
 }
 
 /* Estilos para el precio */
 .list-group-item .text-end h6 {
-    color: #007bff;
-    font-size: 1.2rem;
+  color: #038C7F; /* Nuevo color azul */
+  font-size: 1.2rem;
 }
 
 .list-group-item .text-end p {
-    color: #6c757d;
+  color: #6c757d; /* Color gris original */
 }
 
 /* Estilo para los botones de navegación */
 .btn-navigation {
-    margin-right: 10px;
+  margin-right: 10px;
+  color: #038C7F; /* Nuevo color azul */
+  border: 1px solid #038C7F; /* Nuevo color azul */
+}
+
+.btn-navigation:hover {
+  background-color: #038C7F;
+  color: #ffffff;
 }
 
 /* Estilo para los botones cuando están deshabilitados */
 .btn-navigation:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Estilo para el botón de ir arriba */
 .scroll-to-top-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: #038C7F; /* Nuevo color azul */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .scroll-to-top-btn:hover {
-    background-color: #0056b3;
+  background-color: #025951; /* Nuevo color azul más oscuro */
 }
 
 .scroll-to-top-btn i {
-    margin-top: 2px;
+  margin-top: 2px;
 }
 
 .scroll-to-top-btn.hidden {
-    display: none;
+  display: none;
 }

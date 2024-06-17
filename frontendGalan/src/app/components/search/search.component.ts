@@ -18,6 +18,8 @@ export class SearchComponent {
   startIndex: number = 0;
   endIndex: number = 14; // Inicialmente mostramos los primeros 15 elementos
   showScrollToTopBtn: boolean = false;
+  productsWithUniqueColors: { product: Product, uniqueColors: string[] }[] = [];
+
 
   constructor(
     private route: ActivatedRoute,
@@ -36,8 +38,23 @@ export class SearchComponent {
     this.productService.buscarProductosPorTermino(searchTerm)
       .subscribe(products => {
         this.products = products;
-        console.log("PRODUCTOS DEVUELTOS: ", products);
+        this.productsWithUniqueColors = this.products.map(product => ({
+          product: product,
+          uniqueColors: this.extractUniqueColors(product)
+        }));
       });
+  }
+
+  extractUniqueColors(product: Product): string[] {
+    const uniqueColorsSet = new Set<string>();
+    if (product.variants && product.variants.length > 0) {
+      product.variants.forEach(variant => {
+        if (variant.colorSet && variant.colorSet.name) {
+          uniqueColorsSet.add(variant.colorSet.url);
+        }
+      });
+    }
+    return Array.from(uniqueColorsSet);
   }
 
   avanzar(): void {

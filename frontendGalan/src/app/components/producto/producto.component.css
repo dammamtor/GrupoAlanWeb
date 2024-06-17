@@ -2,7 +2,6 @@
 .container {
   margin: 0 auto;
   padding: 20px;
-  background-color: #f8f9fa;
 }
 
 /* Tipografía y colores */
@@ -11,11 +10,11 @@
 }
 
 .font-blue {
-  color: #007bff;
+  color: #17A6A6; /* Cambiado a cyan (#17A6A6) */
 }
 
 .font-gray-dark-ms {
-  color: #666;
+  color: #595959; /* Cambiado a gris oscuro (#595959) */
 }
 
 /* Puntero */
@@ -56,7 +55,7 @@
 
 /* Product file */
 .product-file {
-  background-color: #f8f9fa;
+  background-color: #595959; /* Cambiado a negro (#0D0D0D) */
   padding: 15px;
 }
 
@@ -73,7 +72,7 @@
 }
 
 .breadcrumb-item:last-child {
-  color: #333;
+  color: #595959; /* Cambiado a gris oscuro (#595959) */
 }
 
 .breadcrumb-item:last-child::after {
@@ -82,7 +81,7 @@
 
 .breadcrumb-item a {
   text-decoration: none;
-  color: #007bff;
+  color: #17A6A6; /* Cambiado a cyan (#17A6A6) */
 }
 
 .breadcrumb-item a:hover {
@@ -95,18 +94,19 @@
 
 /* Product details */
 .product-details {
-  background-color: #fff;
+  background-color: #fff; /* No se cambia */
   padding: 30px;
 }
 
-/* Media */
+/* Estilos generales para el contenedor de medios */
 .media {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
+/* Estilo del contenedor del ícono */
 .icon-container {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
@@ -115,15 +115,49 @@
   border-radius: 50%;
 }
 
+/* Ajustes para el lado izquierdo del contenedor de medios */
 .media-left {
   margin-right: 15px;
 }
 
+/* Estilos para imágenes dentro del contenedor de medios */
 .media img {
-  max-width: 65%;
+  max-width: 80%;
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+/* Contenedor principal del carrusel */
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Barra de miniaturas */
+.thumbnail-bar {
+  overflow-y: auto;
+  max-height: 400px;
+  max-width: 100px;
+}
+
+/* Estilo para cada miniatura */
+.thumbnail {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Estilo de las imágenes dentro de las miniaturas */
+.thumbnail img {
+  width: 100%;
+  height: auto;
+}
+
+/* Estilo para la miniatura activa */
+.thumbnail.active img {
+  border: 2px solid #17A6A6; /* Cambiado a cyan (#17A6A6) */
 }
 
 /* Benefit */
@@ -147,15 +181,16 @@ dt {
 
 /* Botón verde */
 .btn-green {
-  background-color: #28a745;
+  background-color: #28a745; /* Mantenido verde (#28a745) */
   border-color: #28a745;
   color: #fff;
 }
 
 .btn-green:hover {
-  background-color: #218838;
-  border-color: #1e7e34;
+  background-color: #025951; /* Cambiado a verde oscuro (#025951) */
+  border-color: #025951; /* Cambiado a verde oscuro (#025951) */
 }
+
 
 /* Product specs footer */
 .product-specs-footer {
@@ -185,7 +220,7 @@ dt {
 }
 
 .product-specs-footer .btn {
-  background-color: #28a745;
+  background-color: #17A6A6; /* Cambiado a cyan (#17A6A6) */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -197,8 +232,9 @@ dt {
 }
 
 .product-specs-footer .btn:hover {
-  background-color: #218838;
+  background-color: #025951; /* Cambiado a negro (#0D0D0D) */
 }
+
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -206,15 +242,19 @@ dt {
 }
 
 /* Acordion */
+.card {
+  max-height: 400px;
+  overflow-y: auto;
+}
 
 .card-header {
-  background-color: #007bff;
+  background-color: #17A6A6; /* Cambiado a cyan (#17A6A6) */
   color: #fff;
   padding: 15px;
 }
 
 .card-header:hover {
-  background-color: #0056b3;
+  background-color: #038C7F; /* Cambiado a verde oscuro (#038C7F) */
 }
 
 .card-body {
@@ -229,8 +269,7 @@ dt {
 .table th,
 .table td {
   padding: 10px;
-  padding-top: 20px; /* Agregar espacio en la parte superior */
-
+  padding-top: 20px;
   border-bottom: 1px solid #dee2e6;
   text-align: left;
 }
@@ -267,7 +306,7 @@ dt {
 #techniques-table .table-header-image,
 #techniques-table .table-header-size,
 #techniques-table .table-header-techniques {
-  background-color: #007bff;
+  background-color: #17A6A6; /* Cambiado a cyan (#17A6A6) */
   color: #fff;
   font-weight: bold;
   text-align: center;
@@ -343,7 +382,7 @@ dt {
 
 /* Estilos para la cabecera de la tabla */
 #custom-table th {
-  background-color: #007bff;
+  background-color: #17A6A6; /* Cambiado a cyan (#17A6A6) */
   color: #fff;
   font-weight: bold;
   text-align: left;
@@ -374,13 +413,13 @@ dt {
 
 /* Estilos para los enlaces dentro de la tabla */
 #custom-table a {
-  color: #007bff;
+  color: #17A6A6; /* Cambiado a cyan (#17A6A6) */
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 #custom-table a:hover {
-  color: #0056b3;
+  color: #038C7F; /* Cambiado a verde oscuro (#038C7F) */
   text-decoration: underline;
 }
 
@@ -397,13 +436,10 @@ dt {
 
 /* Estilo para las celdas encabezadas */
 #packing-table th {
-  background-color: #4caf50;
-  /* Verde */
+  background-color: #17A6A6; /* Cambiado a verde oscuro (#025951) */
   color: white;
-  /* Texto blanco */
   border: 1px solid #ddd;
   padding: 12px;
-  /* Aumenta el padding para más espacio alrededor del texto */
   text-align: left;
 }
 
@@ -411,13 +447,11 @@ dt {
 #packing-table td {
   border: 1px solid #ddd;
   padding: 12px;
-  /* Aumenta el padding para más espacio alrededor del texto */
 }
 
 /* Estilo para las filas impares */
 #packing-table tr:nth-child(odd) {
-  background-color: #f2f2f2;
-  /* Gris claro */
+  background-color: #f2f2f2; /* Mantenido gris claro (#f2f2f2) */
 }
 
 /* Estilo para las imágenes */
@@ -427,9 +461,7 @@ dt {
   display: block;
   margin: 0 auto;
   border-radius: 5px;
-  /* Añade bordes redondeados a las imágenes */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Añade una suave sombra a las imágenes */
 }
 
 /* Calcular precio y compra */
@@ -440,7 +472,7 @@ dt {
   padding: 20px;
   border-radius: 8px;
   max-width: 1200px;
-  margin: 20px auto; /* Ajuste el margen superior según sea necesario */
+  margin: 20px auto;
 }
 
 .calculator-header {
@@ -450,7 +482,7 @@ dt {
 .calculator-header h2 {
   font-size: 20px;
   font-weight: bold;
-  color: #007bff;
+  color: #17A6A6; /* Cambiado a cyan (#17A6A6) */
   margin: 0;
 }
 
@@ -512,7 +544,7 @@ dt {
 
 .shipping-section p {
   font-size: 16px;
-  color: #007bff;
+  color: #17A6A6; /* Cambiado a cyan (#17A6A6) */
   margin: 0;
 }
 
@@ -523,7 +555,7 @@ dt {
 
 .price-section strong {
   font-size: 18px;
-  color: #007bff;
+  color: #17A6A6; /* Cambiado a cyan (#17A6A6) */
 }
 
 .submit-section {
@@ -531,7 +563,7 @@ dt {
 }
 
 .submit-section .btn {
-  background-color: #28a745;
+  background-color: #17A6A6; /* Cambiado a cyan (#17A6A6) */
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -542,5 +574,5 @@ dt {
 }
 
 .submit-section .btn:hover {
-  background-color: #218838;
+  background-color: #025951; /* Cambiado a negro (#0D0D0D) */
 }

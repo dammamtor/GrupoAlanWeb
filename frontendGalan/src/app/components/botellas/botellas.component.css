@@ -1,92 +1,96 @@
 /* Estilos para los cards */
 .card {
-    border: 1px solid #eaeaea;
-    border-radius: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-img-top {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-  }
-  
-  .card-body {
-    padding: 2rem;
-  }
-  
-  .card-text {
-    font-size: 1.2rem;
-    color: #333;
-  }
-  
-  .delivery-info {
-    margin-top: 20px;
-  }
-  
-  .delivery-title {
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 10px;
-  }
-  
-  .delivery-dates {
-    font-size: 1.1rem;
-    color: #777;
-  }
-  
-  .color-options {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .color-option {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin: 0 10px;
-    border: 2px solid #eaeaea;
-    display: inline-block;
-  }
-  
-  .product-price {
-    margin-top: 20px;
-  }
-  
-  .price-from,
-  .price-to {
-    font-size: 1.1rem;
-    color: #777;
-  }
-  
-  /* Estilos para los botones */
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    border-radius: 25px;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-  }
-  
-  .btn-primary:disabled {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    cursor: not-allowed;
-  }
-  
-  .btn-primary:focus,
-  .btn-primary.focus {
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-  }
-  
+  border: 1px solid #17A6A6;
+  background-color: #17A6A6;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 800px; /* Altura fija deseada */
+  overflow: hidden; /* Para manejar el contenido dentro de la altura fija */
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-text {
+  font-size: 1.2rem;
+  color: #0D0D0D; /* Cambiado a un tono más oscuro */
+  font-weight: bold;
+}
+
+.delivery-info {
+  margin-top: 20px;
+}
+
+.delivery-title {
+  font-weight: bold;
+  color: #eaeaea; /* Gris oscuro */
+  margin-bottom: 10px;
+}
+
+.delivery-dates {
+  font-size: 1.1rem;
+  color: #eaeaea; /* Gris */
+}
+
+.color-options {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.color-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 10px;
+  border: 2px solid #eaeaea;
+  display: inline-block;
+}
+
+.product-price {
+  margin-top: 20px;
+}
+
+.price-from,
+.price-to {
+  font-size: 1.1rem;
+  color: #eaeaea; /* Gris */
+}
+
+/* Estilos para los botones */
+.btn-primary {
+  background-color: #038C7F; /* Verde azulado */
+  border-color: #038C7F; /* Verde azulado */
+  border-radius: 25px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #025951; /* Verde oscuro */
+  border-color: #025951; /* Verde oscuro */
+}
+
+.btn-primary:disabled {
+  background-color: #6c757d; /* Gris */
+  border-color: #6c757d; /* Gris */
+  cursor: not-allowed;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(1, 122, 255, 0.5);
+}

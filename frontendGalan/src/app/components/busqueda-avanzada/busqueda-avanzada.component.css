@@ -1,153 +1,180 @@
 /* Estilos para el separate-div con sombreado */
 .separate-div {
-    margin-top: 20px;
-    padding: 20px;
-    /* Espaciado interno */
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Sombreado */
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos para aumentar el tamaño del texto de los labels de los checkbox */
 .separate-div label {
-    font-size: 20px;
-    /* Ajusta este valor según sea necesario */
+  font-size: 20px;
 }
-
 
 /* Estilos para los botones */
 .btn {
-    margin-right: 10px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    font-size: 22px;
-    /* Tamaño de texto aumentado */
+  margin-right: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-size: 22px;
 }
 
 .btn:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 /* Estilos para los botones de categorías */
 .btn-toggle {
-    width: 100%;
-    text-align: left;
-    font-size: 24px;
-    /* Tamaño de texto aumentado */
-    padding: 10px 20px;
-    background-color: #f8f9fa;
-    border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 24px;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border: none;
 }
 
 .btn-toggle:after {
-    content: "\25BC";
-    float: right;
-    transition: transform 0.3s ease;
+  content: "\25BC";
+  float: right;
+  transition: transform 0.3s ease;
 }
 
 .btn-toggle.collapsed:after {
-    transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
 .btn-toggle:focus {
-    outline: none;
+  outline: none;
 }
 
 /* Estilos para los encabezados */
 h1.display-4 {
-    margin-bottom: 30px;
-    color: #343a40;
-    font-size: 56px;
-    /* Tamaño de texto aumentado */
+  margin-bottom: 30px;
+  color: #343a40;
+  font-size: 56px;
 }
 
 p.lead {
-    margin-bottom: 0;
-    color: #6c757d;
-    font-size: 24px;
-    /* Tamaño de texto aumentado */
+  margin-bottom: 0;
+  color: #6c757d;
+  font-size: 24px;
 }
 
 /* Estilos para los botones de búsqueda */
 .d-flex .btn-primary {
-    background-color: #007bff;
-    border: none;
-    transition: all 0.3s ease;
-    font-size: 22px;
-    /* Tamaño de texto aumentado */
+  background-color: #038C7F;
+  border: none;
+  transition: all 0.3s ease;
+  font-size: 22px;
 }
 
 .d-flex .btn-primary:hover {
-    background-color: #0056b3;
+  background-color: #025951;
 }
 
 /* Estilos para los botones de limpiar */
 .d-flex .btn-secondary {
-    background-color: #6c757d;
-    border: none;
-    transition: all 0.3s ease;
-    font-size: 22px;
-    /* Tamaño de texto aumentado */
+  background-color: #6c757d;
+  border: none;
+  transition: all 0.3s ease;
+  font-size: 22px;
 }
 
 .d-flex .btn-secondary:hover {
-    background-color: #5a6268;
+  background-color: #5a6268;
 }
 
 /* Estilos para los elementos de lista */
 li {
-    padding-left: 20px;
-    /* Padding izquierdo añadido */
+  padding-left: 20px;
 }
 
 /* Estilos para los divs con clase col-md-3 */
 .col-md-3 {
-    max-height: 300px;
-    /* Altura fija, ajusta según sea necesario */
-    overflow-y: auto;
-    /* Habilita el desplazamiento vertical */
+  max-height: 300px;
+  overflow-y: auto;
 }
 
-/* Asegúrate de que el contenedor padre tenga suficiente espacio */
-.row {
-    display: flex;
-}
-
+/* Estilos para los alertas */
 .alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
 
 .alert-danger {
-    color: #0c5460;
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
 }
 
 .alert-danger strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .alert-danger p {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* Estilos para los checkbox */
 input[type="checkbox"] {
-    width: 18px;
-    /* Cambia este valor según sea necesario */
-    height: 18px;
-    /* Cambia este valor según sea necesario */
+  width: 18px;
+  height: 18px;
+}
+
+/* Estilos adicionales */
+.loading-text {
+  padding-top: 5px;
+  font-style: italic;
+  color: #888;
+  font-size: 24px;
+}
+
+/* Paleta de colores personalizada */
+/* Cambios basados en la paleta proporcionada */
+.separate-div {
+  background-color: #ffffff; /* Blanco */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra gris */
+}
+
+.btn-primary {
+  background-color: #038C7F; /* Azul */
+}
+
+.btn-primary:hover {
+  background-color: #025951; /* Azul más oscuro al pasar el ratón */
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* Gris */
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268; /* Gris más oscuro al pasar el ratón */
+}
+
+.alert-danger {
+  color: #0c5460; /* Azul oscuro */
+  background-color: #d1ecf1; /* Azul claro */
+  border-color: #bee5eb; /* Azul muy claro */
+}
+
+.h1.display-4,
+.p.lead {
+  color: #343a40; /* Gris oscuro */
+}
+
+.p.lead {
+  color: #6c757d; /* Gris */
+}
+
+li {
+  color: #595959; /* Gris medio */
 }
 
 .loading-text {
-    padding-top: 5px;
-    font-style: italic;
-    color: #888;
-    font-size: 24px;
-    /* Otros estilos que desees agregar */
+  color: #888; /* Gris claro */
 }
