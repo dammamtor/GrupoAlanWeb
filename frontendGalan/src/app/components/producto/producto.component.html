@@ -366,6 +366,64 @@
                     </div>
                 </div>
             </div>
+            <!-- <app-product-calculator></app-product-calculator> -->
+            <!-- Calculadora de precio y compra -->
+            <div class="calculator-container">
+                <div class="calculator-header">
+                    <h2>CALCULA TU PRECIO Y COMPRA</h2>
+                </div>
+                <div class="calculator-content">
+                    <div class="quantity-section">
+                        <label>Introduce la Cantidad</label>
+                        <div class="quantity-inputs">
+                            <div>
+                                <label for="whiteQuantity">Cantidad en prendas BLANCAS</label>
+                                <input id="whiteQuantity" type="number" min="0" [(ngModel)]="whiteQuantity"
+                                    (change)="updatePrice()">
+                            </div>
+                            <div>
+                                <label for="colorQuantity">Cantidad en prendas de COLOR</label>
+                                <input id="colorQuantity" type="number" min="0" [(ngModel)]="colorQuantity"
+                                    (change)="updatePrice()">
+                            </div>
+                            <div>
+                                <span>= {{ whiteQuantity + colorQuantity }} uds.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stamp-section">
+                        <label>Elige el tipo de estampación</label>
+                        <div class="stamp-options">
+                            <div>
+                                <label for="chestLogo">Logo a Estampar en PECHO</label>
+                                <select id="chestLogo">
+                                    <option>Lo quiero SIN estampación</option>
+                                    <!-- Otras opciones -->
+                                </select>
+                            </div>
+                            <div>
+                                <label for="backLogo">Logo a Estampar en ESPALDA</label>
+                                <select id="backLogo">
+                                    <option>Lo quiero SIN estampación</option>
+                                    <!-- Otras opciones -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shipping-section">
+                        <p>Cómpralo hoy y recíbelo entre el <strong>20 Jun. y el 21 Jun.</strong></p>
+                    </div>
+                    <div class="price-section">
+                        <p>{{ unitPrice }} €/Un</p>
+                        <p>Total: <strong>{{ totalPrice.toFixed(2) }} €</strong></p>
+                        <p>({{ totalPriceWithVAT.toFixed(2) }} € IVA incluido)</p>
+                    </div>
+                    <div class="submit-section">
+                        <button class="btn btn-green">ELIGE COLORES Y TALLAS</button>
+                    </div>
+                </div>
+            </div>
+
 
 
             <div class="product-specs-footer">
@@ -385,12 +443,6 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-5 col-md-4">
-                            <!-- <button type="button" data-href="#calculator" data-scrollto="#calculator-section"
-                                data-datalayer-click="calculador-abrir" class="btn btn-green btn-lg btn-block">
-                                <span class="flaticon-calculator"></span>
-                                CALCULA TU PRECIO Y COMPRA
-                                <span class="flaticon-chevron-right"></span>
-                            </button> -->
                             <button (click)="addToCart()" class="btn btn-green btn-lg btn-block mg-top-20 mb-4">
                                 <span class="glyphicon glyphicon-shopping-cart"></span>
                                 Añadir al Carrito

@@ -9,6 +9,7 @@ import { CartService } from '../../services/cart.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SharedModule } from '../../shared.module';
 import { Variants } from '../../models/Variants';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-producto',
@@ -17,6 +18,7 @@ import { Variants } from '../../models/Variants';
     HeaderComponent,
     RouterLink,
     CommonModule,
+    FormsModule,
     MatSnackBarModule,
     SharedModule,
   ],
@@ -33,6 +35,15 @@ export class ProductoComponent {
     techniques: { name: string; max_colors: string }[];
     translations: MarkingsTranslations[];
   }[] = [];
+
+  whiteQuantity: number = 1;
+  colorQuantity: number = 0;
+  unitPrice: number = 1.41;
+  totalPrice: number =
+    this.unitPrice * (this.whiteQuantity + this.colorQuantity);
+  taxRate: number = 0.21; // Tasa de IVA (21%)
+  totalPriceWithVAT: number = this.totalPrice * (1 + this.taxRate);
+
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
@@ -108,6 +119,14 @@ export class ProductoComponent {
       );
     }
   }
+
+  // Actualizar precio segun su cantidad
+  updatePrice() {
+    this.totalPrice =
+      this.unitPrice * (this.whiteQuantity + this.colorQuantity);
+    this.totalPriceWithVAT = this.totalPrice * (1 + this.taxRate);
+  }
+
   // Añadir al carrito
   addToCart() {
     if (this.product && this.selectedVariant) {
