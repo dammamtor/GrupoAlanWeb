@@ -1,107 +1,150 @@
 /* Estilo para el encabezado */
 .header-wrapper {
-    background-color: #343a40; /* Color de fondo oscuro */
-    color: #ffffff; /* Texto blanco */
-    padding: 10px 0; /* Espaciado interno arriba y abajo */
+  background-color: #343a40; /* Color de fondo oscuro */
+  color: #ffffff; /* Texto blanco */
+  padding: 10px 0; /* Espaciado interno arriba y abajo */
 }
 
 .header-wrapper a {
-    color: #ffffff; /* Enlaces en color blanco */
-    text-decoration: none; /* Sin subrayado */
-    margin: 0 10px; /* Margen entre enlaces */
-    transition: color 0.3s ease; /* Transición suave de color */
-    cursor: pointer; /* Cambio de cursor a mano */
+  color: #ffffff; /* Enlaces en color blanco */
+  text-decoration: none; /* Sin subrayado */
+  margin: 0 10px; /* Margen entre enlaces */
+  transition: color 0.3s ease; /* Transición suave de color */
+  cursor: pointer; /* Cambio de cursor a mano */
 }
 
 .header-wrapper a:hover {
-    text-decoration: underline; /* Subrayado en el hover */
-    color: #ffcc00; /* Cambio de color en el hover */
+  text-decoration: underline; /* Subrayado en el hover */
+  color: #ffcc00; /* Cambio de color en el hover */
 }
 
 /* Estilo para la barra de navegación superior */
 .navbar {
-    background-color: #343a40; /* Color de fondo oscuro */
+  background-color: #343a40; /* Color de fondo oscuro */
 }
 
 .nav-link {
-    color: #ffffff !important; /* Texto blanco */
-    transition: color 0.3s ease; /* Transición suave de color */
-    cursor: pointer; /* Cambio de cursor a mano */
+  color: #ffffff !important; /* Texto blanco */
+  transition: color 0.3s ease; /* Transición suave de color */
+  cursor: pointer; /* Cambio de cursor a mano */
 }
 
 .nav-link:hover {
-    color: #ffcc00 !important; /* Texto en amarillo en hover */
+  color: #ffcc00 !important; /* Texto en amarillo en hover */
 }
 
 /* Estilo para el botón de búsqueda */
 .btn-outline-light {
-    color: #ffffff; /* Texto blanco */
-    border-color: #ffffff; /* Borde blanco */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
-    cursor: pointer; /* Cambio de cursor a mano */
+  color: #ffffff; /* Texto blanco */
+  border-color: #ffffff; /* Borde blanco */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+  cursor: pointer; /* Cambio de cursor a mano */
 }
 
 .btn-outline-light:hover {
-    background-color: #ffffff; /* Fondo blanco en hover */
-    color: #ffcc00; /* Texto en amarillo en hover */
+  background-color: #ffffff; /* Fondo blanco en hover */
+  color: #ffcc00; /* Texto en amarillo en hover */
 }
 
 /* Estilo para el botón de búsqueda avanzada */
 .btn-outline-light.btn-sm {
-    font-size: 12px; /* Tamaño de fuente más pequeño */
-    transition: color 0.3s ease; /* Transición suave de color */
-    cursor: pointer; /* Cambio de cursor a mano */
+  font-size: 16px; /* Tamaño de fuente más pequeño */
+  transition: color 0.3s ease; /* Transición suave de color */
+  cursor: pointer; /* Cambio de cursor a mano */
 }
 
 .btn-outline-light.btn-sm:hover {
-    color: #ffcc00; /* Texto en amarillo en hover */
+  color: #ffcc00; /* Texto en amarillo en hover */
+}
+
+/* Estilo para el icono de búsqueda */
+.icono-busqueda {
+  font-size: 19px;
+  padding-right: 5px;
 }
 
 /* Estilo para el icono de carrito */
 .cart-icon {
-    color: #ffffff; /* Icono blanco */
-    transition: color 0.3s ease; /* Transición suave de color */
-    cursor: pointer; /* Cambio de cursor a mano */
+  color: #ffffff; /* Icono blanco */
+  transition: color 0.3s ease; /* Transición suave de color */
+  cursor: pointer; /* Cambio de cursor a mano */
+  font-size: 24px;
 }
 
 .cart-icon:hover {
-    color: #ffcc00; /* Icono en amarillo en hover */
+  color: #ffcc00; /* Icono en amarillo en hover */
 }
 
 /* Estilo para el botón de acceso/registro */
 .btn-outline-primary.btn-sm {
-    color: #007bff; /* Texto azul */
-    border-color: #007bff; /* Borde azul */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
-    cursor: pointer; /* Cambio de cursor a mano */
+  color: #007bff; /* Texto azul */
+  border-color: #007bff; /* Borde azul */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+  cursor: pointer; /* Cambio de cursor a mano */
+  font-size: 16px;
 }
 
 .btn-outline-primary.btn-sm:hover {
-    background-color: #007bff; /* Fondo azul en hover */
-    color: #ffffff; /* Texto blanco en hover */
+  background-color: #007bff; /* Fondo azul en hover */
+  color: #ffffff; /* Texto blanco en hover */
+}
+
+/* Estilo para el icono de acceso */
+.icono-acceso {
+  font-size: 19px;
+  padding-right: 5px;
 }
 
 /* Estilo para el contenedor del menú desplegable */
 .dropdown-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    max-height: 200px; /* Altura máxima del menú desplegable */
-    overflow-y: auto; /* Habilitar el desplazamiento vertical */
-  }
-  
-  /* Estilo para cada elemento de la lista */
-  .dropdown-menu li {
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  /* Estilo cuando se pasa el ratón por encima de un elemento de la lista */
-  .dropdown-menu li:hover {
-    background-color: #f0f0f0;
-  }
-  .loading-text {
-    padding: 10px 20px;
-    color: gray; /* Color del texto de carga */
-  }
-  
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px; /* Altura máxima del menú desplegable */
+  overflow-y: auto; /* Habilitar el desplazamiento vertical */
+}
+
+/* Estilo para cada elemento de la lista */
+.dropdown-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
+
+.loading-text {
+  padding: 10px 20px;
+  color: gray; /* Color del texto de carga */
+}
+
+/* Estilo para el logo clicable */
+#logo-img {
+  cursor: pointer; /* Cambio de cursor a mano */
+}
+
+/* Estilo adicional para elementos de la lista en la barra de navegación */
+.navbar-nav .nav-item {
+  margin: 0.5rem;
+}
+
+.navbar-nav .nav-item .nav-link {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-top: 2px solid #007bff; /* Borde superior (si es necesario) */
+  border-bottom: 2px solid #007bff; /* Borde inferior (si es necesario) */
+  border-left: 2px solid #007bff; /* Borde izquierdo */
+  border-right: 2px solid #007bff; /* Borde derecho */
+  border-radius: 0; /* Borde cuadrado solo en los lados izquierdo y derecho */
+  color: white !important;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el mouse */
+  color: white !important;
+}
+

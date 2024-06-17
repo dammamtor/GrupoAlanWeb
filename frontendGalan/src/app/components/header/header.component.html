@@ -1,116 +1,112 @@
 <div class="header-wrapper">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-12 text-center">
-                <a href="#">Quiénes somos</a>
-                <span>|</span>
-                <a href="#">Preguntas frecuentes</a>
-                <span>|</span>
-                <a href="#">Producto garantizado 100%</a>
-                <span>|</span>
-                <a href="#">Nuestros talleres</a>
-                <span>|</span>
-                <a href="#">Contacto</a>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center">
+        <a href="#">Quiénes somos</a>
+        <span>|</span>
+        <a href="#">Preguntas frecuentes</a>
+        <span>|</span>
+        <a href="#">Producto garantizado 100%</a>
+        <span>|</span>
+        <a href="#">Nuestros talleres</a>
+        <span>|</span>
+        <a href="#">Contacto</a>
+      </div>
     </div>
+  </div>
 </div>
 
 <header class="p-3 bg-dark text-white">
-    <div class="container">
-        <div class="row align-items-center justify-content-between">
-            <!-- Logo de la empresa -->
-            <div id="logo-img" class="col-lg-2 col-md-3 col-4" (click)="irAHome()">
-                <span><img src="../../../assets/images/alan alargado.png" alt="Logo" width="200"></span>
-            </div>
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+      <!-- Logo de la empresa -->
+      <div id="logo-img" class="col-lg-2 col-md-3 col-4 me-lg-3 me-md-2 me-2" (click)="irAHome()">
+        <span><img src="../../../assets/images/alan alargado.png" alt="Logo" width="200"></span>
+      </div>
 
-            <!-- Contenedor para los botones de búsqueda y cesta -->
-            <div class="col-lg-6 col-md-6 col-7 d-flex align-items-center">
-                <!-- Buscador -->
-                <form class="d-flex" style="width: 100%;">
-                    <input #searchTerm class="form-control me-2" type="search"
-                        placeholder="Introduce el producto que estás buscando" aria-label="Search" style="width: 100%;">
-                    <button class="btn btn-outline-light" type="button" (click)="irASearch(searchTerm.value)">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </form>
+      <!-- Contenedor para los botones de búsqueda y cesta -->
+      <div class="col-lg-6 col-md-6 col-7 d-flex align-items-center">
+        <!-- Buscador -->
+        <form class="d-flex flex-grow-1">
+          <input #searchTerm class="form-control me-2" type="search"
+                 placeholder="Introduce el producto que estás buscando" aria-label="Search">
+          <button class="btn btn-outline-light" type="button" (click)="irASearch(searchTerm.value)">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
 
-                <!-- Botón de búsqueda avanzada -->
-                <button class="btn btn-outline-light btn-sm ms-2" type="button" (click)="irABusquedaAvanzada()">
-                    <i class="bi bi-gear"></i> Búsqueda Avanzada
-                </button>
-            </div>
+        <!-- Botón de búsqueda avanzada -->
+        <button class="btn btn-outline-light btn-sm ms-2" type="button" (click)="irABusquedaAvanzada()">
+          <i class="bi bi-gear icono-busqueda"></i> Búsqueda Avanzada
+        </button>
+      </div>
 
-            <!-- Logo de la cesta -->
-            <div class="col-lg-2 col-md-2 col-2 text-end">
-                <span (click)="navegateCart()"><i class="bi bi-cart cart-icon" style="font-size: 24px;"></i></span>
-            </div>
+      <!-- Logo de la cesta -->
+      <div class="col-lg-1 col-md-1 col-2 text-end">
+        <span (click)="navegateCart()"><i class="bi bi-cart cart-icon"></i></span>
+      </div>
 
-            <!-- Botón Acceder/Registro con logo de Bootstrap -->
-            <div class="col-lg-2 col-md-2 col-2 text-end">
-                <span>
-                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="irALogin()">
-                        <i class="bi bi-person-circle"></i> Acceder/Registro
-                    </button>
-                </span>
-            </div>
-        </div>
+      <!-- Botón Acceder/Registro con logo de Bootstrap -->
+      <div class="col-lg-2 col-md-2 col-3 text-end">
+        <button class="btn btn-outline-primary btn-sm" type="button" (click)="irALogin()">
+          <i class="bi bi-person-circle icono-acceso"></i> Acceder/Registro
+        </button>
+      </div>
     </div>
+  </div>
 
 
-
-
-    <!-- Categorías -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container justify-content-center">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item dropdown">
+  <!-- Categorías -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container justify-content-center">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item dropdown">
                         <span class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                              data-bs-toggle="dropdown" aria-expanded="false">
                             Tipos
                         </span>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <ng-container *ngIf="isLoading; else loadedContent">
-                              <li class="loading-text">Cargando...</li>
-                            </ng-container>
-                            <ng-template #loadedContent>
-                              <li *ngFor="let tipo of tipos" (click)="navigateToTypes(tipo)" style="cursor: pointer;">
-                                {{ tipo }}
-                              </li>
-                            </ng-template>
-                          </ul>
-                          
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link" (click)="navegateAbanicos()">Abanicos</span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link" (click)="navegateBotellas()">Botellas</span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link" (click)="navegateBoligrafos()">Bolígrafos</span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link" (click)="navegateBolsas()">Bolsas</span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link" (click)="navegateCamisetas()">Camisetas</span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link" (click)="navegateGorras()">Gorras</span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link" (click)="navegateLibretas()">Libretas</span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link" (click)="navegateMochilas()">Mochilas</span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link" (click)="navegatePolos()">Polos</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <ng-container *ngIf="isLoading; else loadedContent">
+                <li class="loading-text">Cargando...</li>
+              </ng-container>
+              <ng-template #loadedContent>
+                <li *ngFor="let tipo of tipos" (click)="navigateToTypes(tipo)" style="cursor: pointer;">
+                  {{ tipo }}
+                </li>
+              </ng-template>
+            </ul>
+
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" (click)="navegateAbanicos()">Abanicos</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" (click)="navegateBotellas()">Botellas</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" (click)="navegateBoligrafos()">Bolígrafos</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" (click)="navegateBolsas()">Bolsas</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" (click)="navegateCamisetas()">Camisetas</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" (click)="navegateGorras()">Gorras</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" (click)="navegateLibretas()">Libretas</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" (click)="navegateMochilas()">Mochilas</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" (click)="navegatePolos()">Polos</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
