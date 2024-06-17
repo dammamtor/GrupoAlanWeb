@@ -29,7 +29,7 @@
         <!-- Buscador -->
         <form class="d-flex flex-grow-1">
           <input #searchTerm class="form-control me-2" type="search"
-                 placeholder="Introduce el producto que estás buscando" aria-label="Search">
+                 placeholder="Introduce el producto que estás buscando" aria-label="Search" (keyup.enter)="irASearch(searchTerm.value)">
           <button class="btn btn-outline-light" type="button" (click)="irASearch(searchTerm.value)">
             <i class="bi bi-search"></i>
           </button>

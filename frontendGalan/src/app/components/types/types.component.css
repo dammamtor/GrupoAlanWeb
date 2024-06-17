@@ -1,97 +1,108 @@
 .album {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    background-color: #f8f9fa;
-    /* Cambia el color de fondo según tu diseño */
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: #025951; /* Color de fondo (#025951) */
 }
 
 .container {
-    max-width: 1140px;
-    /* Ancho máximo del contenedor */
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 15px;
-    padding-left: 15px;
+  max-width: 1140px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .album h2 {
-    font-size: 2.5rem;
-    /* Tamaño de fuente */
-    margin-bottom: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .album h1 {
-    font-size: 3.5rem;
-    /* Tamaño de fuente */
-    margin-bottom: 3rem;
+  font-size: 3.5rem;
+  margin-bottom: 3rem;
 }
 
 .spinner-border {
-    width: 5rem;
-    /* Tamaño del spinner */
-    height: 5rem;
-    /* Tamaño del spinner */
-    border-width: 0.5em;
-    /* Grosor del borde */
+  width: 5rem;
+  height: 5rem;
+  border-width: 0.5em;
 }
 
 .card {
-    border-radius: 1rem;
-    /* Radio de borde */
+  border-radius: 1rem;
+  background-color: #038C7F; /* Color de fondo (#025951) */
 }
 
 .card-img-top {
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .card-text {
-    font-size: 1rem;
-    /* Tamaño de fuente */
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.card-text button {
+  font-size: 1rem;
+  color: #f0f0f0; /* Blanco grisáceo */
+  font-weight: bold;
+  transition: transform 0.3s ease; /* Transición suave */
+}
+
+.card-text button:hover {
+  transform: scale(1.1); /* Escalar al 110% */
 }
 
 .card-footer {
-    border-top: none;
+  border-top: none;
 }
 
 .btn-outline-secondary {
-    color: #6c757d;
-    /* Color del texto */
-    border-color: #6c757d;
-    /* Color del borde */
+  color: #038C7F; /* Color del texto (#595959) */
+  border-color: #0D0D0D; /* Color del borde (#595959) */
+  background-color: #ffffff;
 }
+
+.btn-outline-secondary {
+  color: #0D0D0D; /* Color del texto (#595959) */
+  border-color: #0D0D0D; /* Color del borde (#595959) */
+  transition: transform 0.3s ease; /* Transición suave */
+}
+
 .btn-outline-secondary:hover {
-    color: #ffffff; /* Color dorado para el texto al pasar el cursor */
+  color: #ffffff; /* Color del texto al pasar el cursor (#ffffff) */
+  background-color: #038C7F; /* Color de fondo al pasar el cursor (#038C7F) */
+  transform: scale(1.1); /* Escalar al 110% */
 }
 
-
-.text-body-secondary {
-    color: #fdfeff;
-    /* Color del texto */
+small{
+  color: #0D0D0D;
+  font-weight: bold;
 }
 
 .pagination-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .pagination-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 0 5px; /* Añade margen entre los botones */
+  padding: 10px 20px;
+  background-color: #17A6A6; /* Color de fondo de los botones de paginación (#17A6A6) */
+  color: #fff; /* Color del texto de los botones de paginación (#fff) */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 5px; /* Añade margen entre los botones */
 }
 
 .pagination-button:hover {
-    background-color: #0056b3;
+  background-color: #038C7F; /* Color de fondo al pasar el cursor de los botones de paginación (#038C7F) */
 }
 
 .pagination-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }

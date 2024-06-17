@@ -1,6 +1,6 @@
 /* Estilo para el encabezado */
 .header-wrapper {
-  background-color: #343a40; /* Color de fondo oscuro */
+  background-color: #025951; /* Color de fondo oscuro */
   color: #ffffff; /* Texto blanco */
   padding: 10px 0; /* Espaciado interno arriba y abajo */
 }
@@ -15,12 +15,12 @@
 
 .header-wrapper a:hover {
   text-decoration: underline; /* Subrayado en el hover */
-  color: #ffcc00; /* Cambio de color en el hover */
+  color: #17A6A6; /* Cambio de color en el hover */
 }
 
 /* Estilo para la barra de navegación superior */
 .navbar {
-  background-color: #343a40; /* Color de fondo oscuro */
+  background-color: #025951; /* Color de fondo oscuro */
 }
 
 .nav-link {
@@ -30,7 +30,7 @@
 }
 
 .nav-link:hover {
-  color: #ffcc00 !important; /* Texto en amarillo en hover */
+  color: #17A6A6 !important; /* Texto en verde en hover */
 }
 
 /* Estilo para el botón de búsqueda */
@@ -43,7 +43,7 @@
 
 .btn-outline-light:hover {
   background-color: #ffffff; /* Fondo blanco en hover */
-  color: #ffcc00; /* Texto en amarillo en hover */
+  color: #17A6A6; /* Texto en verde en hover */
 }
 
 /* Estilo para el botón de búsqueda avanzada */
@@ -54,7 +54,7 @@
 }
 
 .btn-outline-light.btn-sm:hover {
-  color: #ffcc00; /* Texto en amarillo en hover */
+  color: #17A6A6; /* Texto en verde en hover */
 }
 
 /* Estilo para el icono de búsqueda */
@@ -72,20 +72,21 @@
 }
 
 .cart-icon:hover {
-  color: #ffcc00; /* Icono en amarillo en hover */
+  color: #17A6A6; /* Icono en verde en hover */
 }
 
 /* Estilo para el botón de acceso/registro */
 .btn-outline-primary.btn-sm {
-  color: #007bff; /* Texto azul */
-  border-color: #007bff; /* Borde azul */
+  color: #038C7F; /* Texto verde azulado */
+  border-color: #ffffff; /* Borde verde azulado */
   transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
   cursor: pointer; /* Cambio de cursor a mano */
   font-size: 16px;
+  background-color: #ffffff;
 }
 
 .btn-outline-primary.btn-sm:hover {
-  background-color: #007bff; /* Fondo azul en hover */
+  background-color: #038C7F; /* Fondo verde azulado en hover */
   color: #ffffff; /* Texto blanco en hover */
 }
 
@@ -129,22 +130,15 @@
   margin: 0.5rem;
 }
 
+/* Estilo adicional para elementos de la lista en la barra de navegación */
 .navbar-nav .nav-item .nav-link {
-  display: inline-block;
-  padding: 0.75rem 1.25rem;
-  border-top: 2px solid #007bff; /* Borde superior (si es necesario) */
-  border-bottom: 2px solid #007bff; /* Borde inferior (si es necesario) */
-  border-left: 2px solid #007bff; /* Borde izquierdo */
-  border-right: 2px solid #007bff; /* Borde derecho */
-  border-radius: 0; /* Borde cuadrado solo en los lados izquierdo y derecho */
-  color: white !important;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
+  border-top: 2px solid #038C7F; /* Borde superior (si es necesario) */
+  border-bottom: 2px solid #038C7F; /* Borde inferior (si es necesario) */
+  border-left: 2px solid #038C7F; /* Borde izquierdo */
+  border-right: 2px solid #038C7F; /* Borde derecho */
 }
 
 .navbar-nav .nav-item .nav-link:hover {
-  background-color: #0056b3; /* Color de fondo al pasar el mouse */
-  color: white !important;
+  background-color: #025951; /* Color de fondo al pasar el mouse */
+  color: #ffffff !important; /* Texto blanco en hover */
 }
-
